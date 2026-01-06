@@ -104,10 +104,109 @@ Therefore:
 
 ## Enforcement Statement
 
-AI governance is not advisory.
-
-Failure to comply invalidates the output regardless of correctness elsewhere.
-
-AI exists to **reduce effort**, not **reduce discipline**.
+- AI governance is not advisory.
+- Failure to comply invalidates the output regardless of correctness elsewhere.
+- AI exists to **reduce effort**, not **reduce discipline**.
 
 ---
+
+## Service Registration and Startup Governance
+
+### Non-Negotiable Rule
+
+**Oqtane modules do not own application startup.**
+
+AI must never assume that an Oqtane module controls:
+- Application bootstrapping
+- The hosting model
+- The global dependency injection container
+- The HTTP request pipeline
+
+Any attempt to introduce generic ASP.NET Core startup patterns is invalid.
+
+---
+
+### Allowed Startup Extension Points
+
+AI **may only** register services using Oqtane-defined interfaces:
+
+| Scope   | Interface        | Purpose |
+|--------|------------------|--------|
+| Client | `IClientStartup` | Client-side service registration |
+| Server | `IServerStartup` | Server-side services and optional middleware |
+
+These interfaces are the **only valid mechanism** for module startup participation.
+
+---
+
+### Client Service Rules
+
+When generating client-side code, AI must:
+
+- Register services exclusively via `IClientStartup`
+- Assume services run in a Blazor client context
+- Avoid server-only dependencies
+- Prevent duplicate registrations where possible
+- Treat services as module-scoped, not application-wide
+
+AI **must not**:
+- Register server services on the client
+- Assume access to server infrastructure
+- Introduce application startup logic
+
+---
+
+### Server Service Rules
+
+When generating server-side code, AI must:
+
+- Register services exclusively via `IServerStartup`
+- Respect tenant isolation
+- Treat DbContexts, repositories, and managers as server-only
+- Register middleware only within the module’s scope
+
+AI **must not**:
+- Assume ownership of the request pipeline
+- Introduce global middleware ordering assumptions
+- Register client services on the server
+
+---
+
+### Explicitly Forbidden Patterns
+
+AI must reject generation of:
+
+- `Program.cs`
+- `Startup.cs`
+- `WebApplicationBuilder`
+- `IHostBuilder`
+- Global DI configuration
+- Cross-boundary (client/server) service registration
+
+If any of these appear, the output is **architecturally invalid**, even if it compiles.
+
+---
+
+### Canonical Validation Source
+
+The canonical module under:
+
+`/docs/reference/canonical-module`
+
+
+is the authoritative source for:
+- Valid startup patterns
+- Service registration boundaries
+- Client/server separation
+
+AI must treat this as a **validation reference**, not a pattern to extend or reinterpret.
+
+---
+
+### Enforcement Statement
+
+If AI-generated code violates these startup or service registration rules:
+
+- The output must be rejected
+- No “best effort” correction is acceptable
+- Oqtane conventions take precedence over generic ASP.NET practices
