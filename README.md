@@ -10,7 +10,7 @@ This repository defines **hard, enforceable rules*- for building Oqtane modules 
 
 ---
 
-A practical, framework-aware guide for building **robust, upgrade-safe Oqtane modules*- — with or without AI assistance.
+A practical, framework-aware guide for building **robust, upgrade-safe Oqtane modules*- - with or without AI assistance.
 
 This repository exists to make Oqtane’s **implicit architectural rules explicit**, enforceable, and shareable.
 
@@ -18,7 +18,7 @@ This repository exists to make Oqtane’s **implicit architectural rules explici
 
 ## Why This Exists
 
-Oqtane is a powerful, flexible framework — but its correctness depends heavily on **structure, conventions, and lifecycle ownership**.
+Oqtane is a powerful, flexible framework - but its correctness depends heavily on **structure, conventions, and lifecycle ownership**.
 
 Many failures in Oqtane modules are not caused by bad intent or lack of skill, but by:
 
