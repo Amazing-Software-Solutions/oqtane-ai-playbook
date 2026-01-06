@@ -6,11 +6,11 @@
 
 ## TL;DR for Maintainers
 
-This repository defines **hard, enforceable rules*- for building Oqtane modules safely—especially when using AI tools. Treat the `/docs` files as **authoritative constraints**, the canonical module as a **diff reference**, and Copilot or other AI tools as assistants that must operate *within- these boundaries. If AI output conflicts with this repository, **the repository always wins**.
+This repository defines **hard, enforceable rules*- for building Oqtane modules safely, especially when using AI tools. Treat the `/docs` files as **authoritative constraints**, the canonical module as a **diff reference**, and Copilot or other AI tools as assistants that must operate *within- these boundaries. If AI output conflicts with this repository, **the repository always wins**.
 
 ---
 
-A practical, framework-aware guide for building **robust, upgrade-safe Oqtane modules*- — with or without AI assistance.
+A practical, framework-aware guide for building **robust, upgrade-safe Oqtane modules*- - with or without AI assistance.
 
 This repository exists to make Oqtane’s **implicit architectural rules explicit**, enforceable, and shareable.
 
@@ -18,7 +18,7 @@ This repository exists to make Oqtane’s **implicit architectural rules explici
 
 ## Why This Exists
 
-Oqtane is a powerful, flexible framework — but its correctness depends heavily on **structure, conventions, and lifecycle ownership**.
+Oqtane is a powerful, flexible framework - but its correctness depends heavily on **structure, conventions, and lifecycle ownership**.
 
 Many failures in Oqtane modules are not caused by bad intent or lack of skill, but by:
 
