@@ -11,6 +11,8 @@ It is a **playbook** — a collection of explicit rules, constraints, and patter
 
 This preface explains **how to interpret the content**, **how authority is expressed**, and **how this guide is intended to be used** by both humans and AI tools.
 
+This guide is enforced by canonical reference implementations found in `/reference`.
+
 ---
 
 ## What This Guide Is
