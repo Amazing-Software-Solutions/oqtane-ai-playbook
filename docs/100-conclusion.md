@@ -1,4 +1,4 @@
-# 09 — From Personal Discipline to Community Standard
+# 100 — From Personal Discipline to Community Standard
 
 This guide did not start as a documentation effort.
 
