@@ -145,4 +145,6 @@ And once spoken, they can be shared.
 
 ---
 
+This document is intentionally numbered last.
+
 **End of Guide**

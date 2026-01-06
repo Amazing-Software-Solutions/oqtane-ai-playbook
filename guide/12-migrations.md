@@ -1,4 +1,4 @@
-# 06 — Database Migrations: Startup Execution, Versioning, and Multi-Database Safety
+# 12 — Database Migrations: Startup Execution, Versioning, and Multi-Database Safety
 
 Database migrations in Oqtane are fundamentally different from “typical” Entity Framework Core usage.
 

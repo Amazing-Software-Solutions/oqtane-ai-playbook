@@ -1,4 +1,4 @@
-# 07 — Scheduled Jobs: Framework-Managed Background Work
+# 13 — Scheduled Jobs: Framework-Managed Background Work
 
 Scheduled Jobs in Oqtane are frequently misunderstood.
 

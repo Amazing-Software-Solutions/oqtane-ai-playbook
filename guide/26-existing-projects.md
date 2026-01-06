@@ -1,4 +1,4 @@
-# 08 — Applying the Playbook to Existing Oqtane Projects
+# 26 — Applying the Playbook to Existing Oqtane Projects
 
 Most Oqtane modules are not greenfield projects.
 

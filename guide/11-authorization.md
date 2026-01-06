@@ -1,4 +1,4 @@
-# 05 — Authorization: Roles, Permissions, and Enforcement
+# 11 — Authorization: Roles, Permissions, and Enforcement
 
 Authorization is one of the most misunderstood areas of Oqtane module development.
 

@@ -54,18 +54,8 @@ You do **not*- need to agree with everything here to benefit from it.
 ## How to Use This Repository
 
 ### 1. Read the Chapters
+
 The `/docs` folder contains a structured narrative:
-
-1. The problem
-2. The insight
-3. Architectural boundaries
-4. Services
-5. Authorization
-6. Migrations
-7. Scheduled jobs
-8. Applying rules to existing projects
-9. Conclusion
-
 Each chapter builds on the previous one.
 
 ---

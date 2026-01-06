@@ -1,4 +1,4 @@
-# 04 — Services: Contracts, Boundaries, and Responsibility
+# 10 — Services: Contracts, Boundaries, and Responsibility
 
 Services are the backbone of most Oqtane modules.
 
