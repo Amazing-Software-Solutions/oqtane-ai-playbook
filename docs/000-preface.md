@@ -1,6 +1,11 @@
 # 00 — Preface: How to Read and Use This Guide
 
-This repository is not traditional documentation.
+## Note
+- This repository is not traditional documentation.
+- File numbering in this repository is intentional and semantic.
+- File order defines authority and reading order.
+- **Do not renumber or reorder documents.**
+
 
 It is a **playbook** — a collection of explicit rules, constraints, and patterns that define how Oqtane modules should be built when correctness, safety, and longevity matter.
 
