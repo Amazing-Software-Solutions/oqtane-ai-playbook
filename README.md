@@ -1,5 +1,15 @@
 # Oqtane Module Development Playbook
 
+![AI Governance Enforced](https://img.shields.io/badge/AI%20Governance-Enforced-blue)
+![Framework](https://img.shields.io/badge/Framework-Oqtane-important)
+![Status](https://img.shields.io/badge/Status-Living%20Document-success)
+
+## TL;DR for Maintainers
+
+This repository defines **hard, enforceable rules*- for building Oqtane modules safely—especially when using AI tools. Treat the `/docs` files as **authoritative constraints**, the canonical module as a **diff reference**, and Copilot or other AI tools as assistants that must operate *within- these boundaries. If AI output conflicts with this repository, **the repository always wins**.
+
+---
+
 A practical, framework-aware guide for building **robust, upgrade-safe Oqtane modules*- — with or without AI assistance.
 
 This repository exists to make Oqtane’s **implicit architectural rules explicit**, enforceable, and shareable.
@@ -55,7 +65,7 @@ You do **not*- need to agree with everything here to benefit from it.
 
 ### 1. Read the Chapters
 
-The `/docs` folder contains a structured narrative:
+The `/docs` folder contains a structured narrative.  
 Each chapter builds on the previous one.
 
 ---
@@ -86,6 +96,57 @@ Governance over time beats perfection today.
 
 ---
 
+### 4. Using This Repository with AI
+
+When using AI during Oqtane module development:
+
+- Load this repository into the AI’s context where possible
+- Reference specific documents by filename (e.g. `013-scheduled-jobs.md`)
+- Treat numbered documents as **authoritative and ordered**
+- Prefer repository rules over AI-generated alternatives
+
+If AI output conflicts with this repository, **the repository always wins**.
+
+---
+
+### 5. AI Behavior Expectations
+
+When this repository is present, AI **must**:
+
+- Follow documented Oqtane patterns exactly
+- Respect defined boundaries (client/server, permissions, services)
+- Use permission-based authorization only
+- Follow canonical migration, logging, and job patterns
+- Treat the canonical module as a **diff reference**, not a template
+
+AI **must not**:
+
+- Invent new patterns or abstractions
+- Replace Oqtane conventions with generic ASP.NET or Blazor practices
+- Renumber, reorder, or reinterpret documents
+- “Improve” architecture unless explicitly asked
+
+---
+
+### 6. Canonical Reference
+
+The folder:
+
+`/docs/reference/canonical-module`
+
+is the **authoritative reference implementation**.
+
+It exists to:
+
+- Validate documentation
+- Anchor AI behavior
+- Prevent hallucinated architectures
+
+Documentation explains **why**.  
+The canonical module proves **what works**.
+
+---
+
 ## Recommended Repository Structure (Per Solution)
 
 ```text
@@ -95,11 +156,8 @@ Governance over time beats perfection today.
 docs/
 ├── deviations.md
 └── architecture-notes.md
+Use this playbook as a central reference, not something duplicated into every solution verbatim.
 ```
-Use this playbook as a **central reference**, not something duplicated into every solution verbatim.
-
----
-
 ## About AI and Copilot
 
 AI tools are powerful, but they:
@@ -146,9 +204,11 @@ It reflects real-world Oqtane development experience and will continue to evolve
 
 ## Final Note
 
-Frameworks don’t fail.
-Tools don’t fail.
-Developers don’t fail.
+- Frameworks don’t fail.
+- Tools don’t fail.
+- Developers don’t fail.
+
 
 **Unspoken rules fail.**
+
 This repository exists to speak them out loud.
