@@ -6,7 +6,7 @@
 
 ## TL;DR for Maintainers
 
-This repository defines **hard, enforceable rules*- for building Oqtane modules safely—especially when using AI tools. Treat the `/docs` files as **authoritative constraints**, the canonical module as a **diff reference**, and Copilot or other AI tools as assistants that must operate *within- these boundaries. If AI output conflicts with this repository, **the repository always wins**.
+This repository defines **hard, enforceable rules*- for building Oqtane modules safely, especially when using AI tools. Treat the `/docs` files as **authoritative constraints**, the canonical module as a **diff reference**, and Copilot or other AI tools as assistants that must operate *within- these boundaries. If AI output conflicts with this repository, **the repository always wins**.
 
 ---
 
