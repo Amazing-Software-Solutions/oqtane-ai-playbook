@@ -149,15 +149,30 @@ The canonical module proves **what works**.
 
 ## Recommended Repository Structure (Per Solution)
 
-```text
-.github/
-└── copilot-instructions.md
+This repository is intended to be used as a **central reference**, not copied wholesale into every solution.
 
-docs/
-├── deviations.md
-└── architecture-notes.md
+A typical consuming solution should look like this:
+
+```text
+source/
+├── Oqtane.Framework/
+│
+├── TheCompany.Module.MyModule/
+├──── .github/
+│    └── copilot-instructions.md   ← references this playbook
+├──── Client/
+├──── Server/
+├──── Shared/
+│
+├── TheCompany.Module.Orders
+├── TheCompany.Module.Products/
+│
+└── oqtane-ai-playbook/   ← this repository
+    
 Use this playbook as a central reference, not something duplicated into every solution verbatim.
 ```
+
+
 ## About AI and Copilot
 
 AI tools are powerful, but they:
