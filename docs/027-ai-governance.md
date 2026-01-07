@@ -212,6 +212,163 @@ If AI-generated code violates these startup or service registration rules:
 - No “best effort” correction is acceptable
 - Oqtane conventions take precedence over generic ASP.NET practices
 
+### AI-Assisted Debugging and Root Cause Reports
+
+AI may be used to assist with debugging **only if the final outcome is captured as an explicit rule or invariant**.
+
+If an AI-assisted debugging session uncovers:
+
+- A framework requirement
+- A constructor or registration invariant
+- A client/server boundary rule
+- A shared model or lifecycle constraint
+
+Then that knowledge **must not remain conversational**.
+
+It must be:
+
+- Documented
+- Formalized
+- Enforceable against future AI output
+
+AI conversations are transient.
+
+Architecture rules are not.
+
+---
+
+### Post-Fix Reporting Is Mandatory
+
+After resolving a non-trivial issue with AI assistance, developers **should request a structured report*- that includes:
+
+- Symptoms
+- False assumptions
+- Root cause
+- Violated framework invariant
+- Correct canonical pattern
+- Preventative checklist
+
+This report becomes:
+
+- A governance artifact
+- A future rejection rule
+- A training signal for both humans and AI
+
+---
+
+### Example: ServiceBase Construction Invariant
+
+If debugging reveals that a service **must**:
+
+- Inherit from a specific base class
+- Accept required framework state
+- Call a specific base constructor
+
+Then this becomes a **non-negotiable invariant**, not an implementation detail.
+
+Future AI output that violates this invariant is rejected immediately.
+
+---
+## Transport and Boundary Failure Diagnostics
+
+### Non-Negotiable Diagnostic Rule
+
+When diagnosing client/server failures, **transport correctness must be validated before application logic**.
+
+If a client expects:
+
+- JSON
+- DTOs
+- Structured API responses
+
+And instead receives:
+
+- HTML
+- Redirect pages
+- Login views
+- Framework error documents
+
+Then the failure is **not** a business logic bug.
+
+It is a **boundary or pipeline violation**.
+
+---
+
+### Canonical Failure Signal
+
+> **HTML where JSON is expected is never incidental.**
+
+This indicates one or more of the following:
+
+- Authorization failure
+- Missing or incorrect permissions
+- Middleware interception
+- Incorrect endpoint exposure
+- Incorrect execution pipeline (public vs protected API)
+
+AI must immediately stop deeper inspection when this signal is detected.
+
+---
+
+### Forbidden Debugging Behavior
+
+When transport validation has not been confirmed, AI **must not**:
+
+- Propose DTO changes
+- Propose JSON serialization fixes
+- Propose retry logic
+- Propose async or timing changes
+- Suggest client-side workarounds
+
+Any such suggestion before transport validation is **invalid**.
+
+---
+
+### Required Debugging Order
+
+AI **must** follow this diagnostic sequence:
+
+1. Confirm response type (JSON vs HTML)
+2. Confirm HTTP status codes
+3. Confirm authorization and permission enforcement
+4. Confirm middleware execution order
+5. Only then inspect application logic
+
+Skipping steps invalidates the analysis.
+
+---
+
+### Logging Expectations
+
+Transport and boundary failures must be observable through:
+
+- Server-side logging (authorization, security, middleware)
+- Client-side logging (unexpected response shape)
+
+AI must:
+
+- Correlate client errors with server logs
+- Treat silent failures as high-risk signals
+- Assume missing logs indicate missing enforcement
+
+---
+
+### Final Enforcement Statement
+
+- Transport failures are architectural failures.
+- Debugging beyond the boundary without validating it is prohibited.
+- AI must respect framework signals over inferred intent.
+- Correct code built on an invalid boundary is still invalid.
+
+
+
+
+
+
+
+
+---
+# Example
 ## Copilot prompt snippet
 Here’s a **drop-in Copilot prompt snippet*- you can put directly into
 
