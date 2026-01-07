@@ -2,11 +2,10 @@
 
 ## Purpose
 
-This document defines how AI tools are **allowed, constrained, and evaluated** when used in Oqtane module development.
-
-AI is treated as a **code generation assistant**, not a designer, architect, or decision-maker.
-
-This repository prioritizes **predictability and correctness** over novelty or speed.
+- This document defines how AI tools are **allowed, constrained, and evaluated*- when used in Oqtane module development.
+- AI is treated as a **code generation assistant**, not a designer, architect, or decision-maker.
+- This repository prioritizes **predictability and correctness*- over novelty or speed.
+- This document applies to all AI-assisted code generation, regardless of tool.
 
 ---
 
@@ -14,7 +13,7 @@ This repository prioritizes **predictability and correctness** over novelty or s
 
 > AI may generate code, but it may not define rules.
 
-All architectural decisions, patterns, and constraints are defined **outside** AI systems and enforced **against** their output.
+All architectural decisions, patterns, and constraints are defined **outside*- AI systems and enforced **against*- their output.
 
 ---
 
@@ -63,7 +62,7 @@ AI always ranks last.
 
 ## AI Rejection Rules
 
-AI-generated output must be **rejected immediately** if it:
+AI-generated output must be **rejected immediately*- if it:
 
 - Violates canonical structure
 - Uses non-canonical patterns
@@ -128,14 +127,14 @@ Any attempt to introduce generic ASP.NET Core startup patterns is invalid.
 
 ### Allowed Startup Extension Points
 
-AI **may only** register services using Oqtane-defined interfaces:
+AI **may only*- register services using Oqtane-defined interfaces:
 
 | Scope   | Interface        | Purpose |
 |--------|------------------|--------|
 | Client | `IClientStartup` | Client-side service registration |
 | Server | `IServerStartup` | Server-side services and optional middleware |
 
-These interfaces are the **only valid mechanism** for module startup participation.
+These interfaces are the **only valid mechanism*- for module startup participation.
 
 ---
 
@@ -191,8 +190,10 @@ If any of these appear, the output is **architecturally invalid**, even if it co
 
 The canonical module under:
 
-`/docs/reference/canonical-module`
+`/docs/reference/canonical-module`> 
+> This reference must be used when evaluating AI output for structural correctness.
 
+No new content, just clarifies *how- it’s used in practice.
 
 is the authoritative source for:
 - Valid startup patterns
@@ -210,3 +211,88 @@ If AI-generated code violates these startup or service registration rules:
 - The output must be rejected
 - No “best effort” correction is acceptable
 - Oqtane conventions take precedence over generic ASP.NET practices
+
+## Copilot prompt snippet
+Here’s a **drop-in Copilot prompt snippet*- you can put directly into
+
+`.github/copilot-instructions.md`.
+
+It is intentionally **authoritative, restrictive, and non-negotiable**, matching the tone of your playbook.
+
+```md
+## Oqtane Module AI Instructions (Mandatory)
+
+You are assisting with **Oqtane module development**.
+
+This repository defines **authoritative architectural rules**.
+
+Your output is **validated against documentation**, not vice versa.
+
+### Authority Order (Highest → Lowest)
+
+1. `/docs/reference/canonical-module`
+2. Numbered documents in `/docs` (e.g. `027-ai-governance.md`)
+3. Oqtane framework constraints
+4. Your generated output
+
+If your output conflicts with any of the above, it is **invalid and must be rejected**.
+
+----
+
+### Non-Negotiable Rules
+
+You **MUST**:
+
+- Follow Oqtane module patterns exactly
+- Respect strict client/server separation
+- Use permission-based authorization only
+- Follow canonical migration, logging, validation, and job patterns
+- Treat the canonical module as a **diff reference**, not a template
+- Generate explicit, reviewable code (no hidden abstractions)
+
+You **MUST NOT**:
+
+- Invent new architectural patterns
+- Introduce generic ASP.NET Core or Blazor conventions
+- Add `Program.cs`, `Startup.cs`, `WebApplicationBuilder`, or host configuration
+- Use `@page` routing in modules
+- Introduce role-based authorization
+- Register services outside `IClientStartup` or `IServerStartup`
+- Simplify or bypass enforcement logic
+- Renumber, reorder, or reinterpret documentation
+
+----
+
+### Startup & Service Registration Rules
+
+Oqtane modules **do not own application startup**.
+
+When registering services:
+
+- Client services → `IClientStartup`
+- Server services → `IServerStartup`
+- No cross-boundary registration
+- No global middleware assumptions
+
+If a required capability cannot be implemented within these constraints, **do not invent a workaround**. State the limitation instead.
+
+----
+
+### Validation Requirement
+
+Before finalizing output, you must:
+
+- Verify alignment with the canonical module
+- Confirm no forbidden patterns were introduced
+- Prefer rejection over correction if uncertain
+
+If uncertain, ask for clarification **instead of guessing**.
+
+----
+
+### Output Expectations
+
+Your role is to **generate code that survives review**, not code that merely compiles.
+
+Correctness, predictability, and framework integrity are mandatory.
+```
