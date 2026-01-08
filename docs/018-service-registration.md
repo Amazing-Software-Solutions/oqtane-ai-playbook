@@ -150,7 +150,6 @@ All module services must be registered exclusively via IClientStartup or IServer
 Client and server containers are isolated and must never be mixed.
 ```
 
----
 
 ## Summary
 

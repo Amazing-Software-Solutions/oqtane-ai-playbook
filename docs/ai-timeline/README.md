@@ -48,3 +48,89 @@ Signal over noise.
 
 ```text
 YYYY-MM-DD-short-description.md
+```
+
+## Required Structure
+
+Each entry should contain:
+
+- **Context**
+
+What problem was being solved
+- **Failure Mode**
+
+What the AI got wrong (and why it seemed reasonable)
+- **Root Cause**
+
+The violated Oqtane rule or boundary
+- **Resolution**
+
+What fixed it and why it works
+
+- **Governance Impact**
+
+ What rule, prompt, or constraint was added or clarified
+
+---
+
+## Authority
+
+* Entries are **human-authored**
+* Entries are **human-approved**
+* AI may assist in summarization *only when instructed*
+
+AI may not:
+
+* Create entries autonomously
+* Decide what belongs here
+* Infer architectural intent
+
+* * *
+
+## Relationship to the Playbook
+
+Timeline entries:
+
+* Do **not** override canonical documentation
+* Do **not** introduce new patterns
+* Do **not** replace guides or rules
+
+They exist to **reinforce** them.
+
+This folder may be empty.
+
+Its presence signals **maturity**, not obligation.
+
+## Copilot Rejection Rule (Add to `copilot-instructions.md`)
+
+This is short, sharp, and enforceable:
+
+```markdown
+### AI Decision Timeline Rule
+
+Before proposing or modifying architecture, startup logic, service registration,
+authorization, or cross-boundary behavior, Copilot must:
+
+- Check `/docs/ai-timeline/` for relevant prior decisions
+- Avoid repeating documented failure modes
+- Align output with recorded resolutions
+
+If output conflicts with an AI Decision Timeline entry,
+the output is invalid and must be rejected.
+```
+
+This turns the timeline into a hard constraint, not a suggestion.
+
+## One-Line Copilot Prompt (High Leverage)
+
+Use this exactly as-is when you sense risk:
+
+> **Before responding, check `/docs/ai-timeline/` and ensure your proposal does not repeat a documented failure mode.**
+
+Why this works:
+
+* It forces Copilot to re-anchor
+* It discourages pattern invention
+* It reduces “confident repetition” of past mistakes
+
+You’ll be surprised how often this single line changes the quality of output.

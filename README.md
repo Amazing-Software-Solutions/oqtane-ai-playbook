@@ -29,6 +29,8 @@ Many failures in Oqtane modules are not caused by bad intent or lack of skill, b
 
 This playbook captures those rules in a form that both **humans and AI tools can follow**.
 
+![Oqtane AI Playbook](Oqtane-AI-Playbook.png)
+
 ---
 
 ## What This Is (and Is Not)
