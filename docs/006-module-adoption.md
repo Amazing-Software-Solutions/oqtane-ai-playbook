@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines how an **existing Oqtane module** is brought under the governance of the **Oqtane AI Playbook** safely and incrementally.
+This document defines how an **existing Oqtane module*- is brought under the governance of the **Oqtane AI Playbook*- safely and incrementally.
 
 The goal is **predictability and control**, not immediate conformity.
 
@@ -44,7 +44,7 @@ Before adopting governance at the module level:
 - The playbook repository must exist outside the module
 - No AI rules should be inferred or improvised
 
-If environment setup is incomplete, **stop** and fix that first.
+If environment setup is incomplete, **stop*- and fix that first.
 
 ---
 
@@ -81,11 +81,103 @@ docs/
 ├── deviations.md
 └── ai-decision-timeline.md
 ```
-These files **do not replace** the playbook.
+These files **do not replace*- the playbook.
 They **reference and anchor it**.
 
 ---
 
+### Making Governance Files Visible to AI (Required)
+
+AI governance only works if the governing files are **visible to the AI tool**.
+
+Merely having files on disk is not sufficient.
+
+#### Required Files
+
+Every module adopting this playbook MUST contain or reference:
+
+```
+.github/
+└── copilot-instructions.md
+
+docs/
+├── deviations.md
+└── ai-decision-timeline.md
+```
+
+#### Visual Studio Requirement
+
+When using Visual Studio:
+
+- The `docs/` folder **must appear in the solution**
+- `ai-decision-timeline.md` **must be visible and readable**
+- `.github/copilot-instructions.md` **must be visible**
+
+If these files do not appear in Solution Explorer, Copilot **cannot read them**.
+
+> 
+> 
+> A file existing on disk but missing from the solution is invisible to AI.
+> 
+
+---
+
+### Verification Step (Mandatory)
+
+Before using AI in the module, perform this check:
+
+1. Open the module solution in Visual Studio
+2. Confirm the following are visible:
+
+    - `.github/copilot-instructions.md`
+    - `docs/ai-decision-timeline.md`
+3. Ask Copilot:
+
+> 
+> 
+> “Summarize the non-negotiable rules you must follow in this repository.”
+>
+
+If Copilot cannot answer accurately, **stop**.
+
+Governance is not active.
+
+---
+
+### AI Decision Timeline Enforcement
+
+Once visible:
+
+- Copilot is **authorized and expected*- to append entries to
+
+`docs/ai-decision-timeline.md`
+- Timeline entries are:
+
+    - Append-only
+    - Canonical
+    - Binding governance memory
+
+Failure to write timeline entries indicates **broken adoption**, not an AI issue.
+
+---
+
+### Common Failure Mode (Documented)
+
+**Symptom**
+
+Copilot refuses to write timeline entries or claims the file is missing.
+
+**Cause**
+
+The `docs/` folder is not visible in the solution.
+
+**Resolution**
+
+Add the folder to the solution and re-issue the request.
+
+This failure mode is now **known, documented, and preventable**.
+
+---
 ## Step 4 — Copilot Instructions (Module-Level)
 
 The module-level `.github/copilot-instructions.md` must:
@@ -104,7 +196,7 @@ This file contains **constraints**, not patterns.
 
 Create `docs/deviations.md`.
 
-This file records **known and accepted deviations** from canonical rules.
+This file records **known and accepted deviations*- from canonical rules.
 
 ### What Belongs Here
 
@@ -151,7 +243,7 @@ AI must be instructed to **check the timeline before responding**.
 
 From this point forward:
 
-- New code **must follow** playbook rules
+- New code **must follow*- playbook rules
 - AI output is **untrusted by default**
 - Violations are rejected, not debated
 - Deviations require documentation
@@ -163,7 +255,7 @@ Old code remains untouched **until modified**.
 
 ## What Adoption Does NOT Require
 
-Adoption does **not** require:
+Adoption does **not*- require:
 
 - Immediate refactoring
 - Canonical rewrites
