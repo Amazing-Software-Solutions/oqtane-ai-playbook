@@ -361,11 +361,97 @@ AI must:
 - Correct code built on an invalid boundary is still invalid.
 
 
+## AI Decision Timeline (Optional but Recommended)
 
+AI tools are **stateless**. They do not retain architectural decisions, historical context, or prior corrections.
+As a result, the same class of mistakes can reappear unless decisions are explicitly recorded.
 
+The AI Decision Timeline exists to capture **resolved, non-trivial AI-assisted decisions** so that:
+- Architectural intent is preserved
+- Repeated AI back-and-forth is reduced
+- Future reviewers understand *why* a rule exists
+- AI behavior can be corrected faster in similar scenarios
 
+This is a **governance artifact**, not documentation.
 
+---
 
+### When to Create a Timeline Entry
+
+A timeline entry **should be created** when:
+
+- AI produced plausible but architecturally invalid output
+- A framework invariant was violated and corrected
+- A subtle Oqtane-specific rule was rediscovered
+- A fix required multiple iterations or explicit constraints
+- The outcome should influence future AI prompts or rules
+
+A timeline entry **should not be created** for:
+- Typographical fixes
+- Obvious bugs
+- One-off refactors
+- Pure implementation work
+
+Signal over noise is critical.
+
+---
+
+### Ownership and Authority
+
+Timeline entries are:
+
+- **Human-owned**
+- **Human-approved**
+- Written *after* resolution
+
+AI may assist in summarizing **only when explicitly instructed**, but:
+- AI may not create entries autonomously
+- AI may not infer intent
+- AI may not decide what is “timeline worthy”
+
+---
+
+### Structure and Location
+
+Timeline entries live under:
+
+```text
+/docs/ai-timeline/
+```
+
+Recommended format:
+```text
+YYYY-MMM-DD-short-description.md
+```
+
+Each entry should include:
+
+- Context
+- What went wrong
+- Why it was wrong (framework rule violated)
+- How it was fixed
+- What rule or prompt was updated (if applicable)
+
+This repository may function without timeline entries.
+
+Their presence indicates **higher maturity**, not higher complexity.
+
+---
+
+### Enforcement Statement
+
+The AI Decision Timeline:
+
+- Does not override canonical rules
+- Does not introduce new patterns
+- Does not replace documentation
+
+It exists solely to **preserve learning** where AI has no memory.
+
+```
+
+---
+```
 
 ---
 # Example
