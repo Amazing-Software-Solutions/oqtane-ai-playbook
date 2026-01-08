@@ -1,51 +1,61 @@
 # Oqtane Module Development Playbook
 
-![AI Governance Enforced](https://img.shields.io/badge/AI%20Governance-Enforced-blue)
-![Framework](https://img.shields.io/badge/Framework-Oqtane-important)
-![Status](https://img.shields.io/badge/Status-Living%20Document-success)
-
-## TL;DR for Maintainers
-
-This repository defines **hard, enforceable rules*- for building Oqtane modules safely, especially when using AI tools. Treat the `/docs` files as **authoritative constraints**, the canonical module as a **diff reference**, and Copilot or other AI tools as assistants that must operate *within- these boundaries. If AI output conflicts with this repository, **the repository always wins**.
+> 
+> 
+> **TL;DR for maintainers**
+> 
+> This repository defines **non-negotiable architectural and AI governance rules*- for Oqtane module development.
+> 
+> If AI-generated output conflicts with this playbook or the canonical module reference, **the output is invalid—regardless of correctness**.
+> 
 
 ---
 
-A practical, framework-aware guide for building **robust, upgrade-safe Oqtane modules*- - with or without AI assistance.
+## What This Repository Is
 
-This repository exists to make Oqtane’s **implicit architectural rules explicit**, enforceable, and shareable.
+A **framework-aware governance playbook*- for building **robust, upgrade-safe Oqtane modules*- — with or without AI assistance.
+
+Its purpose is to make Oqtane’s **implicit rules explicit**, enforceable, and visible to both **humans and AI tools**.
+
+This is not guidance.
+
+This is **authority**.
 
 ---
 
 ## Why This Exists
 
-Oqtane is a powerful, flexible framework - but its correctness depends heavily on **structure, conventions, and lifecycle ownership**.
+Most Oqtane module failures are not caused by incompetence — they’re caused by:
 
-Many failures in Oqtane modules are not caused by bad intent or lack of skill, but by:
+- Generic .netCore assumptions
+- Hidden framework invariants
+- Multi-tenant misunderstandings
+- AI-generated code that *looks right- but violates Oqtane rules
+- Tribal knowledge that isn’t written down
 
-- Borrowed patterns from generic ASP.NET Core
-- Assumptions that don’t hold in a multi-tenant system
-- AI-generated code that *looks right- but violates framework invariants
-- Rules that exist only as tribal knowledge
+AI accelerates all of these failures unless **explicitly constrained**.
 
-This playbook captures those rules in a form that both **humans and AI tools can follow**.
-
-![Oqtane AI Playbook](Oqtane-AI-Playbook.png)
+This playbook exists to do exactly that.
 
 ---
 
 ## What This Is (and Is Not)
 
-### This *is*:
-- A framework-specific guide grounded in real Oqtane behavior
-- A set of **rejectable rules**, not vague best practices
-- A way to regain control when using AI tools like GitHub Copilot
-- A living document intended to evolve with community input
+### This **is**:
 
-### This is *not*:
+- Framework-specific and grounded in real Oqtane behavior
+- A set of **rejectable rules**, not “best practices”
+- Designed to **constrain AI**, not empower it
+- A canonical reference for review, enforcement, and correction
+- A living document, informed by real failures
+
+### This is **not**:
+
 - A beginner tutorial
 - A replacement for official Oqtane documentation
-- A style guide or opinionated rewrite of Oqtane
-- A claim of authority over the framework
+- A style guide
+- An opinionated rewrite of the framework
+- A claim of authority over Oqtane itself
 
 ---
 
@@ -53,32 +63,74 @@ This playbook captures those rules in a form that both **humans and AI tools can
 
 This repository is useful if you:
 
-- Build custom Oqtane modules
-- Maintain multiple Oqtane solutions
-- Use (or want to use) AI code generation safely
-- Have been burned by migrations, permissions, or scheduled jobs
+- Build or maintain Oqtane modules
+- Operate multiple Oqtane solutions
+- Use GitHub Copilot or other AI tools
 - Want predictable, reviewable module code
+- Have been burned by migrations, permissions, or background jobs
 
 You do **not*- need to agree with everything here to benefit from it.
+
+---
+![Oqtane AI Playbook](Oqtane-AI-Playbook.png)
+
+---
+
+## Repository Authority Model
+
+When conflicts arise, authority is resolved **in this order**:
+
+1. Canonical reference module
+2. Playbook documentation (`/docs`)
+3. Oqtane framework constraints
+4. AI-generated output
+
+**AI always ranks last.**
+
+---
+
+## Canonical Reference
+
+The folder:
+
+```
+/docs/reference/canonical-module
+```
+
+is the **authoritative reference implementation**.
+
+It exists to:
+
+- Validate documentation
+- Anchor AI behavior
+- Prevent hallucinated architectures
+- Act as a **diff reference**, not a template
+
+Documentation explains **why**
+
+The canonical module proves **what works**
 
 ---
 
 ## How to Use This Repository
 
-### 1. Read the Chapters
+### 1. Read the Documentation
 
-The `/docs` folder contains a structured narrative.  
-Each chapter builds on the previous one.
+The `/docs` folder contains a **numbered, ordered narrative**.
+
+- File numbering is intentional and semantic
+- Documents build on each other
+- **Do not renumber, reorder, or reinterpret**
 
 ---
 
 ### 2. Use It as Governance
 
-Most teams will get the most value by:
+Most teams get the most value by:
 
-- Copying relevant rules into `.github/copilot-instructions.md`
-- Referencing these documents in code reviews
-- Anchoring AI tools to the defined constraints
+- Referencing this repository in reviews
+- Anchoring AI tools to these rules
+- Treating violations as **hard failures**
 
 This is where the playbook shines.
 
@@ -88,7 +140,7 @@ This is where the playbook shines.
 
 You do **not*- need to rewrite existing modules.
 
-The recommended approach is:
+Recommended approach:
 
 - Freeze structure
 - Enforce rules on new code
@@ -98,86 +150,116 @@ Governance over time beats perfection today.
 
 ---
 
-### 4. Using This Repository with AI
+## Using This Repository with AI
 
-When using AI during Oqtane module development:
+### Required AI Behavior
 
-- Load this repository into the AI’s context where possible
-- Reference specific documents by filename (e.g. `013-scheduled-jobs.md`)
-- Treat numbered documents as **authoritative and ordered**
-- Prefer repository rules over AI-generated alternatives
+When this repository is present, AI **must**:
+
+- Follow documented Oqtane patterns exactly
+- Respect client/server boundaries
+- Use permission-based authorization only
+- Follow canonical startup, logging, and migration rules
+- Treat the canonical module as a **validation reference**
+
+AI **must not**:
+
+- Invent new patterns or abstractions
+- Introduce generic ASP.NET Core startup logic
+- Add `Program.cs`, `Startup.cs`, hosted services, or background workers
+- Replace explicit enforcement with “best practices”
+- Renumber, reorder, or reinterpret documentation
+- “Improve” architecture unless explicitly instructed
 
 If AI output conflicts with this repository, **the repository always wins**.
 
 ---
 
-### 5. AI Behavior Expectations
+## AI Governance Artifacts (Mandatory)
 
-When this repository is present, AI **must**:
+When adopting this playbook in a module repository, the following files **must exist and be visible to the AI**:
 
-- Follow documented Oqtane patterns exactly
-- Respect defined boundaries (client/server, permissions, services)
-- Use permission-based authorization only
-- Follow canonical migration, logging, and job patterns
-- Treat the canonical module as a **diff reference**, not a template
+```
+.github/
+└── copilot-instructions.md
 
-AI **must not**:
-
-- Invent new patterns or abstractions
-- Replace Oqtane conventions with generic ASP.NET or Blazor practices
-- Renumber, reorder, or reinterpret documents
-- “Improve” architecture unless explicitly asked
-
----
-
-### 6. Canonical Reference
-
-The folder:
-
-`/docs/reference/canonical-module`
-
-is the **authoritative reference implementation**.
-
-It exists to:
-
-- Validate documentation
-- Anchor AI behavior
-- Prevent hallucinated architectures
-
-Documentation explains **why**.  
-The canonical module proves **what works**.
-
----
-
-## Recommended Repository Structure (Per Solution)
-
-This repository is intended to be used as a **central reference**, not copied wholesale into every solution.
-
-A typical consuming solution should look like this:
-
-```text
-source/
-├── Oqtane.Framework/
-│
-├── TheCompany.Module.MyModule/
-├──── .github/
-│    └── copilot-instructions.md   ← references this playbook
-├──── Client/
-├──── Server/
-├──── Shared/
-│
-├── TheCompany.Module.Orders
-├── TheCompany.Module.Products/
-│
-└── oqtane-ai-playbook/   ← this repository
-    
-Use this playbook as a central reference, not something duplicated into every solution verbatim.
+docs/
+├── ai-decision-timeline.md
+└── deviations.md
 ```
 
+> 
+> 
+> ⚠️ **Important**
+> 
+> AI tools can only reason over files that are visible in the editor/solution.
+> 
+> These files **must be included in the solution**, not just present on disk.
+> 
+
+---
+
+## AI Decision Timeline (Optional but Strongly Recommended)
+
+The **AI Decision Timeline*- is a governance memory.
+
+It records **non-trivial AI-assisted decisions**, including:
+
+- Refused requests
+- Rediscovered framework invariants
+- Multi-iteration corrections
+- Prevented architectural violations
+
+This is **not a chat log**.
+
+It is a **binding governance artifact**.
+
+### Copilot Rejection Rule
+
+If a request is refused or corrected due to architectural constraints:
+
+- AI **must*- reference the timeline
+- AI **must*- append a new entry using the canonical format
+- AI **must not*- proceed without validation
+
+**One-line Copilot prompt example**:
+
+> 
+> 
+> *“Before responding, read the AI Decision Timeline and treat it as binding governance memory.”*
+> 
+
+---
+
+## Recommended Local Structure (Per Module)
+
+Typical local development layout:
+
+```
+D:\Oqtane Development\
+├── Oqtane.Framework
+├── Oqtane-AI-Playbook
+└── AcmeCompany.Module.Example
+```
+
+Inside the module repository:
+
+```
+.github/
+└── copilot-instructions.md
+
+docs/
+├── ai-decision-timeline.md
+└── deviations.md
+```
+
+The playbook is **referenced**, not copied.
+
+---
 
 ## About AI and Copilot
 
-AI tools are powerful, but they:
+AI tools:
 
 - Optimize for plausibility
 - Reuse familiar patterns
@@ -187,11 +269,12 @@ This repository exists to remove that uncertainty.
 
 By providing:
 
-- Structural stubs
-- Hard rejection rules
-- Framework-specific constraints
+- Canonical references
+- Explicit rejection rules
+- Enforceable constraints
+- Historical governance memory
 
-AI becomes a productivity multiplier instead of a risk amplifier.
+AI becomes a **productivity multiplier**, not a risk amplifier.
 
 ---
 
@@ -202,29 +285,22 @@ This repository is intentionally open to evolution.
 Contributions are welcome in the form of:
 
 - Clarifications
-- Edge cases
 - Corrections
+- Edge cases
 - Additional chapters
-- Real-world examples
+- Real-world failures and lessons learned
 
 The goal is **shared understanding**, not personal ownership.
 
 ---
 
-## Status
-
-This is a living document.
-
-It reflects real-world Oqtane development experience and will continue to evolve as the framework and tooling evolve.
-
----
-
 ## Final Note
 
-- Frameworks don’t fail.
-- Tools don’t fail.
-- Developers don’t fail.
+Frameworks don’t fail.
 
+Tools don’t fail.
+
+Developers don’t fail.
 
 **Unspoken rules fail.**
 
