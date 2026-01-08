@@ -1,111 +1,122 @@
+Perfect — you’re very close already. What you need now is **a clean, final, authoritative 027-ai-governance.md*- that:
+
+- Reads as *policy*, not discussion
+- Has zero ambiguity for humans *or- Copilot
+- Integrates the timeline, debugging rules, and startup governance cleanly
+- Can be referenced verbatim from `copilot-instructions.md`
+
+Below is a **finalized version**. This is a *drop-in replacement- for `027-ai-governance.md`.
+
+---
+
 # AI Governance
 
 ## Purpose
 
-- This document defines how AI tools are **allowed, constrained, and evaluated*- when used in Oqtane module development.
-- AI is treated as a **code generation assistant**, not a designer, architect, or decision-maker.
-- This repository prioritizes **predictability and correctness*- over novelty or speed.
-- This document applies to all AI-assisted code generation, regardless of tool.
+This document defines how AI tools are **allowed, constrained, and evaluated*- when used in Oqtane module development.
+
+AI is treated strictly as a **code generation assistant**, not a designer, architect, or decision-maker.
+
+This repository prioritizes **predictability, correctness, and framework integrity*- over novelty, convenience, or speed.
+
+These rules apply to **all AI-assisted development**, regardless of tooling (Copilot, ChatGPT, etc.).
 
 ---
 
 ## Core Principle
 
-> AI may generate code, but it may not define rules.
+> 
+> **AI may generate code, but it may not define rules.**
 
-All architectural decisions, patterns, and constraints are defined **outside*- AI systems and enforced **against*- their output.
-
----
-
-## Allowed Uses of AI
-
-AI tools MAY be used to:
-
-- Generate boilerplate that follows canonical patterns
-- Fill in repetitive or mechanical code
-- Expand existing patterns already defined in this repository
-- Assist with refactoring **when behavior is preserved**
-- Help explain or summarize existing code
-
-AI output is always treated as **untrusted until verified**.
-
----
-
-## Prohibited Uses of AI
-
-AI tools MUST NOT be used to:
-
-- Invent new architectural patterns
-- Simplify or bypass enforcement logic
-- Replace explicit code with abstractions
-- Introduce role-based authorization
-- Introduce routing via `@page` in modules
-- Remove validation, logging, or error handling
-- Make “best practice” substitutions without reference
-
-If AI output introduces something not explicitly allowed by this repository, it is rejected.
+All architectural decisions, patterns, and constraints are defined **outside AI systems*- and enforced **against their output**.
 
 ---
 
 ## Canonical Authority Hierarchy
 
-When AI produces output, authority is resolved in this order:
+When evaluating AI-generated output, authority is resolved in this order:
 
-1. Canonical reference implementation
-2. Repository rules and guides
-3. Oqtane framework constraints
-4. AI output
+1. **Canonical reference implementation**
+`/docs/reference/canonical-module`
+2. **Numbered playbook documents*- in `/docs`
+3. **Oqtane framework constraints**
+4. **AI-generated output**
 
-AI always ranks last.
+AI always ranks **last**.
+
+---
+
+## Allowed Uses of AI
+
+AI **MAY*- be used to:
+
+- Generate boilerplate that follows canonical patterns
+- Fill in repetitive or mechanical code
+- Expand patterns already defined in this repository
+- Assist with refactoring **when behavior is preserved**
+- Summarize or explain existing code
+
+All AI output is **untrusted until verified**.
+
+---
+
+## Prohibited Uses of AI
+
+AI **MUST NOT*- be used to:
+
+- Invent new architectural patterns
+- Introduce abstractions to “simplify” enforcement
+- Replace explicit logic with inferred behavior
+- Introduce role-based authorization
+- Introduce routing via `@page` in modules
+- Remove validation, logging, or error handling
+- Substitute “best practices” without canonical reference
+
+If AI output introduces anything not explicitly permitted, it is **rejected**.
 
 ---
 
 ## AI Rejection Rules
 
-AI-generated output must be **rejected immediately*- if it:
+AI-generated output **must be rejected immediately*- if it:
 
 - Violates canonical structure
 - Uses non-canonical patterns
 - Removes explicit enforcement
 - Introduces ambiguity
 - Assumes intent
-- Adds convenience at the cost of rigor
+- Trades rigor for convenience
 
 Correction is optional.
-Rejection is mandatory.
+**Rejection is mandatory.**
 
 ---
 
 ## Review Expectations
 
 AI-generated code is reviewed as if written by:
+
 - A junior developer
 - With no domain context
-- And no authority to decide architecture
+- And no authority to make architectural decisions
 
-The burden of proof is on the output, not the reviewer.
+The burden of proof is on the output, **not the reviewer**.
 
 ---
 
 ## AI Is Stateless
 
 AI has:
+
 - No memory
-- No long-term context
-- No responsibility for consequences
+- No historical context
+- No responsibility for outcomes
 
 Therefore:
+
 - All rules must be explicit
 - All patterns must be visible
 - All constraints must be enforceable in code
-
----
-
-## Enforcement Statement
-
-- AI governance is not advisory.
-- Failure to comply invalidates the output regardless of correctness elsewhere.
-- AI exists to **reduce effort**, not **reduce discipline**.
 
 ---
 
@@ -115,180 +126,137 @@ Therefore:
 
 **Oqtane modules do not own application startup.**
 
-AI must never assume that an Oqtane module controls:
+AI must never assume control over:
+
 - Application bootstrapping
-- The hosting model
-- The global dependency injection container
+- Hosting configuration
+- Global dependency injection
 - The HTTP request pipeline
 
-Any attempt to introduce generic ASP.NET Core startup patterns is invalid.
+Any generic ASP.NET Core startup pattern is **invalid**.
 
 ---
 
 ### Allowed Startup Extension Points
 
-AI **may only*- register services using Oqtane-defined interfaces:
+AI may register services **only*- via Oqtane-defined interfaces:
 
-| Scope   | Interface        | Purpose |
-|--------|------------------|--------|
+| Scope | Interface | Purpose |
+| --- | --- | --- |
 | Client | `IClientStartup` | Client-side service registration |
 | Server | `IServerStartup` | Server-side services and optional middleware |
 
-These interfaces are the **only valid mechanism*- for module startup participation.
+No other startup mechanism is permitted.
 
 ---
 
 ### Client Service Rules
 
-When generating client-side code, AI must:
+AI **must**:
 
-- Register services exclusively via `IClientStartup`
-- Assume services run in a Blazor client context
+- Register services only via `IClientStartup`
+- Assume a Blazor client execution context
 - Avoid server-only dependencies
-- Prevent duplicate registrations where possible
-- Treat services as module-scoped, not application-wide
+- Prevent duplicate registrations
+- Treat services as module-scoped
 
 AI **must not**:
-- Register server services on the client
-- Assume access to server infrastructure
+
+- Register server services
+- Assume server infrastructure access
 - Introduce application startup logic
 
 ---
 
 ### Server Service Rules
 
-When generating server-side code, AI must:
+AI **must**:
 
-- Register services exclusively via `IServerStartup`
+- Register services only via `IServerStartup`
 - Respect tenant isolation
 - Treat DbContexts, repositories, and managers as server-only
-- Register middleware only within the module’s scope
+- Register middleware only within module scope
 
 AI **must not**:
+
 - Assume ownership of the request pipeline
-- Introduce global middleware ordering assumptions
+- Make global middleware ordering assumptions
 - Register client services on the server
 
 ---
 
 ### Explicitly Forbidden Patterns
 
-AI must reject generation of:
+AI **must reject*- generation of:
 
 - `Program.cs`
 - `Startup.cs`
 - `WebApplicationBuilder`
 - `IHostBuilder`
 - Global DI configuration
-- Cross-boundary (client/server) service registration
+- Cross-boundary service registration
 
-If any of these appear, the output is **architecturally invalid**, even if it compiles.
+If any appear, the output is **architecturally invalid**, even if it compiles.
 
 ---
 
-### Canonical Validation Source
+## Canonical Validation Source
 
-The canonical module under:
+The canonical module located at:
 
-`/docs/reference/canonical-module`> 
-> This reference must be used when evaluating AI output for structural correctness.
+```
+/docs/reference/canonical-module
+```
 
-No new content, just clarifies *how- it’s used in practice.
+is the authoritative validation source for:
 
-is the authoritative source for:
-- Valid startup patterns
+- Startup patterns
 - Service registration boundaries
 - Client/server separation
 
-AI must treat this as a **validation reference**, not a pattern to extend or reinterpret.
+It is used to **validate correctness**, not to invent variations.
 
 ---
 
-### Enforcement Statement
+## AI-Assisted Debugging and Root Cause Governance
 
-If AI-generated code violates these startup or service registration rules:
+AI may assist with debugging **only if outcomes are formalized**.
 
-- The output must be rejected
-- No “best effort” correction is acceptable
-- Oqtane conventions take precedence over generic ASP.NET practices
+If AI-assisted debugging uncovers:
 
-### AI-Assisted Debugging and Root Cause Reports
+- A framework invariant
+- A lifecycle requirement
+- A constructor or registration rule
+- A client/server boundary constraint
 
-AI may be used to assist with debugging **only if the final outcome is captured as an explicit rule or invariant**.
+That knowledge **must not remain conversational**.
 
-If an AI-assisted debugging session uncovers:
-
-- A framework requirement
-- A constructor or registration invariant
-- A client/server boundary rule
-- A shared model or lifecycle constraint
-
-Then that knowledge **must not remain conversational**.
-
-It must be:
-
-- Documented
-- Formalized
-- Enforceable against future AI output
-
-AI conversations are transient.
-
-Architecture rules are not.
+It must be documented, formalized, and enforceable.
 
 ---
 
-### Post-Fix Reporting Is Mandatory
+### Mandatory Post-Fix Reporting
 
-After resolving a non-trivial issue with AI assistance, developers **should request a structured report*- that includes:
+After resolving a non-trivial issue with AI assistance, developers **should request a structured report*- including:
 
 - Symptoms
 - False assumptions
 - Root cause
-- Violated framework invariant
+- Violated invariant
 - Correct canonical pattern
 - Preventative checklist
 
-This report becomes:
-
-- A governance artifact
-- A future rejection rule
-- A training signal for both humans and AI
+This report becomes a **governance artifact**, not a chat transcript.
 
 ---
 
-### Example: ServiceBase Construction Invariant
-
-If debugging reveals that a service **must**:
-
-- Inherit from a specific base class
-- Accept required framework state
-- Call a specific base constructor
-
-Then this becomes a **non-negotiable invariant**, not an implementation detail.
-
-Future AI output that violates this invariant is rejected immediately.
-
----
 ## Transport and Boundary Failure Diagnostics
 
 ### Non-Negotiable Diagnostic Rule
 
-When diagnosing client/server failures, **transport correctness must be validated before application logic**.
+**Transport correctness is validated before application logic.**
 
-If a client expects:
-
-- JSON
-- DTOs
-- Structured API responses
-
-And instead receives:
-
-- HTML
-- Redirect pages
-- Login views
-- Framework error documents
-
-Then the failure is **not** a business logic bug.
+If a client expects JSON but receives HTML (login pages, redirects, error documents), the failure is **not business logic**.
 
 It is a **boundary or pipeline violation**.
 
@@ -296,103 +264,47 @@ It is a **boundary or pipeline violation**.
 
 ### Canonical Failure Signal
 
+> 
 > **HTML where JSON is expected is never incidental.**
 
-This indicates one or more of the following:
+This indicates authorization failure, middleware interception, or pipeline misuse.
 
-- Authorization failure
-- Missing or incorrect permissions
-- Middleware interception
-- Incorrect endpoint exposure
-- Incorrect execution pipeline (public vs protected API)
-
-AI must immediately stop deeper inspection when this signal is detected.
+AI must stop deeper inspection immediately when this signal is detected.
 
 ---
 
-### Forbidden Debugging Behavior
+### Required Diagnostic Order
 
-When transport validation has not been confirmed, AI **must not**:
+AI must follow this sequence:
 
-- Propose DTO changes
-- Propose JSON serialization fixes
-- Propose retry logic
-- Propose async or timing changes
-- Suggest client-side workarounds
-
-Any such suggestion before transport validation is **invalid**.
-
----
-
-### Required Debugging Order
-
-AI **must** follow this diagnostic sequence:
-
-1. Confirm response type (JSON vs HTML)
-2. Confirm HTTP status codes
-3. Confirm authorization and permission enforcement
-4. Confirm middleware execution order
+1. Validate response type
+2. Validate HTTP status
+3. Validate authorization and permissions
+4. Validate middleware execution
 5. Only then inspect application logic
 
 Skipping steps invalidates the analysis.
 
 ---
 
-### Logging Expectations
-
-Transport and boundary failures must be observable through:
-
-- Server-side logging (authorization, security, middleware)
-- Client-side logging (unexpected response shape)
-
-AI must:
-
-- Correlate client errors with server logs
-- Treat silent failures as high-risk signals
-- Assume missing logs indicate missing enforcement
-
----
-
-### Final Enforcement Statement
-
-- Transport failures are architectural failures.
-- Debugging beyond the boundary without validating it is prohibited.
-- AI must respect framework signals over inferred intent.
-- Correct code built on an invalid boundary is still invalid.
-
-
 ## AI Decision Timeline (Optional but Recommended)
 
-AI tools are **stateless**. They do not retain architectural decisions, historical context, or prior corrections.
-As a result, the same class of mistakes can reappear unless decisions are explicitly recorded.
+AI tools are stateless. Architectural learning is not.
 
-The AI Decision Timeline exists to capture **resolved, non-trivial AI-assisted decisions** so that:
-- Architectural intent is preserved
-- Repeated AI back-and-forth is reduced
-- Future reviewers understand *why* a rule exists
-- AI behavior can be corrected faster in similar scenarios
-
-This is a **governance artifact**, not documentation.
+The **AI Decision Timeline*- captures resolved, non-trivial AI-assisted decisions so they are not rediscovered repeatedly.
 
 ---
 
 ### When to Create a Timeline Entry
 
-A timeline entry **should be created** when:
+Create an entry when:
 
-- AI produced plausible but architecturally invalid output
-- A framework invariant was violated and corrected
-- A subtle Oqtane-specific rule was rediscovered
-- A fix required multiple iterations or explicit constraints
-- The outcome should influence future AI prompts or rules
+- AI produced plausible but invalid output
+- A framework invariant was rediscovered
+- A fix required multiple iterations
+- The outcome should influence future AI behavior
 
-A timeline entry **should not be created** for:
-- Typographical fixes
-- Obvious bugs
-- One-off refactors
-- Pure implementation work
-
-Signal over noise is critical.
+Do **not*- create entries for trivial fixes.
 
 ---
 
@@ -400,14 +312,11 @@ Signal over noise is critical.
 
 Timeline entries are:
 
-- **Human-owned**
-- **Human-approved**
-- Written *after* resolution
+- Human-owned
+- Human-approved
+- Written after resolution
 
-AI may assist in summarizing **only when explicitly instructed**, but:
-- AI may not create entries autonomously
-- AI may not infer intent
-- AI may not decide what is “timeline worthy”
+AI may summarize **only when explicitly instructed**.
 
 ---
 
@@ -415,127 +324,33 @@ AI may assist in summarizing **only when explicitly instructed**, but:
 
 Timeline entries live under:
 
-```text
+```
 /docs/ai-timeline/
 ```
 
-Recommended format:
-```text
-YYYY-MMM-DD-short-description.md
+Format:
+
+```
+YYYY-MM-DD-short-description.md
 ```
 
-Each entry should include:
+Each entry includes:
 
 - Context
 - What went wrong
-- Why it was wrong (framework rule violated)
+- Why it was wrong
 - How it was fixed
-- What rule or prompt was updated (if applicable)
-
-This repository may function without timeline entries.
-
-Their presence indicates **higher maturity**, not higher complexity.
+- What rule or prompt was updated
 
 ---
 
-### Enforcement Statement
+## Final Enforcement Statement
 
-The AI Decision Timeline:
+- AI governance is **not advisory**
+- Convenience never outweighs correctness
+- Framework signals override inferred intent
+- Code that violates boundaries is invalid, even if it works
 
-- Does not override canonical rules
-- Does not introduce new patterns
-- Does not replace documentation
-
-It exists solely to **preserve learning** where AI has no memory.
-
-```
+AI exists to **reduce effort**, not **reduce discipline**.
 
 ---
-```
-
----
-# Example
-## Copilot prompt snippet
-Here’s a **drop-in Copilot prompt snippet*- you can put directly into
-
-`.github/copilot-instructions.md`.
-
-It is intentionally **authoritative, restrictive, and non-negotiable**, matching the tone of your playbook.
-
-```md
-## Oqtane Module AI Instructions (Mandatory)
-
-You are assisting with **Oqtane module development**.
-
-This repository defines **authoritative architectural rules**.
-
-Your output is **validated against documentation**, not vice versa.
-
-### Authority Order (Highest → Lowest)
-
-1. `/docs/reference/canonical-module`
-2. Numbered documents in `/docs` (e.g. `027-ai-governance.md`)
-3. Oqtane framework constraints
-4. Your generated output
-
-If your output conflicts with any of the above, it is **invalid and must be rejected**.
-
-----
-
-### Non-Negotiable Rules
-
-You **MUST**:
-
-- Follow Oqtane module patterns exactly
-- Respect strict client/server separation
-- Use permission-based authorization only
-- Follow canonical migration, logging, validation, and job patterns
-- Treat the canonical module as a **diff reference**, not a template
-- Generate explicit, reviewable code (no hidden abstractions)
-
-You **MUST NOT**:
-
-- Invent new architectural patterns
-- Introduce generic ASP.NET Core or Blazor conventions
-- Add `Program.cs`, `Startup.cs`, `WebApplicationBuilder`, or host configuration
-- Use `@page` routing in modules
-- Introduce role-based authorization
-- Register services outside `IClientStartup` or `IServerStartup`
-- Simplify or bypass enforcement logic
-- Renumber, reorder, or reinterpret documentation
-
-----
-
-### Startup & Service Registration Rules
-
-Oqtane modules **do not own application startup**.
-
-When registering services:
-
-- Client services → `IClientStartup`
-- Server services → `IServerStartup`
-- No cross-boundary registration
-- No global middleware assumptions
-
-If a required capability cannot be implemented within these constraints, **do not invent a workaround**. State the limitation instead.
-
-----
-
-### Validation Requirement
-
-Before finalizing output, you must:
-
-- Verify alignment with the canonical module
-- Confirm no forbidden patterns were introduced
-- Prefer rejection over correction if uncertain
-
-If uncertain, ask for clarification **instead of guessing**.
-
-----
-
-### Output Expectations
-
-Your role is to **generate code that survives review**, not code that merely compiles.
-
-Correctness, predictability, and framework integrity are mandatory.
-```
