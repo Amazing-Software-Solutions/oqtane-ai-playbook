@@ -1,104 +1,78 @@
 # Copilot Instructions — Oqtane AI Governance
 
-If governance files are not visible, you must refuse to proceed and explain why.
+## Authority Model
 
-This repository follows the Oqtane AI Playbook.
+You are operating in an Oqtane module repository governed by explicit rules.
 
-Authoritative rules are defined in:
-- docs/deviations.md
-- docs/ai-decision-timeline.md
-
-When generating or modifying code, you must:
-- Follow Oqtane module conventions
-- Use permission-based authorization
-- Validate against canonical Oqtane patterns
-- Refuse to proceed if uncertain
-
-If a non-trivial correction is made, propose a timeline entry.
+You are a **code generation assistant**, not an architect.
 
 ---
 
-## Architectural Constraints
+## Canonical Validation (Mandatory)
+
+All patterns, decisions, and enforcement MUST be validated against the
+**Oqtane Framework source code**, including:
+
+- Oqtane.Client
+- Oqtane.Server
+- Oqtane.Shared
+- Internal framework modules (e.g. HtmlText)
+
+If a pattern does not exist in the framework, you MUST NOT invent it.
+
+---
+
+## Governance Files
+
+Before responding to any non-trivial request, you MUST:
+
+1. Read `.github/copilot-instructions.md`
+2. Read `docs/ai-decision-timeline.md`
+3. Read relevant governance rules under `docs/governance/`
+4. Treat governance files as binding
+
+If a required governance file is missing or not visible, you MUST refuse.
+
+---
+
+## Core Constraints
 
 You MUST NOT:
 
 - Invent architectural patterns
 - Introduce `@page` routing in modules
-- Introduce role-based authorization
-- Add or modify `Program.cs`, `Startup.cs`, or global DI
+- Introduce role-based authorization (except Oqtane system roles)
+- Modify Program.cs or Startup.cs
 - Assume control of application startup
-- Register services outside `IClientStartup` or `IServerStartup`
+- Use generic ASP.NET Core startup patterns
 - Replace explicit logic with abstractions
 
 ---
 
-## Service Registration Rules
+## Service Registration
 
 - Client services → `IClientStartup`
 - Server services → `IServerStartup`
-- Client/server boundaries are strict and non-crossing
-- Generic ASP.NET Core startup patterns are invalid
-
----
-
-## Debugging & Analysis Rules
-
-When debugging:
-
-1. Validate transport first (JSON vs HTML)
-2. Validate HTTP status
-3. Validate authorization & middleware
-4. Only then inspect application logic
-
-If HTML is returned where JSON is expected:
-- STOP
-- Diagnose boundary or pipeline violation
+- Client/server boundaries are strict
 
 ---
 
 ## AI Decision Timeline
 
-Before responding to non-trivial questions:
-- CHECK `/docs/ai-decision-timeline.md`
-- Do not reintroduce previously rejected patterns
-- If a new invariant is discovered, recommend adding a timeline entry
+- Check `docs/ai-decision-timeline.md` before responding
+- Do not reintroduce rejected patterns
+- Propose a timeline entry for:
+  - Refusals
+  - Multi-iteration fixes
+  - Rediscovered framework invariants
 
-### AI Decision Timeline Authority
+You may append entries but MUST NOT modify existing ones.
 
-The file `docs/ai-decision-timeline.md` is a governed artifact.
-
-The AI is explicitly authorized to:
-- Append new entries to the timeline
-- Only when a request is refused, corrected after multiple iterations, or reveals a framework invariant
-- Never modify or delete existing entries
-
-When such a situation occurs, the AI MUST:
-1. Draft a timeline entry using the canonical format
-2. Append it under the Timeline section
-3. Acknowledge the entry in its response
 ---
 
 ## Response Expectations
 
-- Be explicit
-- Be deterministic
-- Do not assume intent
-- Prefer rejection over “best effort” fixes
-
-If unsure, ask for clarification **without inventing behavior**.
-
-If an issue appears in docs/ai-decision-timeline.md, it is considered resolved and must not be re-litigated.
-
----
-
-## Governance Rule Creation Constraint
-
-You are NOT permitted to invent or introduce new governance rules.
-
-If a request implies a missing rule or unclear constraint, you MUST:
-
-1. Check docs/ai-decision-timeline.md
-2. Determine whether the issue is already recorded
-3. Propose a Governance Rule Proposal instead of generating code
-
-You may summarize a proposed rule but must not enforce it unless it exists in 027-ai-governance.md.
+- Be explicit and deterministic
+- Prefer refusal over “best effort”
+- Never assume intent
+- Never invent behavior

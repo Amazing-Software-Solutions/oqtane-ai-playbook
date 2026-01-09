@@ -1,13 +1,29 @@
-# Reference Implementations
+# Reference Documentation
 
-Everything in this folder is canonical.
+This folder contains **conceptual reference material only**.
 
-The canonical-module folder is the authoritative implementation reference for all documentation in this repository.
+There is no copied or duplicated canonical module in this repository.
 
-- These modules represent approved, working patterns.
-- They are not examples.
-- They must not be “improved” without updating documentation.
-- AI systems should copy from here verbatim.
+---
 
-If documentation and reference implementations disagree,
-the reference implementation is correct.
+## Canonical Source of Truth
+
+All architectural validation is performed against the **Oqtane Framework source code**, including:
+
+- Oqtane.Client
+- Oqtane.Server
+- Oqtane.Shared
+- Internal framework modules (e.g. HtmlText)
+- Framework jobs, migrations, validation, and error handling
+
+The framework itself is the **canonical implementation**.
+
+---
+
+## Important
+
+- No example modules are duplicated here
+- No framework code is mirrored
+- Governance rules must be verifiable against the framework source
+
+If a pattern does not exist in the Oqtane Framework, it must not be enforced.

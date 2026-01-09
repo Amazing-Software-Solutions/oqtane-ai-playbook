@@ -1,7 +1,0 @@
-<Solution>
-  <Project Path="..\Oqtane.Framework\Oqtane.Server\Oqtane.Server.csproj" DefaultStartup="true" />
-  <Project Path="Client\TheCompany.Module.MyModule.Client.csproj" />
-  <Project Path="Server\TheCompany.Module.MyModule.Server.csproj" />
-  <Project Path="Shared\TheCompany.Module.MyModule.Shared.csproj" />
-  <Project Path="Package\TheCompany.Module.MyModule.Package.csproj" />
-</Solution>

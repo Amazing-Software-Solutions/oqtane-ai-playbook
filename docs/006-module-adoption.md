@@ -6,19 +6,16 @@ This document defines how an **existing Oqtane module*- is brought under the gov
 
 The goal is **predictability and control**, not immediate conformity.
 
-This process is intentionally designed to:
-- Avoid breaking working code
-- Prevent uncontrolled AI refactors
-- Make architectural intent explicit
-- Establish long-term governance without churn
-
 ---
 
 ## Core Principle
 
+> 
 > **Structure is frozen. Rules are enforced forward.**
+> 
 
 Existing modules are not rewritten to “match” the playbook.
+
 They are **brought under governance**, not rebuilt.
 
 ---
@@ -30,71 +27,96 @@ Use this document when:
 - A module already exists
 - The module is stable or in production
 - AI tools (Copilot, ChatGPT, etc.) will be introduced or expanded
-- Architectural drift must be controlled going forward
+- Architectural drift must be controlled
 
-If you are creating a **brand-new module**, use `005-setup.md` first, then follow canonical patterns directly.
+If you are creating a **brand-new module**, follow `005-setup.md` first.
 
 ---
 
-## Step 1 — Confirm Environment Setup
+## Step 1 — Confirm Global Environment Setup
 
 Before adopting governance at the module level:
 
 - `005-setup.md` **must already be complete**
-- The playbook repository must exist outside the module
-- No AI rules should be inferred or improvised
+- `Oqtane.Framework` exists locally
+- `Oqtane-AI-Playbook` exists outside the module repository
 
-If environment setup is incomplete, **stop*- and fix that first.
+If this is not true, **stop*- and fix that first.
 
 ---
 
 ## Step 2 — Freeze the Existing Module Structure
 
-The existing module’s structure is treated as **historical fact**.
+The current module structure is treated as **historical fact**.
 
-### Explicitly Do Not:
+### Explicitly Do Not
+
 - Rename folders
 - Reorganize projects
-- “Normalize” architecture
+- Normalize architecture
+- Retroactively “fix” patterns
 - Introduce abstractions
-- Apply canonical patterns retroactively
 
-The only allowed structural changes are those required for:
+Only changes required for:
+
 - New features
 - Bug fixes
-- Security corrections
+- Security issues
+
+are allowed.
 
 Everything else is deferred.
 
 ---
 
-## Step 3 — Add Local Governance Hooks
+## Step 2.5 — Reference the Oqtane Framework (Mandatory)
 
-Inside the module repository, add a minimal governance footprint.
+> 
+> **This step is required for AI governance to work correctly.**
+> 
 
-### Required Files
-```
-.github/
-└── copilot-instructions.md
+The module **must reference*- the Oqtane framework projects so that:
 
-docs/
-├── deviations.md
-└── ai-decision-timeline.md
-```
-These files **do not replace*- the playbook.
-They **reference and anchor it**.
+- Canonical patterns are visible
+- AI can validate against real framework behavior
+- No duplicate “canonical module” is required
+
+### Required Project References
+
+Add **project references*- to the following:
+
+- `Oqtane.Client`
+- `Oqtane.Server`
+- `Oqtane.Shared`
+
+These references are **read-only*- and exist purely as a **canonical source of truth**.
+
+### Build Configuration Requirement (Critical)
+
+These framework projects:
+
+- **Must NOT be built**
+- **Must be disabled*- in Configuration Manager
+- **Must remain disabled*- for Debug *and- Release
+
+#### Why This Matters
+
+- The module does not own the framework
+- The framework is already built elsewhere
+- These references exist for **inspection, validation, and AI grounding only**
+- Building them introduces conflicts and slows adoption
+
+> 
+> **Think of these projects as “live documentation”, not dependencies.**
+> 
+
+This approach replaces the need to copy or embed a `canonical-module` inside every repo.
 
 ---
 
-### Making Governance Files Visible to AI (Required)
+## Step 3 — Add Required Governance Structure (Mandatory)
 
-AI governance only works if the governing files are **visible to the AI tool**.
-
-Merely having files on disk is not sufficient.
-
-#### Required Files
-
-Every module adopting this playbook MUST contain or reference:
+Inside the **module repository**, create:
 
 ```
 .github/
@@ -102,189 +124,198 @@ Every module adopting this playbook MUST contain or reference:
 
 docs/
 ├── deviations.md
-└── ai-decision-timeline.md
+├── ai-decision-timeline.md
+└── governance/
+    ├── 027-rules-index.md
+    └── 027x-*.md
 ```
 
-#### Visual Studio Requirement
+### Why This Structure Exists
+
+| Path | Purpose |
+| --- | --- |
+| `.github/copilot-instructions.md` | Constrains AI behavior |
+| `docs/deviations.md` | Declared rule exceptions |
+| `docs/ai-decision-timeline.md` | Binding governance memory |
+| `docs/governance/` | Enforceable rule set |
+
+These files **anchor*- the external playbook locally.
+
+They do **not duplicate*- it.
+
+---
+
+## Step 4 — Visibility Requirement (Non-Negotiable)
+
+> 
+> A file that is not visible in the solution **does not exist to AI**.
+> 
 
 When using Visual Studio:
 
-- The `docs/` folder **must appear in the solution**
-- `ai-decision-timeline.md` **must be visible and readable**
-- `.github/copilot-instructions.md` **must be visible**
+- `docs/` **must appear*- in Solution Explorer
+- All `.md` files must be visible
+- `.github/copilot-instructions.md` must be visible
 
-If these files do not appear in Solution Explorer, Copilot **cannot read them**.
+If they are not:
 
-> 
-> 
-> A file existing on disk but missing from the solution is invisible to AI.
-> 
+- Governance does not activate
+- Timeline logging fails
+- Copilot will refuse valid requests
+
+This is a **confirmed invariant**, not a theory.
 
 ---
 
-### Verification Step (Mandatory)
+## Step 5 — Verify Governance Is Active
 
-Before using AI in the module, perform this check:
-
-1. Open the module solution in Visual Studio
-2. Confirm the following are visible:
-
-    - `.github/copilot-instructions.md`
-    - `docs/ai-decision-timeline.md`
-3. Ask Copilot:
+Before generating **any code**, ask Copilot:
 
 > 
+> **“Summarize the non-negotiable rules you must follow in this repository.”**
 > 
-> “Summarize the non-negotiable rules you must follow in this repository.”
->
 
-If Copilot cannot answer accurately, **stop**.
+If the answer does not reference:
+
+- Governance files
+- Rule enforcement
+- Timeline behavior
+
+**STOP.**
 
 Governance is not active.
 
 ---
 
-### AI Decision Timeline Enforcement
-
-Once visible:
-
-- Copilot is **authorized and expected*- to append entries to
-
-`docs/ai-decision-timeline.md`
-- Timeline entries are:
-
-    - Append-only
-    - Canonical
-    - Binding governance memory
-
-Failure to write timeline entries indicates **broken adoption**, not an AI issue.
-
----
-
-### Common Failure Mode (Documented)
-
-**Symptom**
-
-Copilot refuses to write timeline entries or claims the file is missing.
-
-**Cause**
-
-The `docs/` folder is not visible in the solution.
-
-**Resolution**
-
-Add the folder to the solution and re-issue the request.
-
-This failure mode is now **known, documented, and preventable**.
-
----
-## Step 4 — Copilot Instructions (Module-Level)
-
-The module-level `.github/copilot-instructions.md` must:
-
-- Reference the external Oqtane AI Playbook
-- Declare that playbook rules override AI output
-- State that existing structure is frozen
-- Require deviations to be documented
-- Require timeline entries for significant AI-assisted changes
-
-This file contains **constraints**, not patterns.
-
----
-
-## Step 5 — Deviations Documentation
+## Step 6 — Deviations File
 
 Create `docs/deviations.md`.
 
-This file records **known and accepted deviations*- from canonical rules.
+This records **intentional, known exceptions**.
 
-### What Belongs Here
-
-- Legacy patterns that cannot be changed safely
-- Framework-era constraints
-- Transitional compromises
-- Explicit “we know this is not canonical” decisions
-
-### What Does NOT Belong Here
-
-- New violations
-- AI-suggested shortcuts
-- Convenience refactors
-- Unreviewed changes
-
-If something is not documented here, it is assumed to be **unintentional**.
+If it’s not documented here, it’s assumed to be accidental.
 
 ---
 
-## Step 6 — AI Decision Timeline
+## Step 7 — AI Decision Timeline (Mandatory)
 
 Create `docs/ai-decision-timeline.md`.
 
-This file records **AI-assisted decisions that affect behavior, structure, or policy**.
+This file is:
 
-### Timeline Entries Should Include
+- Append-only
+- Binding
+- Governance memory
 
-- Date and time
-- What was changed
-- Why the change was necessary
-- Which rule or document governed the decision
+AI must read this **before responding*- and must propose entries when:
 
-This file exists to:
-- Prevent repeated mistakes
-- Anchor institutional memory
-- Reduce future AI back-and-forth
-- Make reasoning reviewable
+- A request is refused
+- A framework invariant is discovered
+- Multiple iterations were required
 
-AI must be instructed to **check the timeline before responding**.
+Failure to log is a **governance failure**, not an AI error.
 
 ---
 
-## Step 7 — Enforcement Going Forward
+## Step 8 — Enforcement Going Forward
 
-From this point forward:
+From this point on:
 
-- New code **must follow*- playbook rules
-- AI output is **untrusted by default**
-- Violations are rejected, not debated
-- Deviations require documentation
-- Timeline entries are encouraged for non-trivial fixes
+- New code follows rules
+- AI output is untrusted by default
+- Violations are rejected
+- Deviations are explicit
+- Decisions are written down
 
 Old code remains untouched **until modified**.
 
 ---
 
-## What Adoption Does NOT Require
-
-Adoption does **not*- require:
-
-- Immediate refactoring
-- Canonical rewrites
-- Migration changes
-- Service re-registration
-- Permission redesign
-- UI rework
-
-Governance is applied **over time**, not retroactively.
-
----
-
 ## Mental Model
 
-- The playbook defines **how things should be**
-- The module shows **how things are**
-- Deviations explain **why they differ**
-- The timeline explains **how decisions were made**
+- **Oqtane Framework*- = canonical truth
+- **Playbook*- = governance system
+- **Rules*- = enforceable constraints
+- **Timeline*- = institutional memory
 
-This creates clarity without disruption.
+This combination is what finally makes AI **predictable**.
 
 ---
 
+## Governance Connectivity Check (Mandatory)
+
+Once setup is complete, **before writing any code**, perform this check.
+
+Ask Copilot **exactly this**:
+
+> 
+> **“Summarize the non-negotiable rules you must follow in this repository, and list the governance files you used to derive them.”**
+> 
+
+---
+
+### Expected Response Characteristics
+
+A **valid*- response must:
+
+1. Explicitly reference **file-backed governance**, such as:
+
+    - `.github/copilot-instructions.md`
+    - `docs/governance/027-rules-index.md`
+    - One or more `027x-*` rule files
+    - `docs/ai-decision-timeline.md`
+2. State **enforcement behavior**, including:
+
+    - Rejection of invalid requests
+    - Preference for refusal over invention
+    - Timeline consultation before non-trivial answers
+3. Acknowledge **canonical validation**, via:
+
+    - Oqtane Framework projects
+    - Explicit reference to client/server/shared patterns
+
+---
+
+### Failure Conditions (Hard Stop)
+
+Governance is **not active*- if Copilot:
+
+- Gives generic best practices
+- Mentions rules without citing files
+- Fails to reference the timeline
+- Invents rules not present in governance docs
+- Does not acknowledge refusal behavior
+
+If any of the above occur:
+
+> 
+> **STOP. Do not generate code. Fix visibility first.**
+> 
+
+---
+
+## Optional: Fast “Heartbeat” Check
+
+For day-to-day work, a faster probe:
+
+> 
+> **“Before answering, confirm which governance documents and rule files you are using.”**
+> 
+
+This is useful after:
+
+- Adding new rules
+- Editing governance files
+- Restarting VS
+- Switching branches
+
+---
 ## Summary
 
-- Existing modules are adopted, not rebuilt
-- Structure is frozen; rules apply forward
+- Existing modules adopt governance safely
+- No mass refactors required
+- Framework acts as the canonical reference
 - AI is constrained before it is trusted
-- Deviations are explicit, not hidden
-- Decisions are recorded, not forgotten
+- Discipline increases without slowing delivery
 
-This is how AI becomes a **force multiplier**, not a liability.
+This is how AI becomes a **reliable collaborator**, not a liability.

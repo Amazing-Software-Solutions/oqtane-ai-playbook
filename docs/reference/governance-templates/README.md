@@ -1,28 +1,20 @@
 # Governance Templates
 
-This folder contains **canonical governance templates** used by the
-Oqtane AI Playbook.
+This folder contains **starter templates** for module repositories.
 
-These files are intended to be **copied verbatim** into individual
-module repositories and then customized only where explicitly allowed.
+These files are intended to be:
+- Copied into a module repository
+- Customized locally
+- Used as governance glue for AI tools
 
-## Files
+---
 
-- `copilot-instructions.md`  
-  Defines enforceable AI behavior and rejection rules.
+## Important Distinction
 
-- `ai-decision-timeline.md`  
-  Records non-trivial AI-assisted decisions and refusals.
+Templates are **not canonical references**.
 
-- `deviations.md`  
-  Documents intentional departures from canonical rules.
+Canonical validation is always performed against:
+- The Oqtane Framework source
+- Enforced governance rules (`027x-*`)
 
-## Rules
-
-- Do not weaken these templates
-- Do not rename files
-- Do not merge them together
-- Do not remove enforcement language
-
-If your local versions differ materially, the difference must be
-recorded in `deviations.md`
+Templates exist to accelerate adoption, not define truth.
