@@ -1,7 +1,6 @@
 # Oqtane Module Development Playbook
 
 > 
-> 
 > **TL;DR for maintainers**
 > 
 > This repository defines **non-negotiable architectural and AI governance rules*- for Oqtane module development.
@@ -89,26 +88,17 @@ When conflicts arise, authority is resolved **in this order**:
 
 ---
 
-## Canonical Reference
+## Canonical Source of Truth
 
-The folder:
+All architectural validation is performed against the **Oqtane Framework source code**, including:
 
-```
-/docs/reference/canonical-module
-```
+- Oqtane.Client
+- Oqtane.Server
+- Oqtane.Shared
+- Internal framework modules (e.g. HtmlText, Admin)
+- Framework jobs, migrations, validation, and error handling
 
-is the **authoritative reference implementation**.
-
-It exists to:
-
-- Validate documentation
-- Anchor AI behavior
-- Prevent hallucinated architectures
-- Act as a **diff reference**, not a template
-
-Documentation explains **why**
-
-The canonical module proves **what works**
+The framework itself is the **canonical implementation**.
 
 ---
 
@@ -189,7 +179,6 @@ docs/
 ```
 
 > 
-> 
 > ⚠️ **Important**
 > 
 > AI tools can only reason over files that are visible in the editor/solution.
@@ -225,7 +214,6 @@ If a request is refused or corrected due to architectural constraints:
 **One-line Copilot prompt example**:
 
 > 
-> 
 > *“Before responding, read the AI Decision Timeline and treat it as binding governance memory.”*
 > 
 
@@ -238,7 +226,6 @@ Typical local development layout:
 ```
 D:\Oqtane Development\
 ├── Oqtane.Framework
-├── Oqtane-AI-Playbook
 └── AcmeCompany.Module.Example
 ```
 
@@ -249,9 +236,70 @@ Inside the module repository:
 └── copilot-instructions.md
 
 docs/
+├── governance/
+│   ├── 027-rules-index.md
+│   ├── 027x-canonical-validation.md
+│   ├── 027x-migrations.md
+│   ├── 027x-scheduled-jobs.md
+│   └── ... (other 027x-- rule files)
 ├── ai-decision-timeline.md
 └── deviations.md
 ```
+
+## What Each File Does
+
+### `docs/governance/027-rules-index.md`
+
+- **Authoritative index of all enforceable rules**
+- If a rule is **not indexed here, it does not exist**
+- Used by AI to discover which rule documents must be loaded
+
+---
+
+### `docs/governance/027x-*.md`
+
+- Individual **enforceable rule documents**
+- Each file:
+
+    - Covers one domain (migrations, jobs, UI validation, etc.)
+    - Contains explicit **Reject if*- criteria
+    - Is applied automatically once indexed
+
+---
+
+### `docs/ai-decision-timeline.md`
+
+- Binding governance memory
+- Records:
+
+    - Refusals
+    - Rediscovered invariants
+    - Multi-iteration corrections
+- **Append-only**
+- Prevents reintroduction of rejected patterns
+
+---
+
+### `docs/deviations.md`
+
+- Explicit, intentional deviations from canonical Oqtane patterns
+- Each deviation must:
+
+    - Be justified
+    - Be scoped
+    - Be accepted knowingly
+
+---
+
+## 🔒 Enforcement Rules (Critical)
+
+- Governance files **must exist as files**, not folders
+- Governance files **must be included in the solution**
+- Governance files **must be visible at prompt time**
+- Folder-only structures are ignored
+- After changes, Copilot **must be refreshed**
+
+If governance files are not visible, **AI must refuse**.
 
 The playbook is **referenced**, not copied.
 
@@ -296,12 +344,10 @@ The goal is **shared understanding**, not personal ownership.
 
 ## Final Note
 
-Frameworks don’t fail.
+- Frameworks don’t fail.
+- Tools don’t fail.
+- Developers don’t fail.
+- **Unspoken rules fail.**
 
-Tools don’t fail.
-
-Developers don’t fail.
-
-**Unspoken rules fail.**
 
 This repository exists to speak them out loud.
