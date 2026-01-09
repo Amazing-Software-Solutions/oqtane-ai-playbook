@@ -47,6 +47,16 @@ before generating or modifying code.
 
 ---
 
+## Governance Rule Proposals
+
+Contributors may propose new governance rules using the template located at:
+
+docs/governance-templates/027x-rule-proposal-template.md
+
+Proposed rules are not enforceable until approved and indexed.
+
+---
+
 ## Mandatory Rule Discovery
 
 Before responding to any request, AI must:
