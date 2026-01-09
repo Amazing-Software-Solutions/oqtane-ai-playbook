@@ -118,3 +118,22 @@ Therefore:
 - AI exists to reduce effort, **not standards**
 
 Any violation invalidates the output.
+
+---
+
+## Prompt Governance
+
+AI behavior is influenced by prompt structure.
+
+To ensure consistent rule application:
+
+- Canonical prompt examples are maintained under `docs/governance/prompts/`
+- Prompts in this repository are considered **blessed entry points**
+- Deviating from canonical prompts increases risk of rule violation
+
+AI must prefer:
+- Explicit constraint prompts
+- Compliance checklists
+- Negative constraints (“must not”)
+
+If a prompt contradicts a rule, **the rule wins**.

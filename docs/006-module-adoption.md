@@ -231,6 +231,27 @@ Old code remains untouched **until modified**.
 
 ---
 
+## Governance Instantiation (Required)
+
+The playbook does not contain active governance files.
+
+Each module MUST create its own governance instance.
+
+At minimum, the module must contain:
+
+```
+docs/
+├── governance/
+│   ├── 027-rules-index.md
+│   └── 027x-*.md
+├── ai-decision-timeline.md
+└── deviations.md
+```
+
+Only files present in the module repository and visible in the IDE
+are considered valid governance context by AI tools.
+---
+
 ## Mental Model
 
 - **Oqtane Framework*- = canonical truth
