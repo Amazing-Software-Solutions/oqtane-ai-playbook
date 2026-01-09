@@ -344,6 +344,26 @@ Each entry includes:
 
 ---
 
+## Governance Rule Evolution
+
+Governance rules are not static, but they are **not mutable by opinion**.
+
+All new rules MUST originate from one of the following sources:
+
+1. A canonical Oqtane framework constraint
+2. An accepted Governance Rule Proposal (GRP)
+
+Rules MUST NOT be added:
+- Based on preference
+- Based on AI suggestion
+- Based on “best practice” reasoning
+
+If a rule does not trace back to a GRP or framework invariant, it is invalid.
+
+AI systems MUST defer rule creation and instead recommend a Governance Rule Proposal when new constraints appear necessary.
+
+---
+
 ## Final Enforcement Statement
 
 - AI governance is **not advisory**

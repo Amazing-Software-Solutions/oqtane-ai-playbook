@@ -88,3 +88,17 @@ When such a situation occurs, the AI MUST:
 If unsure, ask for clarification **without inventing behavior**.
 
 If an issue appears in docs/ai-decision-timeline.md, it is considered resolved and must not be re-litigated.
+
+---
+
+## Governance Rule Creation Constraint
+
+You are NOT permitted to invent or introduce new governance rules.
+
+If a request implies a missing rule or unclear constraint, you MUST:
+
+1. Check docs/ai-decision-timeline.md
+2. Determine whether the issue is already recorded
+3. Propose a Governance Rule Proposal instead of generating code
+
+You may summarize a proposed rule but must not enforce it unless it exists in 027-ai-governance.md.
