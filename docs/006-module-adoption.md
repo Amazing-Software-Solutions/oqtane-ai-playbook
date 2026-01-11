@@ -143,6 +143,27 @@ These files **anchor*- the external playbook locally.
 
 They do **not duplicate*- it.
 
+### Physical Location (Flexible)
+
+The files may:
+
+* Live inside the module repository **or**
+* Be linked from a shared location (recommended)
+
+**Do not copy unless you intend to fork governance.**
+
+### How to Add (Visual Studio)
+
+1. Right-click the solution
+2. Add → Existing Item
+3. Select the `.md` file
+4. Place it under a `docs/` solution folder
+
+⚠️ Creating empty folders alone **does not work**
+
+⚠️ Files must exist and be solution-visible
+
+
 ---
 
 ## Step 4 — Visibility Requirement (Non-Negotiable)
