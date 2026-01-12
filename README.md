@@ -10,6 +10,10 @@
 
 ---
 
+![Governing AI](GoverningAI.png)
+
+---
+
 ## What This Repository Is
 
 A **framework-aware governance playbook*- for building **robust, upgrade-safe Oqtane modules*- — with or without AI assistance.
@@ -71,6 +75,7 @@ This repository is useful if you:
 You do **not*- need to agree with everything here to benefit from it.
 
 ---
+
 ![Oqtane AI Playbook](Oqtane-AI-Playbook.png)
 
 ---
