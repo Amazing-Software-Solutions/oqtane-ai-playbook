@@ -1,5 +1,9 @@
 # Oqtane Module Development Playbook
 
+![Oqtane](https://img.shields.io/badge/Oqtane-Framework-blue)
+![AI Governance](https://img.shields.io/badge/AI-Governed-027-green)
+![Canonical Source](https://img.shields.io/badge/Canonical-Oqtane%20Framework-black)
+
 > 
 > **TL;DR for maintainers**
 > 
