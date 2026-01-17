@@ -34,6 +34,16 @@ Its purpose is to make Oqtane’s **implicit rules explicit**, enforceable, and 
 
 ![Governing AI](Oqtane-AI-PlaybookGovernanceHierarchy.png)
 
+A three-layer overview showing how the Oqtane AI Playbook is used correctly:
+
+- **Top (Authoring Layer)** The Oqtane AI Playbook defines governance rules, patterns, and constraints. It is the source of truth, but is never referenced directly by real modules.
+
+- **Middle (Reference Layer)** Playbook.Module.GovernedExample is a living, fully-governed example that implements the playbook rules and demonstrates them in practice.
+
+- **Bottom (Application Layer)** YourCompany.Module.TheModule builds real features by following the example module, inheriting its governance indirectly without coupling to the playbook itself.
+
+The arrows highlight a strict flow: Playbook → Example → Real Module, ensuring consistency, safety, and adoption without friction.
+
 ---
 
 ## Why This Exists
