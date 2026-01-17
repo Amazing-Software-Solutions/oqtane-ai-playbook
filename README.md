@@ -1,4 +1,4 @@
-# Oqtane AI Playbook
+﻿# Oqtane AI Playbook
 
 ![Oqtane](https://img.shields.io/badge/Oqtane-Framework-blue)
 ![AI Governance](https://img.shields.io/badge/AI-Governed-027%20Based--green)
@@ -9,7 +9,7 @@
 > 
 > This repository defines **non-negotiable architectural and AI governance rules*- for Oqtane module development.
 > 
-> If AI-generated output conflicts with this playbook or the canonical module reference, **the output is invalid—regardless of correctness**.
+> If AI-generated output conflicts with this playbook or the canonical module reference, **the output is invalidâ€”regardless of correctness**.
 > 
 
 ---
@@ -20,9 +20,9 @@
 
 ## What This Repository Is
 
-A **framework-aware governance playbook*- for building **robust, upgrade-safe Oqtane modules*- — with or without AI assistance.
+A **framework-aware governance playbook*- for building **robust, upgrade-safe Oqtane modules*- â€” with or without AI assistance.
 
-Its purpose is to make Oqtane’s **implicit rules explicit**, enforceable, and visible to both **humans and AI tools**.
+Its purpose is to make Oqtaneâ€™s **implicit rules explicit**, enforceable, and visible to both **humans and AI tools**.
 
 - This **is not** guidance.
 - This repository **is not** referenced by modules
@@ -40,21 +40,21 @@ A three-layer overview showing how the Oqtane AI Playbook is used correctly:
 
 - **Middle (Reference Layer)** Playbook.Module.GovernedExample is a living, fully-governed example that implements the playbook rules and demonstrates them in practice.
 
-- **Bottom (Application Layer)** YourCompany.Module.TheModule builds real features by following the example module, inheriting its governance indirectly without coupling to the playbook itself.
+- **Bottom (Application Layer)** YourCompany.Module.GovernedExample builds real features by following the example module, inheriting its governance indirectly without coupling to the playbook itself.
 
-The arrows highlight a strict flow: Playbook → Example → Real Module, ensuring consistency, safety, and adoption without friction.
+The arrows highlight a strict flow: Playbook â†’ Example â†’ Real Module, ensuring consistency, safety, and adoption without friction.
 
 ---
 
 ## Why This Exists
 
-Most Oqtane module failures are not caused by incompetence — they’re caused by:
+Most Oqtane module failures are not caused by incompetence â€” theyâ€™re caused by:
 
 - Generic .netCore assumptions
 - Hidden framework invariants
 - Multi-tenant misunderstandings
 - AI-generated code that *looks right- but violates Oqtane rules
-- Tribal knowledge that isn’t written down
+- Tribal knowledge that isnâ€™t written down
 
 AI accelerates all of these failures unless **explicitly constrained**.
 
@@ -67,7 +67,7 @@ This playbook exists to do exactly that.
 ### This **is**:
 
 - Framework-specific and grounded in real Oqtane behavior
-- A set of **rejectable rules**, not “best practices”
+- A set of **rejectable rules**, not â€œbest practicesâ€
 - Designed to **constrain AI**, not empower it
 - A canonical reference for review, enforcement, and correction
 - A living document, informed by real failures
@@ -182,9 +182,9 @@ AI **must not**:
 - Invent new patterns or abstractions
 - Introduce generic ASP.NET Core startup logic
 - Add `Program.cs`, `Startup.cs`, hosted services, or background workers
-- Replace explicit enforcement with “best practices”
+- Replace explicit enforcement with â€œbest practicesâ€
 - Renumber, reorder, or reinterpret documentation
-- “Improve” architecture unless explicitly instructed
+- â€œImproveâ€ architecture unless explicitly instructed
 
 If AI output conflicts with this repository, **the repository always wins**.
 
@@ -196,15 +196,15 @@ When adopting this playbook in a module repository, the following files **must e
 
 ```
 .github/
-└── copilot-instructions.md
+â””â”€â”€ copilot-instructions.md
 
 docs/
-├── ai-decision-timeline.md
-└── deviations.md
+â”œâ”€â”€ ai-decision-timeline.md
+â””â”€â”€ deviations.md
 ```
 
 > 
-> ⚠️ **Important**
+> âš ï¸ **Important**
 > 
 > AI tools can only reason over files that are visible in the editor/solution.
 > 
@@ -239,7 +239,7 @@ If a request is refused or corrected due to architectural constraints:
 **One-line Copilot prompt example**:
 
 > 
-> *“Before responding, read the AI Decision Timeline and treat it as binding governance memory.”*
+> *â€œBefore responding, read the AI Decision Timeline and treat it as binding governance memory.â€*
 > 
 
 ---
@@ -250,25 +250,25 @@ Typical local development layout:
 
 ```
 D:\Oqtane Development\
-├── Oqtane.Framework
-└── AcmeCompany.Module.Example
+â”œâ”€â”€ Oqtane.Framework
+â””â”€â”€ AcmeCompany.Module.Example
 ```
 
 Inside the module repository:
 
 ```
 .github/
-└── copilot-instructions.md
+â””â”€â”€ copilot-instructions.md
 
 docs/
-├── governance/
-│   ├── 027-rules-index.md
-│   ├── 027x-canonical-validation.md
-│   ├── 027x-migrations.md
-│   ├── 027x-scheduled-jobs.md
-│   └── ... (other 027x-- rule files)
-├── ai-decision-timeline.md
-└── deviations.md
+â”œâ”€â”€ governance/
+â”‚   â”œâ”€â”€ 027-rules-index.md
+â”‚   â”œâ”€â”€ 027x-canonical-validation.md
+â”‚   â”œâ”€â”€ 027x-migrations.md
+â”‚   â”œâ”€â”€ 027x-scheduled-jobs.md
+â”‚   â””â”€â”€ ... (other 027x-- rule files)
+â”œâ”€â”€ ai-decision-timeline.md
+â””â”€â”€ deviations.md
 ```
 
 ## What Each File Does
@@ -316,7 +316,7 @@ docs/
 
 ---
 
-## 🔒 Enforcement Rules (Critical)
+## ðŸ”’ Enforcement Rules (Critical)
 
 - Governance files **must exist as files**, not folders
 - Governance files **must be included in the solution**
@@ -369,9 +369,9 @@ The goal is **shared understanding**, not personal ownership.
 
 ## Final Note
 
-- Frameworks don’t fail.
-- Tools don’t fail.
-- Developers don’t fail.
+- Frameworks donâ€™t fail.
+- Tools donâ€™t fail.
+- Developers donâ€™t fail.
 - **Unspoken rules fail.**
 
 
