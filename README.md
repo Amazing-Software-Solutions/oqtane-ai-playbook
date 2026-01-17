@@ -1,4 +1,4 @@
-# Oqtane Module Development Playbook
+# Oqtane AI Playbook
 
 ![Oqtane](https://img.shields.io/badge/Oqtane-Framework-blue)
 ![AI Governance](https://img.shields.io/badge/AI-Governed-027%20Based--green)
@@ -24,9 +24,15 @@ A **framework-aware governance playbook*- for building **robust, upgrade-safe Oq
 
 Its purpose is to make Oqtane’s **implicit rules explicit**, enforceable, and visible to both **humans and AI tools**.
 
-This is not guidance.
+- This **is not** guidance.
+- This repository **is not** referenced by modules
+- **Do not** add this to your solution
+- This **is a** playbook for **building playbooks**
+- **This is authority**.
 
-This is **authority**.
+---
+
+![Governing AI](Oqtane-AI-PlaybookGovernanceHierarchy.png)
 
 ---
 
