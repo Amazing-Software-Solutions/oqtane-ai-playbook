@@ -179,17 +179,11 @@ This keeps adoption **low-friction*- and **developer-friendly**.
 
 ## Summary
 
-- **Oqtane AI Playbook*- → writes the rules
-- **Playbook-example*- → proves the rules work
-- **Your module*- → safely adopts the rules
+- **Oqtane AI Playbook** → writes the rules
+- **Playbook-example** → proves the rules work
+- **Your module** → safely adopts the rules
+- **Application Example** → https://github.com/leigh-pointer/Playbook.Module.GovernedExample
 
 If you want AI you can trust,
 **this reference layer is non-optional**.
 
----
-
-If you want, next we can:
-
-- Add a **“First sanity prompt” checklist**
-- Add a **badge system*- for opt-in rules
-- Or write the README for **YourCompany.Module.TheModule*- that references this example cleanly
