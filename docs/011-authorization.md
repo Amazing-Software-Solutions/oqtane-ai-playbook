@@ -8,6 +8,16 @@ This chapter defines the **correct mental model**, **hard rules**, and **enforce
 
 ---
 
+## AI-Facing Authorization Rule (Canonical Summary)
+
+- When generating or modifying Oqtane module code, authorization must be enforced on the server using Oqtane’s permission and entity-based authorization model.
+
+- Direct role checks must not be introduced in module code, except where they are part of existing Oqtane framework authorization mechanisms or system-defined roles. Client-side authorization is advisory only and must never be relied upon for enforcement.
+
+- All access control must follow Oqtane’s canonical authorization flow. If the permission or entity context is unclear, the AI must refuse rather than invent authorization logic.
+
+---
+
 ## The Core Distinction (Non-Negotiable)
 
 Oqtane’s authorization model is built on a strict separation:

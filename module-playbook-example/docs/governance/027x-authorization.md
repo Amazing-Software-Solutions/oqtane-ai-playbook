@@ -6,22 +6,29 @@ Applies to permissions, access control, and security enforcement.
 
 ---
 
-## Primary Rule
+### Primary Rule (Updated)
 
-**Permission-based authorization is mandatory for all module features.**
+**Permission-based authorization is mandatory for all module features and business logic.**
+
+Authorization must:
+
+- Be enforced on the **server**
+- Use Oqtane’s **permission and entity-based mechanisms**
+- Represent **feature-level access**, not user classification
 
 Permissions must:
+
 - Be defined in `ModuleDefinition`
-- Be enforced via Oqtane permission checks
-- Represent feature-level access
+- Be checked using Oqtane’s permission APIs
+- Be scoped to the relevant entity (module, page, resource)
 
 ---
 
-## System Role Exception (Strictly Bounded)
+### System Role Usage (Strictly Bounded)
 
-Role-based authorization is **forbidden**, **except*- for the following **Oqtane system roles**:
+Direct role checks are **forbidden**, **except*- for the **canonical Oqtane system roles**, and **only*- when required by Oqtane framework infrastructure or APIs.
 
-```csharp
+```
 namespace Oqtane.Shared {
     public class RoleNames {
         public const string Everyone = "All Users";
@@ -32,51 +39,86 @@ namespace Oqtane.Shared {
     }
 }
 ```
-These roles:
 
-- Are framework-defined
-- Are stable, canonical, and globally understood
-- May be referenced **only when required by Oqtane APIs or infrastructure**
+System roles:
 
-They must **not*- be used to:
+- Are framework-defined and stable
+- Exist for **infrastructure, bootstrapping, and framework visibility**
+- May be referenced **only when a permission-based alternative does not exist**
 
-- Implement feature-level authorization
-- Replace permissions
-- Encode business logic
+They **must not*- be used to:
+
+- Implement feature authorization
+- Gate business logic
+- Replace permission checks
+- Encode access rules beyond framework intent
 
 ---
 
-## Explicitly Forbidden
+### Explicitly Forbidden (Unchanged, but clarified)
 
 - Custom role names
 - Application-defined roles
 - Role-based feature gating
-- Mixing roles and permissions for the same concern
+- Mixing role checks and permission checks for the same concern
+- Assuming role checks are equivalent to permissions
 
 ---
 
-## Correct Usage
+### Correct Usage (Expanded)
 
-- ✔ Infrastructure checks
+**Allowed**
 
-- ✔ Framework-required conditions
+- ✔ Permission-based checks for all features
+- ✔ Entity-scoped permission enforcement in controllers
+- ✔ Framework-required role checks (e.g., Admin/Host for infrastructure paths)
+- ✔ Visibility rules defined by Oqtane itself
 
-- ✔ Bootstrapping or visibility rules defined by Oqtane itself
+**Forbidden**
 
-- ❌ Feature authorization
-
-- ❌ Business logic decisions
-
-- ❌ Access control inside repositories or services
+- ❌ Feature access controlled by roles
+- ❌ Business logic branching on roles
+- ❌ Authorization inside repositories or data layers
+- ❌ Client-side role enforcement without server validation
 
 ---
 
-## Rejection Criteria
+### Rejection Criteria (Updated)
 
-Reject if code:
+Reject output if code:
 
-- Introduces custom role names
-- Uses roles instead of permissions for features
-- Encodes business logic using roles
-- Uses system roles where permissions are appropriate
+- Uses roles where permissions are applicable
+- Introduces custom or application-defined roles
+- Mixes role and permission checks for the same feature
+- Implements business logic based on roles
+- Assumes authorization intent without explicit permission context
 
+---
+
+## 3. Decision Table — *“Is a Role Check Allowed Here?”*
+
+| Context | Role Check Allowed? | Reason |
+| --- | --- | --- |
+| Framework bootstrapping | ✅ Yes | Required by Oqtane infrastructure |
+| Admin/Host access to system UI | ✅ Yes | Canonical framework behavior |
+| Feature access (View/Edit/etc.) | ❌ No | Must use permissions |
+| Business logic branching | ❌ No | Roles are not business rules |
+| API controller action | ❌ No | Requires entity permission check |
+| Client-side UI visibility | ⚠️ Advisory only | Must mirror server permission |
+| Repository / service layer | ❌ No | Authorization does not belong here |
+
+---
+
+## 4. AI Refusal Message Template (Authorization Ambiguity)
+
+**Authorization context is unclear.**
+I cannot determine whether this logic requires permission-based authorization or a framework-mandated system role check.
+
+Oqtane governance forbids inventing or assuming authorization behavior.
+ 
+Please specify:
+ 
+- The entity being secured
+- The intended permission (View/Edit/etc.)
+- Whether this is a framework-level or feature-level concern
+ 

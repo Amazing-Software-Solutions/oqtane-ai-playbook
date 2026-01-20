@@ -141,11 +141,9 @@ These files may be **linked** from another folder or repository:
 
 ```
 <Folder Name="/docs/governance/">
-  <File Path="..\..\..\Oqtane-AI-Playbook\docs\governance\027-rules-index.md" />
+      <File Path="../../../../Oqtane Development/oqtane-ai-playbook/module-playbook-example/docs/governance/027-rules-index.md" />
 </Folder>
 ```
-
-
 
 ---
 
@@ -174,3 +172,108 @@ When in doubt:
 
 This folder is binding.
 
+## Using the Prompts
+
+## Q, How do I use the prompts?
+
+> Below is the literal, practical workflow a developer follows.
+
+## The Short Answer
+ 
+The prompt file is **not executed automatically**. 
+
+It is a **deliberate instruction anchor** the developer invokes when needed.
+
+
+Think of it as:
+
+- a **contract**
+- a **guardrail**
+- a **shared language** between the developer and Copilot
+
+---
+
+## How a Developer Uses `docs/prompts/authorization.md`
+
+### 1️⃣ During Development (The Normal Flow)
+
+A developer is working in a module and asks Copilot something like:
+
+> 
+> 
+> “Add authorization to this controller method.”
+> 
+
+Copilot may **guess** unless guided.
+
+This is where the prompt comes in.
+
+---
+
+### 2️⃣ Explicit Invocation (Recommended)
+
+The developer **copies the intent** of the prompt into the Copilot chat:
+
+**Example prompt:**
+
+> 
+> 
+> Use the **Authorization Prompt** from `docs/prompts/authorization.md`.
+> 
+> 
+> I am adding authorization to a module API controller.
+> 
+> The secured entity is **ModuleId**.
+> 
+> Required permission is **Edit**.
+> 
+> 
+> Generate compliant authorization logic.
+> 
+
+📌 Why this works:
+
+- Copilot now **knows which rule set to apply**
+- You’ve scoped the entity and permission
+- You’ve prevented invention
+
+---
+
+### 3️⃣ “Guardrail Mode” (When Reviewing Code)
+
+When reviewing or refactoring existing code:
+
+> 
+> 
+> Review this controller using the **Authorization Prompt**.
+> 
+> Identify violations of `027x-authorization.md`.
+> 
+> Do not rewrite unless necessary.
+> 
+
+This flips Copilot into **auditor mode**, not generator mode.
+
+---
+
+### 4️⃣ When Copilot Refuses (By Design)
+
+If the developer writes:
+
+> 
+> 
+> “Just secure this using Admin role.”
+> 
+
+Copilot should now respond with:
+
+> 
+> 
+> **Authorization Refusal**
+> 
+> Role-based authorization is not permitted here without an explicit exception.
+> 
+> Please clarify the permission and entity scope.
+> 
+
+This is **success**, not failure.

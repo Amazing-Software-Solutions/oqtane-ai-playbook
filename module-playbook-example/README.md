@@ -1,10 +1,10 @@
- # Playbook-Example
+ # Mdoule-Playbook-Example
 
 **Canonical, Governed Reference Module for Oqtane AI Development**
 
 ## What This Is
 
-**Playbook-example*- is a **fully governed, working reference module*- that demonstrates how the Oqtane AI Playbook is meant to be applied in practice.
+**Module-Playbook-example*- is a **fully governed, working reference module*- that demonstrates how the Oqtane AI Playbook is meant to be applied in practice.
 
 It is:
 
@@ -32,7 +32,7 @@ It exists purely to make governance **concrete, testable, and trustworthy**.
 ## Governance Model (One Sentence)
 
 > 
-> **Rules are authored in the Oqtane AI Playbook, proven in Playbook-example, and then copied or referenced by real modules.**
+> **Rules are authored in the Oqtane AI Playbook, proven in Module-Playbook-example, and then copied or referenced by real modules.**
 
 ---
 
@@ -41,7 +41,7 @@ It exists purely to make governance **concrete, testable, and trustworthy**.
 | Layer | Purpose |
 | --- | --- |
 | **Authoring Layer*- | Oqtane AI Playbook (rules, templates, governance logic) |
-| **Reference Layer*- | **Playbook-example (this repo)*- |
+| **Reference Layer*- | **Module-Playbook-example (this repo)*- |
 | **Application Layer*- | Your real modules |
 
 Only the **Reference Layer*- is meant to be *looked at- by application modules.
@@ -50,7 +50,7 @@ Only the **Reference Layer*- is meant to be *looked at- by application modules.
 
 ## Folder Structure (Canonical)
 
-Playbook-example mirrors the exact structure expected in a governed module:
+Module-Playbook-example mirrors the exact structure expected in a governed module:
 
 ```
 .github/
@@ -74,7 +74,7 @@ This structure is **intentional*- and **enforced**.
 
 ---
 
-## How to Use Playbook-Example in a Solution
+## How to Use Module-Playbook-Example in a Solution
 
 ### Important Principle
 
@@ -86,7 +86,7 @@ You **reference them*- using *Add Existing Item*.
 
 ---
 
-## Step-by-Step: Wiring Playbook-Example into Visual Studio
+## Step-by-Step: Wiring Module-Playbook-Example into Visual Studio
 
 ### 1. Create Solution Folders
 
@@ -110,18 +110,18 @@ For each folder:
 
 1. Right-click the **solution folder**
 2. Choose **Add → Existing Item…**
-3. Browse to the corresponding file in **Playbook-example**
+3. Browse to the corresponding file in **Module-Playbook-example**
 4. Add it
 
 Example paths:
 
 ```
-Playbook-example/.github/copilot-instructions.md
-Playbook-example/docs/ai-decision-timeline.md
-Playbook-example/docs/deviations.md
-Playbook-example/docs/governance/027-rules-index.md
-Playbook-example/docs/governance/027x-ui-construction.md
-Playbook-example/docs/prompts/ui.md
+Module-Playbook-example/.github/copilot-instructions.md
+Module-Playbook-example/docs/ai-decision-timeline.md
+Module-Playbook-example/docs/deviations.md
+Module-Playbook-example/docs/governance/027-rules-index.md
+Module-Playbook-example/docs/governance/027x-ui-construction.md
+Module-Playbook-example/docs/prompts/ui.md
 ```
 
 ✔ Files remain **single-source**
@@ -150,13 +150,13 @@ If it doesn’t → refresh Copilot and re-check file visibility.
 
 ## Why This Matters
 
-Without Playbook-example:
+Without Module-Playbook-example:
 
 - Rules feel theoretical
 - Trust in AI output is low
 - Developers second-guess governance
 
-With Playbook-example:
+With Module-Playbook-example:
 
 - AI can **prove*- behavior
 - Developers can **compare*- implementations
@@ -168,7 +168,7 @@ With Playbook-example:
 
 Your real module:
 
-- References **Playbook-example**
+- References **Module-Playbook-example**
 - Copies or links only the files it needs
 - May opt-in to additional rules (e.g. localization, MudBlazor)
 - Never references the authoring playbook directly
@@ -180,7 +180,7 @@ This keeps adoption **low-friction*- and **developer-friendly**.
 ## Summary
 
 - **Oqtane AI Playbook** → writes the rules
-- **Playbook-example** → proves the rules work
+- **Module-Playbook-example** → proves the rules work
 - **Your module** → safely adopts the rules
 - **Application Example** → https://github.com/leigh-pointer/Playbook.Module.GovernedExample
 
