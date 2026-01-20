@@ -89,6 +89,15 @@ Scheduling is defined declaratively via properties on the job class, such as:
 
 These values are read by Oqtane during startup.
 
+Frequency is case sensitive and may only be one of these values:
+
+- "m" Minute(s)
+- "H" Hour(s)
+- "d" Day(s)
+- "w" Week(s)
+- "M" Month(s)
+- "O" Once
+
 Jobs must not implement custom scheduling logic.
 
 ---

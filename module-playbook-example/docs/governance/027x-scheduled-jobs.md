@@ -86,6 +86,15 @@ Scheduling metadata **must*- be defined via public properties:
 - `RetentionHistory`
 - `IsEnabled`
 
+Frequency is case sensitive and may only be one of these values:
+
+- "m" Minute(s)
+- "H" Hour(s)
+- "d" Day(s)
+- "w" Week(s)
+- "M" Month(s)
+- "O" Once
+
 These values are consumed by Oqtane during job discovery and execution.
 
 **Reject if:**
