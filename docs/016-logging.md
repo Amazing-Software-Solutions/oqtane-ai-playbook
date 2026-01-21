@@ -1,7 +1,7 @@
  # 016 — Logging
 
 Logging in Oqtane is part of the **platform contract**, not a diagnostic convenience.
-It exists to record **security events**, **state changes**, and **operational failures*- in a tenant-aware, auditable way.
+It exists to record **security events**, **state changes**, and **operational failures** in a tenant-aware, auditable way.
 
 This chapter defines the only supported logging model for Oqtane module development.
 
@@ -61,7 +61,7 @@ It is designed for **operations and auditing**, not debugging.
 
 ## Logging Semantics
 
-Every log entry MUST declare **why it exists*- using `LogFunction`.
+Every log entry MUST declare **why it exists** using `LogFunction`.
 
 Common values:
 
@@ -180,7 +180,7 @@ Logging responsibilities differ by runtime boundary.
 
 ### Client Logging (Allowed, With Constraints)
 
-Client-side logging is permitted **only*- when using the logger provided by the Oqtane base component.
+Client-side logging is permitted **only** when using the logger provided by the Oqtane base component.
 
 This logger:
 - Is tenant-aware

@@ -2,11 +2,11 @@
 
 ## Purpose
 
-Use this prompt when **creating or modifying authorization logic*- in an Oqtane module
+Use this prompt when **creating or modifying authorization logic** in an Oqtane module
 
 (controllers, APIs, services, or UI authorization checks).
 
-This prompt enforces **canonical Oqtane authorization architecture*- and prevents
+This prompt enforces **canonical Oqtane authorization architecture** and prevents
 
 invented, legacy, or unsafe security patterns.
 
@@ -30,8 +30,8 @@ If any of the above are missing or not visible, **STOP and refuse**.
 You MUST:
 
 - Enforce authorization **server-side**
-- Prefer **permission-based authorization*- for modules
-- Use **entity-scoped permissions*- where applicable
+- Prefer **permission-based authorization** for modules
+- Use **entity-scoped permissions** where applicable
 - Use dynamic policies in the format:
 
     ```

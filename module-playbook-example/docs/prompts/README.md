@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This folder contains **approved, reusable AI prompts*- for this module.
+This folder contains **approved, reusable AI prompts** for this module.
 
 Prompts exist to:
 
@@ -90,10 +90,10 @@ Example:
 
 Each prompt file should contain:
 
-- **Purpose*- — what this prompt is for
-- **Required context*- — which rules apply
-- **Explicit constraints*- — what AI must not do
-- **Invocation example*- — how to use the prompt
+- **Purpose** — what this prompt is for
+- **Required context** — which rules apply
+- **Explicit constraints** — what AI must not do
+- **Invocation example** — how to use the prompt
 
 Prompts should be:
 

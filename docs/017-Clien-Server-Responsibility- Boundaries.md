@@ -5,7 +5,7 @@ Every feature crosses a client/server boundary, whether explicitly or not.
 
 Most bugs, security issues, and AI-generated anti-patterns in Oqtane modules come from violating this boundary.
 
-This chapter defines **what belongs where*- — and what never should.
+This chapter defines **what belongs where** — and what never should.
 
 ---
 

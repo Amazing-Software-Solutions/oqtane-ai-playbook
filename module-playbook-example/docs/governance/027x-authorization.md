@@ -26,7 +26,7 @@ Permissions must:
 
 ### System Role Usage (Strictly Bounded)
 
-Direct role checks are **forbidden**, **except*- for the **canonical Oqtane system roles**, and **only*- when required by Oqtane framework infrastructure or APIs.
+Direct role checks are **forbidden**, **except** for the **canonical Oqtane system roles**, and **only** when required by Oqtane framework infrastructure or APIs.
 
 ```
 namespace Oqtane.Shared {
@@ -46,7 +46,7 @@ System roles:
 - Exist for **infrastructure, bootstrapping, and framework visibility**
 - May be referenced **only when a permission-based alternative does not exist**
 
-They **must not*- be used to:
+They **must not** be used to:
 
 - Implement feature authorization
 - Gate business logic

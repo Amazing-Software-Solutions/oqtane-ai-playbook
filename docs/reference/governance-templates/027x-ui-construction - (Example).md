@@ -2,7 +2,7 @@
 
 ## Purpose
 
-These rules define **mandatory UI construction standards*- for all Oqtane modules.
+These rules define **mandatory UI construction standards** for all Oqtane modules.
 
 They exist to ensure:
 
@@ -24,13 +24,13 @@ UI must be constructed using **explicit HTML elements**, including:
 - `<textarea>`
 - `<button type="button">`
 
-Validation and save behavior must be **explicit, visible, and imperative*- in code.
+Validation and save behavior must be **explicit, visible, and imperative** in code.
 
 ---
 
 ### Explicit Opt-In Exception
 
-`EditForm` **MAY ONLY*- be used when **explicitly requested by the user*- in the prompt.
+`EditForm` **MAY ONLY** be used when **explicitly requested by the user** in the prompt.
 
 An explicit request MUST:
 
@@ -43,13 +43,13 @@ Examples of valid opt-in prompts:
 - “Implement this using Blazor `EditForm` and DataAnnotations”
 - “This UI should explicitly use `EditForm`”
 
-If the prompt does **not*- explicitly opt in, `EditForm` is **forbidden**.
+If the prompt does **not** explicitly opt in, `EditForm` is **forbidden**.
 
 ---
 
 ### Reject If
 
-Reject the output immediately if **any*- of the following occur:
+Reject the output immediately if **any** of the following occur:
 
 - `EditForm` is used without an explicit opt-in request
 - Validation logic is hidden behind framework abstractions
@@ -97,7 +97,7 @@ All buttons **must explicitly declare their type**.
 
 ## Rule 4: Controlled Use of `type="submit"`
 
-`type="submit"` **must not be used*- unless:
+`type="submit"` **must not be used** unless:
 
 - The request explicitly requires submit semantics
 - Submit behavior is intentional, reviewed, and documented
@@ -112,7 +112,7 @@ All buttons **must explicitly declare their type**.
 
 ## Rule 5: Navigation via Oqtane Mechanisms
 
-Navigation **must*- use Oqtane-approved patterns:
+Navigation **must** use Oqtane-approved patterns:
 
 - `ActionLink`
 - Oqtane routing infrastructure
@@ -133,7 +133,7 @@ These rules align with UI patterns found in:
 - HtmlText module
 - Core Oqtane edit and management pages
 
-The **Oqtane Framework*- itself is the canonical reference.
+The **Oqtane Framework** itself is the canonical reference.
 
 ---
 

@@ -7,7 +7,7 @@
 > 
 > **TL;DR for maintainers**
 > 
-> This repository defines **non-negotiable architectural and AI governance rules*- for Oqtane module development.
+> This repository defines **non-negotiable architectural and AI governance rules** for Oqtane module development.
 > 
 > If AI-generated output conflicts with this playbook or the canonical module reference, **the output is invalidâ€”regardless of correctness**.
 > 
@@ -20,7 +20,7 @@
 
 ## What This Repository Is
 
-A **framework-aware governance playbook*- for building **robust, upgrade-safe Oqtane modules*- â€” with or without AI assistance.
+A **framework-aware governance playbook** for building **robust, upgrade-safe Oqtane modules** â€” with or without AI assistance.
 
 Its purpose is to make Oqtaneâ€™s **implicit rules explicit**, enforceable, and visible to both **humans and AI tools**.
 
@@ -92,7 +92,7 @@ This repository is useful if you:
 - Want predictable, reviewable module code
 - Have been burned by migrations, permissions, or background jobs
 
-You do **not*- need to agree with everything here to benefit from it.
+You do **not** need to agree with everything here to benefit from it.
 
 ---
 
@@ -153,7 +153,7 @@ This is where the playbook shines.
 
 ### 3. Adopt Incrementally
 
-You do **not*- need to rewrite existing modules.
+You do **not** need to rewrite existing modules.
 
 Recommended approach:
 
@@ -215,7 +215,7 @@ docs/
 
 ## AI Decision Timeline (Optional but Strongly Recommended)
 
-The **AI Decision Timeline*- is a governance memory.
+The **AI Decision Timeline** is a governance memory.
 
 It records **non-trivial AI-assisted decisions**, including:
 
@@ -232,9 +232,9 @@ It is a **binding governance artifact**.
 
 If a request is refused or corrected due to architectural constraints:
 
-- AI **must*- reference the timeline
-- AI **must*- append a new entry using the canonical format
-- AI **must not*- proceed without validation
+- AI **must** reference the timeline
+- AI **must** append a new entry using the canonical format
+- AI **must not** proceed without validation
 
 **One-line Copilot prompt example**:
 
@@ -287,7 +287,7 @@ docs/
 - Each file:
 
     - Covers one domain (migrations, jobs, UI validation, etc.)
-    - Contains explicit **Reject if*- criteria
+    - Contains explicit **Reject if** criteria
     - Is applied automatically once indexed
 
 ---

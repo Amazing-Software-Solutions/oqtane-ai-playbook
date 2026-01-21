@@ -6,7 +6,7 @@ This rule governs **Scheduled Jobs implemented by Oqtane modules**.
 
 Oqtane **supports scheduled jobs**, but they are **not generic background services**.
 
-All scheduled jobs **must conform exactly*- to Oqtane’s execution, lifecycle, and discovery model.
+All scheduled jobs **must conform exactly** to Oqtane’s execution, lifecycle, and discovery model.
 
 This rule exists to prevent:
 
@@ -44,10 +44,10 @@ If a rule conflicts with the Oqtane Framework:
 
 ## Rule 1: Allowed Job Type
 
-A module **may*- implement a scheduled job **only if**:
+A module **may** implement a scheduled job **only if**:
 
 - It inherits from `HostedServiceBase`
-- It resides in the **Server*- project
+- It resides in the **Server** project
 - It is discovered and executed by Oqtane
 
 **Reject if:**
@@ -76,7 +76,7 @@ The job **must**:
 
 ## Rule 3: Job Metadata Definition
 
-Scheduling metadata **must*- be defined via public properties:
+Scheduling metadata **must** be defined via public properties:
 
 - `Name`
 - `Frequency`
@@ -180,7 +180,7 @@ They must not:
 
 ## Rule 8: Framework-Owned Lifecycle
 
-The following are **owned exclusively by Oqtane*- and must not be reimplemented:
+The following are **owned exclusively by Oqtane** and must not be reimplemented:
 
 - Job discovery
 - Job scheduling
@@ -205,7 +205,7 @@ A scheduled job is valid **only if**:
 - Behavior is tenant-safe
 - No custom background infrastructure exists
 
-If **any*- check fails, **reject the change**.
+If **any** check fails, **reject the change**.
 
 ---
 

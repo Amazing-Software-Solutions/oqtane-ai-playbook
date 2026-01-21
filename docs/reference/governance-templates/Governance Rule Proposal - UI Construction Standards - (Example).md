@@ -28,7 +28,7 @@ This rule exists to prevent:
 
 ## Scope
 
-This rule applies to **all UI code*- in Oqtane modules, including:
+This rule applies to **all UI code** in Oqtane modules, including:
 
 - Razor components
 - Admin and Edit pages
@@ -44,8 +44,8 @@ This rule applies to **all UI code*- in Oqtane modules, including:
 
 All UI must use:
 
-- **Bootstrap*- for layout and styling
-- **Bootstrap Icons*- for icons
+- **Bootstrap** for layout and styling
+- **Bootstrap Icons** for icons
 
 **Reject if:**
 
@@ -92,7 +92,7 @@ All buttons must explicitly declare:
 
 ### Rule 4: Explicit Submit Intent Only
 
-`type="submit"` may **only*- be used when:
+`type="submit"` may **only** be used when:
 
 - The request explicitly requires form submission
 - Submit behavior is intentional and documented
@@ -154,6 +154,6 @@ If adopted as an enforced rule:
 
 ## Status
 
-**Status:*- Proposed
+**Status:** Proposed
 
-**Next Step:*- Review → Validate against canonical Oqtane UI → Approve or refine
+**Next Step:** Review → Validate against canonical Oqtane UI → Approve or refine

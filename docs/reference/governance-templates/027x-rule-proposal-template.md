@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document is used to **propose a new enforceable governance rule*- for the Oqtane AI Playbook.
+This document is used to **propose a new enforceable governance rule** for the Oqtane AI Playbook.
 
 A proposal:
 
@@ -10,9 +10,9 @@ A proposal:
 - Exists to be reviewed, refined, and approved
 - Helps validate whether a rule is necessary, precise, and enforceable
 
-AI may **review and validate*- proposals
+AI may **review and validate** proposals
 
-AI may **NOT enforce*- proposals until approved and indexed.
+AI may **NOT enforce** proposals until approved and indexed.
 
 ---
 
@@ -81,7 +81,7 @@ Observed In:
 - HtmlText Edit.razor save workflow
 ```
 
-🚫 Do **not*- invent patterns
+🚫 Do **not** invent patterns
 
 ✅ Only document what already exists
 
@@ -219,7 +219,7 @@ This template exists to:
 
 When you’re ready, do this next:
 
-1. Pick **one real mistake*- you’ve seen AI make
+1. Pick **one real mistake** you’ve seen AI make
 2. Fill out this template
 3. Paste it back here
 4. I’ll review it **as if I were the governance engine**

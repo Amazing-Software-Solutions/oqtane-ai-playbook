@@ -4,16 +4,16 @@
 
 ## What This Is
 
-**Module-Playbook-example*- is a **fully governed, working reference module*- that demonstrates how the Oqtane AI Playbook is meant to be applied in practice.
+**Module-Playbook-example** is a **fully governed, working reference module** that demonstrates how the Oqtane AI Playbook is meant to be applied in practice.
 
 It is:
 
 - A **living, buildable example**
 - A **canonical reference implementation**
-- The **bridge*- between abstract governance rules and real Oqtane modules
+- The **bridge** between abstract governance rules and real Oqtane modules
 
 > 
-> You **do not*- reference the *Oqtane AI Playbook- directly in your application modules.
+> You **do not** reference the *Oqtane AI Playbook- directly in your application modules.
 > You reference **this example**.
 
 ---
@@ -40,11 +40,11 @@ It exists purely to make governance **concrete, testable, and trustworthy**.
 
 | Layer | Purpose |
 | --- | --- |
-| **Authoring Layer*- | Oqtane AI Playbook (rules, templates, governance logic) |
-| **Reference Layer*- | **Module-Playbook-example (this repo)*- |
-| **Application Layer*- | Your real modules |
+| **Authoring Layer** | Oqtane AI Playbook (rules, templates, governance logic) |
+| **Reference Layer** | **Module-Playbook-example (this repo)** |
+| **Application Layer** | Your real modules |
 
-Only the **Reference Layer*- is meant to be *looked at- by application modules.
+Only the **Reference Layer** is meant to be *looked at- by application modules.
 
 ---
 
@@ -70,7 +70,7 @@ docs/
     └── diagnostics.md
 ```
 
-This structure is **intentional*- and **enforced**.
+This structure is **intentional** and **enforced**.
 
 ---
 
@@ -81,8 +81,8 @@ This structure is **intentional*- and **enforced**.
 > 
 > **Files must be visible in the IDE solution to be seen by Copilot.Folders alone are ignored.**
 
-You **do not copy*- these files into your module.
-You **reference them*- using *Add Existing Item*.
+You **do not copy** these files into your module.
+You **reference them** using *Add Existing Item*.
 
 ---
 
@@ -158,8 +158,8 @@ Without Module-Playbook-example:
 
 With Module-Playbook-example:
 
-- AI can **prove*- behavior
-- Developers can **compare*- implementations
+- AI can **prove** behavior
+- Developers can **compare** implementations
 - Governance becomes **observable and enforceable**
 
 ---
@@ -173,7 +173,7 @@ Your real module:
 - May opt-in to additional rules (e.g. localization, MudBlazor)
 - Never references the authoring playbook directly
 
-This keeps adoption **low-friction*- and **developer-friendly**.
+This keeps adoption **low-friction** and **developer-friendly**.
 
 ---
 

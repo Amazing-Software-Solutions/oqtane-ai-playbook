@@ -4,7 +4,7 @@ Scheduled Jobs in Oqtane are frequently misunderstood.
 
 They are often confused with generic background services, cron jobs, or hosted workers commonly found in ASP.NET Core applications. This misunderstanding is amplified when AI tools apply familiar patterns from other frameworks.
 
-This chapter defines the **correct execution model**, **hard constraints**, and **safe patterns*- for implementing Scheduled Jobs in Oqtane modules.
+This chapter defines the **correct execution model**, **hard constraints**, and **safe patterns** for implementing Scheduled Jobs in Oqtane modules.
 
 ---
 
@@ -15,7 +15,7 @@ In Oqtane:
 - Scheduled Jobs are **framework-managed**
 - Job discovery, scheduling, execution, and persistence are handled by Oqtane
 - Jobs run **per tenant**
-- Jobs are **repeatable*- and must be safe to re-execute
+- Jobs are **repeatable** and must be safe to re-execute
 
 A Scheduled Job is not a background worker you control.
 
@@ -43,7 +43,7 @@ Attempting to use these patterns inside Oqtane bypasses the framework and introd
 All Scheduled Jobs must:
 
 - Inherit from `HostedServiceBase`
-- Reside in the **Server*- project
+- Reside in the **Server** project
 
 This base class integrates the job with:
 

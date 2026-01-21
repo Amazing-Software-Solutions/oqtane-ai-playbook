@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This document defines the **canonical local development layout*- for Oqtane-based development when using the Oqtane AI Playbook.
+This document defines the **canonical local development layout** for Oqtane-based development when using the Oqtane AI Playbook.
 
-This structure is assumed throughout the playbook and is treated as **non-negotiable context*- for AI-assisted development.
+This structure is assumed throughout the playbook and is treated as **non-negotiable context** for AI-assisted development.
 
 >**If this setup is not followed, the guarantees and rules in this playbook do not apply.**
 

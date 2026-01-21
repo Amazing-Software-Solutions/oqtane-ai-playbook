@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document is the **authoritative index of enforceable AI governance rules*- for this repository.
+This document is the **authoritative index of enforceable AI governance rules** for this repository.
 
 It defines **what rules exist**, not how they are implemented.
 
@@ -37,7 +37,7 @@ If no applicable rule exists:
 
 ## Canonical Reference Source
 
-The **Oqtane Framework source*- is the canonical implementation reference.
+The **Oqtane Framework source** is the canonical implementation reference.
 
 This includes (but is not limited to):
 
@@ -138,7 +138,7 @@ If multiple rules apply:
 
 ## Rule Creation Policy
 
-AI is **NOT permitted*- to create or enforce new rules.
+AI is **NOT permitted** to create or enforce new rules.
 
 If a request reveals:
 

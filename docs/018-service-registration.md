@@ -41,7 +41,7 @@ These extension points are:
 - Isolated
 - Independently executed
 
-They are the **only supported locations*- for module-level service registration.
+They are the **only supported locations** for module-level service registration.
 
 ---
 
@@ -107,7 +107,7 @@ Middleware registered here participates in the host pipeline under Oqtane’s co
 
 ## Forbidden Patterns (Hard Rejection)
 
-AI **must reject*- any attempt to introduce:
+AI **must reject** any attempt to introduce:
 
 - `Program.cs`
 - `Startup.cs`

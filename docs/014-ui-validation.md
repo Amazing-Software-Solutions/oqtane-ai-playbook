@@ -1,7 +1,7 @@
 # 014 — UI Validation
 
 UI validation in Oqtane modules must be **explicit, deterministic, and framework-aligned**.
-This chapter defines the **only supported pattern*- for form validation and save execution in module UI components.
+This chapter defines the **only supported pattern** for form validation and save execution in module UI components.
 
 This is a **framework rule**, not a stylistic preference.
 
@@ -120,7 +120,7 @@ This ensures:
 
 ## Error Handling Requirement
 
-Validation failure is **not an error*- and MUST NOT be logged.
+Validation failure is **not an error** and MUST NOT be logged.
 
 Save failures after validation MUST:
 

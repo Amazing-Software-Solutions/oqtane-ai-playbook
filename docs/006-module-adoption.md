@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines how an **existing Oqtane module*- is brought under the governance of the **Oqtane AI Playbook*- safely and incrementally.
+This document defines how an **existing Oqtane module** is brought under the governance of the **Oqtane AI Playbook** safely and incrementally.
 
 The goal is **predictability and control**, not immediate conformity.
 
@@ -41,7 +41,7 @@ Before adopting governance at the module level:
 - `Oqtane.Framework` exists locally
 - `Oqtane-AI-Playbook` exists outside the module repository
 
-If this is not true, **stop*- and fix that first.
+If this is not true, **stop** and fix that first.
 
 ---
 
@@ -75,7 +75,7 @@ Everything else is deferred.
 > **This step is required for AI governance to work correctly.**
 > 
 
-The module **must reference*- the Oqtane framework projects so that:
+The module **must reference** the Oqtane framework projects so that:
 
 - Canonical patterns are visible
 - AI can validate against real framework behavior
@@ -83,21 +83,21 @@ The module **must reference*- the Oqtane framework projects so that:
 
 ### Required Project References
 
-Add **project references*- to the following:
+Add **project references** to the following:
 
 - `Oqtane.Client`
 - `Oqtane.Server`
 - `Oqtane.Shared`
 
-These references are **read-only*- and exist purely as a **canonical source of truth**.
+These references are **read-only** and exist purely as a **canonical source of truth**.
 
 ### Build Configuration Requirement (Critical)
 
 These framework projects:
 
 - **Must NOT be built**
-- **Must be disabled*- in Configuration Manager
-- **Must remain disabled*- for Debug *and- Release
+- **Must be disabled** in Configuration Manager
+- **Must remain disabled** for Debug *and- Release
 
 #### Why This Matters
 
@@ -139,9 +139,9 @@ docs/
 | `docs/ai-decision-timeline.md` | Binding governance memory |
 | `docs/governance/` | Enforceable rule set |
 
-These files **anchor*- the external playbook locally.
+These files **anchor** the external playbook locally.
 
-They do **not duplicate*- it.
+They do **not duplicate** it.
 
 ### Physical Location (Flexible)
 
@@ -174,7 +174,7 @@ The files may:
 
 When using Visual Studio:
 
-- `docs/` **must appear*- in Solution Explorer
+- `docs/` **must appear** in Solution Explorer
 - All `.md` files must be visible
 - `.github/copilot-instructions.md` must be visible
 
@@ -228,7 +228,7 @@ This file is:
 - Binding
 - Governance memory
 
-AI must read this **before responding*- and must propose entries when:
+AI must read this **before responding** and must propose entries when:
 
 - A request is refused
 - A framework invariant is discovered
@@ -275,10 +275,10 @@ are considered valid governance context by AI tools.
 
 ## Mental Model
 
-- **Oqtane Framework*- = canonical truth
-- **Playbook*- = governance system
-- **Rules*- = enforceable constraints
-- **Timeline*- = institutional memory
+- **Oqtane Framework** = canonical truth
+- **Playbook** = governance system
+- **Rules** = enforceable constraints
+- **Timeline** = institutional memory
 
 This combination is what finally makes AI **predictable**.
 
@@ -298,7 +298,7 @@ Ask Copilot **exactly this**:
 
 ### Expected Response Characteristics
 
-A **valid*- response must:
+A **valid** response must:
 
 1. Explicitly reference **file-backed governance**, such as:
 
@@ -320,7 +320,7 @@ A **valid*- response must:
 
 ### Failure Conditions (Hard Stop)
 
-Governance is **not active*- if Copilot:
+Governance is **not active** if Copilot:
 
 - Gives generic best practices
 - Mentions rules without citing files
