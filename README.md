@@ -194,17 +194,17 @@ If AI output conflicts with this repository, **the repository always wins**.
 
 When adopting this playbook in a module repository, the following files **must exist and be visible to the AI**:
 
-```
+```text
 .github/
-â””â”€â”€ copilot-instructions.md
+└── copilot-instructions.md
 
 docs/
-â”œâ”€â”€ ai-decision-timeline.md
-â””â”€â”€ deviations.md
+├── ai-decision-timeline.md
+└── deviations.md
 ```
 
 > 
-> âš ï¸ **Important**
+> ⚠️ **Important**
 > 
 > AI tools can only reason over files that are visible in the editor/solution.
 > 
@@ -248,27 +248,27 @@ If a request is refused or corrected due to architectural constraints:
 
 Typical local development layout:
 
-```
+```text
 D:\Oqtane Development\
-â”œâ”€â”€ Oqtane.Framework
-â””â”€â”€ AcmeCompany.Module.Example
+├── Oqtane.Framework
+└── AcmeCompany.Module.Example
 ```
 
 Inside the module repository:
 
-```
+```text
 .github/
-â””â”€â”€ copilot-instructions.md
+└── copilot-instructions.md
 
 docs/
-â”œâ”€â”€ governance/
-â”‚   â”œâ”€â”€ 027-rules-index.md
-â”‚   â”œâ”€â”€ 027x-canonical-validation.md
-â”‚   â”œâ”€â”€ 027x-migrations.md
-â”‚   â”œâ”€â”€ 027x-scheduled-jobs.md
-â”‚   â””â”€â”€ ... (other 027x-- rule files)
-â”œâ”€â”€ ai-decision-timeline.md
-â””â”€â”€ deviations.md
+├── governance/
+│   ├── 027-rules-index.md
+│   ├── 027x-canonical-validation.md
+│   ├── 027x-migrations.md
+│   ├── 027x-scheduled-jobs.md
+│   └── ... (other 027x- rule files)
+├── ai-decision-timeline.md
+└── deviations.md
 ```
 
 ## What Each File Does
@@ -316,7 +316,7 @@ docs/
 
 ---
 
-## ðŸ”’ Enforcement Rules (Critical)
+## 🔐 Enforcement Rules (Critical)
 
 - Governance files **must exist as files**, not folders
 - Governance files **must be included in the solution**
@@ -369,9 +369,9 @@ The goal is **shared understanding**, not personal ownership.
 
 ## Final Note
 
-- Frameworks donâ€™t fail.
-- Tools donâ€™t fail.
-- Developers donâ€™t fail.
+- Frameworks don't fail.
+- Tools don't fail.
+- Developers don't fail.
 - **Unspoken rules fail.**
 
 
