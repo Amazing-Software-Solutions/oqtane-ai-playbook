@@ -125,3 +125,20 @@ If a request implies a missing rule or unclear constraint, you MUST:
 3. Propose a Governance Rule Proposal instead of generating code
 
 You may summarize a proposed rule but must not enforce it unless it exists in 027-ai-governance.md.
+
+## Module-Specific Instructions (Optional)
+
+If a file named `.github/module-instructions.md` exists in this repository,
+it MUST be read and applied as an extension to these instructions.
+
+Module-specific instructions:
+- May add constraints
+- May add domain context
+- May tighten rules
+
+They MUST NOT:
+- Contradict governance rules
+- Relax enforcement
+- Override canonical behavior
+
+If no module-specific instruction file exists, only these instructions apply.
