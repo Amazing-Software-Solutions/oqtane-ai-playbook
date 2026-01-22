@@ -19,9 +19,11 @@ This separation is intentional and required to preserve trust, clarity, and gove
 
 ## Canonical Development Root
 
-All development is performed under a single local root folder:
+All development is performed under a single local root folder for this document:
 
+`
 D:\Oqtane Development\
+`
 
 This root folder:
 
@@ -48,6 +50,7 @@ D:\Oqtane Development\Oqtane.Framework
 
 ### Expected Structure
 
+```text
 Oqtane.Framework/
 ├── Oqtane.Client
 ├── Oqtane.Server
@@ -55,6 +58,7 @@ Oqtane.Framework/
 ├── Oqtane.Infrastructure
 ├── Oqtane.Package
 └── solution and build files
+```
 
 The Oqtane Framework:
 
@@ -88,7 +92,7 @@ It is **not** consumed directly by real modules.
 
 ### Placement
 
-D:\Oqtane Development\oqtane-ai-playbook
+`D:\Oqtane Development\oqtane-ai-playbook`
 
 ### Important
 
