@@ -120,12 +120,13 @@ Inside the **module repository**, create:
 
 ```
 .github/
-└── copilot-instructions.md
+├── copilot-instructions.md		<- Referenced
+└── module-instructions.md		
 
 docs/
 ├── deviations.md
 ├── ai-decision-timeline.md
-└── governance/
+└── governance/					<- Referenced
     ├── 027-rules-index.md
     └── 027x-*.md
 ```
@@ -135,6 +136,7 @@ docs/
 | Path | Purpose |
 | --- | --- |
 | `.github/copilot-instructions.md` | Constrains AI behavior |
+| `.github/module-instructions.md` | AI behavior Extended|
 | `docs/deviations.md` | Declared rule exceptions |
 | `docs/ai-decision-timeline.md` | Binding governance memory |
 | `docs/governance/` | Enforceable rule set |
@@ -212,6 +214,8 @@ Governance is not active.
 
 Create `docs/deviations.md`.
 
+This file must exist in the Module Solution
+
 This records **intentional, known exceptions**.
 
 If it’s not documented here, it’s assumed to be accidental.
@@ -221,6 +225,8 @@ If it’s not documented here, it’s assumed to be accidental.
 ## Step 7 — AI Decision Timeline (Mandatory)
 
 Create `docs/ai-decision-timeline.md`.
+
+This file must exist in the Module Solution
 
 This file is:
 

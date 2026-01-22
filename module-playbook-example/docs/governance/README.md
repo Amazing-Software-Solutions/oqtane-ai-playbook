@@ -29,6 +29,19 @@ AI is **not permitted to invent rules**.
 
 ---
 
+## Copilot Instruction Governance
+
+Canonical Copilot instructions are defined in `.github/copilot-instructions.md`
+and MUST be referenced by all governed modules.
+
+Modules MUST NOT copy or replace this file.
+
+Modules MAY extend AI behavior by providing a `.github/module-instructions.md` file.
+This file is additive only and must not contradict governance rules or relax enforcement.
+
+This rule exists to preserve a single point of truth while allowing intentional,
+auditable module-specific customization.
+
 ## Required Files
 
 ### 1. `027-rules-index.md`
@@ -134,7 +147,8 @@ docs/
 └── prompts/
     ├── ui.md
     ├── services.md
-    └── diagnostics.md
+    ├── diagnostics.md
+    └── ...
 ```
 
 These files may be **linked** from another folder or repository:

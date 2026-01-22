@@ -194,9 +194,20 @@ If AI output conflicts with this repository, **the repository always wins**.
 
 When adopting this playbook in a module repository, the following files **must exist and be visible to the AI**:
 
+### Copilot Instruction Model
+
+The Oqtane AI Playbook defines canonical Copilot instructions used by governed module examples.
+
+Real modules must reference these canonical instructions and may optionally extend them using
+a module-owned `module-instructions.md` file.
+
+This layered instruction model preserves a single point of truth while allowing intentional,
+auditable customization at the module level.
+
 ```text
 .github/
-└── copilot-instructions.md
+├── copilot-instructions.md
+└── module-instructions.md
 
 docs/
 ├── ai-decision-timeline.md

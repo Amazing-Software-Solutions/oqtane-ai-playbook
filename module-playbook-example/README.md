@@ -54,7 +54,8 @@ Module-Playbook-example mirrors the exact structure expected in a governed modul
 
 ```
 .github/
-└── copilot-instructions.md
+├── copilot-instructions.md
+└── module-instructions.md
 
 docs/
 ├── ai-decision-timeline.md
