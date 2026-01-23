@@ -85,7 +85,13 @@ Rules for Oqtane Scheduled Jobs (`HostedServiceBase` only).
 
 Database migration rules for multi-database Oqtane modules.
 
+-- **027x-packaging-and-dependencies.md**
+
+These rules govern runtime behavior, deployment correctness, and platform constraints.
+
 ---
+
+
 
 ### Data & Domain Layer
 
@@ -153,6 +159,7 @@ AI must:
 3. Wait for human approval before enforcement
 
 ---
+
 
 ## Summary
 
