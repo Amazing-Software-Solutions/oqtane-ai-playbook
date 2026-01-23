@@ -159,6 +159,22 @@ These rules protect:
 - Testability
 - Multi-tenant safety
 
+## External Packages and Dependencies (Guardrail)
+
+Before adding any external NuGet package, you MUST verify that:
+
+- The functionality does not already exist in Oqtane or the .NET BCL
+- Runtime deployment of the package assemblies is explicitly handled
+- The module `.nuspec` is updated to include the dependency
+
+Oqtane does NOT automatically resolve or deploy module dependencies at runtime.
+
+If runtime deployment or packaging steps are unclear, you MUST STOP and explain
+what would be required instead of adding the package.
+
+Do NOT assume NuGet restore is sufficient.
+
+
 **Reject any reverse dependency.**
 
 ---

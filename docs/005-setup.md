@@ -132,6 +132,11 @@ D:\Oqtane Development\oqtane-ai-playbook\module-playbook-example
 
 ---
 
+> ⚠️ **Important**
+> Adding a NuGet package to an Oqtane module does not make it available at runtime.
+> External dependencies must be explicitly deployed to the Oqtane Server bin and included in the module `.nuspec`, or the module will fail at runtime.
+
+---
 ## Real Module Development (Application Layer)
 
 ### Real-World Governed Example
@@ -183,6 +188,7 @@ Before starting module development, verify:
 If any item fails, **stop and correct the setup**.
 
 ---
+
 
 ## Summary
 
