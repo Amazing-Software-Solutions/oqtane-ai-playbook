@@ -69,6 +69,11 @@ AI must NOT:
 - **027x-canonical-validation.md**
 
 Enforces validation against Oqtane framework patterns and prohibits invention.
+
+- **027x-ai-instruction-discovery.md**
+
+Governs how the AI should discover instruction.
+
 - **027x-ai-decision-timeline.md**
 
 Governs when and how AI decisions are recorded as binding memory.
