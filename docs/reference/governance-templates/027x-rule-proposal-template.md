@@ -163,7 +163,7 @@ This rule becomes enforceable **only when**:
 1. Approved by a maintainer
 2. Added as `027x-<name>.md`
 3. Indexed in `027-rules-index.md`
-4. Referenced (if needed) in Copilot instructions
+4. Referenced (if needed) in AI assistant instructions
 
 Until then:
 

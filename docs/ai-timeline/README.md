@@ -101,7 +101,7 @@ This folder may be empty.
 
 Its presence signals **maturity**, not obligation.
 
-## Copilot Rejection Rule (Add to `copilot-instructions.md`)
+## AI Assistant Rejection Rule (Add to `copilot-instructions.md`)
 
 This is short, sharp, and enforceable:
 
@@ -109,7 +109,7 @@ This is short, sharp, and enforceable:
 ### AI Decision Timeline Rule
 
 Before proposing or modifying architecture, startup logic, service registration,
-authorization, or cross-boundary behavior, Copilot must:
+authorization, or cross-boundary behavior, AI assistant must:
 
 - Check `/docs/ai-timeline/` for relevant prior decisions
 - Avoid repeating documented failure modes
@@ -121,7 +121,7 @@ the output is invalid and must be rejected.
 
 This turns the timeline into a hard constraint, not a suggestion.
 
-## One-Line Copilot Prompt (High Leverage)
+## One-Line AI Assistant Prompt (High Leverage)
 
 Use this exactly as-is when you sense risk:
 
@@ -129,7 +129,7 @@ Use this exactly as-is when you sense risk:
 
 Why this works:
 
-* It forces Copilot to re-anchor
+* It forces AI assistant to re-anchor
 * It discourages pattern invention
 * It reduces “confident repetition” of past mistakes
 

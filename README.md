@@ -1,4 +1,4 @@
-﻿# Oqtane AI Playbook
+# Oqtane AI Playbook
 
 ![Oqtane](https://img.shields.io/badge/Oqtane-Framework-blue)
 ![AI Governance](https://img.shields.io/badge/AI-Governed-027%20Based--green)
@@ -9,7 +9,7 @@
 > 
 > This repository defines **non-negotiable architectural and AI governance rules** for Oqtane module development.
 > 
-> If AI-generated output conflicts with this playbook or the canonical module reference, **the output is invalidâ€”regardless of correctness**.
+> If AI-generated output conflicts with this playbook or the canonical module reference, **the output is invalid-regardless of correctness**.
 > 
 
 ---
@@ -20,12 +20,12 @@
 
 ## What This Repository Is
 
-A **framework-aware governance playbook** for building **robust, upgrade-safe Oqtane modules** â€” with or without AI assistance.
+A **framework-aware governance playbook** for building **robust, upgrade-safe Oqtane modules** - with or without AI assistance.
 
-Its purpose is to make Oqtaneâ€™s **implicit rules explicit**, enforceable, and visible to both **humans and AI tools**.
+Its purpose is to make Oqtane's **implicit rules explicit**, enforceable, and visible to both **humans and AI tools**.
 
 - This **is not** guidance.
-- This repository **is not** referenced by modules
+- This repository **must never be referenced directly by modules.**
 - **Do not** add this to your solution
 - This **is a** playbook for **building playbooks**
 - **This is authority**.
@@ -48,13 +48,13 @@ The arrows highlight a strict flow: Playbook â†’ Example â†’ Real Modu
 
 ## Why This Exists
 
-Most Oqtane module failures are not caused by incompetence â€” theyâ€™re caused by:
+Most Oqtane module failures are not caused by incompetence - they're caused by:
 
 - Generic .netCore assumptions
 - Hidden framework invariants
 - Multi-tenant misunderstandings
 - AI-generated code that *looks right- but violates Oqtane rules
-- Tribal knowledge that isnâ€™t written down
+- Tribal knowledge that isn't written down
 
 AI accelerates all of these failures unless **explicitly constrained**.
 
@@ -88,7 +88,7 @@ This repository is useful if you:
 
 - Build or maintain Oqtane modules
 - Operate multiple Oqtane solutions
-- Use GitHub Copilot or other AI tools
+- Use GitHub AI assistant or other AI tools
 - Want predictable, reviewable module code
 - Have been burned by migrations, permissions, or background jobs
 
@@ -194,9 +194,9 @@ If AI output conflicts with this repository, **the repository always wins**.
 
 When adopting this playbook in a module repository, the following files **must exist and be visible to the AI**:
 
-### Copilot Instruction Model
+### AI Assistant Instruction Model
 
-The Oqtane AI Playbook defines canonical Copilot instructions used by governed module examples.
+The Oqtane AI Playbook defines canonical AI assistant instructions used by governed module examples.
 
 Real modules must reference these canonical instructions and may optionally extend them using
 a module-owned `module-instructions.md` file.
@@ -239,7 +239,7 @@ This is **not a chat log**.
 
 It is a **binding governance artifact**.
 
-### Copilot Rejection Rule
+### AI Assistant Rejection Rule
 
 If a request is refused or corrected due to architectural constraints:
 
@@ -247,7 +247,7 @@ If a request is refused or corrected due to architectural constraints:
 - AI **must** append a new entry using the canonical format
 - AI **must not** proceed without validation
 
-**One-line Copilot prompt example**:
+**One-line AI assistant prompt example**:
 
 > 
 > *â€œBefore responding, read the AI Decision Timeline and treat it as binding governance memory.â€*
@@ -333,7 +333,7 @@ docs/
 - Governance files **must be included in the solution**
 - Governance files **must be visible at prompt time**
 - Folder-only structures are ignored
-- After changes, Copilot **must be refreshed**
+- After changes, AI assistant **must be refreshed**
 
 If governance files are not visible, **AI must refuse**.
 
@@ -341,7 +341,7 @@ The playbook is **referenced**, not copied.
 
 ---
 
-## About AI and Copilot
+## About AI and AI Assistant
 
 AI tools:
 

@@ -26,7 +26,7 @@ Use this document when:
 
 - A module already exists
 - The module is stable or in production
-- AI tools (Copilot, ChatGPT, etc.) will be introduced or expanded
+- AI tools (AI assistant, ChatGPT, etc.) will be introduced or expanded
 - Architectural drift must be controlled
 
 If you are creating a **brand-new module**, follow `005-setup.md` first.
@@ -184,7 +184,7 @@ If they are not:
 
 - Governance does not activate
 - Timeline logging fails
-- Copilot will refuse valid requests
+- AI assistant will refuse valid requests
 
 This is a **confirmed invariant**, not a theory.
 
@@ -192,7 +192,7 @@ This is a **confirmed invariant**, not a theory.
 
 ## Step 5 — Verify Governance Is Active
 
-Before generating **any code**, ask Copilot:
+Before generating **any code**, ask AI assistant:
 
 > 
 > **“Summarize the non-negotiable rules you must follow in this repository.”**
@@ -294,7 +294,7 @@ This combination is what finally makes AI **predictable**.
 
 Once setup is complete, **before writing any code**, perform this check.
 
-Ask Copilot **exactly this**:
+Ask AI assistant **exactly this**:
 
 > 
 > **“Summarize the non-negotiable rules you must follow in this repository, and list the governance files you used to derive them.”**
@@ -326,7 +326,7 @@ A **valid** response must:
 
 ### Failure Conditions (Hard Stop)
 
-Governance is **not active** if Copilot:
+Governance is **not active** if AI assistant:
 
 - Gives generic best practices
 - Mentions rules without citing files

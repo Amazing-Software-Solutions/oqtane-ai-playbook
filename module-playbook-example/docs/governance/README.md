@@ -29,9 +29,9 @@ AI is **not permitted to invent rules**.
 
 ---
 
-## Copilot Instruction Governance
+## AI Assistant Instruction Governance
 
-Canonical Copilot instructions are defined in `.github/copilot-instructions.md`
+Canonical AI assistant instructions are defined in `.github/copilot-instructions.md`
 and MUST be referenced by all governed modules.
 
 Modules MUST NOT copy or replace this file.
@@ -131,7 +131,7 @@ Governance and prompt files may live **anywhere on disk**, as long as:
 
 * They are added to the module **solution** as *existing documents*
 * They appear under a `docs/` solution folder
-* Copilot can *read* them at prompt time
+* AI assistant can *read* them at prompt time
 
 ### Example (Linked Files)
 
@@ -203,7 +203,7 @@ Think of it as:
 
 - a **contract**
 - a **guardrail**
-- a **shared language** between the developer and Copilot
+- a **shared language** between the developer and AI assistant
 
 ---
 
@@ -211,14 +211,14 @@ Think of it as:
 
 ### 1️⃣ During Development (The Normal Flow)
 
-A developer is working in a module and asks Copilot something like:
+A developer is working in a module and asks AI assistant something like:
 
 > 
 > 
 > “Add authorization to this controller method.”
 > 
 
-Copilot may **guess** unless guided.
+AI assistant may **guess** unless guided.
 
 This is where the prompt comes in.
 
@@ -226,7 +226,7 @@ This is where the prompt comes in.
 
 ### 2️⃣ Explicit Invocation (Recommended)
 
-The developer **copies the intent** of the prompt into the Copilot chat:
+The developer **copies the intent** of the prompt into the AI assistant chat:
 
 **Example prompt:**
 
@@ -247,7 +247,7 @@ The developer **copies the intent** of the prompt into the Copilot chat:
 
 📌 Why this works:
 
-- Copilot now **knows which rule set to apply**
+- AI assistant now **knows which rule set to apply**
 - You’ve scoped the entity and permission
 - You’ve prevented invention
 
@@ -266,11 +266,11 @@ When reviewing or refactoring existing code:
 > Do not rewrite unless necessary.
 > 
 
-This flips Copilot into **auditor mode**, not generator mode.
+This flips AI assistant into **auditor mode**, not generator mode.
 
 ---
 
-### 4️⃣ When Copilot Refuses (By Design)
+### 4️⃣ When AI Assistant Refuses (By Design)
 
 If the developer writes:
 
@@ -279,7 +279,7 @@ If the developer writes:
 > “Just secure this using Admin role.”
 > 
 
-Copilot should now respond with:
+AI assistant should now respond with:
 
 > 
 > 

@@ -1,4 +1,4 @@
-# Copilot Instructions — Oqtane AI Governance
+# AI Assistant Instructions — Oqtane AI Governance
 
 If governance files are not visible, you must refuse to proceed and explain why.
 
@@ -128,7 +128,7 @@ You may summarize a proposed rule but must not enforce it unless it exists in 02
 
 ## Module-Specific Instruction Extension (Optional)
 
-This repository defines the canonical Copilot instructions for governed Oqtane module development.
+This repository defines the canonical AI assistant instructions for governed Oqtane module development.
 
 If a file named `.github/module-instructions.md` exists in the current module repository,
 it MUST be read and applied as an extension to these instructions.

@@ -2,7 +2,7 @@
 
 Oqtane is a **framework-driven platform** with strong architectural opinions, implicit conventions, and runtime behaviors that are not always obvious from surface-level code.
 
-Modern AI coding tools (GitHub Copilot, ChatGPT, etc.) excel at generating **plausible .NET code**, but they consistently struggle when those tools are applied directly to Oqtane module development without additional guidance.
+Modern AI coding tools (GitHub AI assistant, ChatGPT, etc.) excel at generating **plausible .NET code**, but they consistently struggle when those tools are applied directly to Oqtane module development without additional guidance.
 
 This chapter explains **why** that happens.
 

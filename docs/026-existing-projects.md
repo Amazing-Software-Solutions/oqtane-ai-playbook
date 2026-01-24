@@ -63,7 +63,7 @@ Do **not** mass-refactor to match the stub unless required.
 
 ---
 
-## Step 3 — Introduce Copilot Governance Immediately
+## Step 3 — Introduce AI Assistant Governance Immediately
 
 Even if the codebase is imperfect, **new code must be correct**.
 
@@ -106,7 +106,7 @@ Everything else can evolve gradually.
 
 ## Step 5 — Add “Reject If Violated” Rules
 
-For each high-risk area, add **hard rejection rules** to Copilot instructions.
+For each high-risk area, add **hard rejection rules** to AI assistant instructions.
 
 Example:
 

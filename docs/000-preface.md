@@ -134,7 +134,7 @@ Examples never override the framework.
 This guide is most effective when used as:
 
 - A **design review reference**
-- A **Copilot governance source**
+- An **AI assistant governance source**
 - A **team alignment document**
 - A **shared vocabulary for code reviews**
 
@@ -151,7 +151,7 @@ The recommended approach is:
 
 AI tools optimize for plausibility, not correctness.
 
-When using this guide with tools such as GitHub Copilot:
+When using this guide with tools such as GitHub AI assistant:
 
 - Treat rules as **rejectable constraints**
 - Anchor AI to authoritative examples

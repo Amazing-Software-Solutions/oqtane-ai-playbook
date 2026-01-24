@@ -97,7 +97,7 @@ It is **not** consumed directly by real modules.
 ### Important
 
 - Real modules must **not** reference the Oqtane AI Playbook directly
-- Copilot does **not** rely on this repository at runtime
+- AI assistant does **not** rely on this repository at runtime
 - This repository exists to **design and evolve governance**, not to apply it
 
 ---
@@ -115,7 +115,7 @@ concrete, working, governed implementation.
 It contains:
 
 - Enforced governance rules
-- Canonical Copilot instructions
+- Canonical AI assistant instructions
 - Prompt templates
 - UI, service, and architecture examples
 
@@ -171,7 +171,7 @@ They must **not**:
 
 - Reference the Oqtane AI Playbook directly
 - Copy governance rules into the module
-- Replace canonical Copilot instructions
+- Replace canonical AI assistant instructions
 
 ---
 

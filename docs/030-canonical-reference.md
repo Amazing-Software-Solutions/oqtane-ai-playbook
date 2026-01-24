@@ -88,7 +88,7 @@ This repository treats the canonical reference as **law**, not guidance.
 
 ## AI Usage Contract
 
-All AI tools (including GitHub Copilot, ChatGPT, MCP-based systems, or similar) must adhere to the following contract:
+All AI tools (including GitHub AI assistant, ChatGPT, MCP-based systems, or similar) must adhere to the following contract:
 
 - The canonical reference is the **primary grounding source**
 - AI may not invent alternative patterns when a canonical one exists

@@ -80,7 +80,7 @@ This structure is **intentional** and **enforced**.
 ### Important Principle
 
 > 
-> **Files must be visible in the IDE solution to be seen by Copilot.Folders alone are ignored.**
+> **Files must be visible in the IDE solution to be seen by AI assistant.Folders alone are ignored.**
 
 You **do not copy** these files into your module.
 You **reference them** using *Add Existing Item*.
@@ -131,21 +131,21 @@ Module-Playbook-example/docs/prompts/ui.md
 
 ---
 
-### 3. Verify Copilot Visibility
+### 3. Verify AI Assistant Visibility
 
-Ask Copilot:
+Ask AI assistant:
 
 > 
 > **“Summarize the non-negotiable rules you must follow in this repository.”**
 
-If wired correctly, Copilot will:
+If wired correctly, AI assistant will:
 
 - Reference `027-rules-index.md`
 - Cite specific `027x-*` rules
 - Mention the AI Decision Timeline
 - Refuse invalid requests
 
-If it doesn’t → refresh Copilot and re-check file visibility.
+If it doesn’t → refresh AI assistant and re-check file visibility.
 
 ---
 

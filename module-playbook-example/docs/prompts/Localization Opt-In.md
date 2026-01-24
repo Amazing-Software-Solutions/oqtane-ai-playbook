@@ -1,4 +1,4 @@
-# Localization Opt-In Prompt (Copilot / AI Prompt)
+# Localization Opt-In Prompt (AI Assistant / AI Prompt)
 
 This is designed to be explicit, activating, and non-ambiguous.
 
