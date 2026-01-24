@@ -362,6 +362,18 @@ AI becomes a **productivity multiplier**, not a risk amplifier.
 
 ---
 
+## AI Tool Support
+
+This module demonstrates AI-governed development using multiple AI tools.
+
+- GitHub Copilot instructions are defined in `.github/copilot-instructions.md`
+- Amazon Q instructions are defined in `.amazonq/instructions.md`
+
+Both files act only as entry points.
+All governance, rules, and prompts live under `/docs` and are tool-agnostic.
+
+---
+
 ## Community and Contributions
 
 This repository is intentionally open to evolution.
