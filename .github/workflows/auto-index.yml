@@ -25,6 +25,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Generate index.md
       run: |
@@ -36,15 +37,15 @@ jobs:
         ![AI Governance](https://img.shields.io/badge/AI-Governed-027%20Based--green)
         ![Canonical Source](https://img.shields.io/badge/Canonical-Oqtane%20Framework-black)
         
-        > **This playbook aligns with the core principles of Oqtane as articulated in the Oqtane Philosophy — performance, flexibility, low ceremony, tool agnosticism, consistency, and practical engineering. See https://www.oqtane.org/blog/!/20/oqtane-philosophy for foundational context.**
+        > **This playbook aligns with the core principles of Oqtane as articulated in the Oqtane Philosophy — performance, flexibility, low ceremony, tool agnosticism, consistency, and practical simplicity.**
         
         ---
         
         ## Overview
         
-        The **Oqtane AI Playbook** is a framework-aware governance repository for building robust, upgrade-safe Oqtane modules - with or without AI assistance. This repository makes Oqtane's implicit rules explicit, enforceable, and visible to both humans and AI tools.
+        The **Oqtane AI Playbook** is a framework-aware governance repository for building robust, upgrade-safe Oqtane modules - with or without AI assistance. This repository makes Oqtane's implicit rules explicit, ensuring AI tools behave as force multipliers, not chaos agents.
         
-        **TL;DR for maintainers**: This repository defines **non-negotiable architectural and AI governance rules** for Oqtane module development. If AI-generated output conflicts with this playbook or the canonical module reference, **the output is invalid** regardless of correctness.
+        **TL;DR for maintainers**: This repository defines **non-negotiable architectural and AI governance rules** for Oqtane module development. If AI-generated output conflicts with this playbook, the AI is wrong.
         
         ---
         
@@ -81,7 +82,7 @@ jobs:
         echo "" >> index.md
         
         # Architecture docs
-        for file in "010-services.md" "011-authorization.md" "012-migrations.md" "013-scheduled-jobs.md" "014-ui-validation.md" "015-Error-Handling.md" "016-logging.md" "017-Clien-Server-Responsibility- Boundaries.md" "018-service-registration.md" "019-Localization.md" "020-packaging-and-dependencies.md"; do
+        for file in "010-services.md" "011-authorization.md" "012-migrations.md" "013-scheduled-jobs.md" "014-ui-validation.md" "015-Error-Handling.md" "016-logging.md" "017-Clien-Server-Responsibility- Boundaries.md" "018-service-registration.md" "019-Localization.md" "020-module-state-initialization.md" "021-site-data-isolation.md" "022-service-registation.md" "023-naming-standards.md" "024-blazor-lifecycle.md" "025-security-boundary.md"; do
           if [ -f "docs/$file" ]; then
             title=$(head -n 1 "docs/$file" | sed 's/^# //')
             echo "- **[$title](docs/$file)**" >> index.md
@@ -105,7 +106,7 @@ jobs:
         echo "" >> index.md
         
         # AI governance docs
-        for file in "027-ai-governance.md" "028-repository-structure.md" "029-templates-and-stubs.md" "030-canonical-reference.md" "031-canonical-module-overview.md" "032-canonical-diff-policy.md" "034-canonical-verification-checklist.md"; do
+        for file in "027-ai-governance.md" "028-repository-structure.md" "029-templates-and-stubs.md" "030-canonical-reference.md" "031-canonical-module-overview.md" "032-canonical-diff-policy.md" "034-copilot-instructions.md" "035-rules-index.md"; do
           if [ -f "docs/$file" ]; then
             title=$(head -n 1 "docs/$file" | sed 's/^# //')
             echo "- **[$title](docs/$file)**" >> index.md
@@ -248,6 +249,7 @@ jobs:
           echo "No changes to commit"
         else
           git commit -m "Auto-update index.md from docs [skip ci]"
+          git pull --rebase origin main
           git push
         fi
       env:
