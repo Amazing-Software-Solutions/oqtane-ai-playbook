@@ -70,7 +70,56 @@ UI must be constructed using **explicit HTML elements**, including:
 - `<textarea>`
 - `<button type="button">`
 
+### **Basic Input Types**
+
+1. **`text`** - Single-line text field
+2. **`password`** - Masked text field (for passwords)
+3. **`email`** - Email address field with validation
+4. **`tel`** - Telephone number field
+5. **`url`** - URL field with validation
+6. **`search`** - Search field (often with clear button)
+7. **`number`** - Numeric input field
+8. **`range`** - Slider control for numbers
+9. **`color`** - Color picker
+10. **`date`** - Date picker
+11. **`datetime-local`** - Date and time picker (no timezone)
+12. **`time`** - Time picker
+13. **`week`** - Week picker
+14. **`month`** - Month picker
+15. **`file`** - File upload control
+
+### **Selection Input Types**
+
+1. **`checkbox`** - Checkbox (multiple selection)
+2. **`radio`** - Radio button (single selection)
+
+### **Button Input Types**
+
+1. **`button`** - Generic button
+2. **`submit`** - Form submission button
+3. **`reset`** - Form reset button
+4. **`image`** - Image as submit button
+
+### **Special/Hidden Input Types**
+
+1. **`hidden`** - Hidden field (not visible)
+2. **`datetime`** - **Deprecated** - Date and time with timezone
+
+### **HTML5 New Input Types**
+
+(These are the modern types added in HTML5):
+
+* `email`, `url`, `tel`, `search`
+* `number`, `range`
+* `color`
+* `date`, `datetime-local`, `time`, `week`, `month`
+* `file` (with `multiple` attribute) 
+
+The button must have the attribute type="button" failing to do so will cause the button to act like a "submit" button
+
 Validation and save behavior must be **explicit, visible, and imperative** in code.
+
+No controls from the Microsoft.AspNetCore.Components.Forms namespace
 
 ---
 
@@ -81,6 +130,7 @@ Validation and save behavior must be **explicit, visible, and imperative** in co
 An explicit request MUST:
 
 - Mention `EditForm` by name
+- Mention `Microsoft.AspNetCore.Components.Forms` by name
 - Clearly state that its use is intentional
 
 Examples of valid opt-in prompts:
