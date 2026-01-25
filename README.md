@@ -4,13 +4,16 @@
 ![AI Governance](https://img.shields.io/badge/AI-Governed-027%20Based--green)
 ![Canonical Source](https://img.shields.io/badge/Canonical-Oqtane%20Framework-black)
 
-> 
-> **TL;DR for maintainers**
-> 
-> This repository defines **non-negotiable architectural and AI governance rules** for Oqtane module development.
-> 
-> If AI-generated output conflicts with this playbook or the canonical module reference, **the output is invalid-regardless of correctness**.
-> 
+> **This playbook aligns with the core principles of Oqtane as articulated in the Oqtane Philosophy — performance, flexibility, low ceremony, tool agnosticism, consistency, and practical engineering. See https://www.oqtane.org/blog/!/20/oqtane-philosophy for foundational context.**
+
+
+
+**TL;DR for maintainers**
+
+This repository defines **non-negotiable architectural and AI governance rules** for Oqtane module development.
+
+If AI-generated output conflicts with this playbook or the canonical module reference, **the output is invalid-regardless of correctness**.
+
 
 ---
 
