@@ -1,16 +1,16 @@
-name: Auto Generate Navigation TOC
+name: Auto Generate Navigation TOC (Module Example)
 
 on:
   push:
     paths:
-      - 'docs/**'
-      - '.github/**'
-      - '*.md'
+      - 'module-playbook-example/docs/**'
+      - 'module-playbook-example/.github/**'
+      - 'module-playbook-example/*.md'
   pull_request:
     paths:
-      - 'docs/**'
-      - '.github/**'
-      - '*.md'
+      - 'module-playbook-example/docs/**'
+      - 'module-playbook-example/.github/**'
+      - 'module-playbook-example/*.md'
   workflow_dispatch:
 
 permissions:
@@ -28,6 +28,9 @@ jobs:
     
     - name: Generate Navigation TOC
       run: |
+        # Change to the module-playbook-example directory
+        cd module-playbook-example
+        
         # Create automated NAVIGATION.md
         cat > NAVIGATION.md << 'EOF'
         # Module Playbook Example - Auto-Generated Navigation
@@ -36,7 +39,7 @@ jobs:
         > 
         > **Last updated:** $(date -u +"%Y-%m-%d %H:%M UTC")
         > 
-        > **Trigger:** File changes in docs/, .github/, or root markdown files
+        > **Trigger:** File changes in module-playbook-example/docs/, .github/, or root markdown files
 
         ---
 
@@ -95,7 +98,7 @@ jobs:
           echo "#### Development Patterns" >> NAVIGATION.md
           
           # Development pattern files
-          for file in "docs/governance/027x-authorization.md" "docs/governance/027x-error-handling.md" "docs/governance/027x-localization.md" "docs/governance/027x-migrations.md" "docs/governance/027x-packaging-and-dependencies.md" "docs/governance/027x-repositories.md" "docs/governance/027x-scheduled-jobs.md" "docs/governance/027x-startup.md" "docs/governance/027x-structure-and-boundaries.md"; do
+          for file in "docs/governance/027x-authorization.md" "docs/governance/027x-error-handling.md" "docs/governance/027x-localization.md" "docs/governance/027x-migrations.md" "docs/governance/027x-packaging-and-dependencies.md" "docs/governance/027x-repositories.md" "docs/governance/027x-scheduled-jobs.md" "docs/governance/027x-startup-and-service-registration.md" "docs/governance/027x-structure-and-boundaries.md"; do
             if [ -f "$file" ]; then
               title=$(head -n 1 "$file" | sed 's/^# //')
               icon="📋"
@@ -231,7 +234,7 @@ jobs:
         echo "│   │   └── README.md                   # 📖 Prompts overview" >> NAVIGATION.md
         echo "│   ├── ai-decision-timeline.md        # 📜 Decision history" >> NAVIGATION.md
         echo "│   └── deviations.md                   # ⚠️ Pattern deviations" >> NAVIGATION.md
-        echo "├── NAVIGATION.md                       # 🗺️ This auto-generated navigation"
+        echo "├── NAVIGATION.md                       # 🗺️ This auto-generated navigation" >> NAVIGATION.md
         echo "└── toc.yml                             # 📊 Structured TOC data" >> NAVIGATION.md
         echo '```' >> NAVIGATION.md
         
@@ -242,10 +245,10 @@ jobs:
         echo "" >> NAVIGATION.md
         echo "This navigation file is **automatically generated** by GitHub Actions:" >> NAVIGATION.md
         echo "" >> NAVIGATION.md
-        echo "- **Trigger:** Changes in \`docs/\`, \`.github/\`, or root \`.md\` files" >> NAVIGATION.md
+        echo "- **Trigger:** Changes in \`module-playbook-example/docs/\`, \`.github/\`, or root \`.md\` files" >> NAVIGATION.md
         echo "- **Frequency:** On every relevant push/PR" >> NAVIGATION.md
         echo "- **Manual Trigger:** Available via GitHub Actions tab" >> NAVIGATION.md
-        echo "- **Source:** Workflow in \`.github/workflows/auto-toc.yml\`" >> NAVIGATION.md
+        echo "- **Source:** Workflow in \`module-playbook-example/.github/workflows/auto-toc.yml\`" >> NAVIGATION.md
         echo "" >> NAVIGATION.md
         echo "**⚠️ Do not manually edit this file** - your changes will be overwritten." >> NAVIGATION.md
         echo "" >> NAVIGATION.md
@@ -270,11 +273,11 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add NAVIGATION.md
+        git add module-playbook-example/NAVIGATION.md
         if git diff --staged --quiet; then
           echo "No changes to NAVIGATION.md - it's already up to date"
         else
-          git commit -m "Auto-update NAVIGATION.md [skip ci]"
+          git commit -m "Auto-update module-playbook-example/NAVIGATION.md [skip ci]"
           git push
         fi
       env:
