@@ -1,4 +1,4 @@
- # Mdoule-Playbook-Example
+ # Module-Playbook-Example
 
 **Canonical, Governed Reference Module for Oqtane AI Development**
 
