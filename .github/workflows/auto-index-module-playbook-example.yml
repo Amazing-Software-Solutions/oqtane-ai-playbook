@@ -1,4 +1,4 @@
-name: Auto Generate Index (Module Playbook Example)
+name: Auto Generate Index (Module Playbook Example) 
 
 on:
   push:
