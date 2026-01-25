@@ -4,15 +4,15 @@
 ![AI Governance](https://img.shields.io/badge/AI-Governed-027%20Based--green)
 ![Canonical Source](https://img.shields.io/badge/Canonical-Oqtane%20Framework-black)
 
-> **This playbook aligns with the core principles of Oqtane as articulated in the Oqtane Philosophy — performance, flexibility, low ceremony, tool agnosticism, consistency, and practical engineering. See https://www.oqtane.org/blog/!/20/oqtane-philosophy for foundational context.**
+> **This playbook aligns with the core principles of Oqtane as articulated in the Oqtane Philosophy — performance, flexibility, low ceremony, tool agnosticism, consistency, and practical simplicity.**
 
 ---
 
 ## Overview
 
-The **Oqtane AI Playbook** is a framework-aware governance repository for building robust, upgrade-safe Oqtane modules - with or without AI assistance. This repository makes Oqtane's implicit rules explicit, enforceable, and visible to both humans and AI tools.
+The **Oqtane AI Playbook** is a framework-aware governance repository for building robust, upgrade-safe Oqtane modules - with or without AI assistance. This repository makes Oqtane's implicit rules explicit, ensuring AI tools behave as force multipliers, not chaos agents.
 
-**TL;DR for maintainers**: This repository defines **non-negotiable architectural and AI governance rules** for Oqtane module development. If AI-generated output conflicts with this playbook or the canonical module reference, **the output is invalid** regardless of correctness.
+**TL;DR for maintainers**: This repository defines **non-negotiable architectural and AI governance rules** for Oqtane module development. If AI-generated output conflicts with this playbook, the AI is wrong.
 
 ---
 
@@ -43,7 +43,6 @@ The **Oqtane AI Playbook** is a framework-aware governance repository for buildi
 - **[017 - Client / Server Responsibility Boundaries](docs/017-Clien-Server-Responsibility- Boundaries.md)**
 - **[018 – Service Registration and Module Startup](docs/018-service-registration.md)**
 - **[Localization in Oqtane Modules](docs/019-Localization.md)**
-- **[Packaging and External Dependencies in Oqtane Modules](docs/020-packaging-and-dependencies.md)**
 
 ### 🔄 Migration and Updates
 
@@ -57,7 +56,6 @@ The **Oqtane AI Playbook** is a framework-aware governance repository for buildi
 - **[Canonical Reference Implementation](docs/030-canonical-reference.md)**
 - **[Canonical Module Overview](docs/031-canonical-module-overview.md)**
 - **[Canonical Diff Policy](docs/032-canonical-diff-policy.md)**
-- **[Canonical Verification Checklist](docs/034-canonical-verification-checklist.md)**
 
 ### ✅ Conclusion
 
