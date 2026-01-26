@@ -51,7 +51,7 @@ The Module Playbook Example demonstrates how to apply the Oqtane AI Playbook gov
 
 ---
 
-Last updated: 2026-01-25 18:50 UTC
+Last updated: 2026-01-26 07:41 UTC
 
 **Note:** This index is auto-generated. Edit source files under module-playbook-example/docs/ to change the index.
 
