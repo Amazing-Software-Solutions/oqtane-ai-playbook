@@ -94,6 +94,21 @@ Repositories must not:
 
 ---
 
+## Rule 8: Repository Access Restriction
+
+Repositories MUST be accessed only by Server Services.
+
+Repositories MUST NOT be accessed by:
+- Controllers
+- Client services
+- UI components
+- Background jobs without a server service boundary
+
+**Reject any repository injected into or referenced by a controller.**
+
+
+---
+
 ## Repository Validation Checklist
 
 A repository is valid only if:
@@ -103,6 +118,7 @@ A repository is valid only if:
 - It uses DbContext correctly
 - It exposes explicit interfaces
 - It avoids UI or transport concerns
+- It is accessed only via a Server Service
 
 If any check fails, **reject the change**.
 

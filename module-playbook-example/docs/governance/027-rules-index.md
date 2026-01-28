@@ -90,7 +90,7 @@ Rules for Oqtane Scheduled Jobs (`HostedServiceBase` only).
 
 Database migration rules for multi-database Oqtane modules.
 
--- **027x-packaging-and-dependencies.md**
+- **027x-packaging-and-dependencies.md**
 
 These rules govern runtime behavior, deployment correctness, and platform constraints.
 
@@ -104,11 +104,16 @@ These rules govern runtime behavior, deployment correctness, and platform constr
 
 Repository responsibilities, boundaries, and prohibited logic.
 
+- **027x-structure-and-boundaries.md**
+
+Enforces service-mediated access and prohibits controllers from accessing repositories directly.
+
 ---
 
 ### Optional (Opt-In) Rules
 
 - **027x-localization.md**
+
 Governs correct and canonical localization behavior for Oqtane modules once localization is intentionally enabled.
 
 ---
@@ -125,6 +130,7 @@ Client-side and server-side validation rules for Razor components.
 Error handling, user feedback, logging, and exception flow rules.
 
 -- **027x-ui-construction.md**
+
 UI construction rules for Razor components and HTML structure.
 
 -- **027x-ui-mudblazor.md**
