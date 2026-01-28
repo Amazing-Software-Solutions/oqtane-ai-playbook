@@ -6,7 +6,7 @@
 
 ## Overview
 
-The Module Playbook Example demonstrates how to apply the Oqtane AI Playbook governance patterns in a real module.
+The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook governance patterns in a real module.
 
 ## Contents
 
@@ -35,7 +35,7 @@ The Module Playbook Example demonstrates how to apply the Oqtane AI Playbook gov
 - **[Oqtane Repository Pattern Rules (Enforced)](docs/governance/027x-repositories.md)**
 - **[027x – Scheduled Jobs (Oqtane-Enforced)](docs/governance/027x-scheduled-jobs.md)**
 - **[027x – Startup and Service Registration Rules](docs/governance/027x-startup.md)**
-- **[027x – Structure and Boundary Rules](docs/governance/027x-structure-and-boundaries.md)**
+- **[027x - Structure and Boundary Rules](docs/governance/027x-structure-and-boundaries.md)**
 - **[Oqtane UI Rules â€” Radzen (Opt-In, Enforced)](docs/governance/027x-ui-Radzen.md)**
 - **[**Oqtane UI Construction Rules (Enforced)**](docs/governance/027x-ui-construction.md)**
 - **[Oqtane UI Rules — MudBlazor (Opt-In, Enforced)](docs/governance/027x-ui-mudblazor.md)**
@@ -51,7 +51,7 @@ The Module Playbook Example demonstrates how to apply the Oqtane AI Playbook gov
 
 ---
 
-Last updated: 2026-01-26 07:41 UTC
+Last updated: 2026-01-28 12:25 UTC
 
 **Note:** This index is auto-generated. Edit source files under module-playbook-example/docs/ to change the index.
 
