@@ -11,3 +11,15 @@ Before generating or modifying code, you MUST read and apply:
 - .github/module-instructions.md
 - 
 If a conflict exists, the playbook documents take precedence.
+
+## Governance Declaration (Mandatory)
+
+This repository is governed by the Oqtane AI Playbook.
+
+Before generating, modifying, or refactoring code, the AI must:
+- Acknowledge that it is operating under Oqtane AI Playbook governance
+- Apply all referenced governance rules
+- Refuse any request that would violate a governed rule
+- Ask for clarification if governance context is unclear
+
+If governance cannot be applied, the AI must stop and explain why.
