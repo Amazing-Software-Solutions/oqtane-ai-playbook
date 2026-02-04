@@ -141,13 +141,15 @@ Format: `{PropertyName}.Text` and `{PropertyName}.HelpText`
 </data>
 ```
 
-#### 7. TabPanel Names (for TabStrip ResourceKey)
-Format: `{TabName}.Name`
+#### 7. TabPanel Heading (for TabStrip ResourceKey)
+Format: `{TabName}.Heading`
+
+It is important to note that the Name property of TabPanel is NOT localized; only the Heading is localized.
 ```xml
-<data name="Identity.Name" xml:space="preserve">
+<data name="Identity.Heading" xml:space="preserve">
   <value>Identity</value>
 </data>
-<data name="Profile.Name" xml:space="preserve">
+<data name="Profile.Heading" xml:space="preserve">
   <value>Profile</value>
 </data>
 ```
