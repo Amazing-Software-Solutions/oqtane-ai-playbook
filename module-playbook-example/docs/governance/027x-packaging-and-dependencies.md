@@ -55,7 +55,15 @@ Failure to update the `.nuspec` will result in:
 
 ---
 
-### 3. Explicit Explanation
+### 3. Project File Update (.csproj)
+
+- Ensure the project file `.csproj` includes the appropriate <PackageReference>` entry for the new package.		
+- The PropertyGroup contains the CopyLocalLockFileAssemblies set to true, 
+ensuring that all referenced assemblies are copied to the output directory during build time.
+
+---
+
+### 4. Explicit Explanation
 
 The AI must clearly explain:
 
