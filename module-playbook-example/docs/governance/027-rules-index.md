@@ -94,6 +94,10 @@ Database migration rules for multi-database Oqtane modules.
 
 These rules govern runtime behavior, deployment correctness, and platform constraints.
 
+-- **027x-javascript-usage.md**
+
+This rule must NOT introduce JavaScript unless a Blazor-based C# solution is demonstrably insufficient. **opt-in, not default**.
+
 ---
 
 
