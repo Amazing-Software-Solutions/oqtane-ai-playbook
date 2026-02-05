@@ -133,17 +133,22 @@ Client-side and server-side validation rules for Razor components.
 
 Error handling, user feedback, logging, and exception flow rules.
 
--- **027x-ui-construction.md**
+- **027x-ui-construction.md**
 
 UI construction rules for Razor components and HTML structure.
 
--- **027x-ui-mudblazor.md**
+- **027x-ui-css-and-styling.md**
+
+Mandatory rules for CSS usage in Oqtane. CSS isolation is not supported; all module styling must use Module.css in the Server project.
+
+- **027x-ui-mudblazor.md**
 
 MudBlazor usage in Oqtane modules **only when explicitly requested**.
 
--- **027x-ui-radzen.md**
+- **027x-ui-radzen.md**
 
 Radzen usage in Oqtane modules **only when explicitly requested**.
+
 ---
 
 ## Rule Precedence

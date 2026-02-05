@@ -135,9 +135,9 @@ An explicit request MUST:
 
 Examples of valid opt-in prompts:
 
-- “Use `EditForm` for this component”
-- “Implement this using Blazor `EditForm` and DataAnnotations”
-- “This UI should explicitly use `EditForm`”
+- **Use `EditForm` for this component**
+- **Implement this using Blazor `EditForm` and DataAnnotations**
+- **This UI should explicitly use `EditForm`**
 
 If the prompt does **not** explicitly opt in, `EditForm` is **forbidden**.
 
@@ -157,7 +157,7 @@ Reject the output immediately if **any** of the following occur:
 
 ### Enforcement Notes
 
-- Familiarity, convention, or “best practice” is **not justification**
+- Familiarity, convention, or **best practice** is **not justification**
 - Historical Blazor defaults are **irrelevant**
 - Governance rules override AI priors and training bias
 - Silence is **not consent**
@@ -171,7 +171,7 @@ This rule exists to ensure that:
 - UI behavior is inspectable
 - Validation is traceable
 - Save logic is auditable
-- AI does not “helpfully” abstract critical behavior away
+- AI does not **helpfully** abstract critical behavior away
 
 ---
 
