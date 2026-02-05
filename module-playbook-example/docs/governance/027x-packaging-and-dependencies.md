@@ -40,6 +40,7 @@ Oqtane.Server\bin\Debug<target-framework>\
 
 If this step is omitted, the module **will compile but fail at runtime**.
 
+
 ---
 
 ### 2. Module Packaging (.nuspec)
@@ -110,6 +111,27 @@ The AI **MUST REFUSE** to proceed if:
 > Adding this package would require explicit runtime deployment and `.nuspec`
 > updates, and the correct approach is unclear.  
 > Please confirm the intended deployment strategy or approve a manual setup.
+
+---
+
+## Oqtane Dependency Management
+
+### ModuleInfo.cs Dependencies
+Oqtane requires explicit DLL dependencies in `ModuleInfo.cs` for proper assembly loading and housekeeping:
+
+### Key Principles
+1. **No File Extensions**: Dependencies list assembly names without `.dll` extensions
+2. **Complete Chain**: Include all transitive dependencies that aren't part of .NET runtime
+3. **Comma Separated**: Use comma-separated format for multiple dependencies
+4. **Core Module First**: Always list the main Doquetain module dependency first
+
+### Dependency Updates
+When updating third-party dependencies:
+1. Update project references
+2. Update nuspec dependency versions
+3. Update ModuleInfo.cs Dependencies string
+4. Test package generation and deployment
+5. Update provider documentation
 
 ---
 
