@@ -39,6 +39,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 - **[027x - Structure and Boundary Rules](docs/governance/027x-structure-and-boundaries.md)**
 - **[Oqtane UI Rules â€” Radzen (Opt-In, Enforced)](docs/governance/027x-ui-Radzen.md)**
 - **[**Oqtane UI Construction Rules (Enforced)**](docs/governance/027x-ui-construction.md)**
+- **[### Rule: UI CSS and Styling in Oqtane (Mandatory)](docs/governance/027x-ui-css-and-styling.md)**
 - **[Oqtane UI Rules — MudBlazor (Opt-In, Enforced)](docs/governance/027x-ui-mudblazor.md)**
 - **[Oqtane UI Validation Rules (Enforced)](docs/governance/027x-ui-validation.md)**
 - **[Governance Rules](docs/governance/README.md)**
@@ -52,7 +53,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 
 ---
 
-Last updated: 2026-02-04 11:35 UTC
+Last updated: 2026-02-05 11:01 UTC
 
 **Note:** This index is auto-generated. Edit source files under module-playbook-example/docs/ to change the index.
 
