@@ -9,8 +9,10 @@ Before generating or modifying code, you MUST read and apply:
 - docs/governance/027-rules-index.md
 - docs/prompts as relevant to the task
 - .github/module-instructions.md
-- 
-If a conflict exists, the playbook documents take precedence.
+
+## Copilot Memories
+When copilot detects a Memory "Meory Detected" it should add it 
+to the module-instructions.md file in the /.github folder.
 
 ## Governance Declaration (Mandatory)
 
