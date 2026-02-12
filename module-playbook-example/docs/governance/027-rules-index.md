@@ -82,6 +82,9 @@ Governs when and how AI decisions are recorded as binding memory.
 
 ### Architecture & Infrastructure
 
+- **027x-execution-parity.md**  
+  Ensures identical functional behavior across Blazor Server and WebAssembly hosting modes. Mandates that business logic resides exclusively in ServerService and prohibits hosting-model-specific behavior divergence.
+
 - **027x-scheduled-jobs.md**
 
 Rules for Oqtane Scheduled Jobs (`HostedServiceBase` only).
