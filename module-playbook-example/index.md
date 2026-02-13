@@ -29,6 +29,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 - **[Canonical Validation Rule (Enforced)](docs/governance/027x-canonical-validation.md)**
 - **[027x � Core AI Behavior Rules](docs/governance/027x-core-ai-behavior.md)**
 - **[Oqtane Error Handling Rules (Enforced)](docs/governance/027x-error-handling.md)**
+- **[027x – Execution Parity Across Hosting Models (Mandatory)](docs/governance/027x-execution-parity.md)**
 - **[## 027x – JavaScript Usage](docs/governance/027x-javascript-usage.md)**
 - **[027x - Localization and String Resources](docs/governance/027x-localization.md)**
 - **[﻿# 027x – Database Migration Rules](docs/governance/027x-migrations.md)**
@@ -53,7 +54,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 
 ---
 
-Last updated: 2026-02-06 11:13 UTC
+Last updated: 2026-02-12 14:03 UTC
 
 **Note:** This index is auto-generated. Edit source files under module-playbook-example/docs/ to change the index.
 
