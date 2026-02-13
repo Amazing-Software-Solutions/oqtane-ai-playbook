@@ -115,6 +115,14 @@ Repository responsibilities, boundaries, and prohibited logic.
 
 Enforces service-mediated access and prohibits controllers from accessing repositories directly.
 
+- **027x-module-portability.md** (Mandatory When Implemented)
+
+When a module opts into Oqtane’s IPortable interface, it must export and import the complete, restorable state of the module. Partial exports are prohibited.
+
+- **027x-data-identity-remapping.md** (Mandatory When (Mandatory When Implemented))
+
+When a module exports/imports hierarchical data, all primary keys must be remapped during import. Raw identity reuse is prohibited. Referential integrity, tenant isolation, and version compatibility must be explicitly enforced.
+
 ---
 
 ### Optional (Opt-In) Rules
