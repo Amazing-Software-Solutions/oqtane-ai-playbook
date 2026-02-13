@@ -28,11 +28,13 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 - **[Canonical Framework Rule (Enforced)](docs/governance/027x-canonical-framework.md)**
 - **[Canonical Validation Rule (Enforced)](docs/governance/027x-canonical-validation.md)**
 - **[027x � Core AI Behavior Rules](docs/governance/027x-core-ai-behavior.md)**
+- **[## Rule: Identity Remapping Is Mandatory for Hierarchical Import](docs/governance/027x-data-identity-remapping.md)**
 - **[Oqtane Error Handling Rules (Enforced)](docs/governance/027x-error-handling.md)**
 - **[027x – Execution Parity Across Hosting Models (Mandatory)](docs/governance/027x-execution-parity.md)**
 - **[## 027x – JavaScript Usage](docs/governance/027x-javascript-usage.md)**
 - **[027x - Localization and String Resources](docs/governance/027x-localization.md)**
 - **[﻿# 027x – Database Migration Rules](docs/governance/027x-migrations.md)**
+- **[Module Portability](docs/governance/027x-module-portability.md)**
 - **[ # 027x — Packaging and External Dependencies](docs/governance/027x-packaging-and-dependencies.md)**
 - **[Oqtane Repository Pattern Rules (Enforced)](docs/governance/027x-repositories.md)**
 - **[027x � Scheduled Jobs (Oqtane-Enforced)](docs/governance/027x-scheduled-jobs.md)**
@@ -54,7 +56,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 
 ---
 
-Last updated: 2026-02-12 14:03 UTC
+Last updated: 2026-02-13 13:10 UTC
 
 **Note:** This index is auto-generated. Edit source files under module-playbook-example/docs/ to change the index.
 
