@@ -1,3 +1,5 @@
+# Copilot Instructions
+
 ## AI Instruction Entry Point (Copilot)
 
 This file is the entry point for GitHub Copilot in this repository.

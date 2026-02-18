@@ -5,6 +5,7 @@
 .DESCRIPTION
   - Adds missing governance file references to .slnx
   - Ensures required governance files physically exist
+  - Removes any references to files in module-playbook-example and replaces with materialized copies
   - Never deletes solution content
   - Supports DryRun and Verbose output
 
@@ -105,6 +106,52 @@ Write-Verbose "Solution file: $($slnx.Name)"
 $solutionNode = $xml.Solution
 
 # ------------------------------------------------------------
+# Helper function to get relative path (compatible with older .NET)
+# ------------------------------------------------------------
+
+function Get-RelativePath {
+    param (
+        [string] $Path,
+        [string] $RelativeTo
+    )
+    
+    # Normalize paths
+    $Path = [System.IO.Path]::GetFullPath($Path)
+    $RelativeTo = [System.IO.Path]::GetFullPath($RelativeTo)
+    
+    # Make sure RelativeTo ends with a directory separator
+    if (-not $RelativeTo.EndsWith([System.IO.Path]::DirectorySeparatorChar)) {
+        $RelativeTo += [System.IO.Path]::DirectorySeparatorChar
+    }
+    
+    # Split paths into parts
+    $pathParts = $Path.Split([System.IO.Path]::DirectorySeparatorChar)
+    $baseParts = $RelativeTo.Split([System.IO.Path]::DirectorySeparatorChar)
+    
+    # Find common prefix length
+    $i = 0
+    while ($i -lt $baseParts.Length -and $i -lt $pathParts.Length -and $baseParts[$i] -eq $pathParts[$i]) {
+        $i++
+    }
+    
+    # Build relative path
+    $relative = @()
+    
+    # Add ".." for each remaining part in base path
+    for ($j = $i; $j -lt $baseParts.Length - 1; $j++) {  # -1 because last part is empty due to trailing slash
+        $relative += ".."
+    }
+    
+    # Add remaining parts from target path
+    for ($j = $i; $j -lt $pathParts.Length; $j++) {
+        $relative += $pathParts[$j]
+    }
+    
+    # Join with forward slashes
+    return ($relative -join '/')
+}
+
+# ------------------------------------------------------------
 # Helpers
 # ------------------------------------------------------------
 
@@ -125,6 +172,34 @@ function Get-OrCreateFolderNode {
 
     $script:Changes += "Add folder: $Name"
     return $node
+}
+
+function Remove-FileReference {
+    param (
+        [string] $PathPattern
+    )
+
+    $nodesToRemove = @()
+    
+    # Find all File nodes where Path contains the pattern
+    foreach ($folder in $solutionNode.Folder) {
+        foreach ($file in $folder.File) {
+            if ($file.Path -like $PathPattern) {
+                $nodesToRemove += [PSCustomObject]@{
+                    Folder = $folder
+                    File = $file
+                }
+            }
+        }
+    }
+
+    foreach ($node in $nodesToRemove) {
+        Write-Verbose "Removing file reference: $($node.File.Path)"
+        if (-not $DryRun) {
+            [void]$node.Folder.RemoveChild($node.File)
+        }
+        $script:Changes += "Remove reference: $($node.File.Path)"
+    }
 }
 
 function Ensure-FileReference {
@@ -182,14 +257,33 @@ function Ensure-PhysicalFile {
 }
 
 # ------------------------------------------------------------
-# Materialised governance files (MUST exist in playbook)
+# SANITY CHECK - Remove any references to files in module-playbook-example
 # ------------------------------------------------------------
 
+Write-Verbose "Performing sanity check - removing references to playbook files"
+
+# Remove any references to files in the module-playbook-example folder
+Remove-FileReference -PathPattern "*module-playbook-example*"
+
+# Also remove references to specific files that we're going to materialize
+# This handles cases where they might be referenced from other locations
 $MaterialisedFiles = @(
     "docs/deviations.md",
     "docs/ai-decision-timeline.md",
-    ".github/module-instructions.md"  # This one needs to be materialized
+    ".github/module-instructions.md",
+    ".github/copilot-instructions.md",
+    ".amazonq/rules/instructions.md"
 )
+
+foreach ($file in $MaterialisedFiles) {
+    # Get just the filename part for pattern matching
+    $fileName = Split-Path $file -Leaf
+    Remove-FileReference -PathPattern "*$fileName"
+}
+
+# ------------------------------------------------------------
+# Materialised governance files (MUST exist in playbook)
+# ------------------------------------------------------------
 
 $MaterialisedFilesCreated = @()
 
@@ -216,8 +310,9 @@ if (Test-Path $GovernanceSourcePath) {
         $folderNode = Get-OrCreateFolderNode -Name "/docs/governance/"
         
         foreach ($govFile in $GovernanceFiles) {
-            # Use the absolute path to the playbook file
-            Ensure-FileReference -FolderNode $folderNode -Path $govFile.FullName
+            # Use the relative path from solution root
+            $relativePath = Get-RelativePath -Path $govFile.FullName -RelativeTo $SolutionRoot
+            Ensure-FileReference -FolderNode $folderNode -Path $relativePath
         }
     }
 }
@@ -237,8 +332,9 @@ if (Test-Path $PromptsSourcePath) {
         $promptsFolderNode = Get-OrCreateFolderNode -Name "/docs/prompts/"
         
         foreach ($promptFile in $PromptFiles) {
-            # Use the absolute path to the playbook file
-            Ensure-FileReference -FolderNode $promptsFolderNode -Path $promptFile.FullName
+            # Use the relative path from solution root
+            $relativePath = Get-RelativePath -Path $promptFile.FullName -RelativeTo $SolutionRoot
+            Ensure-FileReference -FolderNode $promptsFolderNode -Path $relativePath
         }
     }
 }
@@ -257,8 +353,18 @@ foreach ($dotFolder in $DotFolders) {
     $allFiles = Get-ChildItem -Path $dotFolder.FullName -File -Recurse -ErrorAction SilentlyContinue
     
     foreach ($file in $allFiles) {
-        # Skip module-instructions.md in .github folder - we'll handle it separately
-        if ($dotFolder.Name -eq ".github" -and $file.Name -eq "module-instructions.md") {
+        # Skip specific files we handle separately
+        $skipFile = $false
+        
+        if ($dotFolder.Name -eq ".github" -and ($file.Name -eq "module-instructions.md" -or $file.Name -eq "copilot-instructions.md")) {
+            $skipFile = $true
+        }
+        
+        if ($dotFolder.Name -eq ".amazonq" -and $file.FullName -like "*\.amazonq\rules\instructions.md") {
+            $skipFile = $true
+        }
+        
+        if ($skipFile) {
             continue
         }
         
@@ -276,8 +382,9 @@ foreach ($dotFolder in $DotFolders) {
         # Get or create the containing folder in solution
         $fileFolderNode = Get-OrCreateFolderNode -Name $solutionFolderPath
         
-        # Use the absolute path to the playbook file
-        Ensure-FileReference -FolderNode $fileFolderNode -Path $file.FullName
+        # Use the relative path from solution root
+        $relativePath = Get-RelativePath -Path $file.FullName -RelativeTo $SolutionRoot
+        Ensure-FileReference -FolderNode $fileFolderNode -Path $relativePath
     }
 }
 
@@ -295,11 +402,27 @@ foreach ($file in $MaterialisedFilesCreated) {
     }
 }
 
-# Add the materialized module-instructions.md to .github folder
+# Add materialized files to their respective folders
+
+# .github folder files
+$githubFolderNode = Get-OrCreateFolderNode -Name "/.github/"
+
 $moduleInstructionsPath = Join-Path $SolutionRoot ".github\module-instructions.md"
 if (Test-Path $moduleInstructionsPath) {
-    $githubFolderNode = Get-OrCreateFolderNode -Name "/.github/"
     Ensure-FileReference -FolderNode $githubFolderNode -Path ".github/module-instructions.md"
+}
+
+$copilotInstructionsPath = Join-Path $SolutionRoot ".github\copilot-instructions.md"
+if (Test-Path $copilotInstructionsPath) {
+    Ensure-FileReference -FolderNode $githubFolderNode -Path ".github/copilot-instructions.md"
+}
+
+# .amazonq\rules folder files
+$amazonqRulesFolderNode = Get-OrCreateFolderNode -Name "/.amazonq/rules/"
+
+$amazonqInstructionsPath = Join-Path $SolutionRoot ".amazonq\rules\instructions.md"
+if (Test-Path $amazonqInstructionsPath) {
+    Ensure-FileReference -FolderNode $amazonqRulesFolderNode -Path ".amazonq/rules/instructions.md"
 }
 
 # ------------------------------------------------------------
