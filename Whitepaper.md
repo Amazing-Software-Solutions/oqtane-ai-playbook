@@ -53,7 +53,7 @@ The constraints imposed by the playbook are deliberate. They exist to reduce sys
 
 * * *
 
-### 3. Why You Need It — and the Benefits
+### 3. Why You Need It - and the Benefits
 
 In production environments, the cost of failure is rarely immediate. Instead, it manifests as accumulated technical debt, inconsistent implementations, and erosion of architectural standards.
 
