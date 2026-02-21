@@ -21,6 +21,9 @@ explicitly.
 Adding a package is considered **incomplete and non-compliant** unless the
 deployment and module packaging implications are addressed.
 
+When adding a package the AI **MUST** use the last version of the package available on NuGet.org, unless a specific version is required for compatibility reasons. 
+The AI **MUST** explain why a specific version is necessary if it does not use the latest version.
+
 ---
 
 ## Mandatory Requirements
@@ -30,6 +33,8 @@ If an external NuGet package is introduced, the AI **MUST**:
 ### 1. Runtime Deployment
 
 Ensure the package assemblies are copied to the Oqtane Server runtime bin.
+Only copying the package to the project and relying on NuGet restore is insufficient, as Oqtane does not automatically resolve these dependencies at runtime.
+Copy the assemblies only from the comsuming project.
 
 This typically requires:
 
