@@ -41,6 +41,7 @@ These rules are **strictly enforced**.
 
 - Exactly **8 numeric digits**
 - Strictly increasing
+- Only increase the build number, unless specified.
 - Determines execution order
 - Common format: `MMmmPPbb`
   - Major / Minor / Patch / Build

@@ -123,12 +123,14 @@ Oqtane requires explicit DLL dependencies in `ModuleInfo.cs` for proper assembly
 1. **No File Extensions**: Dependencies list assembly names without `.dll` extensions
 2. **Complete Chain**: Include all transitive dependencies that aren't part of .NET runtime
 3. **Comma Separated**: Use comma-separated format for multiple dependencies
-4. **Core Module First**: Always list the main Doquetain module dependency first
+4. **No Space Padding**: The name list should not have spaces around commas
+5. **Core Module First**: Always list the main Doquetain module dependency first
 
 ### Dependency Updates
 When updating third-party dependencies:
 1. Update project references
 2. Update nuspec dependency versions
+2. The dependency files must be copied to the Oqtane Server bin in the files section of the nuspec
 3. Update ModuleInfo.cs Dependencies string
 4. Test package generation and deployment
 5. Update provider documentation
