@@ -1,3 +1,5 @@
+![Oqtane AI Playbook Logo](Oqtane-AI-Playbook-Logo.png)
+
 # Oqtane AI Playbook
 
 ![Oqtane](https://img.shields.io/badge/Oqtane-Framework-blue)
