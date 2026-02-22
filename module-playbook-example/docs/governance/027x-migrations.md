@@ -1,5 +1,16 @@
 ﻿# 027x – Database Migration Rules
 
+## AI ENFORCEMENT WARNING
+
+After generating any migration:
+
+1. You MUST increment the version correctly
+2. You MUST update ModuleInfo.cs RevisionNumber
+3. You MUST ensure both values match exactly
+4. You MUST use comma separated format with no spaces
+
+Failure to do so results in an invalid migration.
+
 ## Scope
 
 These rules govern **all database migrations** for Oqtane modules.
@@ -36,21 +47,11 @@ These rules are **strictly enforced**.
 
 `Version_Description.cs`
 
-
 ### Version Rules
 
 - Exactly **8 numeric digits**
-- Strictly increasing
-- Only increase the build number, unless specified.
-- Determines execution order
-- Common format: `MMmmPPbb`
-  - Major / Minor / Patch / Build
-- Example:
-  - Version `1.0.0.0` → `01000000`
-
-### Description Rules
-
-- PascalCase
+- Strictly increasing 
+[Rule 3: Version Increment Strategy](#rule-3-version-increment-strategy)
 - Describes the schema change
 
 ### Valid Examples
@@ -65,6 +66,123 @@ These rules are **strictly enforced**.
 - Filename does not follow the required pattern
 
 ---
+
+## Rule 3: Version Increment Strategy
+
+When creating a new migration:
+
+- The migration filename must follow the 8 digit numeric version rule
+- Versions must be strictly increasing
+- By default, **only increment the build segment**
+- Major, Minor, or Patch segments may only be incremented when explicitly instructed
+
+### Clarified Version Structure
+
+Version format: `MMmmPPbb`
+
+- MM = Major
+- mm = Minor
+- PP = Patch
+- bb = Build
+
+Default behavior:
+
+- Increment only the `bb` segment
+- Do not reset other segments unless explicitly directed
+- Do not modify historical migration versions
+
+Example:
+
+If the current version is:
+
+```
+01000003
+```
+
+The next migration must be:
+
+```
+01000004
+```
+
+Not:
+
+```
+0100001002000000
+```
+
+Unless explicitly specified.
+
+Reject if:
+
+- Any segment other than build is changed without instruction
+- Version is not strictly greater than the previous migration
+
+---
+
+## Rule 4: Mandatory RevisionNumber Update
+
+After creating a migration, the AI must update:
+
+```
+ModuleInfo.cs
+```
+
+Specifically:
+
+```
+RevisionNumber
+```
+
+### Critical Requirement
+
+- `RevisionNumber` must match the latest migration version
+- It must be an 8 digit numeric string
+- It must be comma separated
+- It must contain no spaces
+
+Example:
+
+```
+public override string RevisionNumber => "01,00,00,04";
+```
+
+Mapping:
+
+Migration file:
+
+```
+01000004_AddNewTable.cs
+```
+
+RevisionNumber must be:
+
+```
+"01,00,00,04"
+```
+
+---
+
+### Why This Is Critical
+
+Oqtane uses `RevisionNumber` to determine which migrations must be executed during application startup.
+
+If `RevisionNumber` is not updated:
+
+- The migration will not execute
+- The database will not be upgraded
+- Production failures may occur
+- Schema drift will happen
+
+This is a critical synchronization rule.
+
+Reject if:
+
+- RevisionNumber is not updated
+- RevisionNumber does not match the latest migration
+- Comma formatting is incorrect
+- Spaces are present in the version string
+
 
 ## Rule 3: Migration Class Structure
 
