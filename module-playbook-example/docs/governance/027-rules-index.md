@@ -85,21 +85,19 @@ Governs when and how AI decisions are recorded as binding memory.
 - **027x-execution-parity.md**  
   Ensures identical functional behavior across Blazor Server and WebAssembly hosting modes. Mandates that business logic resides exclusively in ServerService and prohibits hosting-model-specific behavior divergence.
 
-- **027x-scheduled-jobs.md**
+- **027x-scheduled-jobs.md**  
+  Rules for Oqtane Scheduled Jobs (`HostedServiceBase` only).
 
-Rules for Oqtane Scheduled Jobs (`HostedServiceBase` only).
+- **027x-migrations.md**  
+  Database Migration Governance  
+  Defines module migration versioning strategy (Option B baseline model), ReleaseVersion semantics, RevisionNumber tracking, strict 8 digit naming, EntityBuilder immutability, and AI enforcement requirements.  
+  Mandatory for all schema changes.
 
-- **027x-migrations.md**
+- **027x-packaging-and-dependencies.md**  
+  These rules govern runtime behavior, deployment correctness, and platform constraints.
 
-Database migration rules for multi-database Oqtane modules.
-
-- **027x-packaging-and-dependencies.md**
-
-These rules govern runtime behavior, deployment correctness, and platform constraints.
-
--- **027x-javascript-usage.md**
-
-This rule must NOT introduce JavaScript unless a Blazor-based C# solution is demonstrably insufficient. **opt-in, not default**.
+- **027x-javascript-usage.md**  
+  This rule must NOT introduce JavaScript unless a Blazor-based C# solution is demonstrably insufficient. **opt-in, not default**.
 
 ---
 

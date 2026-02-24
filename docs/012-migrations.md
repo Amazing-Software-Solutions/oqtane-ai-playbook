@@ -162,15 +162,26 @@ Drift between these layers leads to runtime failures.
 
 ---
 
-## Updating the Module Version
+## Release Baseline and Build Migration Model
 
-The module’s `ReleaseVersion` must be updated to match the latest migration version.
+The Oqtane AI Playbook adopts the baseline + build model.
 
-This version is what Oqtane uses to determine whether migrations need to run.
+ReleaseVersion defines the published module baseline (major.minor.patch).
 
-If the version is not updated:
-- Migrations may not execute
-- The module may enter an inconsistent state
+Migration versions follow MM.mm.PP.bb and may increment the build segment during development.
+
+Migrations execute when:
+
+migrationVersion > ReleaseVersion
+
+Developers must:
+
+- Increment only the build segment during development
+- Update ModuleInfo.RevisionNumber to latest migration
+- Never modify EntityBuilders after initial deployment
+- Maintain reversible migrations
+
+This ensures runtime alignment, deterministic startup, and safe multi-tenant upgrades.
 
 ---
 
@@ -234,14 +245,4 @@ A strict migration model protects:
 - Multi-database compatibility
 - Long-term maintainability
 
----
 
-## What Comes Next
-
-With services, authorization, and data evolution covered, the next area is **background execution**.
-
-Oqtane’s Scheduled Job model is frequently misunderstood and often implemented incorrectly by AI tools.
-
-The next chapter focuses on:
-
-> **Scheduled Jobs: framework-managed background work**
