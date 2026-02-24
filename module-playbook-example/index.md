@@ -27,23 +27,23 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 - **[﻿# 027x – Authorization Rules](docs/governance/027x-authorization.md)**
 - **[Canonical Framework Rule (Enforced)](docs/governance/027x-canonical-framework.md)**
 - **[Canonical Validation Rule (Enforced)](docs/governance/027x-canonical-validation.md)**
-- **[027x � Core AI Behavior Rules](docs/governance/027x-core-ai-behavior.md)**
+- **[027x � Core AI Behavior Rules](docs/governance/027x-core-ai-behavior.md)**
 - **[## Rule: Identity Remapping Is Mandatory for Hierarchical Import](docs/governance/027x-data-identity-remapping.md)**
 - **[Oqtane Error Handling Rules (Enforced)](docs/governance/027x-error-handling.md)**
 - **[027x – Execution Parity Across Hosting Models (Mandatory)](docs/governance/027x-execution-parity.md)**
 - **[## 027x – JavaScript Usage](docs/governance/027x-javascript-usage.md)**
 - **[027x - Localization and String Resources](docs/governance/027x-localization.md)**
-- **[﻿# 027x – Database Migration Governance](docs/governance/027x-migrations.md)**
+- **[027x – Database Migration Governance](docs/governance/027x-migrations.md)**
 - **[Module Portability](docs/governance/027x-module-portability.md)**
 - **[ # 027x — Packaging and External Dependencies](docs/governance/027x-packaging-and-dependencies.md)**
 - **[Oqtane Repository Pattern Rules (Enforced)](docs/governance/027x-repositories.md)**
-- **[027x � Scheduled Jobs (Oqtane-Enforced)](docs/governance/027x-scheduled-jobs.md)**
-- **[027x � Startup and Service Registration Rules](docs/governance/027x-startup.md)**
+- **[027x � Scheduled Jobs (Oqtane-Enforced)](docs/governance/027x-scheduled-jobs.md)**
+- **[027x � Startup and Service Registration Rules](docs/governance/027x-startup.md)**
 - **[027x - Structure and Boundary Rules](docs/governance/027x-structure-and-boundaries.md)**
 - **[Oqtane UI Rules — Radzen (Opt-In, Enforced)](docs/governance/027x-ui-Radzen.md)**
 - **[**Oqtane UI Construction Rules (Enforced)**](docs/governance/027x-ui-construction.md)**
 - **[### Rule: UI CSS and Styling in Oqtane (Mandatory)](docs/governance/027x-ui-css-and-styling.md)**
-- **[Oqtane UI Rules � MudBlazor (Opt-In, Enforced)](docs/governance/027x-ui-mudblazor.md)**
+- **[Oqtane UI Rules � MudBlazor (Opt-In, Enforced)](docs/governance/027x-ui-mudblazor.md)**
 - **[Oqtane UI Validation Rules (Enforced)](docs/governance/027x-ui-validation.md)**
 - **[Governance Rules](docs/governance/README.md)**
 - **[Authorization Prompt (Oqtane Module)](docs/prompts/Authorization.md)**
@@ -56,7 +56,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 
 ---
 
-Last updated: 2026-02-24 11:07 UTC
+Last updated: 2026-02-24 12:53 UTC
 
 **Note:** This index is auto-generated. Edit source files under module-playbook-example/docs/ to change the index.
 
