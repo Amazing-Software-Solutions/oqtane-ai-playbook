@@ -1,4 +1,4 @@
-﻿# 027x – Database Migration Governance
+# 027x – Database Migration Governance
 
 ⚠ AI MIGRATION SAFETY WARNING
 
