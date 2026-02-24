@@ -27,6 +27,104 @@ Failure to comply results in an invalid migration.
 
 ---
 
+## Table Naming Governance
+
+### OwnerModule Table Naming Convention
+
+All module tables MUST follow the OwnerModule PascalCase naming convention.
+
+#### Rule
+
+Tables created by a module must:
+
+• Be prefixed with the module owner or module name  
+• Use strict PascalCase  
+• Contain no underscores  
+• Contain no schema prefixes inside the table name  
+• Be globally unique across the installation
+
+#### Format
+
+OwnerModuleEntityName
+
+Examples:
+
+GaafGovernedExample  
+AcMeEmailTemplate  
+
+Not allowed:
+
+playbook_governedexample  
+Playbook_GovernedExample  
+tblPlaybookGovernedExample  
+GovernedExample  
+Email_Template
+
+---
+
+### Why This Rule Exists
+
+#### 1. Prevents Cross Module Collisions
+
+Oqtane runs multiple modules inside the same database.  
+Generic names like Items or Settings will collide.
+
+The owner prefix guarantees uniqueness.
+
+---
+
+#### 2. Aligns with EntityBuilder Pattern
+
+EntityBuilders define the initial schema for a module.
+
+The table name constant should match the class and follow PascalCase:
+
+private const string _entityTableName = "PlaybookGovernedExample";
+
+Consistency keeps:
+
+• EntityBuilder readable  
+• Migrations predictable  
+• Debugging straightforward
+
+---
+
+#### 3. Preserves Long Term Clarity
+
+Modules may evolve for years.
+
+Clear PascalCase naming:
+
+• Improves SQL readability  
+• Improves tooling support  
+• Avoids legacy naming drift  
+• Keeps parity with Oqtane core naming
+
+---
+
+### Enforcement Requirements
+
+When generating migrations:
+
+AI must:
+
+• Use the correct PascalCase table name  
+• Never rename an existing deployed table  
+• Never alter historical table names in EntityBuilders  
+• Never introduce underscore based naming
+
+If a rename is required, it must be handled via a new migration using RenameTable and version increment.
+
+---
+
+### Non Negotiable Constraint
+
+EntityBuilder table names are immutable after initial deployment.
+
+All schema evolution must occur through new migration files only.
+
+---
+
 # 1. Migration Execution Model (Confirmed Behavior)
 
 Oqtane executes migrations automatically at application startup.
