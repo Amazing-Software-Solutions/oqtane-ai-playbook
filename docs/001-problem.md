@@ -1,4 +1,4 @@
- # 01 — The Problem: Why AI Struggles With Oqtane Module Development
+# 01 — The Problem: Why AI Struggles With Oqtane Module Development
 
 Oqtane is a **framework-driven platform** with strong architectural opinions, implicit conventions, and runtime behaviors that are not always obvious from surface-level code.
 

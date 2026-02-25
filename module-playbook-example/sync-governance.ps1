@@ -426,6 +426,168 @@ if (Test-Path $amazonqInstructionsPath) {
 }
 
 # ------------------------------------------------------------
+# Add Oqtane project references (Client and Shared)
+# ------------------------------------------------------------
+
+Write-Host "Looking for Oqtane framework projects..."
+
+# Look for any Oqtane.Server.csproj file in parent directories to locate framework root
+$currentDir = $SolutionRoot
+$maxDepth = 5
+$depth = 0
+$frameworkRoot = $null
+
+while ($depth -lt $maxDepth -and -not $frameworkRoot) {
+    Write-Verbose "Searching in: $currentDir"
+    
+    # Look for Oqtane.Server.csproj in this directory or immediate subdirectories
+    $possiblePath = Join-Path $currentDir "Oqtane.Server\Oqtane.Server.csproj"
+    if (Test-Path $possiblePath) {
+        $frameworkRoot = $currentDir
+        break
+    }
+    
+    # Also check in subdirectories one level deep
+    $subDirs = Get-ChildItem -Path $currentDir -Directory -ErrorAction SilentlyContinue
+    foreach ($subDir in $subDirs) {
+        $testPath = Join-Path $subDir.FullName "Oqtane.Server\Oqtane.Server.csproj"
+        if (Test-Path $testPath) {
+            $frameworkRoot = $subDir.FullName
+            break
+        }
+    }
+    
+    if ($frameworkRoot) { break }
+    
+    # Move up one directory
+    $currentDir = Split-Path $currentDir -Parent
+    $depth++
+}
+
+if ($frameworkRoot) {
+    Write-Host "Found Oqtane framework root: $frameworkRoot" -ForegroundColor Green
+    
+    # Calculate relative path from solution root to framework root
+    $relativePath = Get-RelativePath -Path $frameworkRoot -RelativeTo $SolutionRoot
+    
+    Write-Host "Relative path to framework: $relativePath" -ForegroundColor Yellow
+    
+    # Construct Client and Shared project paths
+    $clientProjectPath = "$relativePath/Oqtane.Client/Oqtane.Client.csproj"
+    $sharedProjectPath = "$relativePath/Oqtane.Shared/Oqtane.Shared.csproj"
+    
+    # Clean up paths
+    $clientProjectPath = $clientProjectPath -replace '\\', '/' -replace '//', '/'
+    $sharedProjectPath = $sharedProjectPath -replace '\\', '/' -replace '//', '/'
+    
+    Write-Host "Client project path: $clientProjectPath" -ForegroundColor Yellow
+    Write-Host "Shared project path: $sharedProjectPath" -ForegroundColor Yellow
+    
+    # Find which folder contains the Server project (if any)
+    $serverFolder = $null
+    foreach ($folder in $solutionNode.Folder) {
+        $serverProjectInFolder = $folder.Project | Where-Object { $_.Path -like "*Oqtane.Server*" }
+        if ($serverProjectInFolder) {
+            $serverFolder = $folder
+            Write-Host "Found Server project in folder: $($folder.Name)" -ForegroundColor Green
+            break
+        }
+    }
+    
+    if ($serverFolder) {
+        # Add Client and Shared to the same folder as Server
+        Write-Host "Adding Client and Shared to existing folder: $($serverFolder.Name)" -ForegroundColor Green
+        
+        # Check if Client project already exists in this folder
+        $existingClient = $serverFolder.Project | Where-Object { $_.Path -replace '\\', '/' -eq $clientProjectPath }
+        if (-not $existingClient) {
+            Write-Host "Adding Oqtane.Client project: $clientProjectPath" -ForegroundColor Green
+            if (-not $DryRun) {
+                $clientNode = $xml.CreateElement("Project")
+                $clientNode.SetAttribute("Path", $clientProjectPath)
+                
+                # Add Build element with Project="false"
+                $buildNode = $xml.CreateElement("Build")
+                $buildNode.SetAttribute("Project", "false")
+                $clientNode.AppendChild($buildNode) | Out-Null
+                
+                $serverFolder.AppendChild($clientNode) | Out-Null
+            }
+            $script:Changes += "Add project to folder $($serverFolder.Name): Oqtane.Client"
+        } else {
+            Write-Host "Oqtane.Client project already exists in folder" -ForegroundColor Yellow
+        }
+        
+        # Check if Shared project already exists in this folder
+        $existingShared = $serverFolder.Project | Where-Object { $_.Path -replace '\\', '/' -eq $sharedProjectPath }
+        if (-not $existingShared) {
+            Write-Host "Adding Oqtane.Shared project: $sharedProjectPath" -ForegroundColor Green
+            if (-not $DryRun) {
+                $sharedNode = $xml.CreateElement("Project")
+                $sharedNode.SetAttribute("Path", $sharedProjectPath)
+                
+                # Add Build element with Project="false"
+                $buildNode = $xml.CreateElement("Build")
+                $buildNode.SetAttribute("Project", "false")
+                $sharedNode.AppendChild($buildNode) | Out-Null
+                
+                $serverFolder.AppendChild($sharedNode) | Out-Null
+            }
+            $script:Changes += "Add project to folder $($serverFolder.Name): Oqtane.Shared"
+        } else {
+            Write-Host "Oqtane.Shared project already exists in folder" -ForegroundColor Yellow
+        }
+    } else {
+        # No folder found, add to solution root
+        Write-Host "Server project not in a folder - adding Client and Shared to solution root" -ForegroundColor Yellow
+        
+        # Check if Client project already exists at root
+        $existingClient = $solutionNode.Project | Where-Object { $_.Path -replace '\\', '/' -eq $clientProjectPath }
+        if (-not $existingClient) {
+            Write-Host "Adding Oqtane.Client project: $clientProjectPath" -ForegroundColor Green
+            if (-not $DryRun) {
+                $clientNode = $xml.CreateElement("Project")
+                $clientNode.SetAttribute("Path", $clientProjectPath)
+                
+                # Add Build element with Project="false"
+                $buildNode = $xml.CreateElement("Build")
+                $buildNode.SetAttribute("Project", "false")
+                $clientNode.AppendChild($buildNode) | Out-Null
+                
+                $solutionNode.AppendChild($clientNode) | Out-Null
+            }
+            $script:Changes += "Add project: Oqtane.Client"
+        } else {
+            Write-Host "Oqtane.Client project already exists" -ForegroundColor Yellow
+        }
+        
+        # Check if Shared project already exists at root
+        $existingShared = $solutionNode.Project | Where-Object { $_.Path -replace '\\', '/' -eq $sharedProjectPath }
+        if (-not $existingShared) {
+            Write-Host "Adding Oqtane.Shared project: $sharedProjectPath" -ForegroundColor Green
+            if (-not $DryRun) {
+                $sharedNode = $xml.CreateElement("Project")
+                $sharedNode.SetAttribute("Path", $sharedProjectPath)
+                
+                # Add Build element with Project="false"
+                $buildNode = $xml.CreateElement("Build")
+                $buildNode.SetAttribute("Project", "false")
+                $sharedNode.AppendChild($buildNode) | Out-Null
+                
+                $solutionNode.AppendChild($sharedNode) | Out-Null
+            }
+            $script:Changes += "Add project: Oqtane.Shared"
+        } else {
+            Write-Host "Oqtane.Shared project already exists" -ForegroundColor Yellow
+        }
+    }
+} else {
+    Write-Host "Could not find Oqtane framework root (Oqtane.Server.csproj) in parent directories" -ForegroundColor Red
+    Write-Host "Searched up to $maxDepth levels from: $SolutionRoot" -ForegroundColor Yellow
+}
+
+
+# ------------------------------------------------------------
 # Save solution
 # ------------------------------------------------------------
 

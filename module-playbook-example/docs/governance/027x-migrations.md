@@ -119,6 +119,59 @@ AI must:
 
 If a rename is required, it must be handled via a new migration using RenameTable and version increment.
 
+=======
+
+#### 1. Prevents Cross Module Collisions
+
+Oqtane runs multiple modules inside the same database.  
+Generic names like Items or Settings will collide.
+
+The owner prefix guarantees uniqueness.
+
+---
+
+#### 2. Aligns with EntityBuilder Pattern
+
+EntityBuilders define the initial schema for a module.
+
+The table name constant should match the class and follow PascalCase:
+
+private const string _entityTableName = "PlaybookGovernedExample";
+
+Consistency keeps:
+
+• EntityBuilder readable  
+• Migrations predictable  
+• Debugging straightforward
+
+---
+
+#### 3. Preserves Long Term Clarity
+
+Modules may evolve for years.
+
+Clear PascalCase naming:
+
+• Improves SQL readability  
+• Improves tooling support  
+• Avoids legacy naming drift  
+• Keeps parity with Oqtane core naming
+
+---
+
+### Enforcement Requirements
+
+When generating migrations:
+
+AI must:
+
+• Use the correct PascalCase table name  
+• Never rename an existing deployed table  
+• Never alter historical table names in EntityBuilders  
+• Never introduce underscore based naming
+
+If a rename is required, it must be handled via a new migration using RenameTable and version increment.
+
 ---
 
 ### Non Negotiable Constraint
@@ -178,9 +231,9 @@ Migration filenames MUST:
 
 Examples:
 
-- 01000000_InitializeModule.cs
-- 01000001_AddDescription.cs
-- 01020003_AddIndex.cs
+01000000_InitializeModule.cs
+01000001_AddDescription.cs
+01020003_AddIndex.cs
 
 Reject if:
 
