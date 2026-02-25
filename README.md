@@ -209,7 +209,7 @@ auditable customization at the module level.
 
 ```text
 .github/
-├── copilot-instructions.md <-- Referenced 
+├── copilot-instructions.md
 └── module-instructions.md
 
 docs/
