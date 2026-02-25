@@ -45,6 +45,7 @@ This includes (but is not limited to):
 - `Oqtane.Server`
 - `Oqtane.Shared`
 - Built-in modules (e.g. HtmlText, Admin)
+- Boilerplate template found at .\Oqtane.Framework\Oqtane.Server\wwwroot\Modules\Templates\External\
 
 Canonical behavior is derived from **existing framework implementations**, not copied reference modules.
 
