@@ -232,7 +232,9 @@ Then restart build numbering appropriately.
 
 After creating a migration:
 
-You MUST update ModuleInfo.cs RevisionNumber.
+You MUST update ModuleInfo.cs:
+
+public override string RevisionNumber => "01.02.00.03";
 
 Example:
 
@@ -240,8 +242,7 @@ Migration file:
 01020003_AddIndex.cs
 
 RevisionNumber must be:
-
-"01,02,00,03"
+"01.02.00.03"
 
 Rules:
 
