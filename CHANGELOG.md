@@ -1,6 +1,7 @@
 # Change Log
 
 # Release 1.1.0
+
 ## What's Changed
 * Add Oqtane AI Playbook logo and README by @leigh-pointer in https://github.com/leigh-pointer/oqtane-ai-playbook/pull/12
 * Inital readable guidance by @leigh-pointer in https://github.com/leigh-pointer/oqtane-ai-playbook/pull/13
@@ -16,8 +17,6 @@
 **Full Changelog**: https://github.com/leigh-pointer/oqtane-ai-playbook/compare/1.0.1...1.1.0
 
 # Release 1.0.1
-
-This release updates the Migration area of the Module Playbook example.
 
 ## What's Changed
 * Add changelog and version files; ignore *.bak by @leigh-pointer in https://github.com/leigh-pointer/oqtane-ai-playbook/pull/8
