@@ -337,14 +337,14 @@ All module tables MUST follow:
 
 OwnerModuleEntityName
 
-Pascal Case.
-No underscores.
-No generic names.
+* Pascal Case.
+* No underscores.
+* No generic names.
 
 Examples:
 
-AcmeBlogPost
-PlaybookGovernedExample
+* AcmeBlogPost
+* PlaybookGovernedExample
 
 This prevents:
 
