@@ -1,33 +1,36 @@
-﻿# 027x – Database Migration Governance
+# 027x – Database Migration Governance
 
-⚠ AI MIGRATION SAFETY WARNING
+This document defines the authoritative rules for database migrations in Oqtane modules.
 
-Before generating any database migration, confirm:
+It exists to:
+
+* Prevent schema drift
+* Prevent incorrect AI generated migrations
+* Ensure deterministic installs
+* Align with Oqtane runtime execution behavior
+
+This rule is mandatory.
+
+---
+
+# AI MIGRATION SAFETY GATE
+
+Before generating or modifying any migration, AI MUST confirm:
 
 1. Current ModuleDefinition.ReleaseVersion
-2. Latest migration version present
-3. ModuleInfo.RevisionNumber
-4. EntityBuilders have not been modified
+2. Latest existing migration version
+3. Current ModuleInfo.RevisionNumber
+4. EntityBuilders have not been modified after initial deployment
 
-If any of the above is unclear, STOP and request clarification.
+If any of the above is unclear:
 
----
-
-## AI ENFORCEMENT WARNING
-
-After generating any migration:
-
-1. You MUST create a new migration file
-2. You MUST increment the version correctly
-3. You MUST update ModuleInfo.cs RevisionNumber
-4. You MUST ensure RevisionNumber matches the migration version exactly
-5. You MUST NOT modify existing EntityBuilder files after initial deployment
-
-Failure to comply results in an invalid migration.
+STOP.
+Request clarification.
+Do not generate a migration.
 
 ---
 
-# 1. Migration Execution Model (Confirmed Behavior)
+# 1. Migration Execution Model (Runtime Behavior Confirmed)
 
 Oqtane executes migrations automatically at application startup.
 
@@ -50,13 +53,13 @@ Examples:
 Therefore:
 
 If ReleaseVersion = 10.0.0
-Then migrations 10.00.00.01 and 10.00.00.02 WILL execute.
+Then 10.00.00.01 and 10.00.00.02 WILL execute.
 
 This applies equally to:
 
-• Oqtane core migrations
-• Tenant migrations
-• Module migrations
+* Oqtane core migrations
+* Tenant migrations
+* Module migrations
 
 Only the scope prefix differs.
 
@@ -64,94 +67,95 @@ This behavior is by design.
 
 ---
 
-# 2. Version Structure
+# 2. Version Structure and File Naming
 
-Migration version format:
+Migration filenames MUST:
 
-MMmmPPbb
+* Contain exactly 8 numeric digits
+* Follow MMmmPPbb pattern
+* Be strictly increasing
+* Include a descriptive suffix
 
-Where:
 
-MM = Major
-mm = Minor
-PP = Patch
-bb = Build
-
-Filename format:
+Examples:
 
 01000000_InitializeModule.cs
 01000001_AddDescription.cs
-
-Exactly 8 digits. No exceptions.
+01020003_AddIndex.cs
 
 Reject if:
 
-• Not exactly 8 digits
-• Not strictly increasing
-• Does not follow MMmmPPbb pattern
+* Not exactly 8 digits
+* Not strictly increasing
+* Does not follow MMmmPPbb pattern
+
+No exceptions.
 
 ---
 
-# 3. Development Version Strategy (Clarified)
+# 3. Development Version Strategy (Baseline + Build Pattern)
 
 During a development cycle:
 
-• Set ModuleDefinition.ReleaseVersion to major.minor.patch only
-• Do NOT include the build segment in ReleaseVersion
-• Use the build segment in migration filenames for incremental schema changes
+* ModuleDefinition.ReleaseVersion MUST be major.minor.patch only
+* ReleaseVersion MUST NOT include the build segment
+* Increment only the build segment in migration filenames
 
 Example:
 
 ReleaseVersion = 1.2.0
-This is treated as 01.02.00.00
+Runtime interprets this as 01.02.00.00
 
-You may create:
+Valid development migrations:
 
 01020001_AddColumn.cs
 01020002_AddIndex.cs
 01020003_AddForeignKey.cs
 
-All will execute because:
+All execute because:
 
 01.02.00.01 > 01.02.00.00
 
-This allows incremental development migrations.
+ReleaseVersion defines the baseline.
+Build segment accumulates schema steps.
 
-Important:
+At official release:
 
-The ReleaseVersion acts as the baseline.
-Migrations above it execute.
+* You may bump Major
+* You may bump Minor
+* You may bump Patch
+
+Then restart build numbering appropriately.
 
 ---
 
-# 4. RevisionNumber Synchronization (Critical Rule)
+# 4. RevisionNumber Synchronization (Critical Enforcement Rule)
 
 After creating a migration:
 
-You MUST update ModuleInfo.cs:
+You MUST update ModuleInfo.cs RevisionNumber.
 
-public override string RevisionNumber => "01,02,00,03";
-
-Mapping rule:
+Example:
 
 Migration file:
 01020003_AddIndex.cs
 
 RevisionNumber must be:
+
 "01,02,00,03"
 
 Rules:
 
-• Comma separated
-• No spaces
-• Exactly 4 segments
-• Must match latest migration
+* Exactly 4 segments
+* Comma separated
+* No spaces
+* Must match latest migration exactly
 
-If this is incorrect:
+If misaligned:
 
-• Migrations may not execute
-• Schema drift may occur
-• Production failures may occur
+* Migration execution may fail
+* Schema drift may occur
+* Production inconsistencies may occur
 
 This rule is mandatory.
 
@@ -167,30 +171,27 @@ They are used exclusively by:
 
 After initial deployment:
 
-YOU MUST NEVER MODIFY ENTITYBUILDERS.
+EntityBuilders MUST NEVER be modified.
 
-Why:
+They are historical artifacts.
 
-EntityBuilders are historical artifacts.
-They represent the original schema state.
-
-All schema evolution must occur through new migration files.
+All schema evolution MUST occur through new migration files only.
 
 ---
 
 ## Correct Pattern
 
-Initial schema:
+Initial:
 
 01000000_InitializeModule.cs
 Uses EntityBuilders
 
-Schema changes:
+Changes:
 
-01000001_AddDescription.cs
+01000001_AddColumn.cs
 01000002_UpdateForeignKey.cs
 
-Pure migration logic only.
+Migration logic only.
 
 ---
 
@@ -200,123 +201,145 @@ Modifying:
 
 CreatorProfileEntityBuilder.cs
 
-To change a foreign key.
+To change foreign keys or schema.
 
 This is forbidden.
 
 ---
 
-# 6. Migration Class Requirements
+# 6. Model Contract Governance
 
-All migrations must:
+AI MUST NOT assume module entities inherit from ModelBase.
 
-• Inherit from MultiDatabaseMigration
-• Accept IDatabase database in constructor
-• Include [DbContext(typeof(ModuleContext))]
-• Include [Migration("Fully.Qualified.Namespace.MM.MM.PP.BB")]
+This is incorrect for module development.
 
-The version in the attribute must match the filename.
+All persistent module entities MUST:
 
-Reject if mismatch exists.
+* Implement IAuditable from Oqtane.Models
+* Optionally implement IDeletable when soft delete is required
+
+They MUST NOT inherit from ModelBase.
+
+Why:
+
+* Oqtane modules use auditing interfaces
+* AuditableBaseEntityBuilder requires IAuditable
+* Soft delete patterns rely on IDeletable
+* Prevents architectural drift
+
+Reject any ModelBase usage in module entities.
 
 ---
 
-# 7. Up() Method Rules
+# 7. Table Naming Convention (OwnerModule Pattern)
+
+All module tables MUST follow:
+
+OwnerModuleEntityName
+
+Pascal Case.
+No underscores.
+No generic names.
+
+Examples:
+
+AcmeBlogPost
+PlaybookGovernedExample
+
+This prevents:
+
+* Cross module naming collisions
+* Ambiguous table ownership
+* Multi tenant confusion
+
+Enforce strict naming discipline.
+
+---
+
+# 8. Migration Class Requirements
+
+Every migration must:
+
+* Inherit MultiDatabaseMigration
+* Accept IDatabase in constructor
+* Include [DbContext(typeof(ModuleContext))]
+* Include [Migration("Fully.Qualified.Namespace.MM.MM.PP.BB")]
+
+The version in the attribute MUST match the filename.
+
+Reject mismatches.
+
+---
+
+# 9. Up() Method Rules
 
 Up() must:
 
-• Perform schema changes only
-• Be provider agnostic
-• Use EntityBuilders for new tables
+* Perform schema changes only
+* Be provider agnostic
+* Use EntityBuilders for new tables
 
 Allowed:
 
-• Create tables
-• Add columns
-• Add indexes
-• Add foreign keys
+* Create tables
+* Add columns
+* Add indexes
+* Add foreign keys
 
-Reject if:
+Reject:
 
-• Raw SQL used unnecessarily
-• Provider specific assumptions made
+* Raw SQL without necessity
+* Provider specific assumptions
+* Data manipulation logic
 
 ---
 
-# 8. Down() Method (Mandatory)
+# 10. Down() Method (Mandatory)
 
-Every migration must implement Down().
+Every migration MUST implement Down().
 
 Down() must:
 
-• Fully reverse Up()
-• Remove only what Up() created
+* Fully reverse Up()
+* Remove only what Up() created
 
-Reject if missing.
+Reject if missing or incomplete.
 
 ---
 
-# 9. DbContext and Model Synchronization
+# 11. DbContext and Model Synchronization
 
 When schema changes occur:
 
-• Update DbContext DbSet<T>
-• Update corresponding model classes
+* Update DbContext DbSet<T>
+* Update model classes
+* Ensure auditing interfaces implemented
 
 Reject if:
 
-• DbContext not updated
-• Model and schema diverge
+* DbContext not updated
+* Model and schema diverge
 
 ---
 
-# 10. ReleaseVersion Governance
+# 12. Migration Pattern Consistency with Oqtane Core
 
-ReleaseVersion is:
+The migration execution engine is identical for:
 
-• The module baseline version
-• Not the migration counter
+* Core migrations
+* Tenant migrations
+* Module migrations
 
-It should typically be:
+Only the prefix differs.
 
-major.minor.patch
-
-Example:
-
-1.2.0
-
-During development, you increment only migration build segments.
-
-At official release:
-
-You may bump:
-
-Major
-Minor
-Patch
-
-Then restart build sequence appropriately.
-
----
-
-# 11. Migration Pattern is Identical to Oqtane Core
-
-The execution engine for:
-
-• Core migrations
-• Tenant migrations
-• Module migrations
-
-Is the same.
-
-Only the prefix differs:
+Examples:
 
 Tenant.10.00.00.02
 Acme.Module.Sample.01.02.00.01
 
-The comparison logic is identical.
+Comparison logic is identical.
 
-This is confirmed.
+Confirmed.
 
 ---
 
@@ -324,31 +347,21 @@ This is confirmed.
 
 A migration is valid only if:
 
-• Filename version is 8 digits
-• Version is strictly increasing
-• Only build segment incremented unless instructed
-• RevisionNumber updated and matches
-• EntityBuilders not modified
-• Inherits MultiDatabaseMigration
-• Attributes correct
-• Up() schema only
-• Down() reversible
-• DbContext updated
-• Models updated
+* 8 digit filename
+* Strictly increasing
+* Only build segment incremented during development
+* RevisionNumber matches
+* EntityBuilders untouched
+* Inherits MultiDatabaseMigration
+* Attributes correct
+* Up() schema only
+* Down() reversible
+* DbContext updated
+* Model implements IAuditable
+* Table follows OwnerModule convention
 
 If any check fails:
 
 Reject the change.
 
 ---
-
-Now this is clean, deterministic, and aligned with actual Oqtane runtime behavior.
-
-If you would like, next we can:
-
-• Convert this into tutorial format for readability
-• Add visual diagrams for version comparison
-• Add an AI warning block specific to migration generation
-• Or tighten Rule 3 wording around build increments even further
-
-This is one of the most important governance documents in your entire playbook.
