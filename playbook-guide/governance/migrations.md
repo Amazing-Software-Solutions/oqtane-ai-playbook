@@ -11,34 +11,102 @@ This section explains what OAP expects and why.
 
 ---
 
-## How Oqtane Actually Executes Migrations
+You are absolutely right to call that out.
 
-Oqtane compares versions as four numeric segments:
+The previous guide wording softens the comparison logic too much and could imply that ReleaseVersion and migration numbers merely “relate” to each other. In reality, the execution rule is precise and deterministic.
 
-Major.Minor.Patch.Build
+Below is a corrected section that should replace the execution model portion in:
 
-Example:
+oqtane-ai-playbook/playbook-guide/governance/migrations.md
 
-ReleaseVersion = 1.0.0
-Is treated internally as:
-
-01.00.00.00
-
-If you create migrations:
-
-01000001
-01000002
-
-Both are greater than 01.00.00.00 and will execute.
-
-This is by design.
-
-ReleaseVersion defines the baseline.
-Build segment migrations accumulate during development.
+This version reflects the runtime behavior clearly and without ambiguity.
 
 ---
 
-## The Model We Use (Baseline + Build)
+## Migration Execution Model (Confirmed Runtime Behavior)
+
+Oqtane executes migrations automatically at application startup.
+
+A migration runs when:
+
+migrationVersion > ModuleDefinition.ReleaseVersion
+
+This comparison is strict and deterministic.
+
+Versions are compared as four numeric segments:
+
+MM.mm.PP.bb  
+(Major.Minor.Patch.Build)
+
+Missing segments are treated as zero.
+
+Examples:
+
+10.0.0  
+is interpreted as  
+10.00.00.00
+
+10.00.00.01 > 10.00.00.00  
+10.00.00.02 > 10.00.00.00
+
+Therefore:
+
+If ReleaseVersion = 10.0.0  
+Then migrations 10.00.00.01 and 10.00.00.02 WILL execute.
+
+This is not accidental behavior.  
+It is the intended version comparison model.
+
+---
+
+### Scope Consistency
+
+This execution model applies equally to:
+
+• Oqtane core migrations  
+• Tenant migrations  
+• Module migrations
+
+Only the scope prefix differs.
+
+For example:
+
+Tenant.10.00.00.02  
+My.Module.01.00.00.01
+
+The comparison logic is identical.
+
+---
+
+### What ReleaseVersion Actually Represents
+
+ReleaseVersion is the baseline.
+
+It does NOT need to match a migration exactly.  
+It defines the minimum version already applied.
+
+Any migration with a strictly greater version will execute automatically.
+
+This is why build-segment migrations accumulate correctly during development.
+
+---
+
+This version:
+
+• Removes ambiguity  
+• Explicitly states strict greater-than comparison  
+• Confirms equal behavior across core, tenant, and modules  
+• Avoids implying matching is required  
+• Aligns precisely with runtime behavior
+
+If you would like, I can now:
+
+• Refactor the entire migrations guide so it flows logically from execution model → development workflow → governance enforcement  
+• Or reconcile this section with the RevisionNumber enforcement language so there is zero conceptual drift between runtime behavior and playbook governance
+
+---
+
+### The Model We Use (Baseline + Build)
 
 During development:
 
@@ -62,7 +130,7 @@ Build increments represent development schema steps.
 
 ---
 
-## Required Structure for Every Migration
+### Required Structure for Every Migration
 
 Every migration must:
 
@@ -79,7 +147,7 @@ Example:
 
 ---
 
-## RevisionNumber Must Match the Latest Migration
+### RevisionNumber Must Match the Latest Migration
 
 When you add a migration:
 
@@ -98,7 +166,7 @@ This ensures deterministic installs and upgrades.
 
 ---
 
-## EntityBuilder Rule (Extremely Important)
+### EntityBuilder Rule (Extremely Important)
 
 EntityBuilders define the original schema only.
 
@@ -127,7 +195,7 @@ Migrations represent change.
 
 ---
 
-## Why This Discipline Exists
+### Why This Discipline Exists
 
 Without strict migration governance:
 
@@ -145,7 +213,7 @@ Upgrades are safe
 
 ---
 
-## Critical Rule
+### Critical Rule
 
 Only increase the build segment during development unless explicitly instructed otherwise.
 
@@ -156,7 +224,7 @@ Build reflects incremental development.
 
 ---
 
-## Quick Version Reference
+### Quick Version Reference
 
 Migration filename:
 
@@ -174,7 +242,7 @@ If these are misaligned, migrations may not execute as expected.
 
 ---
 
-## In Simple Terms
+### In Simple Terms
 
 ReleaseVersion says:
 
