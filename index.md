@@ -21,7 +21,7 @@ The **Oqtane AI Playbook** is a framework-aware governance repository for buildi
 ### 🎯 Core Documentation
 
 - **[00 — Preface: How to Read and Use This Guide](docs/000-preface.md)**
-- **[ # 01 — The Problem: Why AI Struggles With Oqtane Module Development](docs/001-problem.md)**
+- **[01 — The Problem: Why AI Struggles With Oqtane Module Development](docs/001-problem.md)**
 - **[02 — The Insight: AI Needs Governance, Not Better Prompts](docs/002-insight.md)**
 - **[03 — Scope and Boundaries](docs/003-scope-and-boundaries.md)**
 
