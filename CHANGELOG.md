@@ -1,4 +1,4 @@
-# Change Log 1.0.1
+# Change Log
 
 # Release 1.1.0
 ## What's Changed
