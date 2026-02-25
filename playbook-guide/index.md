@@ -16,6 +16,6 @@ This documentation explains:
 
 Start here:
 
-- Getting Started
+- [[getting-started]]Getting Started
 - Build Your First Governed Module
 - Governance Rules Overview

@@ -14,6 +14,7 @@ All architectural validation is performed against the **Oqtane Framework source 
 - Oqtane.Server
 - Oqtane.Shared
 - Internal framework modules (e.g. HtmlText)
+	- Boilerplate template found at .\Oqtane.Framework\Oqtane.Server\wwwroot\Modules\Templates\External\
 - Framework jobs, migrations, validation, and error handling
 
 The framework itself is the **canonical implementation**.

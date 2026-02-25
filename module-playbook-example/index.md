@@ -33,7 +33,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 - **[027x – Execution Parity Across Hosting Models (Mandatory)](docs/governance/027x-execution-parity.md)**
 - **[## 027x – JavaScript Usage](docs/governance/027x-javascript-usage.md)**
 - **[027x - Localization and String Resources](docs/governance/027x-localization.md)**
-- **[﻿# 027x – Database Migration Governance](docs/governance/027x-migrations.md)**
+- **[027x – Database Migration Governance](docs/governance/027x-migrations.md)**
 - **[Module Portability](docs/governance/027x-module-portability.md)**
 - **[ # 027x — Packaging and External Dependencies](docs/governance/027x-packaging-and-dependencies.md)**
 - **[Oqtane Repository Pattern Rules (Enforced)](docs/governance/027x-repositories.md)**
@@ -56,7 +56,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 
 ---
 
-Last updated: 2026-02-24 11:07 UTC
+Last updated: 2026-02-25 10:09 UTC
 
 **Note:** This index is auto-generated. Edit source files under module-playbook-example/docs/ to change the index.
 
