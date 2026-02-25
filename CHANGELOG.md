@@ -1,7 +1,6 @@
 # Change Log 1.0.1
 
 # Release 1.1.0
-
 ## What's Changed
 * Add Oqtane AI Playbook logo and README by @leigh-pointer in https://github.com/leigh-pointer/oqtane-ai-playbook/pull/12
 * Inital readable guidance by @leigh-pointer in https://github.com/leigh-pointer/oqtane-ai-playbook/pull/13
@@ -18,6 +17,8 @@
 
 # Release 1.0.1
 
+This release updates the Migration area of the Module Playbook example.
+
 ## What's Changed
 * Add changelog and version files; ignore *.bak by @leigh-pointer in https://github.com/leigh-pointer/oqtane-ai-playbook/pull/8
 * Add migration versioning and RevisionNumber rules Upate for #7 by @leigh-pointer in https://github.com/leigh-pointer/oqtane-ai-playbook/pull/9
@@ -27,5 +28,6 @@
 
 Enhance migration governance doc with strict versioning and enforcement guidance. Adds an AI enforcement warning and new Rule 3 (Version Increment Strategy) that clarifies the 8-digit MMmmPPbb format, default behavior to only increment the build segment, strict increasing requirement, and rejection conditions. Adds Rule 4 (Mandatory RevisionNumber Update) requiring ModuleInfo.cs RevisionNumber to match the latest migration as an 8-digit, comma-separated, no-space string (example: "01,00,00,04" for migration 01000004). Includes examples, rationale, and failure cases to ensure migrations are executed and schema stays in sync.
 
+**Full Changelog**: https://github.com/leigh-pointer/oqtane-ai-playbook/compare/1.0.0...1.0.1
 **Full Changelog**: https://github.com/leigh-pointer/oqtane-ai-playbook/compare/1.0.0...1.0.1
 
