@@ -130,7 +130,7 @@ After creating a migration:
 
 You MUST update ModuleInfo.cs:
 
-public override string RevisionNumber => "01,02,00,03";
+public override string RevisionNumber => "01.02.00.03";
 
 Mapping rule:
 
@@ -138,7 +138,7 @@ Migration file:
 01020003_AddIndex.cs
 
 RevisionNumber must be:
-"01,02,00,03"
+"01.02.00.03"
 
 Rules:
 
