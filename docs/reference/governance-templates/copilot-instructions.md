@@ -17,6 +17,7 @@ All patterns, decisions, and enforcement MUST be validated against the
 - Oqtane.Server
 - Oqtane.Shared
 - Internal framework modules (e.g. HtmlText)
+- Boilerplate Template .\Oqtane.Framework\Oqtane.Server\wwwroot\Modules\Templates\External\
 
 If a pattern does not exist in the framework, you MUST NOT invent it.
 
