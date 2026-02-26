@@ -245,39 +245,148 @@ No exceptions.
 
 ---
 
-# 3. Development Version Strategy (Baseline + Build Pattern)
+# 3. RevisionNumber Governance
 
-During a development cycle:
+## 3.1 Version Segment Format
 
-* ModuleDefinition.ReleaseVersion MUST be major.minor.patch only
-* ReleaseVersion MUST NOT include the build segment
-* Increment only the build segment in migration filenames
+All migration versions use:
+
+```
+MM.mm.PP.bb
+```
+
+Segments are:
+
+1. Major
+2. Minor
+3. Patch
+4. Build
+
+Segments are separated by periods.
 
 Example:
 
-ReleaseVersion = 1.2.0
-Runtime interprets this as 01.02.00.00
+```
+10.00.00.01
+1.2.0.3
+```
 
-Valid development migrations:
+* * *
 
-- 01020001_AddColumn.cs
-- 01020002_AddIndex.cs
-- 01020003_AddForeignKey.cs
+## 3.2 What RevisionNumber Actually Is
 
-All execute because:
+`ModuleInfo.RevisionNumber` is:
 
-01.02.00.01 > 01.02.00.00
+* A comma separated list of release versions
+* Ordered chronologically
+* Represents published module revisions
+* Not a 4 segment mirror of migration version
 
-ReleaseVersion defines the baseline.
-Build segment accumulates schema steps.
+Example:
 
-At official release:
+```
+"1.0.0,1.0.1,1.0.5,2.0.0"
+```
 
-* You may bump Major
-* You may bump Minor
-* You may bump Patch
+Important:
 
-Then restart build numbering appropriately.
+* The build segment is not represented separately
+* RevisionNumber does not use comma separated numeric segments like `01,02,00,02`
+* That previous format was incorrect
+
+* * *
+
+## 3.3 How Migration Execution Actually Works
+
+At runtime Oqtane compares:
+
+```
+migrationVersion > ModuleDefinition.ReleaseVersion
+```
+
+Comparison is numeric and segment based:
+
+```
+MM.mm.PP.bb
+```
+
+Missing segments are treated as zero.
+
+Example:
+
+```
+ReleaseVersion = 10.0.0
+Treated as     = 10.00.00.00
+```
+
+Therefore:
+
+```
+10.00.00.01 > 10.00.00.00
+10.00.00.02 > 10.00.00.00
+```
+
+Both will execute.
+
+This behavior is identical for:
+
+* Core migrations
+* Tenant migrations
+* Module migrations
+
+Only the prefix changes.
+
+* * *
+
+## 3.4 Correct Governance Alignment
+
+Under the Oqtane AI Playbook:
+
+You must ensure:
+
+* Migration filenames use 8 digit numeric format
+* Migration attribute version matches filename
+* ModuleDefinition.ReleaseVersion reflects the baseline release
+* RevisionNumber includes published release versions only
+* RevisionNumber must not be used as a 4 segment mirror of migration build increments
+
+During development:
+
+* You may increment only the build segment for schema changes
+* You do not need to append every build increment to RevisionNumber
+* Only published releases belong in RevisionNumber
+
+At release time:
+
+* Update ReleaseVersion appropriately
+* Append that release to RevisionNumber
+
+* * *
+
+## 3.5 Why This Matters
+
+If ReleaseVersion is wrong:
+
+* Migrations may not execute
+* Or may execute unexpectedly
+
+If RevisionNumber is malformed:
+
+* Upgrade tracking may fail
+* Installed modules may not reflect proper release history
+
+The two fields serve different purposes:
+
+ReleaseVersion
+→ Runtime migration baseline
+
+RevisionNumber
+→ Historical release tracking
+
+They must not be conflated.
+
+* * *
+
 
 ---
 
