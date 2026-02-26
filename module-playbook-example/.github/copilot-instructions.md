@@ -13,7 +13,7 @@ Before generating or modifying code, you MUST read and apply:
 - .github/module-instructions.md
 
 ## Copilot Memories
-When copilot detects a Memory "Meory Detected" it should add it 
+When copilot detects a Memory "Memory Detected" it should add it 
 to the module-instructions.md file in the /.github folder.
 
 ## Governance Declaration (Mandatory)

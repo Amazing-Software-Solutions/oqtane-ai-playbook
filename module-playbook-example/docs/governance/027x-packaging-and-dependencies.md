@@ -21,7 +21,7 @@ explicitly.
 Adding a package is considered **incomplete and non-compliant** unless the
 deployment and module packaging implications are addressed.
 
-When adding a package the AI **MUST** use the last version of the package available on NuGet.org, unless a specific version is required for compatibility reasons. 
+When adding a package the AI **MUST** use the last version of the package available on NuGet.org, unless a specific version is required for compatibility reasons.
 The AI **MUST** explain why a specific version is necessary if it does not use the latest version.
 
 ---
@@ -30,7 +30,97 @@ The AI **MUST** explain why a specific version is necessary if it does not use t
 
 If an external NuGet package is introduced, the AI **MUST**:
 
-### 1. Runtime Deployment
+### 1 Static Web Assets Handling Rule
+
+#### Purpose
+
+When a dependency introduces static web assets, those assets must be unpacked into the Oqtane.Server project exactly as ASP.NET expects them.
+
+Oqtane does not automatically resolve RCL static assets inside a packaged module.
+They must be explicitly surfaced.
+
+---
+
+#### Canonical Path Rule
+
+Static web assets must be placed in:
+
+Oqtane.Server\wwwroot\_content\<PackageName>\
+
+The path must match the structure defined in the package’s staticwebassets manifest.
+
+##### Example
+
+For MudBlazor:
+
+Oqtane.Server\wwwroot\_content\MudBlazor\
+
+Not:
+
+Oqtane.Server\wwwroot\Modules\<ModuleName>\
+
+Not any custom folder.
+
+The `_content` convention must be preserved.
+
+---
+
+#### Governance Requirements
+
+When a package includes static web assets, AI must:
+
+1. Inspect the Client and Server:
+   obj\project.assets.json
+
+2. Detect if the package contains staticwebassets.
+
+3. Identify the asset base path (typically `_content/<PackageName>`).
+
+4. Unpack or copy static assets into:
+
+   Oqtane.Server\wwwroot\_content\<PackageName>\
+
+5. Include those assets in the nuspec `<files>` section.
+
+6. Verify that after module installation:
+
+   * CSS loads
+   * JS loads
+   * No 404 errors occur for `_content/...` paths
+
+---
+
+#### Why This Matters
+
+ASP.NET resolves static assets using:
+
+`/_content/<PackageName>/file.js`
+
+If the `_content` structure is not preserved:
+
+• Assets will not resolve
+• Components will fail silently
+• Styles will not load
+• JS interop may break
+
+This is not optional. It is structural.
+
+---
+
+#### Enforcement Clause
+
+If AI adds a dependency that includes static assets and does not:
+
+• Mirror the `_content/<PackageName>` path
+• Include files in nuspec
+• Validate presence in wwwroot
+
+Then packaging is considered incomplete.
+
+---
+
+
+### 2. Runtime Deployment
 
 Ensure the package assemblies are copied to the Oqtane Server runtime bin.
 Only copying the package to the project and relying on NuGet restore is insufficient, as Oqtane does not automatically resolve these dependencies at runtime.
@@ -48,7 +138,7 @@ If this step is omitted, the module **will compile but fail at runtime**.
 
 ---
 
-### 2. Module Packaging (.nuspec)
+### 3. Module Packaging (.nuspec)
 
 Update the module `.nuspec` file to include the dependency so that:
 
@@ -61,15 +151,15 @@ Failure to update the `.nuspec` will result in:
 
 ---
 
-### 3. Project File Update (.csproj)
+### 4. Project File Update (.csproj)
 
 - Ensure the project file `.csproj` includes the appropriate <PackageReference>` entry for the new package.		
-- The PropertyGroup contains the CopyLocalLockFileAssemblies set to true, 
+- The PropertyGroup contains the CopyLocalLockFileAssemblies set to true,
 ensuring that all referenced assemblies are copied to the output directory during build time.
 
 ---
 
-### 4. Explicit Explanation
+### 5. Explicit Explanation
 
 The AI must clearly explain:
 

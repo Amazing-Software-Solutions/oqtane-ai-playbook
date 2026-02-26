@@ -3,8 +3,8 @@
 This rule defines the **only permitted way** to use **MudBlazor** in Oqtane modules.
 
 MudBlazor is **NOT part of the default UI stack**.
-Its use is allowed **only by explicit opt-in** and does not override
-core Oqtane UI governance.
+Its use is allowed **only by explicit opt-in** and does not override core Oqtane UI governance.  
+Always use the latest published version - NOT RC or Preview versions
 
 ---
 
@@ -13,7 +13,8 @@ core Oqtane UI governance.
 MudBlazor may be used **only if**:
 
 - The developer explicitly requests MudBlazor in the prompt, AND
-- This rule (`027x-ui-mudblazor.md`) is acknowledged and applied
+- This rule (`027x-ui-mudblazor.md`) is acknowledged and applied, AND
+- This rule (`027x-packaging-and-dependencies.md`) is acknowledged and applied
 
 If MudBlazor is not explicitly requested, **default Oqtane UI rules apply**.
 

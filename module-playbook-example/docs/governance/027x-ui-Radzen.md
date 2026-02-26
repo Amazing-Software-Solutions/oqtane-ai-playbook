@@ -3,8 +3,8 @@
 This rule defines the **only permitted way** to use **Radzen** in Oqtane modules.
 
 Radzen is **NOT part of the default UI stack**.
-Its use is allowed **only by explicit opt-in** and does not override
-core Oqtane UI governance.
+Its use is allowed **only by explicit opt-in** and does not override core Oqtane UI governance.  
+Always use the latest published version - NOT RC or Preview versions
 
 ---
 
@@ -14,6 +14,7 @@ Radzen may be used **only if**:
 
 - The developer explicitly requests Radzen in the prompt, AND
 - This rule (`027x-ui-Radzen.md`) is acknowledged and applied
+- This rule (`027x-packaging-and-dependencies.md`) is acknowledged and applied
 
 If Radzen is not explicitly requested, **default Oqtane UI rules apply**.
 
