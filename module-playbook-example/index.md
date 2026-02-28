@@ -37,7 +37,9 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 - **[Module Portability](docs/governance/027x-module-portability.md)**
 - **[ # 027x â€” Packaging and External Dependencies](docs/governance/027x-packaging-and-dependencies.md)**
 - **[Oqtane Repository Pattern Rules (Enforced)](docs/governance/027x-repositories.md)**
+- **[027x-runtime-awareness](docs/governance/027x-runtime-awareness.md)**
 - **[027x – Scheduled Jobs (Oqtane-Enforced)](docs/governance/027x-scheduled-jobs.md)**
+- **[027x Site Tasks](docs/governance/027x-site-tasks.md)**
 - **[027x – Startup and Service Registration Rules](docs/governance/027x-startup.md)**
 - **[027x - Structure and Boundary Rules](docs/governance/027x-structure-and-boundaries.md)**
 - **[Oqtane UI Rules â€” Radzen (Opt-In, Enforced)](docs/governance/027x-ui-Radzen.md)**
@@ -56,7 +58,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 
 ---
 
-Last updated: 2026-02-26 16:44 UTC
+Last updated: 2026-02-28 12:32 UTC
 
 **Note:** This index is auto-generated. Edit source files under module-playbook-example/docs/ to change the index.
 
