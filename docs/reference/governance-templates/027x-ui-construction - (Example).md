@@ -1,160 +1,128 @@
-# **Oqtane UI Construction Rules (Enforced)**
+# 027x-ui-framework-template.md
 
-## Purpose
+Canonical UI Framework Governance Template
 
-These rules define **mandatory UI construction standards** for all Oqtane modules.
+This template must be copied and renamed for each new UI framework integration.
 
-They exist to ensure:
+Example:
 
-- Consistent user experience across modules
-- Predictable behavior for validation and actions
-- Alignment with canonical Oqtane UI patterns
-- Prevention of implicit or framework-invented behavior
-
-[Rule 2: Prohibited Use of EditForm](#rule-2-prohibited-use-of-editform) (Explicit Opt-In)
-## Rule 2: Prohibited Use of `EditForm`
-
-The Blazor `EditForm` component **MUST NOT be used by default**.
-
-UI must be constructed using **explicit HTML elements**, including:
-
-- `<form>`
-- `<input>`
-- `<select>`
-- `<textarea>`
-- `<button type="button">`
-
-Validation and save behavior must be **explicit, visible, and imperative** in code.
+027x-ui-radzen.md
+027x-ui-fluent.md
+027x-ui-syncfusion.md
 
 ---
 
-### Explicit Opt-In Exception
+# 1. Installation Scope
 
-`EditForm` **MAY ONLY** be used when **explicitly requested by the user** in the prompt.
+Framework must be installed in:
 
-An explicit request MUST:
+Module.Client
 
-- Mention `EditForm` by name
-- Clearly state that its use is intentional
-
-Examples of valid opt-in prompts:
-
-- “Use `EditForm` for this component”
-- “Implement this using Blazor `EditForm` and DataAnnotations”
-- “This UI should explicitly use `EditForm`”
-
-If the prompt does **not** explicitly opt in, `EditForm` is **forbidden**.
+Unless explicitly documented otherwise.
 
 ---
 
-### Reject If
+# 2. Package Declaration
 
-Reject the output immediately if **any** of the following occur:
-
-- `EditForm` is used without an explicit opt-in request
-- Validation logic is hidden behind framework abstractions
-- Form submission behavior is implicit or inferred
-- `type="submit"` is used without being explicitly requested
-- Business or save logic is obscured by Blazor form abstractions
+- Explicit version required
+- No floating versions
+- No transitive assumptions
+- Must be declared in Module.Client
 
 ---
 
-### Enforcement Notes
+# 3. Service Registration
 
-- Familiarity, convention, or “best practice” is **not justification**
-- Historical Blazor defaults are **irrelevant**
-- Governance rules override AI priors and training bias
-- Silence is **not consent**
+Services must be registered in:
 
----
+ClientStartup.cs
 
-### Intent
+Not in host.
+Not in server.
 
-This rule exists to ensure that:
-
-- UI behavior is inspectable
-- Validation is traceable
-- Save logic is auditable
-- AI does not “helpfully” abstract critical behavior away
+If framework requires host-level services, this must be explicitly justified.
 
 ---
 
-## Rule 3: Explicit Button Type Declaration
+# 4. Required Providers or Root Components
 
-All buttons **must explicitly declare their type**.
+If framework requires:
 
-```
-<button type="button">
-```
+- Theme providers
+- Root wrappers
+- Script initialization
+- JS interop bootstrap
 
-**Reject if:**
-
-- The `type` attribute is omitted
-- Default browser behavior is relied upon
-- Button intent is ambiguous
+They must be declared in module layout.
 
 ---
 
-## Rule 4: Controlled Use of `type="submit"`
+# 5. Static Web Asset Handling
 
-`type="submit"` **must not be used** unless:
+All static web assets must comply with:
 
-- The request explicitly requires submit semantics
-- Submit behavior is intentional, reviewed, and documented
+027x-packaging-and-dependencies.md
 
-**Reject if:**
+Asset path convention must follow:
 
-- `type="submit"` is used by default
-- Submit is used as a convenience
-- Submit behavior is implied rather than deliberate
+\_content//
 
----
-
-## Rule 5: Navigation via Oqtane Mechanisms
-
-Navigation **must** use Oqtane-approved patterns:
-
-- `ActionLink`
-- Oqtane routing infrastructure
-
-**Reject if:**
-
-- Direct URL manipulation is used
-- `NavigationManager.NavigateTo` is used where `ActionLink` is appropriate
-- Anchor tags bypass Oqtane navigation conventions
+Never copy directly into host wwwroot.
 
 ---
 
-## Canonical Alignment
+# 6. Host Modification Rule
 
-These rules align with UI patterns found in:
+Host modification is forbidden unless:
 
-- Oqtane framework admin modules
-- HtmlText module
-- Core Oqtane edit and management pages
+- Framework is designated as global host-level dependency
+- Governance explicitly allows it
 
-The **Oqtane Framework** itself is the canonical reference.
-
----
-
-## Validation Checklist
-
-A UI implementation is valid only if:
-
-- Bootstrap is used exclusively
-- Bootstrap Icons are used for icons
-- `EditForm` is not present
-- All buttons declare `type`
-- `type="submit"` is only used when explicitly required
-- Navigation uses `ActionLink` or equivalent Oqtane routing
-
-If any check fails, **reject the change**.
+Otherwise modules remain self-contained.
 
 ---
 
-## Enforcement
+# 7. UI Isolation Rule
 
-- This rule is **enforced**
-- AI must refuse to generate or modify UI code that violates this document
-- Violations must not be worked around or softened
-- If uncertainty exists, refusal is preferred over assumption
+Framework must not be mixed with other UI frameworks in the same render surface unless explicitly governed.
+
+---
+
+# 8. Runtime Awareness
+
+AI must:
+
+- Detect existing UI frameworks
+- Avoid silent conflicts
+- Require explicit override to mix frameworks
+
+---
+
+# 9. Packaging Verification
+
+AI must validate:
+
+- project.assets.json includes dependency
+- static web assets resolve correctly
+- nuspec includes required files
+
+---
+
+# 10. AI Response Pattern
+
+When user says:
+
+“Add ”
+
+AI must:
+
+1. Install package
+2. Register services
+3. Add providers
+4. Validate packaging
+5. Preserve host isolation
+
+No assumptions.
+No generic Blazor defaults.
+
+---
