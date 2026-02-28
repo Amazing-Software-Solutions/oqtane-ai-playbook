@@ -1,154 +1,171 @@
-# Oqtane UI Rules ó MudBlazor (Opt-In, Enforced)
+# 027x-ui-mudblazor
 
-This rule defines the **only permitted way** to use **MudBlazor** in Oqtane modules.
+Governed MudBlazor Integration for Oqtane Modules
 
-MudBlazor is **NOT part of the default UI stack**.
-Its use is allowed **only by explicit opt-in** and does not override core Oqtane UI governance.  
-Always use the latest published version - NOT RC or Preview versions
+## Purpose
 
----
+This rule defines the authoritative governance contract for integrating MudBlazor into an Oqtane module.
 
-## Opt-In Requirement (Non-Negotiable)
+This rule overrides generic Blazor advice.
 
-MudBlazor may be used **only if**:
-
-- The developer explicitly requests MudBlazor in the prompt, AND
-- This rule (`027x-ui-mudblazor.md`) is acknowledged and applied, AND
-- This rule (`027x-packaging-and-dependencies.md`) is acknowledged and applied
-
-If MudBlazor is not explicitly requested, **default Oqtane UI rules apply**.
-
-**Reject if MudBlazor is introduced implicitly or by assumption.**
+MudBlazor integration must follow this document exactly.
 
 ---
 
-## Rule 1: Scope of Use
+# 1. Installation Scope Rule
 
-MudBlazor may be used for:
+MudBlazor must be installed in:
 
-- UI components only
-- Layout, inputs, dialogs, tables, and visual interaction
+Module.Client project only
 
-MudBlazor must **NOT** be used to introduce:
-- Architectural patterns
-- State management abstractions
-- Validation pipelines that obscure logic
-- Cross-layer coupling
+It must NOT be installed in:
 
-**Reject if MudBlazor alters application architecture.**
+- Oqtane host project
+- Oqtane core framework
+- Server project
 
----
-
-## Rule 2: Explicit UI Construction
-
-Even when using MudBlazor:
-
-- UI intent must remain explicit
-- Save logic must be clearly visible
-- Validation logic must be readable and local
-
-Allowed:
-- MudTextField
-- MudSelect
-- MudButton
-- MudForm (with explicit validation handling)
-
-Prohibited:
-- Implicit submit behavior
-- Hidden validation side effects
-- Framework-driven magic flows
-
-**Reject if behavior is implicit or inferred.**
+The module owns its UI framework dependency.
 
 ---
 
-## Rule 3: Form Submission Rules
+# 2. Package Installation
 
-- Buttons must explicitly declare intent
-- `type="submit"` is prohibited unless explicitly requested
-- Save actions must be bound to explicit handlers
+Add the NuGet package to Module.Client:
 
-MudBlazor does **not** relax submission rules.
+MudBlazor
 
-**Reject if implicit form submission is introduced.**
+The version must be explicitly defined.
 
----
-
-## Rule 4: Validation Rules
-
-Validation must be:
-
-- Visible
-- Deterministic
-- User-readable
-
-Allowed:
-- MudBlazor validation components
-- Manual validation logic
-
-Prohibited:
-- Hidden framework validation pipelines
-- Validation that cannot be reasoned about from code
-
-**Reject if validation logic is obscured.**
+No floating versions.
 
 ---
 
-## Rule 5: Styling & Consistency
+# 3. Service Registration Rule
 
-- MudBlazor styling must be internally consistent
-- Do not mix Bootstrap and MudBlazor within the same UI surface
-- Do not partially migrate components
+MudBlazor services must be registered in:
 
-**Reject mixed-framework UI within a single component.**
+Module.Client Startup class or ClientStartup.cs
 
----
+Example:
 
-## Rule 6: Canonical Alignment
+```csharp
+using MudBlazor.Services;
 
-MudBlazor usage must still respect:
+services.AddMudServices();
+```
 
-- Oqtane client/server boundaries
-- Service usage rules
-- Error handling rules
-- Authorization rules
+Do NOT:
 
-MudBlazor is a **visual layer only**.
+- Register services in Oqtane host Program.cs
+- Register services in Server project
+- Register dynamically at runtime
 
-**Reject if MudBlazor bypasses governance in other domains.**
-
----
-
-## Rule 7: Default Still Wins
-
-The existence of this rule does **not** change defaults.
-
-Default UI stack remains:
-
-- Bootstrap
-- Explicit HTML
-- ActionLink navigation
-- No EditForm
-
-MudBlazor is an **exception**, not an alternative default.
+Service registration belongs to the module.
 
 ---
 
-## Validation Checklist
+# 4. Required Provider Rule
 
-MudBlazor usage is valid only if:
+The following providers must exist in the module layout:
 
-- Explicitly requested
-- This rule is applied
-- UI logic remains explicit
-- Validation is visible
-- Submission intent is declared
-- No architectural side effects exist
-- No framework mixing occurs
+```razor
+<MudThemeProvider />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+```
 
-If any check fails, **reject the change**.
+They must be rendered once per module render surface.
+
+If missing, the module is considered misconfigured.
 
 ---
 
-This rule exists to allow **controlled, intentional UI extension**
-without weakening Oqtaneís architectural integrity.
+# 5. Static Web Assets Rule
+
+MudBlazor static web assets must follow:
+
+027x-packaging-and-dependencies.md
+
+Assets must resolve through:
+
+\_content/MudBlazor/
+
+No direct file copying into host.
+
+No manual CSS duplication.
+
+Packaging rule governs physical deployment.
+
+---
+
+# 6. Host Isolation Rule
+
+MudBlazor integration must NOT modify:
+
+- Oqtane host Program.cs
+- Global index.html
+- Core Oqtane layout
+- Global Bootstrap configuration
+
+Modules must remain portable.
+
+Host pollution is forbidden.
+
+---
+
+# 7. UI Consistency Rule
+
+Do not mix MudBlazor components with:
+
+- Bootstrap UI components
+- Radzen components
+- Other UI frameworks
+
+Within the same render surface unless explicitly governed.
+
+UI fragmentation is not allowed.
+
+---
+
+# 8. Runtime Awareness
+
+If runtime detection indicates conflicting UI frameworks are already registered, the AI must:
+
+- Notify
+- Require explicit override
+- Not auto-mix frameworks
+
+UI framework conflicts must be deliberate, never accidental.
+
+---
+
+# 9. Packaging Compliance
+
+MudBlazor dependency must be reflected in:
+
+- project.assets.json
+- nuspec packaging if required
+- static web asset inclusion
+
+Packaging must comply with 027x-packaging-and-dependencies.md.
+
+---
+
+# 10. AI Enforcement Behavior
+
+When user requests:
+
+‚ÄúAdd MudBlazor‚Äù
+
+AI must:
+
+1. Add package to Module.Client
+2. Register services in ClientStartup
+3. Add required providers
+4. Validate packaging compliance
+5. Refuse host modification
+
+No alternative interpretations.
+
+---

@@ -31,7 +31,7 @@ Undocumented deviations are considered **defects**.
 (e.g., Service Registration, Validation, UI Composition)
 
 **Canonical Rule:**  
-Reference the specific playbook rule or document.
+Reference the specific Playbook rule or document.
 
 **Deviation:**  
 Describe exactly what differs.

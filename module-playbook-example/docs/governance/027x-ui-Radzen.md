@@ -1,154 +1,184 @@
-# Oqtane UI Rules — Radzen (Opt-In, Enforced)
+# 027x-ui-radzen
 
-This rule defines the **only permitted way** to use **Radzen** in Oqtane modules.
+Governed Radzen Blazor Integration for Oqtane Modules
 
-Radzen is **NOT part of the default UI stack**.
-Its use is allowed **only by explicit opt-in** and does not override core Oqtane UI governance.  
-Always use the latest published version - NOT RC or Preview versions
+## Purpose
 
----
+This rule defines the authoritative governance contract for integrating Radzen Blazor components into an Oqtane module.
 
-## Opt-In Requirement (Non-Negotiable)
+This rule overrides generic Blazor guidance.
 
-Radzen may be used **only if**:
-
-- The developer explicitly requests Radzen in the prompt, AND
-- This rule (`027x-ui-Radzen.md`) is acknowledged and applied
-- This rule (`027x-packaging-and-dependencies.md`) is acknowledged and applied
-
-If Radzen is not explicitly requested, **default Oqtane UI rules apply**.
-
-**Reject if Radzen is introduced implicitly or by assumption.**
+Radzen integration must follow this document exactly.
 
 ---
 
-## Rule 1: Scope of Use
+## 1. Installation Scope Rule
 
-Radzen may be used for:
+Radzen must be installed in:
 
-- UI components only
-- Layout, inputs, dialogs, tables, and visual interaction
+Module.Client project only
 
-Radzen must **NOT** be used to introduce:
-- Architectural patterns
-- State management abstractions
-- Validation pipelines that obscure logic
-- Cross-layer coupling
+It must NOT be installed in:
 
-**Reject if Radzen alters application architecture.**
+- Oqtane host project
+- Module.Server
+- Module.Shared
 
----
-
-## Rule 2: Explicit UI Construction
-
-Even when using Radzen:
-
-- UI intent must remain explicit
-- Save logic must be clearly visible
-- Validation logic must be readable and local
-
-Allowed:
-- RadzenText
-- RadzenDropDown
-- RadzenButton
-- RadzenTemplateForm (with explicit validation handling)
-
-Prohibited:
-- Implicit submit behavior
-- Hidden validation side effects
-- Framework-driven magic flows
-
-**Reject if behavior is implicit or inferred.**
+The module owns its UI framework dependency.
 
 ---
 
-## Rule 3: Form Submission Rules
+## 2. Package Installation
 
-- Buttons must explicitly declare intent
-- `type="submit"` is prohibited unless explicitly requested
-- Save actions must be bound to explicit handlers
+Add explicit package reference in Module.Client:
 
-Radzen does **not** relax submission rules.
+```xml
+<PackageReference Include="Radzen.Blazor" Version="X.Y.Z" />
+```
 
-**Reject if implicit form submission is introduced.**
+Rules:
 
----
-
-## Rule 4: Validation Rules
-
-Validation must be:
-
-- Visible
-- Deterministic
-- User-readable
-
-Allowed:
-- Radzen validation components
-- Manual validation logic
-
-Prohibited:
-- Hidden framework validation pipelines
-- Validation that cannot be reasoned about from code
-
-**Reject if validation logic is obscured.**
+- Version must be explicit
+- No floating versions
+- No implicit transitive dependency reliance
+- Lock file must reflect resolved version in obj/project.assets.json
 
 ---
 
-## Rule 5: Styling & Consistency
+## 3. Service Registration Rule
 
-- Radzen styling must be internally consistent
-- Do not mix Bootstrap and Radzen within the same UI surface
-- Do not partially migrate components
+Radzen services must be registered inside Module.Client startup.
 
-**Reject mixed-framework UI within a single component.**
+Example:
 
----
+```csharp
+using Radzen;
 
-## Rule 6: Canonical Alignment
+services.AddScoped<DialogService>();
+services.AddScoped<NotificationService>();
+services.AddScoped<TooltipService>();
+services.AddScoped<ContextMenuService>();
+```
 
-Radzen usage must still respect:
+Do NOT:
 
-- Oqtane client/server boundaries
-- Service usage rules
-- Error handling rules
-- Authorization rules
+- Register Radzen services in host Program.cs
+- Modify Oqtane host DI container
+- Register services in Server project
 
-Radzen is a **visual layer only**.
-
-**Reject if Radzen bypasses governance in other domains.**
-
----
-
-## Rule 7: Default Still Wins
-
-The existence of this rule does **not** change defaults.
-
-Default UI stack remains:
-
-- Bootstrap
-- Explicit HTML
-- ActionLink navigation
-- No EditForm
-
-Radzen is an **exception**, not an alternative default.
+Module isolation is mandatory.
 
 ---
 
-## Validation Checklist
+## 4. Required Providers Rule
 
-Radzen usage is valid only if:
+Radzen components requiring infrastructure must include providers in module layout.
 
-- Explicitly requested
-- This rule is applied
-- UI logic remains explicit
-- Validation is visible
-- Submission intent is declared
-- No architectural side effects exist
-- No framework mixing occurs
+Example:
 
-If any check fails, **reject the change**.
+```razor
+<RadzenDialog />
+<RadzenNotification />
+<RadzenTooltip />
+<RadzenContextMenu />
+```
+
+Providers must:
+
+- Be rendered once per module layout
+- Not be injected into host layout
+- Not pollute global UI surface
 
 ---
 
-This rule exists to allow **controlled, intentional UI extension**
-without weakening Oqtane’s architectural integrity.
+## 5. Static Web Assets Rule
+
+Radzen static assets must resolve via:
+
+```
+_content/Radzen.Blazor/
+```
+
+Rules:
+
+- Do not manually copy CSS or JS to host wwwroot
+- Do not modify host index.html
+- Follow 027x-packaging-and-dependencies.md
+- Ensure assets are included in module packaging if producing NuGet
+
+No CDN assumptions.
+
+---
+
+## 6. Host Isolation Rule
+
+Radzen integration must NOT:
+
+- Modify host layout
+- Modify host theme
+- Override global Bootstrap styles
+- Inject global CSS resets
+
+Modules must remain portable and self-contained.
+
+---
+
+## 7. UI Mixing Rule
+
+Radzen must not be mixed with:
+
+- MudBlazor
+- Fluent UI
+- Bootstrap component libraries
+- Any second UI framework
+
+Unless explicitly governed.
+
+AI must not silently merge frameworks.
+
+---
+
+## 8. Runtime Awareness
+
+If runtime detection reveals:
+
+- Another UI framework already active in module
+- Host-level Radzen installation
+- Conflicting static assets
+
+AI must:
+
+- Report conflict
+- Request explicit override
+- Refuse silent integration
+
+---
+
+## 9. Packaging Compliance
+
+Radzen dependency must:
+
+- Appear in Module.Client project.assets.json
+- Be reflected in nuspec packaging if applicable
+- Respect staticwebassets path structure
+- Not duplicate host-level resources
+
+---
+
+## 10. AI Enforcement Behavior
+
+When the user requests:
+
+“Add Radzen”
+
+AI must:
+
+1. Add package to Module.Client
+2. Register required services in module
+3. Add required providers
+4. Validate static web assets path
+5. Preserve host isolation
+
+No generic Blazor assumptions.
+
+---

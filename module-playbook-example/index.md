@@ -21,7 +21,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 
 - **[AI Decision Timeline](docs/ai-decision-timeline.md)**
 - **[Deviations Log](docs/deviations.md)**
-- **[027 — Governance Rule Index (Authoritative)](docs/governance/027-rules-index.md)**
+- **[Below is the **modified 027-rules-index.md**, updated to reflect the correct governance hierarchy while preserving GitHub filename ordering.](docs/governance/027-rules-index.md)**
 - **[027x – AI Decision Timeline (Enforced)](docs/governance/027x-ai-decision-timeline.md)**
 - **[027x — AI Instruction Discovery](docs/governance/027x-ai-instruction-discovery.md)**
 - **[﻿# 027x – Authorization Rules](docs/governance/027x-authorization.md)**
@@ -42,10 +42,12 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 - **[027x Site Tasks](docs/governance/027x-site-tasks.md)**
 - **[027x � Startup and Service Registration Rules](docs/governance/027x-startup.md)**
 - **[027x - Structure and Boundary Rules](docs/governance/027x-structure-and-boundaries.md)**
-- **[Oqtane UI Rules — Radzen (Opt-In, Enforced)](docs/governance/027x-ui-Radzen.md)**
+- **[027x-ui-radzen](docs/governance/027x-ui-Radzen.md)**
+- **[027x-ui-architecture](docs/governance/027x-ui-architecture.md)**
 - **[**Oqtane UI Construction Rules (Enforced)**](docs/governance/027x-ui-construction.md)**
 - **[### Rule: UI CSS and Styling in Oqtane (Mandatory)](docs/governance/027x-ui-css-and-styling.md)**
-- **[Oqtane UI Rules � MudBlazor (Opt-In, Enforced)](docs/governance/027x-ui-mudblazor.md)**
+- **[027x-ui-fluentui](docs/governance/027x-ui-fluentui.md)**
+- **[027x-ui-mudblazor](docs/governance/027x-ui-mudblazor.md)**
 - **[Oqtane UI Validation Rules (Enforced)](docs/governance/027x-ui-validation.md)**
 - **[Governance Rules](docs/governance/README.md)**
 - **[Authorization Prompt (Oqtane Module)](docs/prompts/Authorization.md)**
@@ -58,7 +60,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 
 ---
 
-Last updated: 2026-02-28 12:33 UTC
+Last updated: 2026-02-28 19:29 UTC
 
 **Note:** This index is auto-generated. Edit source files under module-playbook-example/docs/ to change the index.
 
