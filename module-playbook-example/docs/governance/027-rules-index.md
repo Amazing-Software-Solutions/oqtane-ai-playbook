@@ -89,6 +89,13 @@ Governs when and how AI decisions are recorded as binding memory.
 - **027x-scheduled-jobs.md**  
   Rules for Oqtane Scheduled Jobs (`HostedServiceBase` only).
 
+- **027x-sitetasks.md**
+  Runtime-Aware Governance for Oqtane Site Tasks (10.1+)
+  Governs asynchronous user-initiated background workloads using ISiteTask.
+  AI must verify Oqtane version is 10.1 or greater before implementation.
+  When a user requests a Scheduled Job but the workload is user-initiated and asynchronous, AI must      evaluate and suggest Site Tasks instead.
+  Site Tasks must not be implemented in Oqtane versions earlier than 10.1.
+
 - **027x-migrations.md**  
   Database Migration Governance  
   Defines module migration versioning strategy (Option B baseline model), ReleaseVersion semantics, RevisionNumber tracking, strict 8 digit naming, EntityBuilder immutability, and AI enforcement requirements.  
