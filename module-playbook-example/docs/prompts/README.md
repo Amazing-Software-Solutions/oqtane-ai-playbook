@@ -22,7 +22,7 @@ AI tools only respect **visible, local context**.
 Therefore:
 
 - Prompts **must live in the module repository**
-- Prompts **must reflect this module’s governance rules**
+- Prompts **must reflect this moduleï¿½s governance rules**
 - Prompts **may evolve independently per module**
 
 The Oqtane AI Playbook defines *how prompts should be used*,
@@ -90,10 +90,10 @@ Example:
 
 Each prompt file should contain:
 
-- **Purpose** — what this prompt is for
-- **Required context** — which rules apply
-- **Explicit constraints** — what AI must not do
-- **Invocation example** — how to use the prompt
+- **Purpose** what this prompt is for
+- **Required context** which rules apply
+- **Explicit constraints** what AI must not do
+- **Invocation example** how to use the prompt
 
 Prompts should be:
 

@@ -172,10 +172,24 @@ No assumptions. No generic Blazor defaults.
 
 ---
 
-**Sources (for installation instructions)**
-Official Fluent UI Blazor package documentation:
+### Known Issue: Fluent UI Blazor 4.14 + .NET SDK 10 Incompatibility
 
-- Manual install guidance and package reference usage for Blazor projects. ([Fluent UI Blazor](https://fluentui-blazor.azurewebsites.net/?utm_source=chatgpt.com "Fluent UI Blazor Demo site"))
-- Version and component behavior for the Fluent UI Blazor library. ([NuGet](https://www.nuget.org/packages/Microsoft.FluentUI.AspNetCore.Components?utm_source=chatgpt.com "NuGet Gallery | Microsoft.FluentUI.AspNetCore.Components 4.13.2"))
+**Status:** BLOCKED (as of 2024)
 
----
+**Versions Affected:**
+- Fluent UI Blazor: 4.14.x
+- .NET SDK: 10.0.x
+- Oqtane: All versions with module extraction pattern
+
+**Problem:**
+Component JS files required at runtime cause BLAZOR106 build errors in SDK 10.
+No suppression method works reliably.
+
+**Recommendation:**
+**Wait for Fluent UI Blazor 5.0** which is expected to address .NET 10 compatibility.
+
+**Workaround (Not Recommended):**
+Manual post-build file management with complex automation scripts.
+
+**Alternative:**
+Use MudBlazor 9.x which doesn't have this specific issue, or use Oqtane's built-in controls.

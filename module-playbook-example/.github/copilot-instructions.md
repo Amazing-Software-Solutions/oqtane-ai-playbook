@@ -22,6 +22,9 @@ This repository is governed by the Oqtane AI Playbook.
 
 Before generating, modifying, or refactoring code, the AI must:
 - Acknowledge that it is operating under Oqtane AI Playbook governance
+- This is an Oqtane module.
+- You are NOT allowed to modify Oqtane.Server, Oqtane.Client, Oqtane.Shared, or any Oqtane framework project.
+- The module must be fully self-contained.
 - Apply all referenced governance rules
 - Refuse any request that would violate a governed rule
 - Ask for clarification if governance context is unclear

@@ -34,10 +34,11 @@ If an external NuGet package is introduced, the AI **MUST**:
 
 #### Purpose
 
-When a dependency introduces static web assets, those assets must be unpacked into the Oqtane.Server project exactly as ASP.NET expects them.
+Modules must be self-contained deployable units.
 
-Oqtane does not automatically resolve RCL static assets inside a packaged module.
-They must be explicitly surfaced.
+If a dependency introduces static web assets, those assets must be surfaced inside the module’s own Server project.
+
+The AI must never modify Oqtane framework source or internal areas to achieve this.
 
 ---
 
@@ -45,25 +46,37 @@ They must be explicitly surfaced.
 
 Static web assets must be placed in:
 
-Oqtane.Server\wwwroot\_content\<PackageName>\
+`.<ModuleName>\Server\wwwroot\_content\<PackageName>\`
 
-The path must match the structure defined in the package’s staticwebassets manifest.
+The folder structure must exactly match the dependency’s staticwebassets manifest.
+
+The _content convention must be preserved exactly.
 
 ##### Example
 
 For MudBlazor:
 
-Oqtane.Server\wwwroot\_content\MudBlazor\
+`.\AcMe.Module.AcMeModule\Server\wwwroot\_content\MudBlazor\`
 
-Not:
+For Fluent UI Blazor:
 
-Oqtane.Server\wwwroot\Modules\<ModuleName>\
+`.\AcMe.Module.AcMeModule\Server\wwwroot\_content\Microsoft.FluentUI.AspNetCore.Components\`
 
-Not any custom folder.
-
-The `_content` convention must be preserved.
+The package name must match the manifest base path.
 
 ---
+
+### Why This Works
+
+When the module is installed:
+
+* Oqtane extracts the module package
+* Static assets inside the module Server wwwroot are deployed
+* ASP.NET resolves them via:
+
+`/_content/<PackageName>/...`
+
+Because the module mirrors the _content structure exactly, resolution succeeds without touching the host.
 
 #### Governance Requirements
 
@@ -78,7 +91,7 @@ When a package includes static web assets, AI must:
 
 4. Unpack or copy static assets into:
 
-   Oqtane.Server\wwwroot\_content\<PackageName>\
+   .<ModuleName>\wwwroot\_content\<PackageName>\
 
 5. Include those assets in the nuspec `<files>` section.
 
@@ -90,6 +103,19 @@ When a package includes static web assets, AI must:
 
 ---
 
+#### Governance Boundary (Non-Negotiable)
+
+AI MUST NOT:
+
+* Modify Oqtane.Server
+* Modify Oqtane.Client
+* Inject assets into framework projects
+* Assume host-level registration
+* Alter framework startup configuration
+
+All UI framework integration must be module-contained.
+---
+
 #### Why This Matters
 
 ASP.NET resolves static assets using:
@@ -98,10 +124,10 @@ ASP.NET resolves static assets using:
 
 If the `_content` structure is not preserved:
 
-• Assets will not resolve
-• Components will fail silently
-• Styles will not load
-• JS interop may break
+* Assets will not resolve
+* Components will fail silently
+* Styles will not load
+* JS interop may break
 
 This is not optional. It is structural.
 
@@ -111,11 +137,32 @@ This is not optional. It is structural.
 
 If AI adds a dependency that includes static assets and does not:
 
-• Mirror the `_content/<PackageName>` path
-• Include files in nuspec
-• Validate presence in wwwroot
+* Mirror the `_content/<PackageName>` path
+* Include files in nuspec
+* Validate presence in wwwroot
 
 Then packaging is considered incomplete.
+
+---
+
+#### Mandatory AI Detection Process
+
+When adding a NuGet package:
+
+1. Inspect:  
+   Client\obj\project.assets.json  
+   Server\obj\project.assets.json  
+
+2. Detect staticwebassets entries.
+3. Identify the base path _content/<PackageName>.
+4. Mirror that structure inside:
+```
+  .<ModuleName>\Server\wwwroot_content<PackageName>\
+```
+5. Ensure files are included in the nuspec for packaging.
+6. Validate no runtime 404 errors for _content/....
+
+If this chain is incomplete, the module is non-compliant with 027 governance.
 
 ---
 
@@ -130,7 +177,7 @@ This typically requires:
 
 - Updating `debug.cmd` (or equivalent build/deploy script)
 - Copying the required DLLs into:
-Oqtane.Server\bin\Debug<target-framework>\
+`Oqtane.Server\bin\Debug<target-framework>\`
 
 
 If this step is omitted, the module **will compile but fail at runtime**.
@@ -153,7 +200,7 @@ Failure to update the `.nuspec` will result in:
 
 ### 4. Project File Update (.csproj)
 
-- Ensure the project file `.csproj` includes the appropriate <PackageReference>` entry for the new package.		
+- Ensure the project file `.csproj` includes the appropriate `<PackageReference>` entry for the new package.		
 - The PropertyGroup contains the CopyLocalLockFileAssemblies set to true,
 ensuring that all referenced assemblies are copied to the output directory during build time.
 
@@ -219,14 +266,14 @@ Oqtane requires explicit DLL dependencies in `ModuleInfo.cs` for proper assembly
 2. **Complete Chain**: Include all transitive dependencies that aren't part of .NET runtime
 3. **Comma Separated**: Use comma-separated format for multiple dependencies
 4. **No Space Padding**: The name list should not have spaces around commas
-5. **Core Module First**: Always list the main Doquetain module dependency first
+5. **Core Module First**: Always list the main module dependency first
 
 ### Dependency Updates
 When updating third-party dependencies:
 1. Update project references
 2. Update nuspec dependency versions
 2. The dependency files must be copied to the Oqtane Server bin in the files section of the nuspec
-3. Update ModuleInfo.cs Dependencies string
+3. Update `ModuleInfo.cs` Dependencies string
 4. Test package generation and deployment
 5. Update provider documentation
 
