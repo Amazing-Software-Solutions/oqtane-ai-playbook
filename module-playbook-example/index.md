@@ -61,7 +61,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 
 ---
 
-Last updated: 2026-03-03 06:16 UTC
+Last updated: 2026-03-03 06:17 UTC
 
 **Note:** This index is auto-generated. Edit source files under module-playbook-example/docs/ to change the index.
 
