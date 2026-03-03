@@ -63,9 +63,9 @@ It is the intended version comparison model.
 
 This execution model applies equally to:
 
-• Oqtane core migrations  
-• Tenant migrations  
-• Module migrations
+- Oqtane core migrations  
+- Tenant migrations  
+- Module migrations
 
 Only the scope prefix differs.
 
@@ -93,16 +93,16 @@ This is why build-segment migrations accumulate correctly during development.
 
 This version:
 
-• Removes ambiguity  
-• Explicitly states strict greater-than comparison  
-• Confirms equal behavior across core, tenant, and modules  
-• Avoids implying matching is required  
-• Aligns precisely with runtime behavior
+- Removes ambiguity  
+- Explicitly states strict greater-than comparison  
+- Confirms equal behavior across core, tenant, and modules  
+- Avoids implying matching is required  
+- Aligns precisely with runtime behavior
 
 If you would like, I can now:
 
-• Refactor the entire migrations guide so it flows logically from execution model → development workflow → governance enforcement  
-• Or reconcile this section with the RevisionNumber enforcement language so there is zero conceptual drift between runtime behavior and playbook governance
+- Refactor the entire migrations guide so it flows logically from execution model → development workflow → governance enforcement  
+- Or reconcile this section with the RevisionNumber enforcement language so there is zero conceptual drift between runtime behavior and playbook governance
 
 ---
 
@@ -110,9 +110,9 @@ If you would like, I can now:
 
 During development:
 
-• Keep ReleaseVersion as major.minor.patch
-• Do not include the build segment in ReleaseVersion
-• Increment only the build segment in migration filenames
+- Keep ReleaseVersion as major.minor.patch
+- Do not include the build segment in ReleaseVersion
+- Increment only the build segment in migration filenames
 
 Example:
 
@@ -199,10 +199,10 @@ Migrations represent change.
 
 Without strict migration governance:
 
-• Tenants upgrade inconsistently
-• Development and production drift
-• AI generates unsafe schema changes
-• Database state becomes unpredictable
+- Tenants upgrade inconsistently
+- Development and production drift
+- AI generates unsafe schema changes
+- Database state becomes unpredictable
 
 OAP enforces this so that:
 

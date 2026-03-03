@@ -318,28 +318,106 @@ Violation corrupts migration history.
 
 ---
 
-## 6.2 Table Naming Convention (OwnerModule Pattern)
+# 6.2 Table Naming Convention (OwnerModule Pattern)
 
-All tables must follow:
+## Rule Statement
 
-* PascalCase
-* Prefixed with module identity
-* No underscores
-* No plural guessing
-* Immutable after deployment
+All tables must follow a deterministic OwnerModule prefix pattern to ensure global uniqueness across the database.
 
-Example:
+The module identity is:
 
-```
-PlaybookGovernedExample
-CreatorProfile
-```
+<Owner><ModuleName>
 
-Renaming tables requires a migration.
+This identity must be applied exactly once.
 
-Never rename directly in EntityBuilder.
+If the table name is identical to the ModuleName, the name must not be repeated.
 
 ---
+
+## Naming Requirements
+
+All tables must:
+
+-   Use PascalCase
+-   Be prefixed with OwnerModule identity
+-   Contain no underscores
+-   Avoid plural guessing
+-   Be immutable after deployment
+-   Be globally unique across the database
+
+---
+
+## Canonical Pattern
+
+Standard case:
+
+<Owner><ModuleName><EntityName>
+
+Special case where EntityName equals ModuleName:
+
+<Owner><ModuleName>
+
+Do not duplicate the module name.
+
+---
+
+## Examples
+
+### Example 1 – Entity different from Module
+
+Owner: StudioElf
+Module: MyPlaybook
+Table: DataTable
+
+Result:
+
+StudioElfMyPlaybookDataTable
+
+---
+
+### Example 2 – Table name equals Module name
+
+Owner: StudioElf
+Module: Storefront
+Table: Storefront
+
+Correct result:
+
+StudioElfStorefront
+
+Not:
+
+StudioElfStorefrontStorefront
+
+---
+
+## Rationale
+
+The OwnerModule prefix already guarantees uniqueness.
+
+Repeating the module name when the table name matches the module:
+
+-   Adds no additional uniqueness
+-   Increases verbosity
+-   Breaks naming elegance
+-   Complicates migration readability
+
+The database should reflect identity once, not redundantly.
+
+---
+
+## AI Enforcement Requirement
+
+When generating migrations, AI must:
+
+1.  Derive OwnerModule identity once.
+2.  Compare EntityName to ModuleName.
+3.  If equal, omit duplication.
+4.  Validate final table name for deterministic correctness.
+5.  Refuse to generate migrations that violate this rule.
+
+---
+
 
 # 7. Model Contract Governance
 
