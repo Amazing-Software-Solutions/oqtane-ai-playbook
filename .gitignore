@@ -2,3 +2,4 @@ docs/desktop.ini
 *.bak
 /.obsidian
 /.tmp.driveupload
+**/desktop.ini

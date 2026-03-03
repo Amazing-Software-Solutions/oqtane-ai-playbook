@@ -144,7 +144,7 @@ Ensures identical functional behavior across Blazor Server and WebAssembly hosti
 Business logic must reside exclusively in ServerService.
 - **027x-migrations.md**
 Database Migration Governance.
-Defines module migration versioning strategy using Option B baseline model, ReleaseVersion semantics, RevisionNumber tracking, strict 8 digit naming, EntityBuilder immutability, table naming conventions, IAuditable requirements, and AI enforcement behavior.
+Defines module migration versioning strategy using Option B baseline model, ReleaseVersion semantics, RevisionNumber tracking, strict 8 digit naming, EntityBuilder immutability, table naming conventions, ModelBase audit requirements, and AI enforcement behavior.
 Mandatory for all schema changes.
 - **027x-packaging-and-dependencies.md**
 Governs runtime behavior, deployment correctness, NuGet packaging rules, static web asset handling, and staticwebassets path alignment.

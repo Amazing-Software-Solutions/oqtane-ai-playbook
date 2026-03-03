@@ -56,11 +56,12 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 - **[UI Construction Prompt (Oqtane Module)](docs/prompts/UI Construction Prompt.md)**
 - **[Diagnostics & Debugging Prompt (Oqtane Module)](docs/prompts/diagnositics.md)**
 - **[Service & DI Prompt (Oqtane Module)](docs/prompts/services.md)**
+- **[Canonical Prompt: Self Contained UI Framework Installation](docs/prompts/ui-framework-installation-template.md)**
 - **[UI Construction Prompt (Oqtane Module)](docs/prompts/ui.md)**
 
 ---
 
-Last updated: 2026-02-28 19:29 UTC
+Last updated: 2026-03-03 06:16 UTC
 
 **Note:** This index is auto-generated. Edit source files under module-playbook-example/docs/ to change the index.
 

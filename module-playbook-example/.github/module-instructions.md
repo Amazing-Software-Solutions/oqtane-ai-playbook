@@ -2,8 +2,6 @@
 
 These instructions extend the canonical Copilot instructions.
 
-> ☝️ This should be copied to the Solution as it specific to the module.
-
 Additional constraints:
 - Deletions must always be confirmed using ActionDialog
 - System fields are immutable except for visibility

@@ -345,15 +345,11 @@ Never rename directly in EntityBuilder.
 
 AI commonly makes this mistake:
 
-Models must NOT inherit from `ModelBase`.
+Models must inherit from `ModelBase`.
 
 Correct contract:
 
-All models must implement:
-
-```
-Oqtane.Models.IAuditable
-```
+Models should inherit from `ModelBase` so they receive the standard audit properties (for example: `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`) and consistent behavior across modules.
 
 Optional:
 
@@ -363,12 +359,12 @@ Oqtane.Models.IDeletable
 
 Rules:
 
-* Do not inherit ModelBase
-* Implement IAuditable
-* Implement IDeletable if soft delete required
-* Ensure DbContext matches model contract
+* Inherit `ModelBase`
+* Do not duplicate audit properties when inheriting `ModelBase`
+* Implement `IDeletable` if soft delete is required
+* Ensure the `DbContext` contains the corresponding `DbSet<T>` and mappings for the model contract
 
-Reject ModelBase usage in module models.
+Accept `ModelBase` usage in module models.
 
 ---
 
@@ -406,7 +402,7 @@ When adding or modifying schema:
 * Update DbContext
 * Ensure DbSet<T> exists
 * Ensure model matches schema
-* Ensure IAuditable columns exist
+* Ensure audit columns exist (provided by `ModelBase` do not implement `IAuditable` separately)
 * Ensure migration matches model
 
 Schema, model, and migration must remain aligned.
@@ -508,7 +504,7 @@ STOP and request clarification.
 * Build segment used for development increments
 * RevisionNumber must match latest migration
 * EntityBuilders immutable after initial deployment
-* Models implement IAuditable, not ModelBase
+* Models inherit `ModelBase` (do not implement `IAuditable` separately)
 * All schema changes via new migrations
 * Down() mandatory
 * Database state must be considered when possible
