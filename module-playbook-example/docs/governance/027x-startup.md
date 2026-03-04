@@ -1,4 +1,4 @@
-# 027x – Startup and Service Registration Rules
+# 027x â€“ Startup and Service Registration Rules
 
 ## Scope
 

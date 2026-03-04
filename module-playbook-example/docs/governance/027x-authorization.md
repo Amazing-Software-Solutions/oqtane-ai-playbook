@@ -1,4 +1,4 @@
-﻿# 027x – Authorization Rules
+# 027x – Authorization Rules
 
 ## Scope
 
