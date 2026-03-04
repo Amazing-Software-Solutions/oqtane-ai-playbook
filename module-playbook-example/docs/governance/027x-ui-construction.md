@@ -1,4 +1,4 @@
-# **Oqtane UI Construction Rules (Enforced)**
+# Oqtane UI Construction Rules (Enforced)
 
 ## Purpose
 

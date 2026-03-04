@@ -12,44 +12,41 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 
 ### 📋 Core Documents
 
-- **[ # Module-Playbook-Example](README.md)**
+- **[Module-Playbook-Example](README.md)**
 - **[Governance Rules](docs/governance/README.md)**
 - **[AI Decision Timeline](docs/ai-decision-timeline.md)**
 - **[Deviations Log](docs/deviations.md)**
 
 ### 📚 Governance Rules & Prompts
 
-- **[AI Decision Timeline](docs/ai-decision-timeline.md)**
-- **[Deviations Log](docs/deviations.md)**
-- **[Below is the **modified 027-rules-index.md**, updated to reflect the correct governance hierarchy while preserving GitHub filename ordering.](docs/governance/027-rules-index.md)**
+- **[027 — Governance Rule Index (Authoritative)](docs/governance/027-rules-index.md)**
 - **[027x – AI Decision Timeline (Enforced)](docs/governance/027x-ai-decision-timeline.md)**
 - **[027x — AI Instruction Discovery](docs/governance/027x-ai-instruction-discovery.md)**
-- **[﻿# 027x – Authorization Rules](docs/governance/027x-authorization.md)**
+- **[027x – Authorization Rules](docs/governance/027x-authorization.md)**
 - **[Canonical Framework Rule (Enforced)](docs/governance/027x-canonical-framework.md)**
 - **[Canonical Validation Rule (Enforced)](docs/governance/027x-canonical-validation.md)**
-- **[027x � Core AI Behavior Rules](docs/governance/027x-core-ai-behavior.md)**
-- **[## Rule: Identity Remapping Is Mandatory for Hierarchical Import](docs/governance/027x-data-identity-remapping.md)**
+- **[027x – Core AI Behavior Rules](docs/governance/027x-core-ai-behavior.md)**
+- **[Rule: Identity Remapping Is Mandatory for Hierarchical Import](docs/governance/027x-data-identity-remapping.md)**
 - **[Oqtane Error Handling Rules (Enforced)](docs/governance/027x-error-handling.md)**
 - **[027x – Execution Parity Across Hosting Models (Mandatory)](docs/governance/027x-execution-parity.md)**
-- **[## 027x – JavaScript Usage](docs/governance/027x-javascript-usage.md)**
+- **[027x – JavaScript Usage](docs/governance/027x-javascript-usage.md)**
 - **[027x - Localization and String Resources](docs/governance/027x-localization.md)**
 - **[027x Migrations Governance](docs/governance/027x-migrations.md)**
 - **[Module Portability](docs/governance/027x-module-portability.md)**
-- **[ # 027x — Packaging and External Dependencies](docs/governance/027x-packaging-and-dependencies.md)**
+- **[027x — Packaging and External Dependencies](docs/governance/027x-packaging-and-dependencies.md)**
 - **[Oqtane Repository Pattern Rules (Enforced)](docs/governance/027x-repositories.md)**
 - **[027x-runtime-awareness](docs/governance/027x-runtime-awareness.md)**
-- **[027x � Scheduled Jobs (Oqtane-Enforced)](docs/governance/027x-scheduled-jobs.md)**
+- **[027x – Scheduled Jobs (Oqtane-Enforced)](docs/governance/027x-scheduled-jobs.md)**
 - **[027x Site Tasks](docs/governance/027x-site-tasks.md)**
-- **[027x � Startup and Service Registration Rules](docs/governance/027x-startup.md)**
+- **[027x – Startup and Service Registration Rules](docs/governance/027x-startup.md)**
 - **[027x - Structure and Boundary Rules](docs/governance/027x-structure-and-boundaries.md)**
 - **[027x-ui-radzen](docs/governance/027x-ui-Radzen.md)**
 - **[027x-ui-architecture](docs/governance/027x-ui-architecture.md)**
-- **[**Oqtane UI Construction Rules (Enforced)**](docs/governance/027x-ui-construction.md)**
-- **[### Rule: UI CSS and Styling in Oqtane (Mandatory)](docs/governance/027x-ui-css-and-styling.md)**
+- **[Oqtane UI Construction Rules (Enforced)](docs/governance/027x-ui-construction.md)**
+- **[Rule: UI CSS and Styling in Oqtane (Mandatory)](docs/governance/027x-ui-css-and-styling.md)**
 - **[027x-ui-fluentui](docs/governance/027x-ui-fluentui.md)**
 - **[027x-ui-mudblazor](docs/governance/027x-ui-mudblazor.md)**
 - **[Oqtane UI Validation Rules (Enforced)](docs/governance/027x-ui-validation.md)**
-- **[Governance Rules](docs/governance/README.md)**
 - **[Authorization Prompt (Oqtane Module)](docs/prompts/Authorization.md)**
 - **[Localization Opt-In Prompt (AI Assistant / AI Prompt)](docs/prompts/Localization Opt-In.md)**
 - **[AI Prompt Library (Module-Scoped)](docs/prompts/README.md)**
@@ -61,7 +58,7 @@ The **Module Playbook Example** demonstrates how to apply the Oqtane AI Playbook
 
 ---
 
-Last updated: 2026-03-04 09:30 UTC
+Last updated: 2026-03-04 11:33 UTC
 
 **Note:** This index is auto-generated. Edit source files under module-playbook-example/docs/ to change the index.
 

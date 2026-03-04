@@ -1,12 +1,3 @@
-Below is the **modified 027-rules-index.md**, updated to reflect the correct governance hierarchy while preserving GitHub filename ordering.
-
-The solution does not rely on filename order.
-It introduces an explicit **Governance Evaluation Order*- section that overrides alphabetical indexing.
-
-You can replace the existing file content with this version.
-
----
-
 # 027 — Governance Rule Index (Authoritative)
 
 ## Purpose

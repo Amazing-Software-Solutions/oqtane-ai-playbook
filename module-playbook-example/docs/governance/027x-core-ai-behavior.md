@@ -1,4 +1,4 @@
-# 027x – Core AI Behavior Rules
+# 027x â€“ Core AI Behavior Rules
 
 ## Scope
 

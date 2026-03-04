@@ -1,4 +1,4 @@
-# 027x – Scheduled Jobs (Oqtane-Enforced)
+# 027x â€“ Scheduled Jobs (Oqtane-Enforced)
 
 ## Purpose
 

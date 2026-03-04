@@ -1,4 +1,4 @@
-### Rule: UI CSS and Styling in Oqtane (Mandatory)
+# Rule: UI CSS and Styling in Oqtane (Mandatory)
 
 #### ⚠️ AI WARNING – READ BEFORE GENERATING ANY CSS
 
