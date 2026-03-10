@@ -157,7 +157,7 @@ When adding a NuGet package:
 3. Identify the base path _content/<PackageName>.
 4. Mirror that structure inside:
 ```
-  .<ModuleName>\Server\wwwroot_content<PackageName>\
+  .<ModuleName>\Server\wwwroot\_content<PackageName>\
 ```
 5. Ensure files are included in the nuspec for packaging.
 6. Validate no runtime 404 errors for _content/....
