@@ -98,6 +98,18 @@ The burden of proof lies with the output, not the reviewer.
 
 ## AI Is Stateless
 
+## Instruction Discovery Rules
+
+The **027x-ai-instruction-discovery.md** rule is a critical component of the Oqtane governance framework. It mandates that AI assistants:
+
+1. **Locate and Apply Instruction Files**: Before generating or modifying code, AI must check for the presence of `.github/copilot-instructions.md` at the solution or module root.
+2. **Override Default Behavior**: If this file exists, its contents become the authoritative source for AI behavior, overriding generic defaults.
+3. **Enforce Precedence**: This rule takes precedence over all other rule types in the authority hierarchy (see "Authority Hierarchy" section), ensuring that instruction-based governance is the first step in the validation process.
+
+Failure to follow this rule invalidates all subsequent governance checks. AI must refuse to proceed if the instruction file cannot be resolved.
+
+This rule ensures that all AI-generated code is consistently governed by explicitly defined behavioral guidelines, preventing accidental deviations from established standards.
+
 AI has:
 - No memory
 - No responsibility
@@ -137,3 +149,56 @@ AI must prefer:
 - Negative constraints (“must not”)
 
 If a prompt contradicts a rule, **the rule wins**.
+
+---
+
+## Instruction Discovery Rules
+
+This rule defines how AI assistants must discover and apply authoritative
+instruction files within an Oqtane module solution. AI behavior must be governed by file-backed instructions, not assumed defaults or conversational memory.
+
+### Rule Statement
+
+When generating or modifying code in an Oqtane module solution, the AI MUST:
+
+1. Look for `.github/copilot-instructions.md` at the solution or module root
+2. Treat this file as authoritative behavioral guidance
+3. Apply its instructions before generating or modifying any code
+
+If the file exists, its contents MUST override generic AI defaults.
+
+### Instruction Extension Model
+
+The canonical instruction file MAY reference additional instruction files (e.g., module-specific instructions). AI MUST follow this chain of references explicitly and in order.
+
+AI MUST NOT:
+- Ignore `.github/copilot-instructions.md`
+- Invent instructions not backed by files
+- Assume instructions from previous conversations
+- Replace or rewrite instruction files unless explicitly asked
+
+### Refusal Conditions
+
+The AI MUST refuse to proceed if:
+
+- `.github/copilot-instructions.md` exists but cannot be read
+- Referenced instruction files are missing or ambiguous
+- Conflicting instruction files are discovered without precedence defined
+
+### Required Refusal Message
+
+> I cannot proceed because authoritative AI instructions exist in `.github/copilot-instructions.md`, but they could not be resolved safely. Please confirm the instruction structure or resolve the ambiguity.
+
+### Rationale
+
+Different AI assistants use different memory and instruction mechanisms. File-backed instruction discovery ensures:
+
+- Deterministic behavior
+- Tool-agnostic governance
+- Repeatable results across AI assistant tools
+
+This rule prevents accidental bypass of established governance.
+
+### Summary
+
+AI behavior must be driven by **discovered instructions**, not remembered ones. If `.github/copilot-instructions.md` exists, it is mandatory.

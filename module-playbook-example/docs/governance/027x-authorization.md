@@ -109,7 +109,24 @@ Reject output if code:
 
 ---
 
-## 4. AI Refusal Message Template (Authorization Ambiguity)
+## 4. Oqtane Permission and Role Check Examples
+```csharp
+// Correct: Permission-based check on User. These methods reside ont he ModuleBase 
+@if (base.IsAuthorizedPermission("Storefront.Edit"))
+{
+    <ActionLink Action="StoreConfiguration" />
+}
+
+
+@if (base.IsAuthorizedRole(RoleNames.Admin))
+{
+    <ActionLink Action="StoreConfiguration" />
+}
+
+```
+---
+
+## 5. AI Refusal Message Template (Authorization Ambiguity)
 
 **Authorization context is unclear.**
 I cannot determine whether this logic requires permission-based authorization or a framework-mandated system role check.
