@@ -14,10 +14,10 @@ This repository defines **non-negotiable architectural and AI governance rules**
 
 If AI-generated output conflicts with this playbook or the canonical module reference, **the output is invalid-regardless of correctness**.
 
-> [ Getting Started](GettingStarted.md) with Oqtane AI Playbook. In this tutorial, we walk you through setting up your Oqtane Development Environment.
+> [Getting Started](/GettingStarted) with Oqtane AI Playbook. In this tutorial, we walk you through setting up your Oqtane Development Environment.
 >
-> > [![Governed](https://img.shields.io/badge/Governed-Oqtane%20AI%20Playbook-darkblue)](https://github.com/leigh-pointer/oqtane-ai-playbook)  
-> > ![Governed](https://img.shields.io/badge/Oqtane%20AI%20Playbook-027%20Governance-orange) 
+> [![Governed](https://img.shields.io/badge/Governed-Oqtane%20AI%20Playbook-darkblue)](https://github.com/leigh-pointer/oqtane-ai-playbook)  
+> ![Governed](https://img.shields.io/badge/Oqtane%20AI%20Playbook-027%20Governance-orange) 
 
 ---
 
