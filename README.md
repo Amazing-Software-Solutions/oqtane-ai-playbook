@@ -8,12 +8,16 @@
 
 > **This playbook aligns with the core principles of Oqtane as articulated in the Oqtane Philosophy — performance, flexibility, low ceremony, tool agnosticism, consistency, and practical engineering. See https://www.oqtane.org/blog/!/20/oqtane-philosophy for foundational context.**
 
-
 **TL;DR for maintainers**
 
 This repository defines **non-negotiable architectural and AI governance rules** for Oqtane module development.
 
 If AI-generated output conflicts with this playbook or the canonical module reference, **the output is invalid-regardless of correctness**.
+
+> [ Getting Started](GettingStarted.md) with Oqtane AI Playbook. In this tutorial, we walk you through setting up your Oqtane Development Environment.
+>
+> > [![Governed](https://img.shields.io/badge/Governed-Oqtane%20AI%20Playbook-darkblue)](https://github.com/leigh-pointer/oqtane-ai-playbook)  
+> > ![Governed](https://img.shields.io/badge/Oqtane%20AI%20Playbook-027%20Governance-orange) 
 
 ---
 
@@ -40,9 +44,7 @@ Its purpose is to make Oqtane's **implicit rules explicit**, enforceable, and vi
 A three-layer overview showing how the Oqtane AI Playbook is used correctly:
 
 - **Top (Authoring Layer)** The Oqtane AI Playbook defines governance rules, patterns, and constraints. It is the source of truth, but is never referenced directly by real modules.
-
 - **Middle (Reference Layer)** Playbook.Module.GovernedExample is a living, fully-governed example that implements the playbook rules and demonstrates them in practice.
-
 - **Bottom (Application Layer)** YourCompany.Module.GovernedExample builds real features by following the example module, inheriting its governance indirectly without coupling to the playbook itself.
 
 The arrows highlight a strict flow: Playbook â†’ Example â†’ Real Module, ensuring consistency, safety, and adoption without friction.
@@ -217,13 +219,11 @@ docs/
 └── deviations.md
 ```
 
-> 
 > ⚠️ **Important**
-> 
+>
 > AI tools can only reason over files that are visible in the editor/solution.
-> 
+>
 > These files **must be included in the solution**, not just present on disk.
-> 
 
 ---
 
@@ -252,9 +252,7 @@ If a request is refused or corrected due to architectural constraints:
 
 **One-line AI assistant prompt example**:
 
-> 
 > *â€œBefore responding, read the AI Decision Timeline and treat it as binding governance memory.â€*
-> 
 
 ---
 
@@ -299,7 +297,6 @@ docs/
 
 - Individual **enforceable rule documents**
 - Each file:
-
     - Covers one domain (migrations, jobs, UI validation, etc.)
     - Contains explicit **Reject if** criteria
     - Is applied automatically once indexed
@@ -310,7 +307,6 @@ docs/
 
 - Binding governance memory
 - Records:
-
     - Refusals
     - Rediscovered invariants
     - Multi-iteration corrections
@@ -323,7 +319,6 @@ docs/
 
 - Explicit, intentional deviations from canonical Oqtane patterns
 - Each deviation must:
-
     - Be justified
     - Be scoped
     - Be accepted knowingly
@@ -399,6 +394,5 @@ The goal is **shared understanding**, not personal ownership.
 - Tools don't fail.
 - Developers don't fail.
 - **Unspoken rules fail.**
-
 
 This repository exists to speak them out loud.
