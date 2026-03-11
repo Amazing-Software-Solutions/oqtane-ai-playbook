@@ -2,9 +2,14 @@ name: Auto Generate Index (Module Playbook Example)
 
 on:
   push:
+    branches:
+      - develop
+      - main
     paths:
       - 'module-playbook-example/**'
   pull_request:
+    branches:
+      - main
     paths:
       - 'module-playbook-example/**'
   workflow_dispatch:
