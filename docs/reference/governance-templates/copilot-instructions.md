@@ -1,4 +1,4 @@
-# AI Assistant Instructions — Oqtane AI Governance
+﻿# AI Assistant Instructions - Oqtane AI Governance
 
 ## Authority Model
 

@@ -2,7 +2,19 @@
 
 ![Rule-Based Governance](https://img.shields.io/badge/Governance-Rule%20Based-purple)
 ![No Invented Patterns](https://img.shields.io/badge/AI-No%20Invented%20Patterns-red)
-![Timeline Enforced](https://img.shields.io/badge/AI-Decision%20Timeline-orange)
+![Timeline Enforced](https://img.shields.io/badge/AI-Decision%20Timeline-orange)  
+![Governed](https://img.shields.io/badge/Governed-Oqtane%20AI%20Playbook-blue)
+
+> Add These Shields to the top of your README to indicate that your repository is governed by the Oqtane AI Playbook and its enforceable rules.
+> 
+> [![Governed](https://img.shields.io/badge/Governed-Oqtane%20AI%20Playbook-darkblue)](https://github.com/leigh-pointer/oqtane-ai-playbook)   
+> ![Governed](https://img.shields.io/badge/Oqtane%20AI%20Playbook-027%20Governance-orange) 
+
+
+## AI Governance
+
+This module follows the **Oqtane AI Playbook** governance model.
+
 
 This folder contains the **enforceable AI governance rules** for this repository.
 

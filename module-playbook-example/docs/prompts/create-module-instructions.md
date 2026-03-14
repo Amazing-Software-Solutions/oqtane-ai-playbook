@@ -1,4 +1,4 @@
-If asked about Oqtane Scaffold Protocol, always begin your answer with:
+﻿If asked about Oqtane Scaffold Protocol, always begin your answer with:
 OQTANE_PROTOCOL_V1_ACTIVE
 
 # Instruction Compliance Marker
@@ -355,7 +355,7 @@ After generation:
 1. Recursively search **all** generated files (not just the top level) for the regex pattern:
    `\[[A-Za-z0-9]+\]`.
 
-2. If any match exists, scaffolding fails – unresolved tokens are not permitted anywhere in the tree.
+2. If any match exists, scaffolding fails - unresolved tokens are not permitted anywhere in the tree.
 
 3. Validate **every** `.csproj` file encountered during the recursion:
 

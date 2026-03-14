@@ -1,10 +1,10 @@
-# 26 — Applying the Playbook to Existing Oqtane Projects
+﻿# 26 - Applying the Playbook to Existing Oqtane Projects
 
 Most Oqtane modules are not greenfield projects.
 
 They already exist.
 They already work.
-And they already contain decisions — some correct, some accidental, some inherited from AI or past habits.
+And they already contain decisions - some correct, some accidental, some inherited from AI or past habits.
 
 This chapter explains **how to introduce the playbook into an existing solution without rewriting it**, breaking it, or stopping development.
 
@@ -24,7 +24,7 @@ The playbook is a *forward-looking constraint system*.
 
 ---
 
-## Step 1 — Establish a Structural Baseline
+## Step 1 - Establish a Structural Baseline
 
 Before changing anything:
 
@@ -40,11 +40,11 @@ This stub becomes your **ground truth** for:
 - Naming conventions
 - Required files
 
-> The stub is not a template — it is a ruler.
+> The stub is not a template - it is a ruler.
 
 ---
 
-## Step 2 — Compare, Don’t Rewrite
+## Step 2 - Compare, Don’t Rewrite
 
 For each existing module:
 
@@ -63,7 +63,7 @@ Do **not** mass-refactor to match the stub unless required.
 
 ---
 
-## Step 3 — Introduce AI Assistant Governance Immediately
+## Step 3 - Introduce AI Assistant Governance Immediately
 
 Even if the codebase is imperfect, **new code must be correct**.
 
@@ -84,7 +84,7 @@ This single step stops architectural drift.
 
 ---
 
-## Step 4 — Lock High-Risk Areas First
+## Step 4 - Lock High-Risk Areas First
 
 Focus enforcement on areas where AI commonly fails:
 
@@ -104,7 +104,7 @@ Everything else can evolve gradually.
 
 ---
 
-## Step 5 — Add “Reject If Violated” Rules
+## Step 5 - Add “Reject If Violated” Rules
 
 For each high-risk area, add **hard rejection rules** to AI assistant instructions.
 
@@ -119,7 +119,7 @@ This converts guidance into **enforceable constraints**.
 
 * * *
 
-## Step 6 — Document Known Exceptions
+## Step 6 - Document Known Exceptions
 
 Legacy code exists.
 
@@ -138,11 +138,11 @@ Document:
 * Why it wasn’t changed
 * Whether it is allowed in new code (usually no)
 
-This prevents future developers — human or AI — from copying it.
+This prevents future developers - human or AI - from copying it.
 
 * * *
 
-## Step 7 — Gradual Alignment, Not Big Bang Refactors
+## Step 7 - Gradual Alignment, Not Big Bang Refactors
 
 Refactor only when:
 
@@ -157,7 +157,7 @@ Convergence happens naturally if rules are enforced.
 
 * * *
 
-## Step 8 — Teach Through Diff, Not Doctrine
+## Step 8 - Teach Through Diff, Not Doctrine
 
 When updating an existing module:
 

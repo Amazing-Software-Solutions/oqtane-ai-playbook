@@ -1,4 +1,4 @@
-# 02 — The Insight: AI Needs Governance, Not Better Prompts
+﻿# 02 - The Insight: AI Needs Governance, Not Better Prompts
 
 After encountering repeated failures using AI tools for Oqtane module development, many developers instinctively try to fix the problem by improving their prompts.
 
@@ -7,7 +7,7 @@ They explain Oqtane concepts.
 They correct the AI and try again.
 They write longer, more detailed instructions.
 
-Sometimes this helps — briefly.
+Sometimes this helps - briefly.
 
 But the underlying problem remains.
 
@@ -38,7 +38,7 @@ Even very detailed prompts suffer from two structural problems:
 
 This leads to a pattern many developers recognize:
 
-> “I explained this yesterday — why is it wrong again today?”
+> “I explained this yesterday - why is it wrong again today?”
 
 ---
 
@@ -82,7 +82,7 @@ And that is precisely the problem.
 
 In Oqtane, many “best practices” from elsewhere are actively wrong.
 
-The AI is not being careless — it is doing exactly what it was designed to do.
+The AI is not being careless - it is doing exactly what it was designed to do.
 
 ---
 

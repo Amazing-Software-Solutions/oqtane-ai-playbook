@@ -1,10 +1,10 @@
-# Oqtane AI Playbook
+﻿# Oqtane AI Playbook
 
 ![Oqtane](https://img.shields.io/badge/Oqtane-Framework-blue)
 ![AI Governance](https://img.shields.io/badge/AI-Governed-027%20Based--green)
 ![Canonical Source](https://img.shields.io/badge/Canonical-Oqtane%20Framework-black)
 
-> **This playbook aligns with the core principles of Oqtane as articulated in the Oqtane Philosophy — performance, flexibility, low ceremony, tool agnosticism, consistency, and practical simplicity.**
+> **This playbook aligns with the core principles of Oqtane as articulated in the Oqtane Philosophy - performance, flexibility, low ceremony, tool agnosticism, consistency, and practical simplicity.**
 
 ---
 
@@ -20,33 +20,33 @@ The **Oqtane AI Playbook** is a framework-aware governance repository for buildi
 
 ### 🎯 Core Documentation
 
-- **[00 — Preface: How to Read and Use This Guide](docs/000-preface.md)**
-- **[01 — The Problem: Why AI Struggles With Oqtane Module Development](docs/001-problem.md)**
-- **[02 — The Insight: AI Needs Governance, Not Better Prompts](docs/002-insight.md)**
-- **[03 — Scope and Boundaries](docs/003-scope-and-boundaries.md)**
+- **[00 - Preface: How to Read and Use This Guide](docs/000-preface.md)**
+- **[01 - The Problem: Why AI Struggles With Oqtane Module Development](docs/001-problem.md)**
+- **[02 - The Insight: AI Needs Governance, Not Better Prompts](docs/002-insight.md)**
+- **[03 - Scope and Boundaries](docs/003-scope-and-boundaries.md)**
 
 ### 🚀 Getting Started
 
-- **[005 — Oqtane Development Environment Setup](docs/005-setup.md)**
-- **[006 – Module Adoption (Existing Modules)](docs/006-module-adoption.md)**
+- **[005 - Oqtane Development Environment Setup](docs/005-setup.md)**
+- **[006 - Module Adoption (Existing Modules)](docs/006-module-adoption.md)**
 - **[ ## Oqtane Philosophy](docs/00x-playbook-foundations.md)**
 
 ### 🏗️ Architecture Guidelines
 
-- **[10 — Services: Contracts, Boundaries, and Responsibility](docs/010-services.md)**
-- **[11 — Authorization: Roles, Permissions, and Enforcement](docs/011-authorization.md)**
-- **[12 — Database Migrations: Startup Execution, Versioning, and Multi-Database Safety](docs/012-migrations.md)**
-- **[13 — Scheduled Jobs: Framework-Managed Background Work](docs/013-scheduled-jobs.md)**
-- **[014 — UI Validation](docs/014-ui-validation.md)**
+- **[10 - Services: Contracts, Boundaries, and Responsibility](docs/010-services.md)**
+- **[11 - Authorization: Roles, Permissions, and Enforcement](docs/011-authorization.md)**
+- **[12 - Database Migrations: Startup Execution, Versioning, and Multi-Database Safety](docs/012-migrations.md)**
+- **[13 - Scheduled Jobs: Framework-Managed Background Work](docs/013-scheduled-jobs.md)**
+- **[014 - UI Validation](docs/014-ui-validation.md)**
 - **[015 - Error Handling](docs/015-Error-Handling.md)**
-- **[ # 016 — Logging](docs/016-logging.md)**
-- **[017 - Client / Server Responsibility Boundaries](docs/017-Clien-Server-Responsibility- Boundaries.md)**
-- **[018 – Service Registration and Module Startup](docs/018-service-registration.md)**
+- **[016 - Logging](docs/016-logging.md)**  
+- **[017 - Client / Server Responsibility Boundaries](docs/017-Clien-Server-Responsibility-Boundaries.md)**
+- **[018 - Service Registration and Module Startup](docs/018-service-registration.md)**
 - **[Localization in Oqtane Modules](docs/019-Localization.md)**
 
 ### 🔄 Migration and Updates
 
-- **[26 — Applying the Playbook to Existing Oqtane Projects](docs/026-existing-projects.md)**
+- **[26 - Applying the Playbook to Existing Oqtane Projects](docs/026-existing-projects.md)**
 
 ### 🤖 AI Governance
 
@@ -59,23 +59,23 @@ The **Oqtane AI Playbook** is a framework-aware governance repository for buildi
 
 ### ✅ Conclusion
 
-- **[100 — From Personal Discipline to Community Standard](docs/100-conclusion.md)**
+- **[100 - From Personal Discipline to Community Standard](docs/100-conclusion.md)**
 
 ### 📚 Additional Resources
 
 - **[ ## Oqtane Philosophy](docs/00x-playbook-foundations.md)**
-- **[10 — Services: Contracts, Boundaries, and Responsibility](docs/010-services.md)**
-- **[11 — Authorization: Roles, Permissions, and Enforcement](docs/011-authorization.md)**
-- **[12 — Database Migrations: Startup Execution, Versioning, and Multi-Database Safety](docs/012-migrations.md)**
-- **[13 — Scheduled Jobs: Framework-Managed Background Work](docs/013-scheduled-jobs.md)**
-- **[014 — UI Validation](docs/014-ui-validation.md)**
+- **[10 - Services: Contracts, Boundaries, and Responsibility](docs/010-services.md)**
+- **[11 - Authorization: Roles, Permissions, and Enforcement](docs/011-authorization.md)**
+- **[12 - Database Migrations: Startup Execution, Versioning, and Multi-Database Safety](docs/012-migrations.md)**
+- **[13 - Scheduled Jobs: Framework-Managed Background Work](docs/013-scheduled-jobs.md)**
+- **[014 - UI Validation](docs/014-ui-validation.md)**
 - **[015 - Error Handling](docs/015-Error-Handling.md)**
-- **[ # 016 — Logging](docs/016-logging.md)**
-- **[017 - Client / Server Responsibility Boundaries](docs/017-Clien-Server-Responsibility- Boundaries.md)**
-- **[018 – Service Registration and Module Startup](docs/018-service-registration.md)**
+- **[016 - Logging](docs/016-logging.md)**
+- **[017 - Client / Server Responsibility Boundaries](docs/017-Clien-Server-Responsibility-Boundaries.md)**
+- **[018 - Service Registration and Module Startup](docs/018-service-registration.md)**
 - **[Localization in Oqtane Modules](docs/019-Localization.md)**
 - **[Packaging and External Dependencies in Oqtane Modules](docs/020-packaging-and-dependencies.md)**
-- **[26 — Applying the Playbook to Existing Oqtane Projects](docs/026-existing-projects.md)**
+- **[26 - Applying the Playbook to Existing Oqtane Projects](docs/026-existing-projects.md)**
 - **[AI Governance](docs/027-ai-governance.md)**
 - **[Repository Structure](docs/028-repository-structure.md)**
 - **[Templates and Stubs](docs/029-templates-and-stubs.md)**
@@ -83,7 +83,7 @@ The **Oqtane AI Playbook** is a framework-aware governance repository for buildi
 - **[Canonical Module Overview](docs/031-canonical-module-overview.md)**
 - **[Canonical Diff Policy](docs/032-canonical-diff-policy.md)**
 - **[Canonical Verification Checklist](docs/034-canonical-verification-checklist.md)**
-- **[100 — From Personal Discipline to Community Standard](docs/100-conclusion.md)**
+- **[100 - From Personal Discipline to Community Standard](docs/100-conclusion.md)**
 - **[Governance Rule Proposals (GRP)](docs/governance-rule-proposals.md)**
 
 ---

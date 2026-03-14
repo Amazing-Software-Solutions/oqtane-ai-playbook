@@ -1,4 +1,4 @@
-# 027x â€“ Core AI Behavior Rules
+ï»¿# 027x - Core AI Behavior Rules
 
 ## Scope
 
@@ -24,7 +24,7 @@ AI must not:
 
 - Invent architectural patterns
 - Assume intent
-- Fill gaps with “reasonable defaults”
+- Fill gaps with ï¿½reasonable defaultsï¿½
 - Reinterpret rules
 - Generate code when governance is unclear
 

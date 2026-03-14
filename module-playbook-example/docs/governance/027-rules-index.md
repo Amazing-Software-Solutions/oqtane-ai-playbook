@@ -1,4 +1,4 @@
-# 027 — Governance Rule Index (Authoritative)
+﻿# 027 - Governance Rule Index (Authoritative)
 
 ## Purpose
 

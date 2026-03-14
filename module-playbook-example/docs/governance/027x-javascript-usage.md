@@ -1,4 +1,4 @@
-# 027x – JavaScript Usage
+﻿# 027x - JavaScript Usage
 
 
 ### Status
@@ -89,7 +89,7 @@ JavaScript is acceptable when:
 
 > 
 > 
-> **STOP — JavaScript Governance Check**
+> **STOP - JavaScript Governance Check**
 > 
 > 
 > You are working within the Oqtane framework.

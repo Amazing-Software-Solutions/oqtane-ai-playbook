@@ -1,4 +1,4 @@
-# Deviations Log
+﻿# Deviations Log
 
 ## Purpose
 
@@ -25,7 +25,7 @@ Undocumented deviations are considered **defects**.
 
 ## Deviation Template
 
-### YYYY-MM-DD — Short Title
+### YYYY-MM-DD - Short Title
 
 **Area:**  
 (e.g., Service Registration, Validation, UI Composition)

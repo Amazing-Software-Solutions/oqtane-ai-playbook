@@ -37,8 +37,11 @@ If multiple approaches exist in the Oqtane ecosystem, the canonical reference se
 
 The canonical reference implementation lives at:
 
-/docs/reference/canonical-module/
+```
+module-playbook-example/
+```
 
+This is a **sibling repository** within the `oqtane-ai-playbook` workspace.
 
 This module is:
 - Complete
@@ -47,6 +50,10 @@ This module is:
 - Actively maintained
 
 It is **not** a sample, demo, or tutorial.
+
+> **Note:** Real Oqtane modules must reference `module-playbook-example` as their
+> canonical authority. They must **not** reference the `oqtane-ai-playbook`
+> authoring repository directly. See `005-setup.md` for the distinction.
 
 ---
 

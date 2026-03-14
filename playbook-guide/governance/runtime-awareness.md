@@ -1,29 +1,3 @@
-Perfect. We will harden the foundation properly.
-
-Below are the two updates in governance-ready format.
-
----
-
-# 1. Update 027-rules-index.md
-
-Add New Governance Category: Runtime Awareness
-
-This must be elevated to a first class rule category, not a sub-note.
-
----
-
-## 027x Runtime Awareness Rules
-
-Runtime Awareness ensures AI validates actual environment state before generating code or architecture.
-
-AI must never assume:
-
-- Framework version
-- Database baseline state
-- Migration execution history
-- Feature availability
-- Packaging state
-
 # Runtime Awareness
 
 Why the Playbook Checks Before It Builds

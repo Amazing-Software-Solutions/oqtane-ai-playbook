@@ -98,18 +98,6 @@ The burden of proof lies with the output, not the reviewer.
 
 ## AI Is Stateless
 
-## Instruction Discovery Rules
-
-The **027x-ai-instruction-discovery.md** rule is a critical component of the Oqtane governance framework. It mandates that AI assistants:
-
-1. **Locate and Apply Instruction Files**: Before generating or modifying code, AI must check for the presence of `.github/copilot-instructions.md` at the solution or module root.
-2. **Override Default Behavior**: If this file exists, its contents become the authoritative source for AI behavior, overriding generic defaults.
-3. **Enforce Precedence**: This rule takes precedence over all other rule types in the authority hierarchy (see "Authority Hierarchy" section), ensuring that instruction-based governance is the first step in the validation process.
-
-Failure to follow this rule invalidates all subsequent governance checks. AI must refuse to proceed if the instruction file cannot be resolved.
-
-This rule ensures that all AI-generated code is consistently governed by explicitly defined behavioral guidelines, preventing accidental deviations from established standards.
-
 AI has:
 - No memory
 - No responsibility

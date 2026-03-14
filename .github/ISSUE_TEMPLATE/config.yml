@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Governance Questions
+    url: https://github.com/leigh-pointer/oqtane-ai-playbook/discussions/categories/governance-questions
+    about: Ask questions about governance rules, architecture guidance, or playbook interpretation.
+
+  - name: AI Tooling
+    url: https://github.com/leigh-pointer/oqtane-ai-playbook/discussions/categories/ai-tooling
+    about: Discuss AI tools, prompting strategies, and AI-assisted development workflows.
+
+  - name: Module Design
+    url: https://github.com/leigh-pointer/oqtane-ai-playbook/discussions/categories/module-design
+    about: Discuss module architecture, patterns, and improvements to the example module.

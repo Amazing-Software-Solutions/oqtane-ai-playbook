@@ -1,4 +1,4 @@
-# 03 — Scope and Boundaries
+﻿# 03 - Scope and Boundaries
 
 This chapter defines **what this playbook governs**, **what it explicitly does not**, and **where responsibility begins and ends**.
 
@@ -100,13 +100,13 @@ Architecture is a framework concern.
 Not all content in this repository has equal weight.
 
 ### Hard Rules
-- Located primarily in `10–25`
+- Located primarily in `10-25`
 - Describe framework invariants
 - Must be followed exactly
 - Violations should be rejected
 
 ### Guidance
-- Located primarily in `26–99`
+- Located primarily in `26-99`
 - Describe safe practices
 - Allow contextual judgment
 - May evolve over time

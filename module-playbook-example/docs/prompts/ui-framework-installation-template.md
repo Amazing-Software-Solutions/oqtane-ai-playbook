@@ -1,4 +1,4 @@
-# Canonical Prompt: Self Contained UI Framework Installation
+﻿# Canonical Prompt: Self Contained UI Framework Installation
 
 You are operating under the Oqtane AI Playbook governance.
 
@@ -33,14 +33,14 @@ Hard Requirements:
 
 ## Execution Steps (Mandatory)
 
-### Step 1 – Add Package
+### Step 1 - Add Package
 
 1. Add the correct NuGet package to the appropriate module project.
 2. Do not add to Oqtane projects.
 
 ---
 
-### Step 2 – Runtime Asset Inspection
+### Step 2 - Runtime Asset Inspection
 
 Inspect:
 
@@ -53,7 +53,7 @@ If static web assets exist, determine their canonical `_content` path.
 
 ---
 
-### Step 3 – Static Web Assets Extraction Rule
+### Step 3 - Static Web Assets Extraction Rule
 
 If the package contains static web assets:
 
@@ -73,7 +73,7 @@ The `_content` convention must remain intact.
 
 ---
 
-### Step 4 – Service Registration
+### Step 4 - Service Registration
 
 If the framework requires DI registration:
 
@@ -85,7 +85,7 @@ If the framework is client side only, register appropriately within module bound
 
 ---
 
-### Step 5 – CSS and Script Resolution
+### Step 5 - CSS and Script Resolution
 
 Ensure CSS and JS references resolve using:
 
@@ -96,7 +96,7 @@ Do not use custom static routes.
 
 ---
 
-### Step 6 – Packaging Compliance
+### Step 6 - Packaging Compliance
 
 Update the module nuspec so that:
 
@@ -106,7 +106,7 @@ Update the module nuspec so that:
 
 ---
 
-### Step 7 – Runtime and Packaging Compliance (Mandatory)
+### Step 7 - Runtime and Packaging Compliance (Mandatory)
 
 Per 027x-packaging-and-dependencies.md:
 
@@ -115,7 +115,7 @@ Per 027x-packaging-and-dependencies.md:
 3. Update ModuleInfo.cs Dependencies
 4. Verify CopyLocalLockFileAssemblies=true
 
-### Step 8 – Verification Checklist (Mandatory Output)
+### Step 8 - Verification Checklist (Mandatory Output)
 
 Provide verification output confirming:
 

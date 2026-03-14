@@ -1,4 +1,4 @@
-# 018 – Service Registration and Module Startup
+﻿# 018 - Service Registration and Module Startup
 
 ## Problem
 
@@ -123,10 +123,10 @@ These patterns are incompatible with Oqtane’s module model.
 
 ## Canonical Reference
 
-The canonical module under:
+The canonical module located at:
 
 ```
-/docs/reference/canonical-module
+module-playbook-example/
 ```
 
 demonstrates:
@@ -155,4 +155,4 @@ Client and server containers are isolated and must never be mixed.
 
 - Oqtane modules are not applications.
 - They extend a host system through narrow, explicit seams.
-- Service registration outside those seams is invalid — even if it compiles.
+- Service registration outside those seams is invalid - even if it compiles.

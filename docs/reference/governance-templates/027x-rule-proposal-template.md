@@ -1,4 +1,4 @@
-# 027x — Governance Rule Proposal Template
+﻿# 027x - Governance Rule Proposal Template
 
 ## Purpose
 

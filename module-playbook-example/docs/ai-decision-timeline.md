@@ -1,4 +1,4 @@
-# AI Decision Timeline
+﻿# AI Decision Timeline
 
 ## Purpose
 
@@ -39,7 +39,7 @@ Do NOT add entries for trivial fixes.
 
 ## Entry Format
 
-### YYYY-MM-DD — Short Description
+### YYYY-MM-DD - Short Description
 
 **Context**  
 What was being built or fixed.

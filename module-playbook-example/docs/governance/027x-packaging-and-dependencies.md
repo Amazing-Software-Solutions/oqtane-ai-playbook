@@ -1,4 +1,4 @@
-# 027x — Packaging and External Dependencies
+﻿# 027x - Packaging and External Dependencies
 
 ## Description
 

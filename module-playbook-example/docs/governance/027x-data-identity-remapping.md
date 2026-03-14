@@ -1,4 +1,4 @@
-# Rule: Identity Remapping Is Mandatory for Hierarchical Import
+﻿# Rule: Identity Remapping Is Mandatory for Hierarchical Import
 
 When implementing module import/export using `IPortable`, and the module contains multiple related entities (parent/child or deeper hierarchies), identity remapping must be explicitly implemented.
 
@@ -144,7 +144,7 @@ Where feasible:
 
 ## AI Mandatory Warning Block
 
-⚠️ AI GOVERNANCE WARNING – IDENTITY REMAPPING REQUIRED ⚠️
+⚠️ AI GOVERNANCE WARNING - IDENTITY REMAPPING REQUIRED ⚠️
 
 This module implements hierarchical import/export.
 

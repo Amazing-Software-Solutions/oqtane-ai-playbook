@@ -1,4 +1,4 @@
-# 100 — From Personal Discipline to Community Standard
+﻿# 100 - From Personal Discipline to Community Standard
 
 This guide did not start as a documentation effort.
 
@@ -8,7 +8,7 @@ Friction with AI-generated code that looked correct but violated Oqtane’s arch
 Friction with patterns borrowed from other frameworks that quietly broke multi-tenancy, security, or upgrade paths.  
 Friction with the feeling of *crossing your fingers* every time new code was generated.
 
-What emerged is not a rulebook for perfection — it is a **system for control**.
+What emerged is not a rulebook for perfection - it is a **system for control**.
 
 ---
 
@@ -36,7 +36,7 @@ This guide exists to make those constraints **explicit, enforceable, and teachab
 
 ## Why AI Made This Urgent
 
-AI didn’t create the problem — it exposed it.
+AI didn’t create the problem - it exposed it.
 
 AI is extremely good at:
 - Filling in blanks
@@ -70,7 +70,7 @@ Guidance is optional.
 Rules that cause rejection are enforceable.
 
 ### 3. Forward-Looking Governance
-You don’t fix the past — you prevent new damage.
+You don’t fix the past - you prevent new damage.
 
 Together, these ideas turn architecture from *tribal knowledge* into *shared infrastructure*.
 
@@ -111,7 +111,7 @@ Possible future additions:
 - Performance boundaries
 - Community-reviewed templates
 
-The goal is not completeness — it’s **clarity**.
+The goal is not completeness - it’s **clarity**.
 
 ---
 
@@ -119,7 +119,7 @@ The goal is not completeness — it’s **clarity**.
 
 Nothing here is forced.
 
-But everything here is **earned** — through failure, correction, and repetition.
+But everything here is **earned** - through failure, correction, and repetition.
 
 If you’ve ever:
 - Been surprised by a migration

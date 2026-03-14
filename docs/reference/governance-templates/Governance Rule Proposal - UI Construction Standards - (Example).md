@@ -1,4 +1,4 @@
-# Governance Rule Proposal — UI Construction Standards
+﻿# Governance Rule Proposal - UI Construction Standards
 
 ## Proposed Rule Name
 
