@@ -250,7 +250,7 @@ jobs:
         else
           git commit -m "Auto-update index.md from docs [skip ci]"
           git pull --rebase origin main
-          git push
+          git push origin HEAD:main
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
