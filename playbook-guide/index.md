@@ -18,6 +18,6 @@ This documentation explains:
 
 Start here:
 
-- [getting-started](getting-started.md)Getting Started
+- [Getting Started](getting-started.md)
 - Build Your First Governed Module
 - Governance Rules Overview
