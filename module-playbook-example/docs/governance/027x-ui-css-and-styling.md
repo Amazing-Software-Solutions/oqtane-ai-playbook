@@ -1,6 +1,6 @@
-# Rule: UI CSS and Styling in Oqtane (Mandatory)
+﻿# Rule: UI CSS and Styling in Oqtane (Mandatory)
 
-#### ⚠️ AI WARNING – READ BEFORE GENERATING ANY CSS
+#### ⚠️ AI WARNING - READ BEFORE GENERATING ANY CSS
 
 Oqtane **does not support ASP.NET Core Blazor CSS isolation**.
 

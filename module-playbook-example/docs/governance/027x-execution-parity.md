@@ -1,4 +1,4 @@
-# 027x – Execution Parity Across Hosting Models (Mandatory)
+﻿# 027x - Execution Parity Across Hosting Models (Mandatory)
 
 ## Status
 Mandatory Governance Rule

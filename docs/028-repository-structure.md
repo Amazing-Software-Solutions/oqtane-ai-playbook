@@ -1,4 +1,4 @@
-# Repository Structure
+﻿# Repository Structure
 
 ## Purpose
 
@@ -33,13 +33,13 @@ File numbering is **intentional and semantic**, not sequential.
 
 Ranges indicate purpose:
 
-### 000–009: Foundation
+### 000-009: Foundation
 - Context
 - Problem statement
 - Scope
 - Boundaries
 
-### 010–025: Framework Rules
+### 010-025: Framework Rules
 - Services
 - Authorization
 - Migrations
@@ -49,7 +49,7 @@ Ranges indicate purpose:
 
 These define *how Oqtane modules must be built*.
 
-### 026–029: Application & Governance
+### 026-029: Application & Governance
 - Applying rules to existing projects
 - AI governance
 - Repository structure
@@ -57,7 +57,7 @@ These define *how Oqtane modules must be built*.
 
 These define *how the rules are used*.
 
-### 030–039: Canonical Reference
+### 030-039: Canonical Reference
 - Canonical module
 - Diff policy
 - Verification checklist

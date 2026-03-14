@@ -1,4 +1,4 @@
-# 027x â€“ Scheduled Jobs (Oqtane-Enforced)
+ï»¿# 027x - Scheduled Jobs (Oqtane-Enforced)
 
 ## Purpose
 
@@ -6,7 +6,7 @@ This rule governs **Scheduled Jobs implemented by Oqtane modules**.
 
 Oqtane **supports scheduled jobs**, but they are **not generic background services**.
 
-All scheduled jobs **must conform exactly** to Oqtane’s execution, lifecycle, and discovery model.
+All scheduled jobs **must conform exactly** to Oqtaneï¿½s execution, lifecycle, and discovery model.
 
 This rule exists to prevent:
 
@@ -20,7 +20,7 @@ This rule exists to prevent:
 ## Core Principle
 
 > 
-> **Modules may define scheduled jobs — but only using Oqtane’s scheduled job architecture.**
+> **Modules may define scheduled jobs ï¿½ but only using Oqtaneï¿½s scheduled job architecture.**
 
 Any deviation from the framework-defined pattern is **architecturally invalid**, even if it compiles.
 

@@ -1,4 +1,4 @@
-# 027x – Authorization Rules
+﻿# 027x - Authorization Rules
 
 ## Scope
 
@@ -95,7 +95,7 @@ Reject output if code:
 
 ---
 
-## 3. Decision Table — *“Is a Role Check Allowed Here?”*
+## 3. Decision Table - *“Is a Role Check Allowed Here?”*
 
 | Context | Role Check Allowed? | Reason |
 | --- | --- | --- |

@@ -1,4 +1,4 @@
-## Whitepaper
+﻿## Whitepaper
 
 ### Governing AI-Assisted Development in Oqtane
 
@@ -15,7 +15,7 @@
 
 As AI-assisted development becomes mainstream, organizations face a growing gap between **code generation speed** and **architectural correctness**. While modern AI tools accelerate implementation, they lack inherent understanding of platform-specific constraints, governance models, and long-term maintenance costs.
 
-The Oqtane AI Playbook addresses this gap by introducing a **governance-first framework** for AI-assisted development within the Oqtane ecosystem. Rather than optimizing for raw velocity, it ensures AI operates within defined architectural, security, and lifecycle boundaries—preserving human accountability while enabling sustainable productivity gains.
+The Oqtane AI Playbook addresses this gap by introducing a **governance-first framework** for AI-assisted development within the Oqtane ecosystem. Rather than optimizing for raw velocity, it ensures AI operates within defined architectural, security, and lifecycle boundaries - preserving human accountability while enabling sustainable productivity gains.
 
 * * *
 

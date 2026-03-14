@@ -1,4 +1,4 @@
-# Templates and Stubs
+﻿# Templates and Stubs
 
 ## Purpose
 
@@ -82,7 +82,7 @@ When the canonical reference changes:
 2. Templates are updated second
 3. Existing projects are not auto-modified
 
-Templates follow the reference — never the reverse.
+Templates follow the reference - never the reverse.
 
 ---
 

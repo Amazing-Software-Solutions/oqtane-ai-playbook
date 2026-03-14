@@ -1,4 +1,4 @@
-# 027x Migrations Governance
+﻿# 027x Migrations Governance
 
 # 0. Purpose
 
@@ -24,7 +24,7 @@ They must not be confused with each other.
 
 ---
 
-## 1.1 Path A — Framework Migrations (Core, Master, Tenant)
+## 1.1 Path A - Framework Migrations (Core, Master, Tenant)
 
 These are run by `DatabaseManager` at application startup via direct EF Core calls:
 
@@ -52,11 +52,11 @@ Tenant.10.01.00.04
 
 These ran while `Oqtane.Constants.ReleaseVersions` ended at `"10.1.0"` (three segments, treated as `10.01.00.00`).
 
-This proves conclusively that framework migrations run via EF Core tracking alone — they are never gated by `ReleaseVersions`.
+This proves conclusively that framework migrations run via EF Core tracking alone - they are never gated by `ReleaseVersions`.
 
 ---
 
-## 1.2 Path B — Module Migrations
+## 1.2 Path B - Module Migrations
 
 Module migrations follow a different path entirely.
 
@@ -103,7 +103,7 @@ To trigger a module migration, a new entry must be appended to `ReleaseVersions`
 
 ## 1.3 Summary of the Two Paths
 
-|                             | Path A — Framework               | Path B — Module                                                                   |
+|                             | Path A - Framework               | Path B - Module                                                                   |
 | --------------------------- | -------------------------------- | --------------------------------------------------------------------------------- |
 | Applies to                  | Master, Tenant DbContexts        | Module-specific DbContexts                                                        |
 | Triggered by                | Direct `Database.Migrate()` call | `Install()` via `ReleaseVersions` list                                            |
@@ -285,7 +285,7 @@ If the new migration file exists but `ReleaseVersions` is not updated:
 
 The `__EFMigrationsHistory` evidence for Oqtane tenant migrations confirms this:
 framework migrations run without `ReleaseVersions` because they use a direct `Database.Migrate()` call.
-Module migrations do not have this shortcut — they require the `ReleaseVersions` list to be maintained.
+Module migrations do not have this shortcut - they require the `ReleaseVersions` list to be maintained.
 
 ---
 
@@ -403,11 +403,11 @@ Do not duplicate the module name.
 
 ## Examples
 
-### Example 1 — Entity different from Module
+### Example 1 - Entity different from Module
 
 Owner: StudioElf, Module: MyPlaybook, Table: DataTable → `StudioElfMyPlaybookDataTable`
 
-### Example 2 — Table name equals Module name
+### Example 2 - Table name equals Module name
 
 Owner: StudioElf, Module: Storefront, Table: Storefront → `StudioElfStorefront` (not `StudioElfStorefrontStorefront`)
 
@@ -557,7 +557,7 @@ Before generating a migration AI must confirm:
 3. Current RevisionNumber
 4. Whether EntityBuilders were previously deployed
 5. Whether migration history exists in database
-6. Which execution path applies (Path A — framework, or Path B — module)
+6. Which execution path applies (Path A - framework, or Path B - module)
 
 If unclear:
 
@@ -570,7 +570,7 @@ STOP and request clarification.
 * Two execution paths exist: framework (direct `Database.Migrate()`) and module (via `ReleaseVersions` → `Install()`)
 * Framework migrations are tracked by `__EFMigrationsHistory` alone
 * Module migrations require a new `ReleaseVersions` entry AND a new migration file
-* `ReleaseVersions` comparison is string equality against a list — not numeric `>`
+* `ReleaseVersions` comparison is string equality against a list - not numeric `>`
 * Migration filenames use 8-digit `MMmmPPbb` format
 * Migration attribute version must match filename
 * EntityBuilders are immutable after initial deployment
@@ -867,7 +867,7 @@ Do not duplicate the module name.
 
 ## Examples
 
-### Example 1 – Entity different from Module
+### Example 1 - Entity different from Module
 
 Owner: StudioElf
 Module: MyPlaybook
@@ -879,7 +879,7 @@ StudioElfMyPlaybookDataTable
 
 ---
 
-### Example 2 – Table name equals Module name
+### Example 2 - Table name equals Module name
 
 Owner: StudioElf
 Module: Storefront

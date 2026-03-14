@@ -1,8 +1,8 @@
-# 10 — Services: Contracts, Boundaries, and Responsibility
+﻿# 10 - Services: Contracts, Boundaries, and Responsibility
 
 Services are the backbone of most Oqtane modules.
 
-They are also one of the easiest places for architectural drift to begin — especially when AI tools default to generic ASP.NET patterns.
+They are also one of the easiest places for architectural drift to begin - especially when AI tools default to generic ASP.NET patterns.
 
 This chapter defines **what services are in Oqtane**, **where they belong**, and **how responsibility is correctly divided** across Client, Server, and Shared projects.
 
@@ -47,7 +47,7 @@ It must **never** contain:
 - Data access logic
 - Dependency injection registration
 
-Shared defines *what* can be done — never *how*.
+Shared defines *what* can be done - never *how*.
 
 ---
 

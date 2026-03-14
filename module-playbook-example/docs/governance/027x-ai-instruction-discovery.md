@@ -1,4 +1,4 @@
-# 027x — AI Instruction Discovery
+﻿# 027x - AI Instruction Discovery
 
 ## Description
 

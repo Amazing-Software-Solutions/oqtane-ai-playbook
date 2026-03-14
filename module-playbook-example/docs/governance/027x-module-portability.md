@@ -1,4 +1,4 @@
-# Module Portability
+﻿# Module Portability
 
 **Rule: Complete & Deterministic Module Import/Export**
 
@@ -117,7 +117,7 @@ The following block must appear in this file:
 
 ---
 
-### ⚠️ AI IMPLEMENTATION WARNING — MODULE PORTABILITY
+### ⚠️ AI IMPLEMENTATION WARNING - MODULE PORTABILITY
 
 Before generating `IPortable` code:
 
@@ -143,7 +143,7 @@ You must generate:
 * Safe and validated import logic
 * Relationship remapping logic if required
 
-If unsure about hierarchy depth — ask before generating code.
+If unsure about hierarchy depth - ask before generating code.
 
 Portability must restore the complete functional state.
 

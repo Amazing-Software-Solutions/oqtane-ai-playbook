@@ -1,4 +1,4 @@
-# 005 — Oqtane Development Environment Setup
+﻿# 005 - Oqtane Development Environment Setup
 
 ## Purpose
 
@@ -38,11 +38,11 @@ Each child folder manages its own source control independently.
 
 ## Oqtane Framework Setup
 
-### Step 1 — Obtain the Oqtane Framework
+### Step 1 - Obtain the Oqtane Framework
 
 Download the Oqtane Framework source distribution.
 
-### Step 2 — Extract the Framework
+### Step 2 - Extract the Framework
 
 Extract the framework to:
 

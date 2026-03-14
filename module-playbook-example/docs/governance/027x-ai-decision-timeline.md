@@ -1,4 +1,4 @@
-# 027x – AI Decision Timeline (Enforced)
+﻿# 027x - AI Decision Timeline (Enforced)
 
 This rule governs the use of the **AI Decision Timeline** as a binding
 governance artifact.

@@ -1,4 +1,4 @@
- # 016 — Logging
+﻿ # 016 - Logging
 
 Logging in Oqtane is part of the **platform contract**, not a diagnostic convenience.
 It exists to record **security events**, **state changes**, and **operational failures** in a tenant-aware, auditable way.
@@ -222,7 +222,7 @@ Client code MUST NOT log:
 - Expected user mistakes
 - Control flow or UI state
 
-The client reports failures — it does not interpret them.
+The client reports failures - it does not interpret them.
 
 ---
 

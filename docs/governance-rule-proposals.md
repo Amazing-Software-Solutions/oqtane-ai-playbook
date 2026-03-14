@@ -1,4 +1,4 @@
-# Governance Rule Proposals (GRP)
+﻿# Governance Rule Proposals (GRP)
 
 ## Purpose
 
@@ -41,7 +41,7 @@ If no GRP exists, the rule MUST NOT be added.
 ## Canonical Proposal Format
 
 ```md
-### GRP-XXX — Short Rule Name
+### GRP-XXX - Short Rule Name
 
 **Origin**  
 Reference to AI Decision Timeline entry (date + title).
@@ -59,7 +59,7 @@ The exact rule to be enforced (precise, testable, non-interpretive).
 Which modules or contexts this rule applies to.
 
 **Risk of Adoption**  
-Low / Medium / High — and why.
+Low / Medium / High - and why.
 
 **Decision**  
 Accepted → Integrated into 027-ai-governance.md  

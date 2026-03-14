@@ -1,4 +1,4 @@
-# 006 – Module Adoption (Existing Modules)
+﻿# 006 - Module Adoption (Existing Modules)
 
 ## Purpose
 
@@ -33,7 +33,7 @@ If you are creating a **brand-new module**, follow `005-setup.md` first.
 
 ---
 
-## Step 1 — Confirm Global Environment Setup
+## Step 1 - Confirm Global Environment Setup
 
 Before adopting governance at the module level:
 
@@ -45,7 +45,7 @@ If this is not true, **stop** and fix that first.
 
 ---
 
-## Step 2 — Freeze the Existing Module Structure
+## Step 2 - Freeze the Existing Module Structure
 
 The current module structure is treated as **historical fact**.
 
@@ -69,7 +69,7 @@ Everything else is deferred.
 
 ---
 
-## Step 2.5 — Reference the Oqtane Framework (Mandatory)
+## Step 2.5 - Reference the Oqtane Framework (Mandatory)
 
 > 
 > **This step is required for AI governance to work correctly.**
@@ -114,7 +114,7 @@ This approach replaces the need to copy or embed a `canonical-module` inside eve
 
 ---
 
-## Step 3 — Add Required Governance Structure (Mandatory)
+## Step 3 - Add Required Governance Structure (Mandatory)
 
 Inside the **module repository**, create:
 
@@ -168,7 +168,7 @@ The files may:
 
 ---
 
-## Step 4 — Visibility Requirement (Non-Negotiable)
+## Step 4 - Visibility Requirement (Non-Negotiable)
 
 > 
 > A file that is not visible in the solution **does not exist to AI**.
@@ -190,7 +190,7 @@ This is a **confirmed invariant**, not a theory.
 
 ---
 
-## Step 5 — Verify Governance Is Active
+## Step 5 - Verify Governance Is Active
 
 Before generating **any code**, ask AI assistant:
 
@@ -210,7 +210,7 @@ Governance is not active.
 
 ---
 
-## Step 6 — Deviations File
+## Step 6 - Deviations File
 
 Create `docs/deviations.md`.
 
@@ -222,7 +222,7 @@ If it’s not documented here, it’s assumed to be accidental.
 
 ---
 
-## Step 7 — AI Decision Timeline (Mandatory)
+## Step 7 - AI Decision Timeline (Mandatory)
 
 Create `docs/ai-decision-timeline.md`.
 
@@ -244,7 +244,7 @@ Failure to log is a **governance failure**, not an AI error.
 
 ---
 
-## Step 8 — Enforcement Going Forward
+## Step 8 - Enforcement Going Forward
 
 From this point on:
 

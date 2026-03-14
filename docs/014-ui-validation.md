@@ -1,4 +1,4 @@
-# 014 — UI Validation
+﻿# 014 - UI Validation
 
 UI validation in Oqtane modules must be **explicit, deterministic, and framework-aligned**.
 This chapter defines the **only supported pattern** for form validation and save execution in module UI components.

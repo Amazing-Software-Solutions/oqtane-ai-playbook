@@ -1,4 +1,4 @@
-# Canonical Verification Checklist
+﻿# Canonical Verification Checklist
 
 ## Purpose
 
@@ -35,9 +35,9 @@ Failure at any required item means **non-compliance**.
 
 Each item is marked as:
 
-- **REQUIRED** — must pass
-- **CONDITIONAL** — must pass if applicable
-- **INFORMATIONAL** — used for awareness only
+- **REQUIRED** - must pass
+- **CONDITIONAL** - must pass if applicable
+- **INFORMATIONAL** - used for awareness only
 
 ---
 
@@ -91,7 +91,7 @@ Each item is marked as:
 
 ---
 
-## 6. Logging – Server (REQUIRED)
+## 6. Logging - Server (REQUIRED)
 
 - [ ] Uses Oqtane `ILogManager`
 - [ ] Correct `LogLevel` is selected
@@ -102,7 +102,7 @@ Each item is marked as:
 
 ---
 
-## 7. Logging – Client (REQUIRED)
+## 7. Logging - Client (REQUIRED)
 
 - [ ] Client logging uses the base class logger
 - [ ] Exceptions are logged with context
@@ -177,6 +177,6 @@ If the answer is **NO**, it does not belong in the canonical ecosystem.
 This checklist is **binding**.
 
 Passing the checklist is mandatory.
-Failure is not a matter of taste — it is non-compliance.
+Failure is not a matter of taste - it is non-compliance.
 
 ---

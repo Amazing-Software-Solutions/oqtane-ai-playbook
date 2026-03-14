@@ -1,4 +1,4 @@
-# Packaging and External Dependencies in Oqtane Modules
+﻿# Packaging and External Dependencies in Oqtane Modules
 
 ## Overview
 
@@ -80,7 +80,7 @@ The governance rule defines *what must be enforced*.
 
 Adding a NuGet package to an Oqtane module is never “just a package add”.
 
-It is a deployment decision, a packaging decision, and a runtime decision —
+It is a deployment decision, a packaging decision, and a runtime decision  - 
 all of which must be handled explicitly.
 
 Any AI behavior that ignores this reality must be corrected or refused.

@@ -1,4 +1,4 @@
-![Oqtane AI Playbook Logo](Oqtane-AI-Playbook-Logo.png)
+﻿![Oqtane AI Playbook Logo](Oqtane-AI-Playbook-Logo.png)
 
 # Oqtane AI Playbook
 
@@ -6,7 +6,7 @@
 ![AI Governance](https://img.shields.io/badge/AI-Governed-027%20Based--green)
 ![Canonical Source](https://img.shields.io/badge/Canonical-Oqtane%20Framework-black)
 
-> **This playbook aligns with the core principles of Oqtane as articulated in the Oqtane Philosophy — performance, flexibility, low ceremony, tool agnosticism, consistency, and practical engineering. See https://www.oqtane.org/blog/!/20/oqtane-philosophy for foundational context.**
+> **This playbook aligns with the core principles of Oqtane as articulated in the Oqtane Philosophy - performance, flexibility, low ceremony, tool agnosticism, consistency, and practical engineering. See https://www.oqtane.org/blog/!/20/oqtane-philosophy for foundational context.**
 
 **TL;DR for maintainers**
 

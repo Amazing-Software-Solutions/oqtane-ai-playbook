@@ -1,4 +1,4 @@
-# 11 — Authorization: Roles, Permissions, and Enforcement
+﻿# 11 - Authorization: Roles, Permissions, and Enforcement
 
 Authorization is one of the most misunderstood areas of Oqtane module development.
 
@@ -115,7 +115,7 @@ Client-side code:
 
 Client logic is advisory only.
 
-It can hide buttons — it cannot protect data.
+It can hide buttons - it cannot protect data.
 
 ---
 

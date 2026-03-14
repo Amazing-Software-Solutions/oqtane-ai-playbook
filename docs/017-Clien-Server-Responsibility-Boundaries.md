@@ -1,11 +1,11 @@
-# 017 - Client / Server Responsibility Boundaries
+﻿# 017 - Client / Server Responsibility Boundaries
 
 Oqtane is a **distributed application framework**.
 Every feature crosses a client/server boundary, whether explicitly or not.
 
 Most bugs, security issues, and AI-generated anti-patterns in Oqtane modules come from violating this boundary.
 
-This chapter defines **what belongs where** — and what never should.
+This chapter defines **what belongs where** - and what never should.
 
 ---
 
@@ -44,7 +44,7 @@ The client MAY:
 - Log unexpected failures using the Oqtane base logger
 - Manage navigation and component state
 
-### Example — Valid Client Validation
+### Example - Valid Client Validation
 
 ```csharp
 if (!await interop.FormValid(form))
@@ -88,7 +88,7 @@ The server MUST:
 - Define audit history
 - Return authoritative outcomes
 
-### Example — Server Enforcement
+### Example - Server Enforcement
 
 ```csharp
 if (!_userPermissions.IsAuthorized(User, siteId, EntityNames.Folder, folderId, PermissionNames.Edit))
