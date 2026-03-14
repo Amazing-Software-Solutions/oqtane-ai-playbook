@@ -1,4 +1,4 @@
-﻿# 005 - Oqtane Development Environment Setup
+# 005 - Oqtane Development Environment Setup
 
 ## Purpose
 
@@ -137,6 +137,17 @@ D:\Oqtane Development\oqtane-ai-playbook\module-playbook-example
 > External dependencies must be explicitly deployed to the Oqtane Server bin and included in the module `.nuspec`, or the module will fail at runtime.
 
 ---
+
+## Automated Setup
+
+For a faster, automated way to configure your environment and link governance to your solution, use the **one-click** launcher:
+
+[**Start-Solution.cmd**](007-onboarding-script.md#the-simple-way-start-solutioncmd) 
+
+This script (found in the reference layer) automates the linking process and opens your solution with governance active.
+
+---
+
 ## Real Module Development (Application Layer)
 
 ### Real-World Governed Example
