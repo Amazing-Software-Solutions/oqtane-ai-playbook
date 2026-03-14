@@ -1,27 +1,11 @@
 # Migration Governance
 
-Understanding How Schema Changes Work in OAP and MPE
-
 Database migrations are not just technical files.
 They are the history of your module’s structure.
 
 The Oqtane AI Playbook enforces migration discipline because incorrect migrations can break upgrades, tenants, and production systems.
 
 This section explains what OAP expects and why.
-
----
-
-You are absolutely right to call that out.
-
-The previous guide wording softens the comparison logic too much and could imply that ReleaseVersion and migration numbers merely “relate” to each other. In reality, the execution rule is precise and deterministic.
-
-Below is a corrected section that should replace the execution model portion in:
-
-oqtane-ai-playbook/playbook-guide/governance/migrations.md
-
-This version reflects the runtime behavior clearly and without ambiguity.
-
----
 
 ## Migration Execution Model (Confirmed Runtime Behavior)
 
@@ -88,21 +72,6 @@ It defines the minimum version already applied.
 Any migration with a strictly greater version will execute automatically.
 
 This is why build-segment migrations accumulate correctly during development.
-
----
-
-This version:
-
-- Removes ambiguity  
-- Explicitly states strict greater-than comparison  
-- Confirms equal behavior across core, tenant, and modules  
-- Avoids implying matching is required  
-- Aligns precisely with runtime behavior
-
-If you would like, I can now:
-
-- Refactor the entire migrations guide so it flows logically from execution model → development workflow → governance enforcement  
-- Or reconcile this section with the RevisionNumber enforcement language so there is zero conceptual drift between runtime behavior and playbook governance
 
 ---
 

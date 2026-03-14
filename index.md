@@ -39,8 +39,8 @@ The **Oqtane AI Playbook** is a framework-aware governance repository for buildi
 - **[13 - Scheduled Jobs: Framework-Managed Background Work](docs/013-scheduled-jobs.md)**
 - **[014 - UI Validation](docs/014-ui-validation.md)**
 - **[015 - Error Handling](docs/015-Error-Handling.md)**
-- **[ # 016 - Logging](docs/016-logging.md)**
-- **[017 - Client / Server Responsibility Boundaries](docs/017-Clien-Server-Responsibility- Boundaries.md)**
+- **[016 - Logging](docs/016-logging.md)**  
+- **[017 - Client / Server Responsibility Boundaries](docs/017-Clien-Server-Responsibility-Boundaries.md)**
 - **[018 - Service Registration and Module Startup](docs/018-service-registration.md)**
 - **[Localization in Oqtane Modules](docs/019-Localization.md)**
 
@@ -70,8 +70,8 @@ The **Oqtane AI Playbook** is a framework-aware governance repository for buildi
 - **[13 - Scheduled Jobs: Framework-Managed Background Work](docs/013-scheduled-jobs.md)**
 - **[014 - UI Validation](docs/014-ui-validation.md)**
 - **[015 - Error Handling](docs/015-Error-Handling.md)**
-- **[ # 016 - Logging](docs/016-logging.md)**
-- **[017 - Client / Server Responsibility Boundaries](docs/017-Clien-Server-Responsibility- Boundaries.md)**
+- **[016 - Logging](docs/016-logging.md)**
+- **[017 - Client / Server Responsibility Boundaries](docs/017-Clien-Server-Responsibility-Boundaries.md)**
 - **[018 - Service Registration and Module Startup](docs/018-service-registration.md)**
 - **[Localization in Oqtane Modules](docs/019-Localization.md)**
 - **[Packaging and External Dependencies in Oqtane Modules](docs/020-packaging-and-dependencies.md)**
