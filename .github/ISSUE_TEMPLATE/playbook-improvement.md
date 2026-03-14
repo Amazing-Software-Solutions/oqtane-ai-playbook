@@ -2,8 +2,8 @@
 name: Playbook Improvement
 about: Suggest an improvement to the Oqtane AI Playbook
 title: "[Playbook] "
-labels: playbook
-----------------
+labels: ["playbook"]
+---
 
 ## Area
 

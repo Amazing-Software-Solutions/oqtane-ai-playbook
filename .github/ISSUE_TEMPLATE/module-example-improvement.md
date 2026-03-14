@@ -1,10 +1,9 @@
 ---
-
 name: Module Example Improvement
 about: Suggest improvements to the Module Playbook Example
 title: "[Module Example] "
-labels: module-example
-----------------------
+labels: ["module-example"]
+---
 
 ## Area
 
