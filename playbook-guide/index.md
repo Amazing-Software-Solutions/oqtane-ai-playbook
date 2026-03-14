@@ -1,5 +1,7 @@
 # Oqtane AI Playbook Documentation
 
+## [Work in Progress]
+
 This site turns the Oqtane AI Playbook and Module Playbook Example into structured, readable guidance.
 
 The goal is simple:
@@ -16,6 +18,6 @@ This documentation explains:
 
 Start here:
 
-- [[getting-started]]Getting Started
+- [getting-started](getting-started.md)Getting Started
 - Build Your First Governed Module
 - Governance Rules Overview
