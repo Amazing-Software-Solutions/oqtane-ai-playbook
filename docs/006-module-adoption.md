@@ -1,4 +1,4 @@
-﻿# 006 - Module Adoption (Existing Modules)
+# 006 - Module Adoption (Existing Modules)
 
 ## Purpose
 
@@ -114,13 +114,21 @@ This approach replaces the need to copy or embed a `canonical-module` inside eve
 
 ---
 
+## Pro Tip: Automate This Step
+
+Instead of manually adding references and files, you can use the **Start-Solution.cmd** one-click launcher. This ensures all required projects and governance files are correctly linked to your solution and opens Visual Studio for you:
+
+[**007 - Automated Onboarding and Governance Sync**](007-onboarding-script.md#the-simple-way-start-solutioncmd)
+
+---
+
 ## Step 3 - Add Required Governance Structure (Mandatory)
 
 Inside the **module repository**, create:
 
 ```
 .github/
-├── copilot-instructions.md		<- Referenced
+├── copilot-instructions.md	
 └── module-instructions.md		
 
 docs/
