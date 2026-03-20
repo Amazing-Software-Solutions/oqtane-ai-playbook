@@ -4,138 +4,84 @@
 
 This rule governs the use of Site Tasks introduced in Oqtane 10.1.
 
-Site Tasks are the correct mechanism for ad hoc, user initiated, asynchronous workloads that must not block the UI thread.
+Site Tasks are the correct mechanism for ad hoc, user-initiated, or framework-triggered (e.g., install) asynchronous workloads that must not block the UI thread or application startup.
 
-This rule prevents misuse of Scheduled Jobs for non recurring work and enforces alignment with framework capabilities.
-
----
-
-# 1. Version Gate (Runtime Aware Governance)
-
-Site Tasks are available only in Oqtane 10.1 or greater.
-
-Before generating any implementation:
-
-AI must verify the framework version by either:
-
-- Inspecting `Oqtane.Shared.Shared.Constants.Version`
-or
-- Inspecting the database version metadata
-
-If Version &lt; 10.1.0:
-
-- Do not generate ISiteTask implementations
-- Fall back to Scheduled Job guidance
-- Explicitly inform the user that Site Tasks require Oqtane 10.1+
-
-If Version &gt;= 10.1.0:
-
-- Site Tasks are permitted
-- Scheduled Job polling patterns must be rejected when Site Tasks are more appropriate
-
-This is mandatory.
+This rule prevents misuse of Scheduled Jobs for non-recurring work and enforces alignment with framework capabilities.
 
 ---
 
-# 2. When to Use Site Tasks
+# 1. Version Gate (Runtime-Aware Governance)
 
-Use Site Tasks when:
+Site Tasks are available only in **Oqtane 10.1 or greater**.
 
-- Work is triggered by a user action
-- The task must execute asynchronously
-- The UI must not block
-- The task is not recurring
-- No polling is required
+Before generating any implementation, AI must verify the framework version.
 
-Examples:
+If Version < 10.1.0:
+- Do not generate `ISiteTask` implementations.
+- Fall back to Scheduled Job guidance (with idempotency warnings).
+- Explicitly inform the user that Site Tasks require Oqtane 10.1+.
 
-- Export generation initiated by a user
-- Large file processing
-- Data synchronization triggered from UI
-- Report building
+If Version >= 10.1.0:
+- Site Tasks are **required** for all non-recurring async workloads.
+- Scheduled Job polling patterns must be **rejected**.
 
 ---
 
-# 3. When NOT to Use Site Tasks
+# 2. Use Cases: When to Use Site Tasks
 
-Do not use Site Tasks when:
+### Category A: User-Triggered Actions
+- Export generation (e.g., "Export to CSV").
+- Large file/data processing (e.g., "Import Users").
+- Global data modifications (e.g., "Global Search and Replace").
 
-- The task is recurring
-- It is time based
-- It must execute independently of user interaction
-- It represents maintenance or housekeeping
-
-In these cases, use Scheduled Jobs.
+### Category B: Module Seeding (First-Run Setup)
+- Enqueuing "heavy" data seeding during `IInstallable.Install`.
+- Registering default permissions or configuration that involves complex logic.
 
 ---
 
-# 4. Architectural Decision Enforcement
+# 3. Architectural Decision Enforcement
 
-If a user asks for:
+If a user asks for background processing, AI must apply these decision points:
 
-“Create a background job”
-“Create async processing”
-“Create long running task”
+1. **Is it recurring?**
+   - YES → Suggest **Scheduled Job** (#013).
+   - NO → Suggest **Site Task** (#023).
 
-AI must:
-
-1. Determine whether the workload is recurring or user triggered
-2. Check Oqtane version
-3. Suggest Site Task if more appropriate
-
-If Site Task is better:
+2. **Is it "heavy" seeding?**
+   - YES → Must be a Site Task enqueued from `IInstallable`. Never block migration.
 
 AI must explicitly state:
-
-“This is an ad hoc workload. In Oqtane 10.1+ the correct architectural pattern is ISiteTask rather than a Scheduled Job.”
-
-Silent substitution is not allowed.
-Justification is required.
+"In Oqtane 10.1+, the correct architectural pattern for this one-off workload is `ISiteTask`. This ensures persistence and observability without blocking execution threads."
 
 ---
 
-# 5. Anti Patterns (Reject)
+# 4. Implementation Constraints
 
-Reject implementations that:
+### Requirement 1: ISiteTask Interface
+Implementations must reside in the **Server** project and implement `ISiteTask`.
 
-- Create Scheduled Jobs to poll for user initiated work
-- Implement custom background queues
-- Use while loops or timers to simulate task processing
-- Bypass the Site Task API in Oqtane 10.1+
+### Requirement 2: Service Resolution
+All services must be resolved from the `IServiceProvider` passed to the `ExecuteTaskAsync` method.
 
-Framework infrastructure must not be reimplemented.
-
----
-
-# 6. Execution Model
-
-Site Tasks:
-
-- Are registered via the SiteTask API
-- Execute asynchronously in the background
-- Are processed centrally by Oqtane
-- Must not block UI rendering
-
-Modules must not:
-
-- Spawn unmanaged threads
-- Use Task.Run without integration
-- Create unmanaged background services
-
-All execution must align with framework lifecycle.
+### Requirement 3: Explicit Registration
+Tasks must be explicitly enqueued by creating a record in the `SiteTask` repository.
 
 ---
 
-# 7. Governance Summary
+# 5. Anti-Patterns (Immediate Rejection)
 
-Recurring workload → Scheduled Job
-User triggered async workload → Site Task
-
-Framework capability determines architecture.
-
-This rule enforces runtime aware governance.
-
-AI must align module architecture with the actual framework version, not assumptions.
+- **polling**: Creating a Scheduled Job to poll a "my_task_queue" table.
+- **Blocking**: Performing heavy I/O or loop-based seeding inside `IInstallable.Install`.
+- **Unmanaged**: Using `Task.Run()` or `new Thread()` to "fire and forget" logic.
+- **Version Ignorance**: Implementing Site Tasks on Oqtane versions < 10.1.
 
 ---
 
+# 6. Governance Summary
+
+- **Recurring** → Scheduled Job.
+- **Ad-hoc/Seeding** → Site Task.
+- **Synchronous** → Migration (Schema only).
+
+AI must align module architecture with the framework version lifecycle.
