@@ -221,6 +221,20 @@ Navigation **must** use Oqtane-approved patterns:
 
 ---
 
+## Rule 6: Component Parameter Verification
+When utilizing any UI component (Oqtane, Blazor, or third-party), the AI **MUST NOT guess or assume** available component parameters (`[Parameter]`).
+Guessing parameters often leads to a successful build but causes runtime errors or incorrect behavior. 
+**Required Behavior:**
+Before implementing a component, the AI **MUST**:
+1. Search for and read the target component's source code or definitive documentation.
+2. Verify the exact names, types, and constraints of the required `[Parameter]` properties.
+3. Explicitly state that the parameters have been verified from the source code.
+**Reject if:**
+- The AI passes parameters to a component without demonstrating that it has explored the component's definition.
+- The AI assumes generic Blazor parameters that are not explicitly defined on the specific component.
+
+---
+
 ## Canonical Alignment
 
 These rules align with UI patterns found in:
@@ -243,6 +257,7 @@ A UI implementation is valid only if:
 - All buttons declare `type`
 - `type="submit"` is only used when explicitly required
 - Navigation uses `ActionLink` or equivalent Oqtane routing
+- Component parameters were verified against source before use
 
 If any check fails, **reject the change**.
 

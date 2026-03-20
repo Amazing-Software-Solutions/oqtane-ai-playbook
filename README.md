@@ -252,7 +252,7 @@ If a request is refused or corrected due to architectural constraints:
 
 **One-line AI assistant prompt example**:
 
-> *â€œBefore responding, read the AI Decision Timeline and treat it as binding governance memory.â€*
+> *Before responding, read the AI Decision Timeline and treat it as binding governance memory.*
 
 ---
 
