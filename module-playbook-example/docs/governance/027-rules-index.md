@@ -1,4 +1,4 @@
-﻿# 027 - Governance Rule Index (Authoritative)
+# 027 - Governance Rule Index (Authoritative)
 
 ## Purpose
 
@@ -171,6 +171,9 @@ All primary keys must be remapped during import.
 
 - **027x-localization.md**
 Governs canonical localization behavior once intentionally enabled.
+- **027x-concurrency-control.md**
+Governs the implementation of the ModifiedOn concurrency pattern to prevent lost updates. 
+Only applied when explicitly requested.
 
 ---
 
