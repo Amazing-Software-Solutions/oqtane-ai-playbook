@@ -7,6 +7,8 @@ Most bugs, security issues, and AI-generated anti-patterns in Oqtane modules com
 
 This chapter defines **what belongs where** - and what never should.
 
+> See 027.1 - Data Integrity Boundaries for AI-specific enforcement of these boundaries
+
 ---
 
 ## The Core Rule
