@@ -4,8 +4,7 @@
 
 This file is the entry point for GitHub Copilot in this repository.
 
-It does not define governance rules.
-Authoritative rules are defined in the Module Playbook documentation under /docs.
+It does not define governance rules. Authoritative rules are defined in the Module Playbook documentation under /docs.
 
 Before generating or modifying code, you MUST read and apply:
 - docs/governance/027-rules-index.md
@@ -13,8 +12,7 @@ Before generating or modifying code, you MUST read and apply:
 - .github/module-instructions.md
 
 ## Copilot Memories
-When copilot detects a Memory "Memory Detected" it should add it 
-to the module-instructions.md file in the /.github folder.
+When copilot detects a Memory "Memory Detected" it should add it to the module-instructions.md file in the /.github folder.
 
 ## Governance Declaration (Mandatory)
 

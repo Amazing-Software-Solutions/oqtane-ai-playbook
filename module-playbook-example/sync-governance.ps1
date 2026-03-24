@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
   Synchronises Oqtane AI governance files into a solution without removing anything.
 
@@ -155,7 +155,7 @@ function Get-RelativePath {
 # Helpers
 # ------------------------------------------------------------
 
-function Get-OrCreateFolderNode {
+function Initialize-SolutionFolder {
     param (
         [string] $Name
     )
@@ -202,7 +202,7 @@ function Remove-FileReference {
     }
 }
 
-function Ensure-FileReference {
+function Add-FileReference {
     param (
         [System.Xml.XmlElement] $FolderNode,
         [string] $Path
@@ -224,7 +224,7 @@ function Ensure-FileReference {
     $script:Changes += "Reference file: $Path"
 }
 
-function Ensure-PhysicalFile {
+function Initialize-PhysicalFile {
     param (
         [string] $RelativePath
     )
@@ -288,7 +288,7 @@ foreach ($file in $MaterialisedFiles) {
 $MaterialisedFilesCreated = @()
 
 foreach ($file in $MaterialisedFiles) {
-    $created = Ensure-PhysicalFile -RelativePath $file
+    $created = Initialize-PhysicalFile -RelativePath $file
     if ($created) {
         $MaterialisedFilesCreated += $file
     }
@@ -307,12 +307,12 @@ if (Test-Path $GovernanceSourcePath) {
         Write-Verbose "Found $($GovernanceFiles.Count) governance files in playbook"
         
         # Create the governance folder in solution
-        $folderNode = Get-OrCreateFolderNode -Name "/docs/governance/"
+        $folderNode = Initialize-SolutionFolder -Name "/docs/governance/"
         
         foreach ($govFile in $GovernanceFiles) {
             # Use the relative path from solution root
             $relativePath = Get-RelativePath -Path $govFile.FullName -RelativeTo $SolutionRoot
-            Ensure-FileReference -FolderNode $folderNode -Path $relativePath
+            Add-FileReference -FolderNode $folderNode -Path $relativePath
         }
     }
 }
@@ -329,12 +329,12 @@ if (Test-Path $PromptsSourcePath) {
         Write-Verbose "Found $($PromptFiles.Count) prompt files in playbook"
         
         # Create the prompts folder in solution
-        $promptsFolderNode = Get-OrCreateFolderNode -Name "/docs/prompts/"
+        $promptsFolderNode = Initialize-SolutionFolder -Name "/docs/prompts/"
         
         foreach ($promptFile in $PromptFiles) {
             # Use the relative path from solution root
             $relativePath = Get-RelativePath -Path $promptFile.FullName -RelativeTo $SolutionRoot
-            Ensure-FileReference -FolderNode $promptsFolderNode -Path $relativePath
+            Add-FileReference -FolderNode $promptsFolderNode -Path $relativePath
         }
     }
 }
@@ -380,11 +380,11 @@ foreach ($dotFolder in $DotFolders) {
         }
         
         # Get or create the containing folder in solution
-        $fileFolderNode = Get-OrCreateFolderNode -Name $solutionFolderPath
+        $fileFolderNode = Initialize-SolutionFolder -Name $solutionFolderPath
         
         # Use the relative path from solution root
         $relativePath = Get-RelativePath -Path $file.FullName -RelativeTo $SolutionRoot
-        Ensure-FileReference -FolderNode $fileFolderNode -Path $relativePath
+        Add-FileReference -FolderNode $fileFolderNode -Path $relativePath
     }
 }
 
@@ -393,36 +393,36 @@ foreach ($dotFolder in $DotFolders) {
 # ------------------------------------------------------------
 
 # Create /docs/ folder for materialized files
-$docsFolderNode = Get-OrCreateFolderNode -Name "/docs/"
+$docsFolderNode = Initialize-SolutionFolder -Name "/docs/"
 
 foreach ($file in $MaterialisedFilesCreated) {
     if ($file -like "docs/*") {
         # Reference the local copy (relative path in the solution)
-        Ensure-FileReference -FolderNode $docsFolderNode -Path $file
+        Add-FileReference -FolderNode $docsFolderNode -Path $file
     }
 }
 
 # Add materialized files to their respective folders
 
 # .github folder files
-$githubFolderNode = Get-OrCreateFolderNode -Name "/.github/"
+$githubFolderNode = Initialize-SolutionFolder -Name "/.github/"
 
 $moduleInstructionsPath = Join-Path $SolutionRoot ".github\module-instructions.md"
 if (Test-Path $moduleInstructionsPath) {
-    Ensure-FileReference -FolderNode $githubFolderNode -Path ".github/module-instructions.md"
+    Add-FileReference -FolderNode $githubFolderNode -Path ".github/module-instructions.md"
 }
 
 $copilotInstructionsPath = Join-Path $SolutionRoot ".github\copilot-instructions.md"
 if (Test-Path $copilotInstructionsPath) {
-    Ensure-FileReference -FolderNode $githubFolderNode -Path ".github/copilot-instructions.md"
+    Add-FileReference -FolderNode $githubFolderNode -Path ".github/copilot-instructions.md"
 }
 
 # .amazonq\rules folder files
-$amazonqRulesFolderNode = Get-OrCreateFolderNode -Name "/.amazonq/rules/"
+$amazonqRulesFolderNode = Initialize-SolutionFolder -Name "/.amazonq/rules/"
 
 $amazonqInstructionsPath = Join-Path $SolutionRoot ".amazonq\rules\instructions.md"
 if (Test-Path $amazonqInstructionsPath) {
-    Ensure-FileReference -FolderNode $amazonqRulesFolderNode -Path ".amazonq/rules/instructions.md"
+    Add-FileReference -FolderNode $amazonqRulesFolderNode -Path ".amazonq/rules/instructions.md"
 }
 
 # ------------------------------------------------------------
