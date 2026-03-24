@@ -131,40 +131,48 @@ Classification: Mandatory
 ## Architecture & Infrastructure
 
 - **027x-execution-parity.md**
-Ensures identical functional behavior across Blazor Server and WebAssembly hosting modes.
-Business logic must reside exclusively in ServerService.
+Ensures identical functional behavior across Blazor Server and WebAssembly hosting modes.  
+Business logic must reside exclusively in ServerService.  
 - **027x-migrations.md**
-Database Migration Governance.
-Defines module migration versioning strategy using Option B baseline model, ReleaseVersion semantics, RevisionNumber tracking, strict 8 digit naming, EntityBuilder immutability, table naming conventions, ModelBase audit requirements, and AI enforcement behavior.
-Mandatory for all schema changes.
+Database Migration Governance.  
+Defines module migration versioning strategy using Option B baseline model, ReleaseVersion semantics, RevisionNumber tracking, strict 8 digit naming, EntityBuilder immutability, table naming conventions, ModelBase audit requirements, and AI enforcement behavior.  
+Mandatory for all schema changes.  
 - **027x-packaging-and-dependencies.md**
-Governs runtime behavior, deployment correctness, NuGet packaging rules, static web asset handling, and staticwebassets path alignment.
+Governs runtime behavior, deployment correctness, NuGet packaging rules, static web asset handling, and staticwebassets path alignment.  
 - **027x-scheduled-jobs.md**
-Rules for Oqtane Scheduled Jobs using HostedServiceBase.
+Rules for Oqtane Scheduled Jobs using HostedServiceBase.  
 - **027x-sitetasks.md**
-Runtime Aware Governance for Oqtane Site Tasks in version 10.1 and later.
-AI must verify Oqtane version is 10.1 or greater before implementation.
-When a user requests a Scheduled Job but the workload is user initiated and asynchronous, AI must evaluate and suggest Site Tasks instead.
-Site Tasks must not be implemented in Oqtane versions earlier than 10.1.
+Runtime Aware Governance for Oqtane Site Tasks in version 10.1 and later.  
+AI must verify Oqtane version is 10.1 or greater before implementation.  
+When a user requests a Scheduled Job but the workload is user initiated and asynchronous, AI must evaluate and suggest Site Tasks instead.  
+Site Tasks must not be implemented in Oqtane versions earlier than 10.1.  
 - **027x-javascript-usage.md**
-JavaScript must not be introduced unless a Blazor based C# solution is demonstrably insufficient.
-Opt in, not default.
+JavaScript must not be introduced unless a Blazor based C# solution is demonstrably insufficient.  
+Opt in, not default.  
 
 ---
 
-## Data & Domain Layer
+## Data & Domain Layer (Authoritative State & Integrity)
 
 - **027x-repositories.md**
-Repository responsibilities, boundaries, and prohibited logic.
+Repository responsibilities, boundaries, and prohibited logic.  
 - **027x-structure-and-boundaries.md**
-Enforces service mediated access and prohibits controllers from accessing repositories directly.
+Enforces service mediated access and prohibits controllers from accessing repositories directly.  
 - **027x-module-portability.md**
-Mandatory when IPortable is implemented.
-Requires full state export and import.
+Mandatory when IPortable is implemented.  
+Requires full state export and import.  
 - **027x-data-identity-remapping.md**
-Mandatory when hierarchical data exists.
+Mandatory when hierarchical data exists.  
 All primary keys must be remapped during import.
-
+- **027x-data-integrity-boundaries.md**
+Defines non-negotiable rules for preserving data integrity across all layers.  
+Prevents trust leakage from client to server, enforces canonical representations, and prohibits mutation outside authoritative boundaries.  
+Applies to all data entering or leaving the system.  
+- **027x-datetime-handling.md**
+Mandatory DateTime governance.  
+All DateTime values must be stored and processed in UTC.  
+Localization is a client concern only.  
+Prevents ambiguity, timezone drift, and inconsistent persistence.  
 ---
 
 ## Optional (Opt In)
