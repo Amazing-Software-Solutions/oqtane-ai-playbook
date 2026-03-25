@@ -21,6 +21,52 @@ This includes:
 - Inline edits
 - API-bound UI components
 
+```html
+<form @ref="form"
+      class="@(validated ? "was-validated" : "needs-validation")"
+      novalidate>
+
+    <!-- form fields -->
+
+    <button type="button"
+            class="btn btn-primary"
+            @onclick="Save">
+        Save
+    </button>
+</form>
+```
+Save Structure (Mandatory Execution Pattern)  
+All save operations MUST follow this structure:
+
+1. Set validation state
+2. Execute Oqtane validation
+3. Exit immediately if invalid
+4. Execute persistence logic only if valid
+
+```csharp
+@code {
+    private ElementReference form;
+    private bool validated;
+    private SampleModel model = new();
+
+    private async Task Save()
+    {
+        validated = true;
+
+        var interop = new Oqtane.UI.Interop(JS);
+
+        if (!await interop.FormValid(form))
+        {
+            return;
+        }
+
+        await SaveModelAsync(model);
+    }
+}
+```
+
+
+
 **Reject if input is accepted without validation.**
 
 ---
