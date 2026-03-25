@@ -6,7 +6,6 @@ This document is the **authoritative index of enforceable AI governance rules*- 
 
 It defines **what rules exist**, not how they are implemented.
 
-> 
 > If a rule is not indexed here, it does not exist and MUST NOT be enforced.
 
 This prevents:
@@ -19,19 +18,36 @@ This prevents:
 
 ## Governance Evaluation Order (Authoritative Precedence)
 
-GitHub indexes files alphabetically.
+GitHub indexes files alphabetically.  
 Governance enforcement does NOT follow alphabetical order.
 
 The following hierarchy defines **mandatory evaluation order**:
 
-1. **027x-runtime-awareness.md**
-2. **027x-migrations.md**
-3. **027x-packaging-and-dependencies.md**
-4. **027x-scheduled-jobs.md**
-5. **027x-sitetasks.md**
-6. Remaining governance rules (as applicable)
+1. **027x-capability-discovery.md**
+2. **027x-runtime-awareness.md**
+3. **027x-migrations.md**
+4. **027x-packaging-and-dependencies.md**
+5. **027x-scheduled-jobs.md**
+6. **027x-sitetasks.md**
+7. Remaining governance rules (as applicable)
 
 ### Why This Order Exists
+
+Capability Discovery determines:
+
+- What functionality already exists
+- What must be reused instead of recreated
+- Whether new code is required at all
+
+Without capability discovery:
+
+- AI will duplicate framework behavior
+- Services and state will be recreated incorrectly
+- Models may diverge from existing implementations
+
+This makes all subsequent rules unreliable.
+
+---
 
 Runtime Awareness determines:
 
@@ -41,13 +57,17 @@ Runtime Awareness determines:
 - Feature availability
 - Packaging state
 
-Without runtime validation, all lower rules risk misapplication.
+Without runtime validation, lower rules risk misapplication.
+
+---
 
 Therefore:
 
-Runtime Awareness MUST be evaluated before any other rule.
+Capability Discovery MUST be evaluated first.
 
-If runtime validation changes applicability, dependent rules must adapt accordingly.
+Runtime Awareness MUST be evaluated second.
+
+If discovery or runtime validation changes applicability, dependent rules must adapt accordingly.
 
 ---
 
@@ -104,6 +124,8 @@ AI must NOT:
 
 - **027x-canonical-validation.md**
 Enforces validation against Oqtane framework patterns and prohibits invention.
+- **027x-capability-discovery.md**
+Mandatory rule requiring AI to discover and reuse existing Oqtane capabilities before creating new functionality. Prevents duplication of base class features, state handling, services, and framework behavior.
 - **027x-ai-instruction-discovery.md**
 Governs how the AI should discover instructions.
 - **027x-ai-decision-timeline.md**
