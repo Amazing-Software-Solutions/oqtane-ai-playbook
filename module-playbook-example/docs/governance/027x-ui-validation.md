@@ -27,12 +27,6 @@ This includes:
       novalidate>
 
     <!-- form fields -->
-     <div>
-        <label for="name">Name</label>
-        <input type="text" @bind="model.Name" required />
-        <div class="invalid-feedback">Name is required</div>
-     </div>
-
 
     <button type="button"
             class="btn btn-primary"
