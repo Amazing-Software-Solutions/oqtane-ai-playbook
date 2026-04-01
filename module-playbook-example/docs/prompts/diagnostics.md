@@ -14,7 +14,7 @@ Before responding, you MUST:
 
 1. Read `.github/copilot-instructions.md`
 2. Read `docs/governance/027-rules-index.md`
-3. Load all applicable `027x-diagnostics-*` rules
+3. Load all applicable `027x-error-handling` rules
 4. Check `docs/ai-decision-timeline.md` for similar incidents
 
 If prior timeline entries exist, they are binding.

@@ -161,6 +161,8 @@ Defines module migration versioning strategy using Option B baseline model, Rele
 Mandatory for all schema changes.  
 - **027x-packaging-and-dependencies.md**
 Governs runtime behavior, deployment correctness, NuGet packaging rules, static web asset handling, and staticwebassets path alignment.  
+- **027x-multi-module-solution-pattern.md**
+Defines a standardized pattern for structuring **multiple Oqtane modules within a single solution**, enabling scalability, separation of concerns, and maintainable growth.
 - **027x-scheduled-jobs.md**
 Rules for Oqtane Scheduled Jobs using HostedServiceBase.  
 - **027x-sitetasks.md**
