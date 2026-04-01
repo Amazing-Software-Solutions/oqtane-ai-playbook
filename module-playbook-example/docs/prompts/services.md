@@ -14,7 +14,7 @@ Before responding, you MUST:
 
 1. Read `.github/copilot-instructions.md`
 2. Read `docs/governance/027-rules-index.md`
-3. Load all applicable `027x-services-*`, `027x-repositories-*`, and `027x-startup-*` rules
+3. Load all applicable `027x-structure-and-boundaries`, `027x-repositories-*`, and `027x-startup-*` rules
 4. Check `docs/ai-decision-timeline.md` for prior decisions
 
 If governance or rules are not visible, STOP and refuse.

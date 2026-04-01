@@ -15,6 +15,24 @@ These prompts are **operational tools**, not documentation.
 
 ---
 
+## Available Prompts
+
+- `authorization.md`: For authorization logic (controllers, APIs, UI).
+- `concurrency.md`: For generating Repository Update/Delete methods properly.
+- `create-module-instructions.md`: Scaffold rules for AI to create new modules.
+- `data-integrity.md`: For importing/exporting data and external mapping.
+- `datetime.md`: For handling date and time data safely.
+- `diagnostics.md`: For diagnosing failures explicitly.
+- `localization-opt-in.md`: To force canonical localization behavior.
+- `migrations.md`: For safely generating structured explicit migrations.
+- `multi-module-solution.md`: For structuring multiple Oqtane modules within a single solution.
+- `scheduled-jobs.md`: For IHostedService/background jobs.
+- `services.md`: For service boundary decisions and DI registrations.
+- `ui-construction.md`: Core rules for any UI component creation.
+- `ui-framework-installation-template.md`: For installing encapsulated packages.
+
+---
+
 ## Why Prompts Are Module-Scoped
 
 AI tools only respect **visible, local context**.
