@@ -22,6 +22,7 @@ If any of the above are missing, **STOP and refuse**.
 
 You MUST:
 - Place each module in its own subfolder under `Client/Modules`.
+- Extend the main module's namespace for any new inner module (e.g., if the main module is `AcmeCorp.Module.Inventory`, a new `Reporting` module MUST use `AcmeCorp.Module.Inventory.Reporting`).
 - Ensure each module contains a `<ModuleName>ModuleInfo.cs` class with unique identifiers (`Name`, `Description`, etc.).
 - Provide a clear UI entry point (e.g., `Index.razor`) for every module.
 - Ensure module folder names and `ModuleInfo` identities are strictly unique and do not conflict.
@@ -32,6 +33,7 @@ You MUST NOT:
 - Share a single `ModuleInfo` class across multiple functional areas.
 - Create a module directory without independent registration or UI entry point.
 - Reuse the overarching solution name for a specific inner module.
+- Discard the main module's namespace root when defining an inner module's namespace.
 
 ---
 

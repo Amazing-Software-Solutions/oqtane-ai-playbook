@@ -27,12 +27,12 @@ Each module MUST:
 ```plaintext
 Client/
  └── Modules/
-     ├── Blog/
-     │   ├── BlogModuleInfo.cs
+     ├── AcmeCorp.Module.Inventory/
+     │   ├── InventoryModuleInfo.cs
      │   ├── Index.razor
      │   └── ...
-     └── Archive/
-         ├── ArchiveModuleInfo.cs
+     └── AcmeCorp.Module.Inventory.Reporting/
+         ├── ReportingModuleInfo.cs
          ├── Index.razor
          └── ...
 ```
@@ -43,6 +43,7 @@ Client/
 -   `ModuleInfo` class names MUST reflect the module identity
 -   Module names MUST NOT conflict with other modules in the solution
 -   Avoid reusing the solution name across multiple modules
+-   **Inner modules MUST extend the main module's namespace.** For example, if the main solution module is `AcmeCorp.Module.Inventory`, a new inner module named `Reporting` MUST use the namespace `AcmeCorp.Module.Inventory.Reporting`, NOT `AcmeCorp.Module.Reporting`.
 
 ---
 
