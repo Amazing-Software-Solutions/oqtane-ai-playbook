@@ -26,5 +26,6 @@ Before generating, modifying, or refactoring code, the AI must:
 - Apply all referenced governance rules
 - Refuse any request that would violate a governed rule
 - Ask for clarification if governance context is unclear
+- Follow governance strictly and provide specific module rules when applicable
 
 If governance cannot be applied, the AI must stop and explain why.
