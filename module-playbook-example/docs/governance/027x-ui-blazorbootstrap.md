@@ -31,7 +31,7 @@ The module owns its UI framework dependency.
 
 Add the primary NuGet package in Module.Client:
 
-Follow the 027x-packaging-and-dependencies.md to ensure that the package is properly installed and configured.
+Important: Follow the 027x-packaging-and-dependencies.md to ensure that the package is properly installed and configured.
 
 ```xml
 <PackageReference Include="Blazor.Bootstrap" Version="3.3.1" />

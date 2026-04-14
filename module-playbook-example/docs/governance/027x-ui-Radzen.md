@@ -32,7 +32,7 @@ The module owns its UI framework dependency.
 
 Add explicit package reference in Module.Client:
 
-Follow the 027x-packaging-and-dependencies.md to ensure that the package is properly installed and configured.
+Important: Follow the 027x-packaging-and-dependencies.md to ensure that the package is properly installed and configured.
 
 ```xml
 <PackageReference Include="Radzen.Blazor" Version="X.Y.Z" />

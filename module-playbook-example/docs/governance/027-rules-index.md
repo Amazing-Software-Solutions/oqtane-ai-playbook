@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document is the **authoritative index of enforceable AI governance rules*- for this repository.
+This document is the **authoritative index of enforceable AI governance rules** for this repository.
 
 It defines **what rules exist**, not how they are implemented.
 
@@ -218,7 +218,7 @@ Error handling, logging, and user feedback rules.
 - **027x-ui-construction.md**
 Razor component and HTML structure standards.
 - **027x-ui-css-and-styling.md**
-CSS isolation is not supported.
+**CSS isolation** is not supported.   
 All module styling must use Module.css in the Server project.
 - **027x-ui-blazorbootstrap.md**
 Blazor Bootstrap allowed only when explicitly requested.
@@ -268,4 +268,4 @@ AI must:
 - Creativity happens outside enforcement
 - Enforcement happens only through indexed rules
 
-This index exists to make AI predictable, auditable, and trustworthy.
+**This index exists to make AI predictable, auditable, and trustworthy.**

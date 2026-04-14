@@ -32,7 +32,7 @@ The module owns its UI framework dependency.
 
 Add the NuGet package to Module.Client:
 
-Follow the 027x-packaging-and-dependencies.md to ensure that the package is properly installed and configured.
+Important: Follow the 027x-packaging-and-dependencies.md to ensure that the package is properly installed and configured.
 
 MudBlazor
 
