@@ -10,15 +10,6 @@ or conversational memory.
 
 ---
 
-## Rule Statement
-
-When generating or modifying code in an Oqtane module solution, the AI MUST:
-
-1. Look for `.github/copilot-instructions.md` at the solution or module root
-2. Treat this file as authoritative behavioral guidance
-3. Apply its instructions before generating or modifying any code
-
-If the file exists, its contents MUST override generic AI defaults.
 
 ---
 
