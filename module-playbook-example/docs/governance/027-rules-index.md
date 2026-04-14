@@ -220,10 +220,6 @@ Razor component and HTML structure standards.
 - **027x-ui-css-and-styling.md**
 CSS isolation is not supported.
 All module styling must use Module.css in the Server project.
-- **027x-ui-blazorbootstrap.md**
-Blazor Bootstrap allowed only when explicitly requested.
-- **027x-ui-fluentui.md**
-Fluent UI allowed only when explicitly requested.
 - **027x-ui-mudblazor.md**
 MudBlazor allowed only when explicitly requested.
 - **027x-ui-radzen.md**
