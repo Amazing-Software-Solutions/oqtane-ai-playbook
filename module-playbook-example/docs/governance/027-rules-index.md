@@ -269,3 +269,29 @@ AI must:
 - Enforcement happens only through indexed rules
 
 **This index exists to make AI predictable, auditable, and trustworthy.**
+
+---
+
+# Actionable AI Prompts (Task Routing)
+
+When the user intent matches a description below, automatically load and follow the corresponding file:
+
+- **Add or modify authorization logic (controllers, APIs, UI)** -> `docs/prompts/authorization.md`
+- **Handle concurrency or generate Repository Update/Delete methods** -> `docs/prompts/concurrency.md`
+- **Create a new module or scaffold a new module structure** -> `docs/prompts/create-module-instructions.md`
+- **Import/export data or handle data integrity** -> `docs/prompts/data-integrity.md`
+- **Handle dates, times, or datetime operations** -> `docs/prompts/datetime.md`
+- **Diagnose failures or perform diagnostics** -> `docs/prompts/diagnostics.md`
+- **Implement localization or handle localization opt-in** -> `docs/prompts/localization-opt-in.md`
+- **Create or safely generate explicit migrations** -> `docs/prompts/migrations.md`
+- **Structure a multi-module solution** -> `docs/prompts/multi-module-solution.md`
+- **Create or modify scheduled jobs / IHostedService** -> `docs/prompts/scheduled-jobs.md`
+- **Define services, service boundaries, or DI registrations** -> `docs/prompts/services.md`
+- **Create or modify UI components** -> `docs/prompts/ui-construction.md`
+- **Install a UI Framework (e.g., MudBlazor, Radzen)** -> `docs/prompts/ui-framework-installation-template.md`
+- **Implement navigation or page routing** -> `docs/prompts/routing-and-navigation.md`
+- **Add or manage module settings** -> `docs/prompts/module-settings.md`
+- **Create or modify a Web API Controller** -> `docs/prompts/api-controller.md`
+- **Handle file uploads or manage media** -> `docs/prompts/file-uploads.md`
+- **Make the module searchable or implement ISearchable** -> `docs/prompts/search-indexing.md`
+- **Add custom JavaScript or CSS resources** -> `docs/prompts/javascript-interop.md`

@@ -1,8 +1,6 @@
-# Concurrency Control Prompt (Opt-In)
+# AI Instruction: Concurrency Control
 
-## Purpose
-
-Use this prompt when the user explicitly requests **concurrency control, multi-user update protection, or the `ModifiedOn` pattern** for generating `Update` and `Delete` operations on shared entities.
+**Instruction Context**: When the user requests to the user explicitly requests concurrency control, multi-user update protection, or the `ModifiedOn` pattern for generating `Update` and `Delete` operations on shared entities., you must load and execute this file.
 
 This prompt enforces Oqtane's explicit `ModifiedOn` concurrency pattern to prevent "Lost Updates" in multi-user environments.
 

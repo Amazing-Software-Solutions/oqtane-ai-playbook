@@ -1,8 +1,6 @@
-# DateTime Handling Prompt (Oqtane Module)
+# AI Instruction: DateTime Handling
 
-## Purpose
-
-Use this prompt when writing **properties, validation, logic, or UI formatting related to Dates and Times**.
+**Instruction Context**: When the user requests to writing properties, validation, logic, or UI formatting related to Dates and Times., you must load and execute this file.
 
 ---
 

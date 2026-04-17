@@ -1,4 +1,6 @@
-# Localization Opt-In Prompt (AI Assistant / AI Prompt)
+# AI Instruction: Localization Opt-In Prompt (AI Assistant / AI Prompt)
+
+**Instruction Context**: When the user requests to implement localization or handle localization opt-in, you must load and execute this file.
 
 This is designed to be explicit, activating, and non-ambiguous.
 

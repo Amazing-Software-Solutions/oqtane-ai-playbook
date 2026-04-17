@@ -1,8 +1,6 @@
-# Data Integrity & Remapping Prompt (Oqtane Module)
+# AI Instruction: Data Integrity & Remapping
 
-## Purpose
-
-Use this prompt when writing **persistence logic** or **import/export mechanisms (`IPortable`)**.
+**Instruction Context**: When the user requests to writing persistence logic or import/export mechanisms (`IPortable`)., you must load and execute this file.
 
 ---
 

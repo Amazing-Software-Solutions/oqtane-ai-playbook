@@ -1,8 +1,6 @@
-# Authorization Prompt (Oqtane Module)
+# AI Instruction: Authorization
 
-## Purpose
-
-Use this prompt when **creating or modifying authorization logic** in an Oqtane module
+**Instruction Context**: When the user requests to creating or modifying authorization logic in an Oqtane module, you must load and execute this file.
 
 (controllers, APIs, services, or UI authorization checks).
 
