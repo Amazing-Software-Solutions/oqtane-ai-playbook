@@ -1,8 +1,6 @@
-# Diagnostics & Debugging Prompt (Oqtane Module)
+# AI Instruction: Diagnostics & Debugging
 
-## Purpose
-
-Use this prompt when diagnosing **bugs, failures, or unexpected behavior**.
+**Instruction Context**: When the user requests to diagnosing bugs, failures, or unexpected behavior., you must load and execute this file.
 
 This prompt enforces correct diagnostic order and prevents speculation.
 

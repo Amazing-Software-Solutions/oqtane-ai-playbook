@@ -1,8 +1,6 @@
-# UI Construction Prompt (Oqtane Module)
+# AI Instruction: UI Construction
 
-## Purpose
-
-Use this prompt when creating or modifying **any UI component** in this module.
+**Instruction Context**: When the user requests to creating or modifying any UI component in this module., you must load and execute this file.
 
 This prompt enforces **Oqtane-first UI construction**, module governance, and prevents reinvention of framework UI patterns.
 

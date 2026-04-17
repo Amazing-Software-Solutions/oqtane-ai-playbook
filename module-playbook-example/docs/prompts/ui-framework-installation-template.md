@@ -1,6 +1,8 @@
-﻿# Canonical Prompt: Self Contained UI Framework Installation
+# AI Instruction: Self Contained UI Framework Installation
 
 You are operating under the Oqtane AI Playbook governance.
+
+**Instruction Context**: When the user requests to install a UI framework (e.g., MudBlazor, Radzen), you must substitute `<UI_FRAMEWORK_NAME>` with the requested framework and follow the exact execution steps below.
 
 Framework to install: `<UI_FRAMEWORK_NAME>`
 

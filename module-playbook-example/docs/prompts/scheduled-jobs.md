@@ -1,8 +1,6 @@
-# Background Processing Prompt (Site Tasks & Scheduled Jobs)
+# AI Instruction: Background Processing
 
-## Purpose
-
-Use this prompt when generating **asynchronous workloads**, including one-off tasks and recurring background jobs.
+**Instruction Context**: When the user requests to generating asynchronous workloads, including one-off tasks and recurring background jobs., you must load and execute this file.
 
 ---
 

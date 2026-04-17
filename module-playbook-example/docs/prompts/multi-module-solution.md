@@ -1,8 +1,6 @@
-# Multi-Module Solution Prompt (Oqtane Module)
+# AI Instruction: Multi-Module Solution
 
-## Purpose
-
-Use this prompt when structuring **multiple Oqtane modules within a single solution**, enabling scalability, separation of concerns, and maintainable growth.
+**Instruction Context**: When the user requests to structuring multiple Oqtane modules within a single solution, enabling scalability, separation of concerns, and maintainable growth., you must load and execute this file.
 
 ---
 

@@ -1,8 +1,6 @@
-# Service & DI Prompt (Oqtane Module)
+# AI Instruction: Service & DI
 
-## Purpose
-
-Use this prompt when creating or modifying **services, repositories, or DI registrations**.
+**Instruction Context**: When the user requests to creating or modifying services, repositories, or DI registrations., you must load and execute this file.
 
 This prompt enforces strict Oqtane client/server boundaries.
 

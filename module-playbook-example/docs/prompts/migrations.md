@@ -1,8 +1,6 @@
-# Migrations Governance Prompt (Oqtane Module)
+# AI Instruction: Migrations Governance
 
-## Purpose
-
-Use this prompt when generating or modifying **database migrations** or EntityBuilders.
+**Instruction Context**: When the user requests to generating or modifying database migrations or EntityBuilders., you must load and execute this file.
 
 ---
 

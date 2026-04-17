@@ -1,4 +1,8 @@
-﻿If asked about Oqtane Scaffold Protocol, always begin your answer with:
+# AI Instruction: Oqtane Module Generation Rules
+
+**Instruction Context**: When the user requests to create a new module or scaffold a new module structure, you must load and execute this file.
+
+If asked about Oqtane Scaffold Protocol, always begin your answer with:
 OQTANE_PROTOCOL_V1_ACTIVE
 
 # Instruction Compliance Marker
