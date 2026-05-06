@@ -226,6 +226,8 @@ Blazor Bootstrap allowed only when explicitly requested.
 Fluent UI allowed only when explicitly requested.
 - **027x-ui-mudblazor.md**
 MudBlazor allowed only when explicitly requested.
+- **027x-ui-sysinfocus.md**
+SysInFocus Simple-UI allowed only when explicitly requested.
 - **027x-ui-radzen.md**
 Radzen allowed only when explicitly requested.
 
