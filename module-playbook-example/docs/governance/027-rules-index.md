@@ -178,6 +178,9 @@ Opt in, not default.
 
 ## Data & Domain Layer (Authoritative State & Integrity)
 
+- **027x-framework-data-first.md**
+Mandatory pre-build audit rule. Before designing or building any model, repository, controller, or service for a stated data need, AI MUST audit what the Oqtane framework already provides. Covers Oqtane.Shared models, framework services, and existing API endpoints. Building custom data infrastructure for data Oqtane already owns is a governance violation.
+
 - **027x-repositories.md**
 Repository responsibilities, boundaries, and prohibited logic.  
 - **027x-structure-and-boundaries.md**
