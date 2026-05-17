@@ -52,25 +52,27 @@ AI MUST NOT introduce new state structures if equivalent data already exists.
 
 AI MUST evaluate existing Oqtane services including:
 
--   Authorization and permissions
--   Logging
--   Navigation
--   Localization
--   File and storage handling
+-   Authorization and permissions (`IUserPermissions`, etc.)
+-   Logging (`ILogManager`)
+-   Navigation (`INavigationManager`)
+-   Localization (`ILocalizationService`, `IStringLocalizer`)
+-   File and storage handling (`IFileService`, `IFolderService`)
 
 Existing services MUST be used instead of custom implementations.
+AI MUST NOT reinvent file management, logging, or authorization under any circumstances.
 
 ---
 
-### 4. Existing Module Patterns
+### 4. Existing Module Patterns and Built-in Modules
 
-AI MUST review:
+AI MUST review the Oqtane ecosystem for existing solutions:
 
 -   Boilerplate module template
--   Built-in modules (for example HtmlText, Admin)
+-   Built-in core modules (e.g., FileManager, User Profile, Admin, HtmlText)
 -   Established service and repository patterns
 
-Patterns already used in the framework MUST be followed.
+Patterns already used in the framework MUST be followed. 
+AI MUST NOT build features that mirror the functionality of built-in Oqtane modules (such as building a custom file manager when Oqtane's FileManager already exists). If a feature requires file management, it MUST integrate with Oqtane's `IFileService` and `IFolderService` rather than recreating a file management UI or storage system.
 
 ---
 
@@ -96,6 +98,7 @@ AI MUST NOT:
 -   Bypassing state objects by calling services directly from the client when state is available
 -   Replace Oqtane services with custom abstractions
 -   Create parallel logging, authorization, or navigation systems
+-   Mirror or recreate the functionality of built-in Oqtane modules (e.g., FileManager, User Profile)
 -   Duplicate DTOs or models that already exist
 -   Introduce new patterns that bypass established framework behavior
 
@@ -103,14 +106,15 @@ AI MUST NOT:
 
 ## Required Justification for New Functionality
 
-If AI determines that new functionality is required, it MUST:
+AI MUST NOT reinvent anything Oqtane can already do. If AI determines that new functionality is required because a true capability gap exists in the framework, it MUST:
 
--   Confirm that no existing capability satisfies the requirement
--   Identify what was evaluated
--   Explain why reuse is not possible
--   Align the new implementation with Oqtane patterns
+-   Confirm that no existing Oqtane capability satisfies the requirement
+-   Identify what was evaluated within the framework
+-   Explain why reuse is not possible and detail the exact gap
+-   **Report this gap explicitly to the user**, as it could be a candidate for a future Framework Pull Request (PR)
+-   Align any new implementation with Oqtane patterns
 
-Absence of explicit justification is considered a violation.
+Absence of explicit justification and reporting of the gap is considered a violation.
 
 ---
 
@@ -122,6 +126,7 @@ The following patterns indicate a violation:
 -   Replacing `ModuleState`,`PageState`,`SiteState` with alternative state handling
 -   Writing services that duplicate `ServerServiceBase`
 -   Implementing custom authorization logic
+-   Mirroring built-in module features (e.g., building a custom file manager instead of using `IFileService`/`IFolderService`)
 -   Introducing duplicate DTOs in Shared
 -   Ignoring existing service registrations
 
